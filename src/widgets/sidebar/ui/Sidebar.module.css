@@ -1,0 +1,99 @@
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background-color: #f8fdf8;
+  padding: 15px;
+  border-right: 2px solid #e6f7e6;
+  border-left: 2px solid #e6f7e6;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  box-shadow: 2px 0 10px rgba(0, 100, 0, 0.05);
+  overflow-y: auto;
+}
+
+.hiddenSidebar {
+  width: 70px;
+}
+
+.header {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0f5e0;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a5f1a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.collapseButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #5a8d5a;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.collapseButton:hover {
+  background-color: #e6f7e6;
+  color: #1a5f1a;
+}
+
+.subtitle {
+  margin: 3px 0 0 0;
+  font-size: 13px;
+  color: #5a8d5a;
+  opacity: 0.8;
+}
+
+.nav {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  margin-bottom: 12px;
+}
+
+.childrenList {
+  list-style: none;
+  margin: 8px 0 0 16px;
+  overflow: hidden;
+  border-left: 2px solid #d9f2d9;
+  padding-left: 10px;
+  animation: slideDown 0.3s ease-out;
+  transition: max-height 0.3s ease;
+}
+
+.childrenList .navItem {
+  margin-bottom: 8px;
+}

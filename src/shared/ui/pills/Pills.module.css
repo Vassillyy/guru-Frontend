@@ -1,0 +1,47 @@
+.containerPills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 4px;
+}
+
+.pills {
+  border-radius: 20px;
+  border: 1px solid #e8f5e9;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  background: #ffffff;
+  color: #2e7d32;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 4px rgba(76, 176, 108, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.pills:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(76, 176, 108, 0.15);
+  border-color: #a5d6a7;
+  color: #1b5e20;
+}
+
+.pills.active {
+  background: linear-gradient(135deg, #5bc47d, #4cb06c);
+  color: white;
+  border-color: #5bc47d;
+  box-shadow: 0 2px 6px rgba(91, 196, 125, 0.25);
+  transform: translateY(-1px);
+}
+
+.pills.active:hover {
+  background: linear-gradient(135deg, #4cb06c, #3da15f);
+  box-shadow: 0 3px 9px rgba(76, 176, 108, 0.35);
+  transform: translateY(-2px);
+}

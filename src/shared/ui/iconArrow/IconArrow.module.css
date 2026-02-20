@@ -1,0 +1,9 @@
+.icon {
+  color: #5a8d5a;
+  transition: transform 0.3s ease;
+  font-size: 12px;
+}
+
+.iconRotated {
+  transform: rotate(90deg);
+}

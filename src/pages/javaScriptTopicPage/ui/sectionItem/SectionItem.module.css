@@ -1,0 +1,30 @@
+.section {
+  margin: 0;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.content {
+  color: #444;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  padding-left: 20px;
+}
+
+.addition {
+  background: #e9ecef;
+  font-size: 15px;
+  border-left: 4px solid #ced4da;
+  padding: 10px;
+  color: #495057;
+  line-height: 1.6;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
