@@ -6,9 +6,9 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
       name: 'description',
       syntax: 'symbol.description',
       description:
-        'Свойство объекта Symbol, которое возвращает имя символа. Для символов, созданных без описания, свойство возвращает undefined. Свойство только для чтения (read-only).',
+        'Свойство объекта Symbol, возвращает имя символа. Для символов, созданных без описания, свойство возвращает undefined. Свойство только для чтения (read-only).',
       example:
-        "const userId = Symbol('userId');\nconsole.log(userId.description); // 'userId'\nconst unnamed = Symbol();\nconsole.log(unnamed.description); // undefined",
+        "const userId = Symbol('userId');\nconsole.log(userId.description); // 'userId'\n\nconst unnamed = Symbol();\nconsole.log(unnamed.description); // undefined",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-symbol.prototype.description',
     },
@@ -40,9 +40,9 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Symbol, используется для получения имени глобального символа из реестра. Метод возвращает имя символа (ключ из глобального реестра) или undefined, если символ не является глобальным.',
+        'Статический метод объекта Symbol, используется для получения имени глобального символа из реестра. Метод возвращает имя символа или undefined, если символ не является глобальным.',
       example:
-        "const globalSym = Symbol.for('appConfig');\nconsole.log(Symbol.keyFor(globalSym)); // 'appConfig'\nconst localSym = Symbol('local');\nconsole.log(Symbol.keyFor(localSym)); // undefined",
+        "const globalSym = Symbol.for('appConfig');\nconsole.log(Symbol.keyFor(globalSym)); // 'appConfig'\n\nconst localSym = Symbol('local');\nconsole.log(Symbol.keyFor(localSym)); // undefined",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-symbol.keyfor',
     },
@@ -100,7 +100,7 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
       description:
         'Специальный статический геттер, позволяет указать, какой конструктор будет использоваться для создания новых объектов внутри класса. Он используется, когда объект класса передаётся в некоторые встроенные методы, такие как map, filter и slice, которые возвращают новый объект того же типа. Если бы мы хотели, чтобы методы map, filter и т. д. возвращали обычные массивы, мы могли бы вернуть Array в Symbol.species. По умолчанию Symbol.species возвращает this, то есть конструктор текущего класса.',
       example:
-        'class MyArray extends Array {\n  static get [Symbol.species]() {\n    return Array;\n  }\n}\nconst myArr = new MyArray(1, 2, 3);\nconsole.log(myArr instanceof MyArray); // true\nconst filtered = myArr.filter(x => x > 1);\nconsole.log(filtered instanceof MyArray); // false\nconsole.log(filtered instanceof Array); // true',
+        'class MyArray extends Array {\n  static get [Symbol.species]() {\n    return Array;\n  }\n}\n\nconst myArr = new MyArray(1, 2, 3);\nconsole.log(myArr instanceof MyArray); // true\n\nconst filtered = myArr.filter(x => x > 1);\nconsole.log(filtered instanceof MyArray); // false\nconsole.log(filtered instanceof Array); // true',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-symbol.species',
     },
@@ -128,7 +128,7 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
       description:
         "Встроенный символ, который позволяет объектам определять собственное строковое представление их типа. Значение этого свойства используется методом Object.prototype.toString() для создания строки '[object Type]', где Type заменяется значением Symbol.toStringTag. Если свойство не определено, используется имя конструктора по умолчанию или 'Object'.",
       example:
-        "class Collection {\n  get [Symbol.toStringTag]() {\n    return 'Collection';\n  }\n}\nconst coll = new Collection();\nconst result1 = Object.prototype.toString.call(coll);\nconsole.log(result1); // '[object Collection]'\nconst customObj = {\n  [Symbol.toStringTag]: 'CustomObject'\n};\nconst result2 = Object.prototype.toString.call(customObj);\nconsole.log(result2); // '[object CustomObject]'",
+        "class Collection {\n  get [Symbol.toStringTag]() {\n    return 'Collection';\n  }\n}\nconst coll = new Collection();\nconst result1 = Object.prototype.toString.call(coll);\nconsole.log(result1); // '[object Collection]'\n\nconst customObj = {\n  [Symbol.toStringTag]: 'CustomObject'\n};\nconst result2 = Object.prototype.toString.call(customObj);\nconsole.log(result2); // '[object CustomObject]'",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-symbol.tostringtag',
     },

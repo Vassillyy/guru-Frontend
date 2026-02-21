@@ -1,7 +1,14 @@
-import { useState, useEffect, useRef, useMemo, type FC } from 'react';
+import {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  type FC,
+  type ChangeEvent,
+} from 'react';
 import { type IMethod, labelMethods, Methods } from '@/entities/method';
-import { Pills } from '@/shared/ui';
 import { MethodCard } from './methodCard/MethodCard.tsx';
+import { Filters } from './filters/Filters.tsx';
 import { config } from '../config';
 import styles from './JavaScriptMethodsPage.module.css';
 
@@ -11,6 +18,7 @@ export const JavaScriptMethodsPage: FC = () => {
   const [activeCategories, setActiveCategories] = useState<Methods[]>([]);
   const [loadedCount, setLoadedCount] = useState(ITEMS_PER_LOAD);
   const sentinelRef = useRef<HTMLDivElement>(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const pillItems = Object.keys(config).map((category) => ({
     label: labelMethods[category as Methods],
@@ -24,9 +32,14 @@ export const JavaScriptMethodsPage: FC = () => {
 
   const totalMethodsCount = useMemo(() => {
     return categoriesToShow.reduce((total, category) => {
-      return total + (config[category]?.length || 0);
+      const categoryMethods = config[category] || [];
+      const filteredMethods = categoryMethods.filter((method) =>
+        method.name.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
+
+      return total + filteredMethods.length;
     }, 0);
-  }, [categoriesToShow]);
+  }, [categoriesToShow, searchQuery]);
 
   const getMethodsToShow = useMemo(() => {
     let methodsLoaded = 0;
@@ -34,20 +47,23 @@ export const JavaScriptMethodsPage: FC = () => {
 
     for (const category of categoriesToShow) {
       const categoryMethods = config[category] || [];
+      const filteredMethods = categoryMethods.filter((method) =>
+        method.name.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
 
       if (methodsLoaded >= loadedCount) break;
 
       const remainingToLoad = loadedCount - methodsLoaded;
-      const methodsToTake = Math.min(categoryMethods.length, remainingToLoad);
+      const methodsToTake = Math.min(filteredMethods.length, remainingToLoad);
 
       if (methodsToTake > 0) {
-        result[category] = categoryMethods.slice(0, methodsToTake);
+        result[category] = filteredMethods.slice(0, methodsToTake);
         methodsLoaded += methodsToTake;
       }
     }
 
     return result;
-  }, [categoriesToShow, loadedCount]);
+  }, [categoriesToShow, loadedCount, searchQuery]);
 
   const hasMore = loadedCount < totalMethodsCount;
 
@@ -75,13 +91,29 @@ export const JavaScriptMethodsPage: FC = () => {
     setLoadedCount(ITEMS_PER_LOAD);
   };
 
+  const searchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+    setLoadedCount(ITEMS_PER_LOAD);
+  };
+
+  const searchReset = () => {
+    setSearchQuery('');
+    setLoadedCount(ITEMS_PER_LOAD);
+  };
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
         <h1 className={styles.title}>API JavaScript</h1>
       </header>
 
-      <Pills items={pillItems} onFilterChange={filterChange} />
+      <Filters
+        pillItems={pillItems}
+        searchQuery={searchQuery}
+        onFilterChange={filterChange}
+        onSearchChange={searchChange}
+        onSearchReset={searchReset}
+      />
 
       <div className={styles.mainContent}>
         {Object.entries(getMethodsToShow).map(([category, methods]) => (

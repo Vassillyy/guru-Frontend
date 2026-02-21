@@ -26,7 +26,7 @@ export const SectionItem: FC<{ section: ITopicSection }> = ({ section }) => {
       {section.addition && (
         <div className={styles.addition}>{additionFormatted}</div>
       )}
-      {section.examples && <CodeWS text={section.examples} />}
+      {section.examples && <CodeWS text={section.examples} isShowToggle isHiddenDefault />}
     </div>
   );
 };
