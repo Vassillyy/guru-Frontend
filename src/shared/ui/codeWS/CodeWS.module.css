@@ -49,8 +49,8 @@
   flex: 1;
   padding: 16px;
   background: #1e1e1e;
-  overflow-x: auto;
-  animation: fadeIn 0.5s ease-in-out;
+  overflow-x: hidden;
+  animation: typing 1.5s steps(60, end);
 }
 
 .code .keyword {
@@ -79,13 +79,13 @@
   color: #d4d4d4;
 }
 
-@keyframes fadeIn {
+@keyframes typing {
   from {
+    width: 0;
     opacity: 0;
-    transform: translateY(-10px);
   }
   to {
+    width: 100%;
     opacity: 1;
-    transform: translateY(0);
   }
 }
