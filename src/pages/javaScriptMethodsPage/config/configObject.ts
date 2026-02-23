@@ -6,9 +6,9 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
       name: 'toString()',
       syntax: 'obj.toString()',
       description:
-        "Метод объекта Object, возвращает примитивное значение объекта. По умолчанию обычный объект имеет метод toString, который возвращает строку '[object Object]'. Но метод можно переопределить. Если имеются другие методы преобразования, то данный метод имеет приоритет при строковом преобразовании.",
+        "Метод объекта Object, возвращает примитивное значение исходного объекта. По умолчанию обычный объект имеет метод toString, который возвращает строку '[object Object]'. Но метод можно переопределить. Если имеются другие методы преобразования, то данный метод имеет приоритет при строковом преобразовании.",
       example:
-        "const obj = { x: 10, y: 20 };\nconsole.log(obj.toString()); // '[object Object]'\nconst customObj = {\n  toString() {\n    return 'Custom Object';\n  }\n};\nconsole.log(customObj.toString()); // 'Custom Object'",
+        "const obj = { x: 10, y: 20 };\nconsole.log(obj.toString()); // '[object Object]'\n\nconst customObj = {\n  toString() {\n    return 'Custom Object';\n  }\n};\nconsole.log(customObj.toString()); // 'Custom Object'",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.prototype.tostring',
       errors: 'TypeError — если this является null или undefined.',
@@ -17,9 +17,9 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
       name: 'valueOf()',
       syntax: 'obj.valueOf()',
       description:
-        'Метод объекта Object, возвращает примитивное значение объекта. По умолчанию обычный объект имеет метод valueOf, который возвращает сам объект. Но метод можно переопределить. Если имеются другие методы преобразования, то данный метод имеет приоритет при математических операциях.',
+        'Метод объекта Object, возвращает примитивное значение исходного объекта. По умолчанию обычный объект имеет метод valueOf, который возвращает сам объект. Но метод можно переопределить. Если имеются другие методы преобразования, то данный метод имеет приоритет при математических операциях.',
       example:
-        'const obj = { x: 5 };\nconsole.log(obj.valueOf() === obj); // true\nconst numberObj = {\n  value: 100,\n  valueOf() {\n    return this.value;\n  }\n};\nconsole.log(numberObj + 50); // 150',
+        'const obj = { x: 5 };\nconsole.log(obj.valueOf() === obj); // true\n\nconst numberObj = {\n  value: 100,\n  valueOf() {\n    return this.value;\n  }\n};\nconsole.log(numberObj + 50); // 150',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.prototype.valueof',
       errors: 'TypeError — если this является null или undefined.',
@@ -30,17 +30,16 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
       parameters: [
         {
           name: 'prop',
-          description:
-            'Имя свойства в виде строки или Symbol, которое нужно проверить',
+          description: 'Имя свойства',
         },
       ],
       description:
-        'Метод объекта Object, возвращает true, если объект содержит указанное свойство как собственное (а не унаследованное через цепочку прототипов), иначе false.',
+        'Метод объекта Object, возвращает true, если исходный объект содержит (prop) как собственное (а не унаследованное через цепочку прототипов), иначе false.',
       example:
-        "const user = { id: 1, name: 'Alice' };\nconst hasName = user.hasOwnProperty('name');\nconsole.log(hasName); // true\nconst hasAge = user.hasOwnProperty('age');\nconsole.log(hasAge); // false",
+        "const user = { id: 1, name: 'Alice' };\n\nconst hasName = user.hasOwnProperty('name');\nconsole.log(hasName); // true\n\nconst hasAge = user.hasOwnProperty('age');\nconsole.log(hasAge); // false",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.prototype.hasownproperty',
-      errors: 'TypeError — если this является null или undefined, или если .',
+      errors: 'TypeError — если this является null или undefined.',
     },
     {
       name: 'isPrototypeOf()',
@@ -53,7 +52,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Object, возвращает true, если исходный объект находится где-то в прототипной цепочке заданного объекта, иначе false.',
+        'Метод объекта Object, возвращает true, если исходный объект находится где-то в прототипной цепочке (objB ), иначе false.',
       example:
         'const base = { x: 1 };\nconst obj = Object.create(base);\nconst isProto = base.isPrototypeOf(obj);\nconsole.log(isProto); // true\nconsole.log(Object.prototype.isPrototypeOf([])); // true',
       specification:
@@ -75,7 +74,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, копирует собственные перечисляемые свойства всех исходных объектов в целевой объект. Происходит только поверхностное копирование — если свойство является объектом, то будет скопирована только ссылка. Копирует как строковые, так и символьные свойства. Возвращает целевой объект.',
+        'Статический метод объекта Object, копирует собственные перечисляемые свойства всех (source1, ..., sourceN) в (dest). Происходит только поверхностное копирование — если свойство является объектом, то будет скопирована только ссылка. Копирует как строковые, так и символьные свойства. Возвращает целевой объект.',
       example:
         "const defaults = { theme: 'light', lang: 'en' };\nconst userSettings = { lang: 'ru' };\nconst settings = Object.assign({}, defaults, userSettings);\nconsole.log(settings); // { theme: 'light', lang: 'ru' }",
       specification:
@@ -97,7 +96,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, сравнивает два значения и определяет, являются ли они строго равными. Работает аналогично оператору строгого равенства, кроме двух случаев:\n • Object.is(NaN, NaN) === true\n • Object.is(0, -0) === false',
+        'Статический метод объекта Object, сравнивает (value1 и value2) и определяет, являются ли они строго равными. Работает аналогично оператору строгого равенства, кроме двух случаев:\n • Object.is(NaN, NaN) === true\n • Object.is(0, -0) === false',
       example:
         "console.log(Object.is(NaN, NaN)); // true\nconsole.log(Object.is(0, -0)); // false\nconsole.log(Object.is('hello', 'hello')); // true\nconsole.log(Object.is([], [])); // false",
       specification:
@@ -113,7 +112,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает массив строковых ключей объекта. Игнорирует символьные свойства и перебирает только собственные.',
+        'Статический метод объекта Object, возвращает массив строковых ключей из (obj). Игнорирует символьные свойства и перебирает только собственные.',
       example:
         "const user = { name: 'Alice', age: 30, city: 'Moscow' };\nconst keys = Object.keys(user);\nconsole.log(keys); // ['name', 'age', 'city']",
       specification:
@@ -130,7 +129,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает массив значений объекта. Игнорирует символьные свойства и перебирает только собственные.',
+        'Статический метод объекта Object, возвращает массив значений из (obj). Игнорирует символьные свойства и перебирает только собственные.',
       example:
         "const config = { port: 3000, host: 'localhost', debug: true };\nconst values = Object.values(config);\nconsole.log(values); // [3000, 'localhost', true]",
       specification:
@@ -147,9 +146,9 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает массив по парам вида [ключ, значение]. Игнорирует символьные свойства и перебирает только собственные.',
+        'Статический метод объекта Object, возвращает массив массивов, где каждый вложенный массив содержит пару вида [ключ, значение] из (obj). Игнорирует символьные свойства и перебирает только собственные.',
       example:
-        "const product = { name: 'Laptop', price: 999, stock: 5 };\nconst entries = Object.entries(product);\nconsole.log(entries); // [['name', 'Laptop'], ['price', 999], ['stock', 5]]",
+        "const product = { name: 'Laptop', price: 999 };\nconst entries = Object.entries(product);\nconsole.log(entries); // [['name', 'Laptop'], ['price', 999]]",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.entries',
       errors: 'TypeError — если аргумент (obj) является null или undefined.',
@@ -165,9 +164,9 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, преобразует список пар [ключ, значение] в обычный JavaScript-объект. Каждая пара из итерируемого объекта становится свойством в результирующем объекте, где первый элемент пары — ключ, второй — значение. Является обратной операцией к Object.entries().',
+        'Статический метод объекта Object, создаёт объект из списка пар вида [ключ, значение] из (iterable). Является обратной операцией к Object.entries().',
       example:
-        "const map = new Map([\n  ['name', 'Alice'],\n  ['age', 30],\n  ['city', 'Moscow']\n]);\nconst obj = Object.fromEntries(map);\nconsole.log(obj); // { name: 'Alice', age: 30, city: 'Moscow' }",
+        "const map = new Map([\n  ['name', 'Alice'],\n  ['age', 30],\n]);\nconst obj = Object.fromEntries(map);\nconsole.log(obj); // { name: 'Alice', age: 30 }",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.fromentries',
       errors:
@@ -187,9 +186,9 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, позволяет получить полную информацию о свойстве объекта. Метод возвращает объект-дескриптор свойства, который содержит значение свойства и все его флаги.',
+        'Статический метод объекта Object, возвращает объект-дескриптор, содержащий информацию о конфигурации (prop) в (obj): значение (value), а также флаги writable, enumerable, configurable.',
       example:
-        "const obj = { name: 'John', age: 30 };\nconst descriptor = Object.getOwnPropertyDescriptor(obj, 'name');\nconsole.log(descriptor);\n// { value: 'John', writable: true, enumerable: true, configurable: true }",
+        "const obj = { name: 'Ann', age: 30 };\nconst descriptor = Object.getOwnPropertyDescriptor(obj, 'name');\nconsole.log(descriptor);\n// {\n//   value: 'Ann',\n//   writable: true,\n//   enumerable: true,\n//   configurable: true\n// }",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.getownpropertydescriptor',
       errors:
@@ -214,7 +213,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, позволяет изменить или определить свойство объекта. Если свойство существует, метод обновит его значение и флаги. В противном случае метод создаёт новое свойство с указанным значением и флагами; если какой-либо флаг не указан явно, ему присваивается значение false.',
+        'Статический метод объекта Object, позволяет изменить или определить свойство в (obj). Если (prop) существует, метод обновит его значение и флаги. В противном случае метод создаёт новое свойство с указанным (descriptor); если какой-либо флаг не указан явно, ему присваивается значение false.',
       example:
         "const obj = {};\nObject.defineProperty(obj, 'readonlyProp', {\n  value: 42,\n  writable: false,\n  enumerable: true\n});\nconsole.log(obj.readonlyProp); // 42\nobj.readonlyProp = 100; // TypeError в strict mode",
       specification:
@@ -238,7 +237,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, позволяет изменять или определять множество свойств одновременно. Удобен для массового определения свойств с различными дескрипторами.',
+        'Статический метод объекта Object, позволяет изменить или определить несколько свойств в (obj) одновременно. Для каждого ключа из (properties) применяется соответствующий дескриптор: если свойство с таким именем существует, оно обновляется; если нет — создаётся новое.',
       example:
         "const user = {};\nObject.defineProperties(user, {\n  name: {\n    value: 'Alice',\n    writable: true,\n    enumerable: true\n  },\n  age: {\n    value: 30,\n    writable: true,\n    enumerable: false\n  }\n});\nconsole.log(Object.keys(user)); // ['name']",
       specification:
@@ -257,7 +256,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает объект, содержащий дескрипторы для всех собственных свойств целевого объекта. Вместе с Object.defineProperties() позволяет клонировать объект с сохранением всех флагов свойств.',
+        'Статический метод объекта Object, возвращает объект, содержащий дескрипторы всех собственных свойств (obj). Вместе с Object.defineProperties() позволяет клонировать объект с сохранением всех флагов свойств.',
       example:
         'const obj = {};\nObject.defineProperties(obj, {\n  x: { value: 10, writable: false },\n  y: { value: 20, enumerable: false }\n});\nconst descriptors = Object.getOwnPropertyDescriptors(obj);\nconsole.log(descriptors.x.writable); // false\nconsole.log(descriptors.y.enumerable); // false',
       specification:
@@ -274,7 +273,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        "Статический метод объекта Object, запрещает добавление новых свойств к объекту. После вызова этого метода объект становится 'нерасширяемым' — нельзя добавлять новые свойства, но существующие можно изменять или удалять.",
+        "Статический метод объекта Object, запрещает добавление новых свойств в (obj). После вызова этого метода (obj) становится 'нерасширяемым' — нельзя добавлять новые свойства, но существующие можно изменять или удалять.",
       example:
         "const obj = { prop: 'value' };\nObject.preventExtensions(obj);\nobj.newProp = 'new'; // TypeError в strict mode\nconsole.log('newProp' in obj); // false",
       specification:
@@ -291,7 +290,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, проверяет, является ли объект расширяемым (можно ли добавлять к нему новые свойства). Возвращает true, если объект расширяемый, и false, если нет.',
+        'Статический метод объекта Object, проверяет, является ли (obj) расширяемым (можно ли добавлять к нему новые свойства). Возвращает true, если расширяемый, и false, если нет.',
       example:
         'const obj = { x: 10 };\nconsole.log(Object.isExtensible(obj)); // true\nObject.preventExtensions(obj);\nconsole.log(Object.isExtensible(obj)); // false',
       specification:
@@ -308,7 +307,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, запрещает добавление и удаление свойств, а также изменение их дескрипторов. Устанавливает configurable: false для всех существующих свойств, но позволяет изменять их значения, если writable: true.',
+        'Статический метод объекта Object, запрещает добавление и удаление свойств в (obj), а также изменение их дескрипторов. Устанавливает configurable: false для всех существующих свойств, но позволяет изменять их значения, если writable: true.',
       example:
         "const obj = { name: 'John', age: 25 };\nObject.seal(obj);\nobj.age = 30; // Изменение значения работает\nconsole.log(obj.age); // 30\ndelete obj.name; // Не работает в strict mode",
       specification:
@@ -325,7 +324,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, проверяет, запечатан ли объект. Возвращает true, если объект запечатан (нельзя добавлять/удалять свойства и изменять их дескрипторы), иначе возвращает false.',
+        'Статический метод объекта Object, проверяет, запечатан ли (obj). Возвращает true, если запечатан (нельзя добавлять/удалять свойства и изменять их дескрипторы), иначе возвращает false.',
       example:
         'const obj = { x: 10, y: 20 };\nconsole.log(Object.isSealed(obj)); // false\nObject.seal(obj);\nconsole.log(Object.isSealed(obj)); // true',
       specification:
@@ -342,7 +341,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, делает объект полностью неизменяемым. Запрещает добавление, удаление и изменение свойств, а также изменение их дескрипторов. Устанавливает configurable: false и writable: false для всех существующих свойств.',
+        'Статический метод объекта Object, делает (obj) полностью неизменяемым. Запрещает добавление, удаление и изменение свойств, а также изменение их дескрипторов. Устанавливает configurable: false и writable: false для всех существующих свойств.',
       example:
         "const config = { version: '1.0', debug: false };\nObject.freeze(config);\nconsole.log(config.debug); // false\nconfig.debug = true;\nconsole.log(config.debug); // false (изменение не применилось)\nconsole.log('newProp' in config); // false\nconfig.newProp = 'test';\nconsole.log('newProp' in config); // false (свойство не добавилось)",
       specification:
@@ -359,7 +358,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, проверяет, заморожен ли объект. Возвращает true, если объект полностью неизменяем (нельзя добавлять/удалять/изменять свойства), иначе возвращает false.',
+        'Статический метод объекта Object, проверяет, заморожен ли (obj). Возвращает true, если полностью неизменяем (нельзя добавлять/удалять/изменять свойства), иначе возвращает false.',
       example:
         'const obj = { value: 100 };\nconsole.log(Object.isFrozen(obj)); // false\nObject.freeze(obj);\nconsole.log(Object.isFrozen(obj)); // true',
       specification:
@@ -378,11 +377,11 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         {
           name: 'descriptors',
           description:
-            'Необязательный объект-дескриптор для определения свойств нового объекта',
+            'Объект-дескриптор для определения свойств нового объекта',
         },
       ],
       description:
-        'Статический метод объекта Object, создаёт объект, используя существующий объект в качестве прототипа. Второй аргумент позволяет определять свойства нового объекта с помощью дескрипторов. Мы также можем использовать Object.create для «продвинутого» клонирования объекта с сохранением дескрипторов свойств.',
+        'Статический метод объекта Object, создаёт объект, используя (proto) в качестве прототипа. (descriptors) позволяет определять свойства нового объекта с помощью дескрипторов. Мы также можем использовать Object.create для «продвинутого» клонирования объекта с сохранением дескрипторов свойств.',
       example:
         "const proto = { greet() { return 'Hello'; } };\nconst obj = Object.create(proto, {\n  name: { value: 'Alice', enumerable: true }\n});\nconsole.log(obj.greet()); // 'Hello'\nconsole.log(obj.name); // 'Alice'",
       specification:
@@ -400,7 +399,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает прототип (скрытое свойство [[Prototype]]) указанного объекта. Это альтернатива использованию свойства __proto__.',
+        'Статический метод объекта Object, возвращает прототип (скрытое свойство [[Prototype]]) (obj). Это альтернатива использованию свойства __proto__.',
       example:
         'const proto = { base: true };\nconst obj = Object.create(proto);\nconst prototype = Object.getPrototypeOf(obj);\nconsole.log(prototype === proto); // true',
       specification:
@@ -421,7 +420,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, устанавливает прототип (скрытое свойство [[Prototype]]) указанному объекта (obj). Это альтернатива использованию свойства __proto__.',
+        'Статический метод объекта Object, устанавливает прототип (скрытое свойство [[Prototype]]) для (obj) равным (proto). Это альтернатива использованию свойства __proto__.',
       example:
         'const animal = { eats: true };\nconst rabbit = { jumps: true };\nObject.setPrototypeOf(rabbit, animal);\nconsole.log(rabbit.eats); // true\nconsole.log(Object.getPrototypeOf(rabbit) === animal); // true',
       specification:
@@ -439,7 +438,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает массив всех собственных символьных ключей указанного объекта.',
+        'Статический метод объекта Object, возвращает массив всех собственных символьных ключей (obj).',
       example:
         "const id = Symbol('id');\nconst token = Symbol('token');\nconst obj = {\n  [id]: 123,\n  [token]: 'abc',\n  name: 'Test'\n};\nconst symbols = Object.getOwnPropertySymbols(obj);\nconsole.log(symbols); // [Symbol(id), Symbol(token)]",
       specification:
@@ -456,7 +455,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает массив всех собственных строковых ключей указанного объекта.',
+        'Статический метод объекта Object, возвращает массив всех собственных строковых ключей (obj).',
       example:
         "const obj = {};\nObject.defineProperties(obj, {\n  visible: { value: 1, enumerable: true },\n  hidden: { value: 2, enumerable: false }\n});\nconst keys = Object.keys(obj);\nconst names = Object.getOwnPropertyNames(obj);\nconsole.log(keys); // ['visible']\nconsole.log(names); // ['visible', 'hidden']",
       specification:

@@ -28,8 +28,15 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
-    path: AppPaths.TYPE_SCRIPT,
-    label: 'TypeScript',
+    path: '#',
+    id: 'type-script',
+    label: 'Type Script',
+    children: [
+      {
+        path: AppPaths.TYPE_SCRIPT_UTILITY_TYPES,
+        label: 'Utility Types',
+      },
+    ],
   },
 ];
 

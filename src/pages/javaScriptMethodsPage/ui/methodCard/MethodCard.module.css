@@ -56,9 +56,10 @@
   background: #f8f9fa;
   padding: 6px 12px;
   border-radius: 4px;
-  font-size: 0.9rem;
+  font-size: 16px;
   color: #e8590c;
   border-left: 3px solid #4dabf7;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .parametersBlock {
@@ -119,15 +120,6 @@
 
 .descriptionBlock {
   margin-top: 8px;
-}
-
-.descriptionTitle {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #495057;
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .methodDescription {

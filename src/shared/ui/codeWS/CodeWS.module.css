@@ -52,10 +52,28 @@
   overflow-x: hidden;
   animation: typing 1.5s steps(60, end);
 }
-
-.code .keyword {
+.code .control {
   color: #569cd6;
-  font-weight: normal;
+}
+
+.code .declaration {
+  color: #4fc1ff;
+}
+
+.code .tsKeyword {
+  color: #4ec9b0;
+}
+
+.code .type {
+  color: #4ce68a;
+}
+
+.code .classKeyword {
+  color: #ce9178;
+}
+
+.code .module {
+  color: #c586c0;
 }
 
 .code .method {
@@ -70,12 +88,25 @@
   color: #b5cea8;
 }
 
+.code .global {
+  color: #ffa500;
+}
+
 .code .comment {
   color: #6a9955;
   font-style: italic;
 }
 
-.code span:not(.keyword):not(.method):not(.string):not(.number):not(.comment) {
+.code .boolean {
+  color: #569cd6;
+}
+
+.code
+  span:not(.control):not(.declaration):not(.tsKeyword):not(.type):not(
+    .classKeyword
+  ):not(.module):not(.method):not(.string):not(.number):not(.comment):not(
+    .global
+  ):not(.boolean) {
   color: #d4d4d4;
 }
 

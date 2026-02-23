@@ -5,71 +5,144 @@ export const highlightCode = (
   styles: Record<string, string>,
 ): ReactNode[] => {
   const parts: ReactNode[] = [];
-  let remainingCode = code;
+  let i = 0;
   let keyCounter = 0;
+  let prevTokenWasDot = false;
 
-  while (remainingCode.length > 0) {
-    let matched = false;
-
-    const keywordMatch = remainingCode.match(/^\b(let|const|var|console)\b/);
-
-    if (keywordMatch) {
-      parts.push(
-        <span key={`kw-${keyCounter++}`} className={styles.keyword}>
-          {keywordMatch[0]}
-        </span>,
-      );
-      remainingCode = remainingCode.substring(keywordMatch[0].length);
-      matched = true;
+  while (i < code.length) {
+    if (/\s/.test(code[i])) {
+      let j = i;
+      while (j < code.length && /\s/.test(code[j])) j++;
+      parts.push(<span key={`ws-${keyCounter++}`}>{code.slice(i, j)}</span>);
+      i = j;
       continue;
     }
 
-    const methodMatch = remainingCode.match(/^\.([a-zA-Z_$][a-zA-Z0-9_$]*)\b/);
-
-    if (methodMatch) {
-      parts.push(<span key={`dot-${keyCounter++}`}>.</span>);
-      parts.push(
-        <span key={`method-${keyCounter++}`} className={styles.method}>
-          {methodMatch[1]}
-        </span>,
-      );
-      remainingCode = remainingCode.substring(methodMatch[0].length);
-      matched = true;
-      continue;
-    }
-
-    const stringMatch = remainingCode.match(/^(["'`])(?:\\.|(?!\1).)*\1/);
-
-    if (stringMatch) {
+    if (/["'`]/.test(code[i])) {
+      const quote = code[i];
+      let j = i + 1;
+      while (j < code.length && code[j] !== quote) {
+        if (code[j] === '\\') j++;
+        j++;
+      }
+      j++;
       parts.push(
         <span key={`str-${keyCounter++}`} className={styles.string}>
-          {stringMatch[0]}
+          {code.slice(i, j)}
         </span>,
       );
-      remainingCode = remainingCode.substring(stringMatch[0].length);
-      matched = true;
+      i = j;
+      prevTokenWasDot = false;
       continue;
     }
 
-    const numberMatch = remainingCode.match(/^\d+(\.\d+)?/);
-
-    if (numberMatch) {
-      parts.push(
-        <span key={`num-${keyCounter++}`} className={styles.number}>
-          {numberMatch[0]}
-        </span>,
-      );
-      remainingCode = remainingCode.substring(numberMatch[0].length);
-      matched = true;
+    if (code[i] === '.') {
+      parts.push(<span key={`dot-${keyCounter++}`}>.</span>);
+      prevTokenWasDot = true;
+      i++;
       continue;
     }
 
-    if (!matched) {
-      parts.push(
-        <span key={`char-${keyCounter++}`}>{remainingCode.charAt(0)}</span>,
-      );
-      remainingCode = remainingCode.substring(1);
+    let j = i;
+    while (j < code.length && /[a-zA-Z0-9_$]/.test(code[j])) j++;
+
+    if (j > i) {
+      const word = code.slice(i, j);
+
+      if (
+        /^(if|else|for|while|do|switch|case|break|continue|return|try|catch|finally|throw)$/.test(
+          word,
+        )
+      ) {
+        parts.push(
+          <span key={`ctrl-${keyCounter++}`} className={styles.control}>
+            {word}
+          </span>,
+        );
+      } else if (/^(let|const|var|function|yield|await|async)$/.test(word)) {
+        parts.push(
+          <span key={`decl-${keyCounter++}`} className={styles.declaration}>
+            {word}
+          </span>,
+        );
+      } else if (
+        /^(type|interface|enum|namespace|module|declare|implements|extends|infer|keyof|typeof|instanceof|readonly|Uppercase|Lowercase|Capitalize|Uncapitalize|Partial|Required|Readonly|Pick|Omit|Record|Exclude|Extract|NonNullable|Parameters|ReturnType|ConstructorParameters|InstanceType|Awaited|NoInfer)$/.test(
+          word,
+        )
+      ) {
+        parts.push(
+          <span key={`ts-${keyCounter++}`} className={styles.tsKeyword}>
+            {word}
+          </span>,
+        );
+      } else if (
+        /^(string|number|boolean|any|void|delete|in|never|unknown|object|symbol|bigint|null|undefined)$/.test(
+          word,
+        )
+      ) {
+        parts.push(
+          <span key={`type-${keyCounter++}`} className={styles.type}>
+            {word}
+          </span>,
+        );
+      } else if (
+        /^(class|constructor|super|public|private|protected|static|new)$/.test(
+          word,
+        )
+      ) {
+        parts.push(
+          <span key={`class-${keyCounter++}`} className={styles.classKeyword}>
+            {word}
+          </span>,
+        );
+      } else if (
+        /^(import|export|from|as|default|require|module)$/.test(word)
+      ) {
+        parts.push(
+          <span key={`mod-${keyCounter++}`} className={styles.module}>
+            {word}
+          </span>,
+        );
+      } else if (/^(true|false)$/.test(word)) {
+        parts.push(
+          <span key={`bool-${keyCounter++}`} className={styles.boolean}>
+            {word}
+          </span>,
+        );
+      } else if (prevTokenWasDot && /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(word)) {
+        parts.push(
+          <span key={`method-${keyCounter++}`} className={styles.method}>
+            {word}
+          </span>,
+        );
+      } else if (
+        /^(setTimeout|setInterval|clearTimeout|clearInterval|Promise|then|catch|finally|console|JSON|Math|Number|String|Symbol|Function|Boolean|Array|Date|Object|RegExp|Error|Map|Set|WeakMap|WeakSet|Proxy|Reflect)$/.test(
+          word,
+        )
+      ) {
+        parts.push(
+          <span key={`global-${keyCounter++}`} className={styles.global}>
+            {word}
+          </span>,
+        );
+      } else if (/^(Infinity|-Infinity|NaN|\d+(\.\d+)?)$/.test(word)) {
+        parts.push(
+          <span key={`num-${keyCounter++}`} className={styles.number}>
+            {word}
+          </span>,
+        );
+      } else {
+        parts.push(<span key={`word-${keyCounter++}`}>{word}</span>);
+      }
+
+      i = j;
+      prevTokenWasDot = false;
+      continue;
     }
+
+    parts.push(<span key={`char-${keyCounter++}`}>{code[i]}</span>);
+    prevTokenWasDot = false;
+    i++;
   }
 
   return parts;

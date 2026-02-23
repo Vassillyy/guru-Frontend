@@ -24,8 +24,7 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
         {
           name: 'thisArg',
-          description:
-            'Необязательное значение, используемое как this при вызове callbackFn',
+          description: 'Значение, используемое как this при вызове callbackFn',
         },
       ],
       description:

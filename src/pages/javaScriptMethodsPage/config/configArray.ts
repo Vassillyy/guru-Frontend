@@ -79,13 +79,13 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'fromIndex',
-          description: 'Необязательный индекс начала поиска',
+          description: 'Индекс начала поиска',
         },
       ],
       description:
         'Метод объекта Array, выполняет поиск элемента в массиве. Возвращает индекс первого совпадения или -1, если элемент не найден.',
       example:
-        "const users = ['alice', 'bob', 'charlie', 'bob'];\nconst index = users.indexOf('bob');\nconsole.log(index); // 1\nconst secondIndex = users.indexOf('bob', 2);\nconsole.log(secondIndex); // 3",
+        "const users = ['alice', 'bob', 'charlie', 'bob'];\nconst index = users.indexOf('bob');\nconsole.log(index); // 1\n\nconst secondIndex = users.indexOf('bob', 2);\nconsole.log(secondIndex); // 3",
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.indexof',
       errors: 'TypeError — если this не является массивом или строкой.',
@@ -100,14 +100,13 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'fromIndex',
-          description:
-            'Необязательный индекс начала поиска в обратном направлении',
+          description: 'Индекс начала поиска в обратном направлении',
         },
       ],
       description:
         'Метод объекта Array, выполняет поиск элемента в массиве с конца. Возвращает индекс последнего совпадения или -1, если элемент не найден.',
       example:
-        "const logEntries = ['error', 'info', 'warning', 'info', 'error'];\nconst lastInfoIndex = logEntries.lastIndexOf('info');\nconsole.log(lastInfoIndex); // 3\nconst lastErrorIndex = logEntries.lastIndexOf('error', 3);\nconsole.log(lastErrorIndex); // 0",
+        "const logEntries = ['error', 'info', 'warning', 'info', 'error'];\nconst lastInfoIndex = logEntries.lastIndexOf('info');\nconsole.log(lastInfoIndex); // 3\n\nconst lastErrorIndex = logEntries.lastIndexOf('error', 3);\nconsole.log(lastErrorIndex); // 0",
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.lastindexof',
       errors: 'TypeError — если this не является массивом или строкой.',
@@ -125,7 +124,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       description:
         'Метод объекта Array, возвращает элемент массива по указанному индексу. Если индекс выходит за границы массива, возвращает undefined.',
       example:
-        "const colors = ['red', 'green', 'blue', 'yellow'];\nconst lastColor = colors.at(-1);\nconsole.log(lastColor); // 'yellow'\nconst secondColor = colors.at(1);\nconsole.log(secondColor); // 'green'",
+        "const colors = ['red', 'green', 'blue', 'yellow'];\nconst lastColor = colors.at(-1);\nconsole.log(lastColor); // 'yellow'\n\nconst secondColor = colors.at(1);\nconsole.log(secondColor); // 'green'",
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.at',
       errors: 'TypeError — если this не является массивом или строкой.',
@@ -146,7 +145,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       description:
         'Метод объекта Array, проверяет, содержит ли массив указанный элемент, используя алгоритм SameValueZero (правильно обрабатывает NaN). Возвращает true если содержит, иначе false.',
       example:
-        "const permissions = ['read', 'write', 'execute'];\nconst hasWrite = permissions.includes('write');\nconsole.log(hasWrite); // true\nconst hasDelete = permissions.includes('delete');\nconsole.log(hasDelete); // false",
+        "const permissions = ['read', 'write', 'execute'];\nconst hasWrite = permissions.includes('write');\nconsole.log(hasWrite); // true\n\nconst hasDelete = permissions.includes('delete');\nconsole.log(hasDelete); // false",
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.includes',
       errors: 'TypeError — если this не является массивом или строкой.',
@@ -157,19 +156,21 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       parameters: [
         {
           name: 'start',
-          description:
-            'Необязательный индекс начала подмассива (может быть отрицательным)',
+          description: 'Индекс начала подмассива (может быть отрицательным)',
         },
         {
           name: 'end',
           description:
-            'Необязательный индекс конца подмассива (не включая, может быть отрицательным)',
+            'Индекс конца подмассива (не включая, может быть отрицательным)',
         },
       ],
       description:
-        'Метод объекта Array, возвращает новый массив, содержащий элементы от индекса указанного в первом аргументе до до индекса указанного во втором аргументе. Если второй аргумен не указан, возвращает элементы от индекса указанного в первом аргументе до конца массива. Если аргументы не переданы, возвращает поверхностную копию массива.',
+        'Метод объекта Array, возвращает новый массив, содержащий элементы исходного массива:\n' +
+        '• С двумя аргументами: элементы от индекса, указанного в первом аргументе, до индекса, указанного во втором аргументе;\n' +
+        '• С одним аргументом: элементы от индекса, указанного аргументе, до конца массива;\n' +
+        '• Без аргументов: поверхностную копию всего массива.',
       example:
-        'const numbers = [10, 20, 30, 40, 50];\nconst middle = numbers.slice(1, 4);\nconsole.log(middle); // [20, 30, 40]\nconst lastTwo = numbers.slice(-2);\nconsole.log(lastTwo); // [40, 50]',
+        'const numbers = [10, 20, 30, 40, 50];\nconst middle = numbers.slice(1, 4);\nconsole.log(middle); // [20, 30, 40]\n\nconst lastTwo = numbers.slice(-2);\nconsole.log(lastTwo); // [40, 50]',
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.slice',
       errors: 'TypeError — если this не является массивом или строкой.',
@@ -184,11 +185,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'deleteCount',
-          description: 'Необязательное количество удаляемых элементов',
+          description: 'Количество удаляемых элементов',
         },
         {
           name: '...items',
-          description: 'Необязательные элементы для вставки на место удалённых',
+          description: 'Элементы для вставки на место удалённых',
         },
       ],
       description:
@@ -209,15 +210,15 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'deleteCount',
-          description: 'Необязательное количество удаляемых элементов',
+          description: 'Количество удаляемых элементов',
         },
         {
           name: '...items',
-          description: 'Необязательные элементы для вставки на место удалённых',
+          description: 'Элементы для вставки на место удалённых',
         },
       ],
       description:
-        'Метод объекта Array, возвращает новый массив с изменениями, начиная с индекса, указанного в первом аргументе: удаляет количество элементов, указанных во втором аргументе и затем вставляет элементы, указанные начиная с третьего аргумента на их место.',
+        'Метод объекта Array, возвращает новый массив на основе исходного, в котором начиная с индекса, указанного в первом аргументе: удаляет количество элементов, указанных во втором аргументе и затем вставляет элементы, указанные начиная с третьего аргумента на их место.',
       example:
         "const original = ['jan', 'feb', 'mar', 'apr'];\nconst newArray = original.toSpliced(2, 1, 'march');\nconsole.log(newArray); // ['jan', 'feb', 'march', 'apr']\nconsole.log(original); // ['jan', 'feb', 'mar', 'apr']",
       specification:
@@ -252,18 +253,17 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'thisArg',
-          description:
-            'Необязательное значение, используемое как this при вызове callbackFn',
+          description: 'Значение, используемое как this при вызове callbackFn',
         },
       ],
       description:
-        'Метод объекта Array, вызывает указанную функцию для каждого элемента массива. Функция может принимать до 3 аргументов: элемент, его индекс и сам массив. Возвращает undefined.',
+        'Метод объекта Array, вызывает переданную функцию для каждого элемента массива. Функция может принимать до 3 аргументов: элемент, его индекс и массив по которому производится итерация. Возвращает undefined.',
       example:
         'const scores = [85, 92, 78];\nscores.forEach((score, index) => {\n  console.log(`Student ${index + 1}: ${score}`);\n});\n// Student 1: 85\n// Student 2: 92\n// Student 3: 78',
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.foreach',
       errors:
-        'TypeError — если this не является массивом, множеством или коллекцией, или если аргумент (fn) не является функцией.',
+        'TypeError — если this не является массивом, множеством (set) или коллекцией (map), или если аргумент (fn) не является функцией.',
     },
     {
       name: 'find()',
@@ -275,12 +275,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'thisArg',
-          description:
-            'Необязательное значение, используемое как this при вызове callbackFn',
+          description: 'Значение, используемое как this при вызове callbackFn',
         },
       ],
       description:
-        'Метод объекта Array, ищет первый элемент, удовлетворяющий условию, заданному в функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация. Возвращает элемент или undefined если элемент не найден.',
+        'Метод объекта Array, ищет первый элемент, удовлетворяющий условию, заданному в переданной функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация. Возвращает элемент или undefined если элемент не найден.',
       example:
         "const users = [\n  { id: 1, name: 'Alice' },\n  { id: 2, name: 'Bob' },\n  { id: 3, name: 'Charlie' }\n];\nconst user = users.find(u => u.id === 2);\nconsole.log(user); // { id: 2, name: 'Bob' }",
       specification:
@@ -298,12 +297,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'thisArg',
-          description:
-            'Необязательное значение, используемое как this при вызове callbackFn',
+          description: 'Значение, используемое как this при вызове callbackFn',
         },
       ],
       description:
-        'Метод объекта Array, ищет последний элемент, удовлетворяющий условию, заданному в функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация. Возвращает элемент или undefined если элемент не найден.',
+        'Метод объекта Array, ищет последний элемент, удовлетворяющий условию, заданному в переданной функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация. Возвращает элемент или undefined если элемент не найден.',
       example:
         "const logs = [\n  { level: 'info', message: 'Started' },\n  { level: 'error', message: 'Failed' },\n  { level: 'info', message: 'Completed' }\n];\nconst lastError = logs.findLast(log => log.level === 'error');\nconsole.log(lastError); // { level: 'error', message: 'Failed' }",
       specification:
@@ -321,12 +319,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'thisArg',
-          description:
-            'Необязательное значение, используемое как this при вызове callbackFn',
+          description: 'Значение, используемое как this при вызове callbackFn',
         },
       ],
       description:
-        'Метод объекта Array, ищет индекс первого элемента, удовлетворяющего условию, заданному в функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация. Возвращает индекс или -1 если элемент не найден.',
+        'Метод объекта Array, ищет индекс первого элемента, удовлетворяющего условию, заданному в переданной функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация. Возвращает индекс или -1 если элемент не найден.',
       example:
         'const temperatures = [22, 18, 25, 19, 30];\nconst hotDayIndex = temperatures.findIndex(temp => temp > 25);\nconsole.log(hotDayIndex); // 4',
       specification:
@@ -344,14 +341,13 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'thisArg',
-          description:
-            'Необязательное значение, используемое как this при вызове callbackFn',
+          description: 'Значение, используемое как this при вызове callbackFn',
         },
       ],
       description:
-        'Метод объекта Array, ищет индекс последнего элемента, удовлетворяющего условию, заданному в функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация. Возвращает индекс или -1 если элемент не найден.',
+        'Метод объекта Array, ищет индекс последнего элемента, удовлетворяющего условию, заданному в переданной функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация. Возвращает индекс или -1 если элемент не найден.',
       example:
-        'const transactions = [100, -50, 200, -30, 150];\nconst lastWithdrawalIndex = transactions.findLastIndex(amount => amount < 0);\nconsole.log(lastWithdrawalIndex); // 3',
+        'const sums = [100, -50, 200, -30, 150];\nconst lastIndex = sums.findLastIndex(amount => amount < 0);\nconsole.log(lastIndex); // 3',
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.findlastindex',
       errors:
@@ -367,12 +363,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'thisArg',
-          description:
-            'Необязательное значение, используемое как this при вызове callbackFn',
+          description: 'Значение, используемое как this при вызове callbackFn',
         },
       ],
       description:
-        'Метод объекта Array, возвращает новый массив с элементами, прошедшими проверку, заданную в указанной функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация.',
+        'Метод объекта Array, возвращает новый массив с элементами, прошедшими проверку, заданную в переданной функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация.',
       example:
         'const numbers = [1, 2, 3, 4, 5, 6];\nconst evenNumbers = numbers.filter(n => n % 2 === 0);\nconsole.log(evenNumbers); // [2, 4, 6]',
       specification:
@@ -390,12 +385,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'thisArg',
-          description:
-            'Необязательное значение, используемое как this при вызове callbackFn',
+          description: 'Значение, используемое как this при вызове callbackFn',
         },
       ],
       description:
-        'Метод объекта Array, возвращает новый массив с результатами вызова функции для каждого элемента исходного массива. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация.',
+        'Метод объекта Array, возвращает новый массив,  где каждый элемент получен как результат вызова функции для каждого элемента исходного массива. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация.',
       example:
         'const prices = [100, 200, 300];\nconst discounted = prices.map(price => price * 0.9);\nconsole.log(discounted); // [90, 180, 270]',
       specification:
@@ -410,12 +404,12 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         {
           name: 'compareFn',
           description:
-            'Необязательная функция сравнения для определения порядка сортировки:\n • должна принимать два аргумента: a и b;\n • возвращать отрицательное число, если a < b;\n • возвращать положительное число, если a > b;\n • возвращать 0, если a = b.\nЕсли функция не передана, элементы сортируются по строковому представлению.',
+            'Функция сравнения для определения порядка сортировки:\n • должна принимать два аргумента: a и b;\n • возвращать отрицательное число, если a < b;\n • возвращать положительное число, если a > b;\n • возвращать 0, если a = b.\nЕсли функция не передана, элементы сортируются по строковому представлению.',
         },
       ],
       description: 'Метод объекта Array, сортирует элементы массива на месте.',
       example:
-        "const names = ['Charlie', 'Alice', 'Bob'];\nnames.sort();\nconsole.log(names); // ['Alice', 'Bob', 'Charlie']\nconst scores = [85, 92, 78];\nscores.sort((a, b) => b - a);\nconsole.log(scores); // [92, 85, 78]",
+        "const names = ['Charlie', 'Alice', 'Bob'];\nnames.sort();\nconsole.log(names); // ['Alice', 'Bob', 'Charlie']\n\nconst scores = [85, 92, 78];\nscores.sort((a, b) => b - a);\nconsole.log(scores); // [92, 85, 78]",
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.sort',
       errors:
@@ -428,7 +422,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         {
           name: 'compareFn',
           description:
-            'Необязательная функция сравнения для определения порядка сортировки:\n • должна принимать два аргумента: a и b;\n • возвращать отрицательное число, если a < b;\n • возвращать положительное число, если a > b;\n • возвращать 0, если a = b.\nЕсли функция не передана, элементы сортируются по строковому представлению.',
+            'Функция сравнения для определения порядка сортировки:\n • должна принимать два аргумента: a и b;\n • возвращать отрицательное число, если a < b;\n • возвращать положительное число, если a > b;\n • возвращать 0, если a = b.\nЕсли функция не передана, элементы сортируются по строковому представлению.',
         },
       ],
       description:
@@ -444,7 +438,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       name: 'reverse()',
       syntax: 'arr.reverse()',
       description:
-        'Метод объекта Array, изменяет порядок элементов массива на обратный (изменяет исходный массив).',
+        'Метод объекта Array, изменяет порядок элементов массива на обратный.',
       example:
         "const letters = ['a', 'b', 'c'];\nletters.reverse();\nconsole.log(letters); // ['c', 'b', 'a']",
       specification:
@@ -468,7 +462,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       parameters: [
         {
           name: 'separator',
-          description: "Необязательная строка-разделитель (по умолчанию ',')",
+          description: "Строка-разделитель (по умолчанию ',')",
         },
       ],
       description:
@@ -489,13 +483,13 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'initialValue',
-          description: 'Необязательное начальное значение аккумулятора',
+          description: 'Начальное значение аккумулятора',
         },
       ],
       description:
-        'Метод объекта Array, применяет функцию к аккумулятору и каждому элементу массива (слева направо), сводя массив к одному значению. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация.',
+        'Метод объекта Array, применяет переданную функцию к аккумулятору и каждому элементу массива (слева направо), сводя массив к одному значению. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация.',
       example:
-        'const cart = [\n  { price: 10, quantity: 2 },\n  { price: 25, quantity: 1 },\n  { price: 5, quantity: 3 }\n];\nconst total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);\nconsole.log(total); // 60',
+        'const cart = [\n  { price: 10, quantity: 2 },\n  { price: 25, quantity: 1 },\n  { price: 5, quantity: 3 }\n];\nconst total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);\nconsole.log(total); // 60',
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.reduce',
       errors:
@@ -511,11 +505,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'initialValue',
-          description: 'Необязательное начальное значение аккумулятора',
+          description: 'Начальное значение аккумулятора',
         },
       ],
       description:
-        'Метод объекта Array, применяет функцию к аккумулятору и каждому элементу массива (справа налево), сводя массив к одному значению. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация.',
+        'Метод объекта Array, применяет переданную функцию к аккумулятору и каждому элементу массива (справа налево), сводя массив к одному значению. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация.',
       example:
         'const nums = [2, 3, 4];\nconst rightToLeftSum = nums.reduceRight((sum, num) => sum + num);\nconsole.log(rightToLeftSum); // 9',
       specification:
@@ -533,17 +527,29 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'start',
-          description: 'Необязательный индекс начала заполнения',
+          description: 'Индекс начала заполнения',
         },
         {
           name: 'end',
-          description: 'Необязательный индекс конца заполнения (не включая)',
+          description: 'Индекс конца заполнения (не включая)',
         },
       ],
       description:
-        'Метод объекта Array, заполняет все элементы массива от start до end указанным значением. Возвращает изменённый массив.',
+        'Метод объекта Array, заполняет массив повторяющимися значениями из первого аргумента:\n' +
+        '• С тремя аргументами: заполняет элементы от индекса, указанного во втором аргументе, до индекса, указанного в третьем аргументе;\n' +
+        '• С двумя аргументами: заполняет элементы от индекса, указанного во втором аргументе, до конца массива;\n' +
+        '• С одним аргументом: заполняет все элементы массива целиком.\n' +
+        'Возвращает изменённый массив.',
       example:
-        "const arr = new Array(5);\narr.fill('x', 1, 4);\nconsole.log(arr); // [empty, 'x', 'x', 'x', empty]",
+        'const arr1 = new Array(5);\n' +
+        'arr1.fill("x");\n' +
+        'console.log(arr1); // ["x", "x", "x", "x", "x"]\n\n' +
+        'const arr2 = [1, 2, 3, 4, 5];\n' +
+        'arr2.fill(0, 2);\n' +
+        'console.log(arr2); // [1, 2, 0, 0, 0]\n\n' +
+        'const arr3 = [1, 2, 3, 4, 5];\n' +
+        'arr3.fill(9, 1, 3);\n' +
+        'console.log(arr3); // [1, 9, 9, 4, 5]',
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.fill',
       errors: 'TypeError — если this не является массивом.',
@@ -558,17 +564,29 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'start',
-          description: 'Необязательный индекс начала копирования',
+          description: 'Индекс начала копирования',
         },
         {
           name: 'end',
-          description: 'Необязательный индекс конца копирования (не включая)',
+          description: 'Индекс конца копирования (не включая)',
         },
       ],
       description:
-        'Метод объекта Array, копирует последовательность элементов внутри массива. Возвращает изменённый массив.',
+        'Метод объекта Array, копирует последовательность элементов внутри массива в другое место этого же массива:\n' +
+        '• С тремя аргументами: копирует элементы от индекса, указанного во втором аргументе, до индекса, указанного в третьем аргументе, и вставляет на позицию, указанную в первом аргументе;\n' +
+        '• С двумя аргументами: копирует элементы от индекса, указанного во втором аргументе, до конца массива и вставляет на позицию, указанную в первом аргументе;\n' +
+        '• С одним аргументом: копирует элементы от начала массива до конца и вставляет на позицию, указанную в первом аргументе.\n' +
+        'Возвращает изменённый массив.',
       example:
-        'const arr = [1, 2, 3, 4, 5];\narr.copyWithin(0, 3);\nconsole.log(arr); // [4, 5, 3, 4, 5]',
+        'const arr1 = [1, 2, 3, 4, 5];\n' +
+        'arr1.copyWithin(3);\n' +
+        'console.log(arr1); // [1, 2, 3, 1, 2]\n\n' +
+        'const arr2 = [1, 2, 3, 4, 5];\n' +
+        'arr2.copyWithin(0, 3);\n' +
+        'console.log(arr2); // [4, 5, 3, 4, 5]\n\n' +
+        'const arr3 = [1, 2, 3, 4, 5];\n' +
+        'arr3.copyWithin(1, 2, 4);\n' +
+        'console.log(arr3); // [1, 3, 4, 4, 5]',
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.copywithin',
       errors: 'TypeError — если this не является массивом.',
@@ -579,7 +597,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       parameters: [
         {
           name: 'depth',
-          description: 'Необязательная глубина выравнивания (по умолчанию 1)',
+          description: 'Глубина выравнивания (по умолчанию 1)',
         },
       ],
       description:
@@ -601,12 +619,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'thisArg',
-          description:
-            'Необязательное значение, используемое как this при вызове callbackFn',
+          description: 'Значение, используемое как this при вызове callbackFn',
         },
       ],
       description:
-        'Метод объекта Array, проверяет, удовлетворяет ли хотя бы один элемент условию, заданному в функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация. Возвращает true если удолетворяет, иначе false.',
+        'Метод объекта Array, проверяет, удовлетворяет ли хотя бы один элемент условию, заданному в переданной функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация. Возвращает true если удолетворяет, иначе false.',
       example:
         'const numbers = [1, 2, 3, 5];\nconst hasEven = numbers.some(n => n % 2 === 0);\nconsole.log(hasEven); // true',
       specification:
@@ -624,12 +641,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'thisArg',
-          description:
-            'Необязательное значение, используемое как this при вызове callbackFn',
+          description: 'Значение, используемое как this при вызове callbackFn',
         },
       ],
       description:
-        'Метод объекта Array, проверяет, удовлетворяют ли все элементы условию, заданному в функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация. Возвращает true если удолетворяет, иначе false.',
+        'Метод объекта Array, проверяет, удовлетворяют ли все элементы условию, заданному в переданной функции. Эта функция может принимать до 3 аргументов: элемент, его индекс, массив по которому производится итерация. Возвращает true если удолетворяет, иначе false.',
       example:
         'const ages = [18, 22, 25, 30];\nconst allAdult = ages.every(age => age >= 18);\nconsole.log(allAdult); // true',
       specification:
@@ -687,7 +703,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       name: 'entries()',
       syntax: 'arr.entries()',
       description:
-        'Метод объекта Array, возвращает новый итератор, содержащий пары [ключ, значение] для каждого элемента массива.',
+        'Метод объекта Array, возвращает новый итератор, содержащий пары ([ключ, значение]) для каждого элемента массива.',
       example:
         "const fruits = ['apple', 'banana', 'orange'];\nconst fruitEntries = [...fruits.entries()];\nconsole.log(fruitEntries); // [[0, 'apple'], [1, 'banana'], [2, 'orange']]",
       specification:
@@ -721,12 +737,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
         {
           name: 'mapFn',
-          description:
-            'Необязательная функция преобразования для каждого элемента',
+          description: 'Функция преобразования для каждого элемента',
         },
         {
           name: 'thisArg',
-          description: 'Необязательное значение this для mapFn',
+          description: 'Значение this для mapFn',
         },
       ],
       description:

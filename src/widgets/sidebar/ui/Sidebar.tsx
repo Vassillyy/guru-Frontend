@@ -7,8 +7,12 @@ import styles from './Sidebar.module.css';
 
 export const Sidebar = () => {
   const location = useLocation();
-  const [expandedItemId, setExpandedItemId] = useState<string | null>(() => {
-    return findParentItemIdForActivePath(NAV_ITEMS, location.pathname);
+  const [expandedItems, setExpandedItems] = useState<string[]>(() => {
+    const parentId = findParentItemIdForActivePath(
+      NAV_ITEMS,
+      location.pathname,
+    );
+    return parentId ? [parentId] : [];
   });
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
 
@@ -17,7 +21,11 @@ export const Sidebar = () => {
   };
 
   const toggleItem = (itemId: string) => {
-    setExpandedItemId((prev) => (prev === itemId ? null : itemId));
+    setExpandedItems((prev) =>
+      prev.includes(itemId)
+        ? prev.filter((id) => id !== itemId)
+        : [...prev, itemId],
+    );
   };
 
   const toggleSidebar = () => {
@@ -41,7 +49,9 @@ export const Sidebar = () => {
           <ul className={styles.navList}>
             {NAV_ITEMS.map((item) => {
               const itemHasChildren = item.children && item.children.length > 0;
-              const isExpanded = item.id ? expandedItemId === item.id : false;
+              const isExpanded = item.id
+                ? expandedItems.includes(item.id)
+                : false;
 
               return (
                 <li key={item.path || item.id} className={styles.navItem}>

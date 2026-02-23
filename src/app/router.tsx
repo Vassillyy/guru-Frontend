@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { JavaScriptContentPage } from '@/pages/javaScriptContentPage';
-import { TypeScriptPage } from '@/pages/typeScriptPage';
+import { TypeScriptUtilityTypesPage } from '@/pages/typeScriptUtilityTypesPage';
 import { MainPage } from '@/pages/mainPage';
 import { JavaScriptMethodsPage } from '@/pages/javaScriptMethodsPage';
 import { AppPaths } from '@/shared/constants/route';
@@ -25,8 +25,8 @@ export const router = createBrowserRouter([
         element: <JavaScriptMethodsPage />,
       },
       {
-        path: AppPaths.TYPE_SCRIPT,
-        element: <TypeScriptPage />,
+        path: AppPaths.TYPE_SCRIPT_UTILITY_TYPES,
+        element: <TypeScriptUtilityTypesPage />,
       },
       {
         path: `${AppPaths.JAVA_SCRIPT}/topic/:topicId`,

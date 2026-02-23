@@ -18,7 +18,7 @@ export type IConfig = {
   [key in Topics]: ITopic[];
 };
 
-export const enum Topics {
+export enum Topics {
   BASIC = 'BASIC',
 }
 

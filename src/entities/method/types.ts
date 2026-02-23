@@ -15,7 +15,7 @@ export type TConfig = {
   [key in Methods]: IMethod[];
 };
 
-export const enum Methods {
+export enum Methods {
   ARRAY = 'ARRAY',
   STRING = 'STRING',
   NUMBER = 'NUMBER',
