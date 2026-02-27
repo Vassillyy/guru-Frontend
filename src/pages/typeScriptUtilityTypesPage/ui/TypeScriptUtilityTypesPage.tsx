@@ -1,44 +1,65 @@
-import { PageContainer, Pills } from '@/shared/ui';
-import styles from './TypeScriptUtilityTypesPage.module.css';
-import { labelUtilityCategory, UtilityCategory } from '@/entities/utilityType';
-import { configUtilityTypes } from './config';
+import {
+  labelUtilityCategory,
+  UtilityCategory,
+  type IUtilityType,
+} from '@/entities/utilityType';
+import { Filters } from '@/feature/filters';
+import { PageContainer } from '@/shared/ui';
+import { useFilteredData, useFilters } from '@/shared/hooks';
 import { UtilityTypeCard } from './utilityTypeCard/UtilityTypeCard.tsx';
-import { useState } from 'react';
+import { config } from '../config';
+import styles from './TypeScriptUtilityTypesPage.module.css';
 
 export const TypeScriptUtilityTypesPage = () => {
-  const [activeCategories, setActiveCategories] = useState<UtilityCategory[]>(
-    [],
-  );
+  const {
+    activeCategories,
+    searchQuery,
+    loadedCount,
+    filterChange,
+    searchChange,
+    searchReset,
+  } = useFilters<UtilityCategory>();
 
-  const pillItems = Object.values(UtilityCategory).map((category) => ({
-    label: labelUtilityCategory[category],
-    value: category,
-  }));
-
-  const categoriesToShow =
-    activeCategories.length === 0
-      ? (Object.keys(configUtilityTypes) as UtilityCategory[])
-      : activeCategories;
+  const { pillItems, itemsToShow } = useFilteredData<
+    IUtilityType,
+    UtilityCategory
+  >({
+    activeCategories,
+    searchQuery,
+    loadedCount,
+    config,
+    getLabel: (category) => labelUtilityCategory[category as UtilityCategory],
+  });
 
   return (
     <PageContainer
       title="Utility Types"
       filtersSlot={
-        <Pills items={pillItems} onFilterChange={setActiveCategories} />
+        <Filters<UtilityCategory>
+          pillItems={pillItems}
+          onFilterChange={filterChange}
+          searchQuery={searchQuery}
+          onSearchChange={searchChange}
+          onSearchReset={searchReset}
+        />
       }
     >
-      {categoriesToShow.map((category) => (
+      {Object.entries(itemsToShow).map(([category, utilities]) => (
         <div key={category} className={styles.categorySection}>
           <h2 className={styles.categoryTitle}>
-            {labelUtilityCategory[category]}
+            {labelUtilityCategory[category as UtilityCategory]}
           </h2>
           <div className={styles.typesList}>
-            {configUtilityTypes[category]?.map((utility, index) => (
+            {utilities.map((utility, index) => (
               <UtilityTypeCard key={`${category}-${index}`} utility={utility} />
             ))}
           </div>
         </div>
       ))}
+
+      {Object.entries(itemsToShow).length === 0 && (
+        <div className={styles.noResult}>По данному запросу данных нет</div>
+      )}
     </PageContainer>
   );
 };

@@ -1,6 +1,6 @@
 import { type FC, useState } from 'react';
 import type { IUtilityType } from '@/entities/utilityType';
-import { useFormattedText } from '@/shared/hooks/useFormattedText.tsx';
+import { useFormattedText } from '@/shared/hooks';
 import { CodeWS, IconArrow } from '@/shared/ui';
 import { TableSyntaxBreakdown } from './table/TableSyntaxBreakdown.tsx';
 import styles from './UtilityTypeCard.module.css';

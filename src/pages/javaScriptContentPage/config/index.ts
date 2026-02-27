@@ -3,6 +3,7 @@ import { configTypesOfData } from './configTypesOfData.ts';
 import { configIntroductionToJS } from './configIntroductionToJS.ts';
 import { configOperatorsAndSpecialValues } from './configOperatorsAndSpecialValues.ts';
 import { configVariables } from './configVariables.ts';
+import { configNumericSystems } from './configNumericSystems.ts';
 
 export const config: IConfig = {
   [Topics.BASIC]: [
@@ -10,5 +11,6 @@ export const config: IConfig = {
     configTypesOfData,
     configOperatorsAndSpecialValues,
     configVariables,
+    configNumericSystems,
   ],
 };

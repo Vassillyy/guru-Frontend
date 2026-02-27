@@ -1,16 +1,9 @@
-.mainContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.searchContainer {
+.container {
   position: relative;
   width: 250px;
 }
 
-.searchInput {
+.input {
   width: 100%;
   padding: 8px 25px 8px 12px;
   border: 1px solid #a5d6a7;
@@ -20,16 +13,16 @@
   transition: border-color 0.2s ease;
 }
 
-.searchInput:focus {
+.input:focus {
   outline: none;
   border-color: #2e7d32;
 }
 
-.searchInput::placeholder {
+.input::placeholder {
   color: #aaa;
 }
 
-.clearSearch {
+.clear {
   position: absolute;
   right: 8px;
   top: 50%;

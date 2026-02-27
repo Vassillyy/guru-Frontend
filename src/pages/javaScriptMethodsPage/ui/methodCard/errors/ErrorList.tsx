@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import type { IMethod } from '@/entities/method';
-import { useFormattedText } from '@/shared/hooks/useFormattedText.tsx';
+import { useFormattedText } from '@/shared/hooks';
 import styles from './ErorsList.module.css';
 
 export const ErrorList: FC<{

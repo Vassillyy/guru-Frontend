@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import type { ITopic } from '@/entities/topic';
-import { useFormattedText } from '@/shared/hooks/useFormattedText.tsx';
+import { useFormattedText } from '@/shared/hooks';
 import { SectionItem } from './sectionItem/SectionItem.tsx';
 import styles from './JavaScriptTopicPage.module.css';
 

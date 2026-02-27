@@ -1,6 +1,6 @@
 import { type IUtilityType, UtilityCategory } from '@/entities/utilityType';
 
-export const configUtilityTypes: Record<UtilityCategory, IUtilityType[]> = {
+export const config: Record<UtilityCategory, IUtilityType[]> = {
   [UtilityCategory.OBJECT]: [
     {
       name: 'Partial<T>',

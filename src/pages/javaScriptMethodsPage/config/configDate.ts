@@ -23,11 +23,11 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
         {
           name: 'month',
-          description: 'Месяц (0-11), необязательный параметр',
+          description: 'Месяц (0-11)',
         },
         {
           name: 'date',
-          description: 'День месяца (1-31), необязательный параметр',
+          description: 'День месяца (1-31)',
         },
       ],
       description:
@@ -59,11 +59,11 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
         {
           name: 'month',
-          description: 'Месяц (0-11), необязательный параметр',
+          description: 'Месяц (0-11)',
         },
         {
           name: 'date',
-          description: 'День месяца (1-31), необязательный параметр',
+          description: 'День месяца (1-31)',
         },
       ],
       description:
@@ -80,7 +80,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
       description:
         'Метод объекта Date, возвращает месяц исходной даты по местному времени. Месяцы нумеруются с 0 (январь) до 11 (декабрь).',
       example:
-        "const summer = new Date('2024-06-15');\nconsole.log(summer.getMonth()); // месяц по местному времени (5 - июнь по Москве)",
+        "const summer = new Date('2024-06-15');\nconst month = summer.getMonth();\nconsole.log(month); // месяц по местному времени (5 - июнь по Москве)",
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-date.prototype.getmonth',
       errors: 'TypeError — если this не является датой.',
@@ -95,7 +95,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
         {
           name: 'date',
-          description: 'День месяца (1-31), необязательный параметр',
+          description: 'День месяца (1-31)',
         },
       ],
       description:
@@ -127,7 +127,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
         {
           name: 'date',
-          description: 'День месяца (1-31), необязательный параметр',
+          description: 'День месяца (1-31)',
         },
       ],
       description:
@@ -144,7 +144,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
       description:
         'Метод объекта Date, возвращает день месяца (от 1 до 31) исходной даты по местному времени.',
       example:
-        "const birthday = new Date('2024-05-20');\nconsole.log(birthday.getDate()); // день по местному времени (20 по Москве)",
+        "const birthday = new Date('2024-05-20');\nconst day = birthday.getDate();\nconsole.log(day); // день по местному времени (20 по Москве)",
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-date.prototype.getdate',
       errors: 'TypeError — если this не является датой.',
@@ -200,7 +200,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
       description:
         'Метод объекта Date, возвращает часы (0-23) исходной даты по местному времени.',
       example:
-        "const morning = new Date('2024-05-20T09:15:00');\nconsole.log(morning.getHours()); // часы по местному времени (9 по Москве)",
+        "const morning = new Date('2024-05-20T09:15:00');\nconst hours = morning.getHours();\nconsole.log(hours); // часы по местному времени (9 по Москве)",
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-date.prototype.gethours',
       errors: 'TypeError — если this не является датой.',
@@ -215,15 +215,15 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
         {
           name: 'minutes',
-          description: 'Минуты (0-59), необязательный параметр',
+          description: 'Минуты (0-59)',
         },
         {
           name: 'seconds',
-          description: 'Секунды (0-59), необязательный параметр',
+          description: 'Секунды (0-59)',
         },
         {
           name: 'milliseconds',
-          description: 'Миллисекунды (0-999), необязательный параметр',
+          description: 'Миллисекунды (0-999)',
         },
       ],
       description:
@@ -255,15 +255,15 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
         {
           name: 'minutes',
-          description: 'Минуты (0-59), необязательный параметр',
+          description: 'Минуты (0-59)',
         },
         {
           name: 'seconds',
-          description: 'Секунды (0-59), необязательный параметр',
+          description: 'Секунды (0-59)',
         },
         {
           name: 'milliseconds',
-          description: 'Миллисекунды (0-999), необязательный параметр',
+          description: 'Миллисекунды (0-999)',
         },
       ],
       description:
@@ -295,11 +295,11 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
         {
           name: 'seconds',
-          description: 'Секунды (0-59), необязательный параметр',
+          description: 'Секунды (0-59)',
         },
         {
           name: 'milliseconds',
-          description: 'Миллисекунды (0-999), необязательный параметр',
+          description: 'Миллисекунды (0-999)',
         },
       ],
       description:
@@ -331,11 +331,11 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
         {
           name: 'seconds',
-          description: 'Секунды (0-59), необязательный параметр',
+          description: 'Секунды (0-59)',
         },
         {
           name: 'milliseconds',
-          description: 'Миллисекунды (0-999), необязательный параметр',
+          description: 'Миллисекунды (0-999)',
         },
       ],
       description:
@@ -367,7 +367,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
         {
           name: 'milliseconds',
-          description: 'Миллисекунды (0-999), необязательный параметр',
+          description: 'Миллисекунды (0-999)',
         },
       ],
       description:
@@ -399,7 +399,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
         {
           name: 'milliseconds',
-          description: 'Миллисекунды (0-999), необязательный параметр',
+          description: 'Миллисекунды (0-999)',
         },
       ],
       description:
@@ -416,7 +416,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
       description:
         'Метод объекта Date, возвращает миллисекунды (0-999) исходной даты по местному времени.',
       example:
-        "const date = new Date('2024-01-01T12:30:45.500');\nconst milliseconds = date.getMilliseconds();\nconsole.log(milliseconds); // миллисекунды по местному времени (500 по Москве)",
+        "const date = new Date('2024-01-01T12:30:45.500');\nconst mils = date.getMilliseconds();\nconsole.log(mils); // миллисекунды по местному времени (500 по Москве)",
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-date.prototype.getmilliseconds',
       errors: 'TypeError — если this не является датой.',
@@ -472,7 +472,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
       description:
         'Метод объекта Date, возвращает день недели (0-6) исходной даты по местному времени, где 0 соответствует воскресенью.',
       example:
-        "const date = new Date('2024-01-01');\nconst day = date.getDay();\nconsole.log(day); // день недели по местному времени (1 - понедельник по Москве)",
+        "const date = new Date('2024-01-01');\nconst day = date.getDay();\nconsole.log(day); // 1 (понедельник по Москве)",
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-date.prototype.getday',
       errors: 'TypeError — если this не является датой.',
@@ -566,27 +566,27 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
         {
           name: 'month',
-          description: 'Месяц (0-11), необязательный параметр',
+          description: 'Месяц (0-11)',
         },
         {
           name: 'day',
-          description: 'День месяца (1-31), необязательный параметр',
+          description: 'День месяца (1-31)',
         },
         {
           name: 'hour',
-          description: 'Часы (0-23), необязательный параметр',
+          description: 'Часы (0-23)',
         },
         {
           name: 'minute',
-          description: 'Минуты (0-59), необязательный параметр',
+          description: 'Минуты (0-59)',
         },
         {
           name: 'second',
-          description: 'Секунды (0-59), необязательный параметр',
+          description: 'Секунды (0-59)',
         },
         {
           name: 'millisecond',
-          description: 'Миллисекунды (0-999), необязательный параметр',
+          description: 'Миллисекунды (0-999)',
         },
       ],
       description:

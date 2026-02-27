@@ -19,3 +19,13 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.noResult {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: grey;
+}

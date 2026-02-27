@@ -1,9 +1,10 @@
 import { type FC } from 'react';
-import { labelMethods } from '@/entities/method';
+import { type IMethod, labelMethods, type Methods } from '@/entities/method';
+import { Filters } from '@/feature/filters';
 import { PageContainer } from '@/shared/ui';
+import { useFilters, useFilteredData, useInfiniteScroll } from '@/shared/hooks';
 import { MethodCard } from './methodCard/MethodCard.tsx';
-import { Filters } from './filters/Filters.tsx';
-import { useFilters, useMethodsData, useInfiniteScroll } from '../hooks';
+import { config } from '../config';
 import styles from './JavaScriptMethodsPage.module.css';
 
 export const JavaScriptMethodsPage: FC = () => {
@@ -15,13 +16,17 @@ export const JavaScriptMethodsPage: FC = () => {
     searchChange,
     searchReset,
     loadMore,
-  } = useFilters();
+  } = useFilters<Methods>();
 
-  const { pillItems, getMethodsToShow, hasMore } = useMethodsData({
-    activeCategories,
-    searchQuery,
-    loadedCount,
-  });
+  const { pillItems, itemsToShow, hasMore } = useFilteredData<IMethod, Methods>(
+    {
+      activeCategories,
+      searchQuery,
+      loadedCount,
+      config,
+      getLabel: (category) => labelMethods[category as Methods],
+    },
+  );
 
   const sentinelRef = useInfiniteScroll({
     hasMore,
@@ -32,16 +37,16 @@ export const JavaScriptMethodsPage: FC = () => {
     <PageContainer
       title="API JavaScript"
       filtersSlot={
-        <Filters
+        <Filters<Methods>
           pillItems={pillItems}
-          searchQuery={searchQuery}
           onFilterChange={filterChange}
+          searchQuery={searchQuery}
           onSearchChange={searchChange}
           onSearchReset={searchReset}
         />
       }
     >
-      {Object.entries(getMethodsToShow).map(([category, methods]) => (
+      {Object.entries(itemsToShow).map(([category, methods]) => (
         <div key={category} className={styles.categorySection}>
           <h2 className={styles.categoryTitle}>
             {labelMethods[category as keyof typeof labelMethods]}
@@ -54,7 +59,7 @@ export const JavaScriptMethodsPage: FC = () => {
         </div>
       ))}
 
-      {Object.entries(getMethodsToShow).length === 0 && (
+      {Object.entries(itemsToShow).length === 0 && (
         <div className={styles.noResult}>По данному запросу данных нет</div>
       )}
 

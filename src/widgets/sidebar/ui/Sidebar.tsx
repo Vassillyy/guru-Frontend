@@ -54,7 +54,7 @@ export const Sidebar = () => {
                 : false;
 
               return (
-                <li key={item.path || item.id} className={styles.navItem}>
+                <li key={item.id || item.path} className={styles.navItem}>
                   <NavItem
                     to={item.path}
                     isActive={isActive(item.path)}
