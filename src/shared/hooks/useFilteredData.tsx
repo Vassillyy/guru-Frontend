@@ -2,8 +2,8 @@ import { useMemo } from 'react';
 
 interface IUseFilteredDataProps<TData, TCategory extends string> {
   activeCategories: TCategory[];
-  searchQuery: string;
-  loadedCount: number;
+  searchQuery?: string;
+  loadedCount?: number;
   config: Record<TCategory, TData[]>;
   getLabel: (category: TCategory) => string;
 }
@@ -13,8 +13,8 @@ export const useFilteredData = <
   TCategory extends string,
 >({
   activeCategories,
-  searchQuery,
-  loadedCount,
+  searchQuery = '',
+  loadedCount = Infinity,
   config,
   getLabel,
 }: IUseFilteredDataProps<TData, TCategory>) => {

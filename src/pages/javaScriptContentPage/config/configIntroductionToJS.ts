@@ -2,7 +2,7 @@ import { type ITopic } from '@/entities/topic';
 
 export const configIntroductionToJS: ITopic = {
   value: 'javascript-introduction',
-  title: 'Введение в JavaScript',
+  name: 'Введение в JavaScript',
   content: {
     introduction:
       'JavaScript — это высокоуровневый, динамически типизированный, слабо типизированный, однопоточный, встраиваемый, интерпретируемый и мультипарадигменный язык программирования.',

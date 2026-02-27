@@ -2,7 +2,7 @@ import { type ITopic } from '@/entities/topic';
 
 export const configTypesOfData: ITopic = {
   value: 'data-types',
-  title: 'Типы данных',
+  name: 'Типы данных',
   content: {
     introduction:
       'В JavaScript существует 8 типов данных. Из них 7 — примитивные, а один — ссылочный.',

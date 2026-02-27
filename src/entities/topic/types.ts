@@ -1,6 +1,6 @@
 export interface ITopic {
   value: string;
-  title: string;
+  name: string;
   content: {
     introduction: string;
     sections: ITopicSection[];

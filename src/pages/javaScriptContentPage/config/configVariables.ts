@@ -2,7 +2,7 @@ import { type ITopic } from '@/entities/topic';
 
 export const configVariables: ITopic = {
   value: 'variables',
-  title: 'Переменные',
+  name: 'Переменные',
   content: {
     introduction:
       'JavaScript предоставляет три способа объявления переменных: let, const и var. Каждый имеет свои особенности.',

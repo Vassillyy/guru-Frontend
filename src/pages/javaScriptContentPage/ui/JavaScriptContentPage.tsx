@@ -1,6 +1,7 @@
 import type { FC } from 'react';
+import { labelTopics, Topics, type ITopic } from '@/entities/topic';
 import { Pills, PageContainer } from '@/shared/ui';
-import { labelTopics, Topics } from '@/entities/topic';
+import { useFilteredData } from '@/shared/hooks';
 import { useTopicsData } from '../hooks/useTopicsData.ts';
 import { TopicGroup } from './TopicGroup/TopicGroup.tsx';
 import { config } from '../config';
@@ -8,6 +9,7 @@ import styles from './JavaScriptContentPage.module.css';
 
 export const JavaScriptContentPage: FC = () => {
   const {
+    activeTopics,
     setActiveTopics,
     expandedGroups,
     topicsToShow,
@@ -15,10 +17,11 @@ export const JavaScriptContentPage: FC = () => {
     navigateToTopic,
   } = useTopicsData();
 
-  const pillItems = Object.keys(config).map((topic) => ({
-    label: labelTopics[topic as Topics],
-    value: topic as Topics,
-  }));
+  const { pillItems } = useFilteredData<ITopic, Topics>({
+    activeCategories: activeTopics,
+    config,
+    getLabel: (category) => labelTopics[category],
+  });
 
   return (
     <PageContainer

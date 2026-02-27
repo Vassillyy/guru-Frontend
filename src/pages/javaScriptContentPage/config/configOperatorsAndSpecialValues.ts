@@ -2,7 +2,7 @@ import { type ITopic } from '@/entities/topic';
 
 export const configOperatorsAndSpecialValues: ITopic = {
   value: 'operators-special-values',
-  title: 'Операторы и специальные значения',
+  name: 'Операторы и специальные значения',
   content: {
     introduction:
       'JavaScript предоставляет различные операторы для работы с данными и специальные значения, которые имеют уникальное поведение.',

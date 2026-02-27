@@ -27,6 +27,7 @@ export const useTopicsData = () => {
   };
 
   return {
+    activeTopics,
     setActiveTopics,
     expandedGroups,
     topicsToShow,

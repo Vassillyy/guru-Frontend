@@ -2,7 +2,7 @@ import { type ITopic } from '@/entities/topic';
 
 export const configNumericSystems: ITopic = {
   value: 'numeric-systems',
-  title: 'Системы счисления и числовые литералы',
+  name: 'Системы счисления и числовые литералы',
   content: {
     introduction:
       'В JavaScript поддерживаются различные системы счисления для записи чисел: двоичная, восьмеричная и шестнадцатеричная. Это удобно для работы с битовыми операциями, цветами и другими низкоуровневыми задачами.',

@@ -40,7 +40,7 @@ export const TopicGroup: FC<ITopicGroupProps> = ({
               onClick={() => onSectionClick(section)}
             >
               <div className={styles.sectionNumber}>{index + 1}</div>
-              <div className={styles.sectionContent}>{section.title}</div>
+              <div className={styles.sectionContent}>{section.name}</div>
               <div className={styles.sectionArrow}>→</div>
             </div>
           ))}
