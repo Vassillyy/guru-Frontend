@@ -23,7 +23,7 @@ export const JavaScriptTopicPage: FC = () => {
         <button className={styles.backButton} onClick={() => navigate(-1)}>
           ← Назад
         </button>
-        <h1 className={styles.title}>{topicData.title}</h1>
+        <h1 className={styles.title}>{topicData.name}</h1>
       </div>
 
       <div className={styles.content}>

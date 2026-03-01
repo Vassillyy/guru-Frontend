@@ -2,7 +2,14 @@
   margin: 0;
 }
 
-.sectionTitle {
+.header {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+}
+
+.title {
   font-size: 20px;
   font-weight: 500;
   color: #333;
@@ -27,4 +34,18 @@
   line-height: 1.6;
   border-radius: 8px;
   margin-bottom: 10px;
+}
+
+.buttonArrow {
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.buttonArrow svg {
+  height: 100%;
+  width: 100%;
+  color: #191970;
 }
