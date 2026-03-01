@@ -24,7 +24,7 @@ export const JavaScriptMethodsPage: FC = () => {
       searchQuery,
       loadedCount,
       config,
-      getLabel: (category) => labelMethods[category as Methods],
+      getLabel: (category) => labelMethods[category],
     },
   );
 
