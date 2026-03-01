@@ -63,11 +63,11 @@ export const configIntroductionToJS: ITopic = {
       {
         title: 'Мультипарадигменный:',
         content:
-          'JavaScript поддерживает несколько парадигм программирования: императивную (процедурную), объектно-ориентированную (ООП), функциональную (ФП) и прототипную. Парадигмы могут комбинироваться в рамках одного приложения.',
+          'JavaScript поддерживает несколько парадигм программирования: императивную (структурную), объектно-ориентированную (ООП) и функциональную (ФП). Парадигмы могут комбинироваться в рамках одного приложения.',
         addition:
-          'Императивный подход — описание последовательности инструкций, явно указывающих, как выполнить задачу. ООП —  организация кода вокруг объектов. Функциональный — акцент на функциях как основных строительных блоках. Прототипный — механизм наследования через прототипы, где объекты могут напрямую наследовать от других объектов.',
+          'Императивный подход — описание последовательности инструкций, явно указывающих, как выполнить задачу. ООП —  организация кода вокруг объектов (классы, прототипы). Функциональный — акцент на функциях как основных строительных блоках.',
         examples:
-          '// Императивный стиль (как сделать)\nlet result = [];\nfor (let i = 0; i < numbers.length; i++) {\n  if (numbers[i] > 5) {\n    result.push(numbers[i]);\n  }\n}\n\n// Функциональный стиль (что сделать)\nconst filtered = numbers.filter(n => n > 5);\nconst sum = numbers.reduce((acc, n) => acc + n, 0);\n\n// ООП (классы)\nclass User {\n  constructor(name) {\n    this.name = name;\n  }\n  greet() {\n    return `Hello, ${this.name}!`;\n  }\n}\n\n// Прототипное программирование\nconst animal = { eats: true };\nconst rabbit = Object.create(animal);\nrabbit.jumps = true;',
+          '// Императивный стиль (как сделать)\nlet result = [];\nfor (let i = 0; i < numbers.length; i++) {\n  if (numbers[i] > 5) {\n    result.push(numbers[i]);\n  }\n}\n\n// Функциональный стиль (что сделать)\nconst filtered = numbers.filter(n => n > 5);\nconst sum = numbers.reduce((acc, n) => acc + n, 0);\n\n// ООП (классы)\nclass User {\n  constructor(name) {\n    this.name = name;\n  }\n  greet() {\n    return `Hello, ${this.name}!`;\n  }\n}\n// ООП (прототипы)\nconst animal = { eats: true };\nconst rabbit = Object.create(animal);\nrabbit.jumps = true;',
       },
     ],
   },
