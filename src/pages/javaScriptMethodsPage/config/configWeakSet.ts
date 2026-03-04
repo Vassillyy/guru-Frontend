@@ -12,9 +12,13 @@ export const configWeakSet: Record<Methods.WEAK_SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakSet, добавляет значение (если оно уже есть во множестве, то ничего не делает), возвращает тот же объект WeakSet.',
+        'Метод объекта WeakSet, добавляет (value) во множество (если оно уже есть ,то ничего не делает), возвращает тот же объект WeakSet.',
       example:
-        'const weakSet = new WeakSet();\nconst obj = {};\nweakSet.add(obj);\nconst hasObj = weakSet.has(obj);\nconsole.log(hasObj); // true',
+        'const weakSet = new WeakSet();\n' +
+        'const obj = {};\n\n' +
+        'weakSet.add(obj);\n\n' +
+        'const hasObj = weakSet.has(obj);\n' +
+        'console.log(hasObj); // true',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakset.prototype.add',
       errors:
@@ -30,9 +34,12 @@ export const configWeakSet: Record<Methods.WEAK_SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakSet, возвращает true, если значение присутствует в множестве, иначе false.',
+        'Метод объекта WeakSet, возвращает true, если (value) присутствует в множестве, иначе false.',
       example:
-        'const obj = {};\nconst weakSet = new WeakSet([obj]);\nconst hasObj = weakSet.has(obj);\nconsole.log(hasObj); // true',
+        'const obj = {};\n' +
+        'const weakSet = new WeakSet([obj]);\n' +
+        'const hasObj = weakSet.has(obj);\n' +
+        'console.log(hasObj); // true',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakset.prototype.has',
       errors:
@@ -48,9 +55,13 @@ export const configWeakSet: Record<Methods.WEAK_SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakSet, удаляет значение и возвращает true, если оно было в множестве на момент вызова, иначе false.',
+        'Метод объекта WeakSet, удаляет (value) и возвращает true, если оно было в множестве на момент вызова, иначе false.',
       example:
-        'const obj = {};\nconst weakSet = new WeakSet([obj]);\nconst deleted = weakSet.delete(obj);\nconsole.log(deleted); // true\nconsole.log(weakSet.has(obj)); // false',
+        'const obj = {};\n' +
+        'const weakSet = new WeakSet([obj]);\n' +
+        'const deleted = weakSet.delete(obj);\n' +
+        'console.log(deleted); // true\n' +
+        'console.log(weakSet.has(obj)); // false',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakset.prototype.delete',
       errors:

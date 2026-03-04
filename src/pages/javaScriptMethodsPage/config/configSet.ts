@@ -8,7 +8,9 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
       description:
         'Свойство объекта Set, возвращает количество элементов. Свойство только для чтения (read-only).',
       example:
-        'const set = new Set([1, 2, 3]);\nconst size = set.size;\nconsole.log(size); // 3',
+        'const set = new Set([1, 2, 3]);\n' +
+        'const size = set.size;\n' +
+        'console.log(size); // 3',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-get-set.prototype.size',
       errors:
@@ -20,7 +22,11 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
       parameters: [
         {
           name: 'callbackFn',
-          description: 'Функция, вызываемая для каждого значения в множестве',
+          description:
+            'Функция, которая будет вызвана для каждого значения в множестве. Принимает три аргумента:\n' +
+            '• value - (значение текущего элемента)\n' +
+            '• key - (то же значение, для совместимости с Map)\n' +
+            '• set - (сам объект Set, по которому производится итерация).',
         },
         {
           name: 'thisArg',
@@ -28,9 +34,12 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, вызывает указанную функцию для каждого значения коллекции. Эта функция может принимать до трёх аргументов: значение, снова значение (для совместимости с объектом Map), объект по которому производится итерация. Возвращает undefined.',
+        'Метод объекта Set, вызывает (callbackFn) для каждого значения коллекциив порядке их добавления. Возвращает undefined.',
       example:
-        'const set = new Set([1, 2, 3]);\nset.forEach((value) => {\n console.log(value); // 1, 2, 3\n});',
+        'const set = new Set([1, 2, 3]);\n\n' +
+        'set.forEach((value) => {\n' +
+        ' console.log(value); // 1, 2, 3\n' +
+        '});',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.foreach',
       errors:
@@ -46,9 +55,12 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, добавляет значение (если оно уже есть во множестве, то ничего не делает), возвращает тот же объект Set.',
+        'Метод объекта Set, добавляет (value) (если оно уже есть во множестве, то ничего не делает), возвращает тот же объект Set.',
       example:
-        'const set = new Set([1, 2]);\nset.add(3);\nconst hasValue = set.has(3);\nconsole.log(hasValue); // true',
+        'const set = new Set([1, 2]);\n\n' +
+        'set.add(3);\n\n' +
+        'const hasValue = set.has(3);\n' +
+        'console.log(hasValue); // true',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.add',
       errors: 'TypeError — если this не является множеством (set или weakSet).',
@@ -63,9 +75,11 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, возвращает true, если значение присутствует в множестве, иначе false.',
+        'Метод объекта Set, возвращает true, если (value) присутствует в множестве, иначе false.',
       example:
-        'const set = new Set([1, 2, 3]);\nconst hasValue = set.has(2);\nconsole.log(hasValue); // true',
+        'const set = new Set([1, 2, 3]);\n' +
+        'const hasValue = set.has(2);\n' +
+        'console.log(hasValue); // true',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.has',
       errors: 'TypeError — если this не является множеством (set или weakSet).',
@@ -80,9 +94,12 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, удаляет значение и возвращает true, если оно было в множестве на момент вызова, иначе false.',
+        'Метод объекта Set, удаляет (value) и возвращает true, если оно было в множестве на момент вызова, иначе false.',
       example:
-        'const set = new Set([1, 2, 3]);\nconst deleted = set.delete(2);\nconsole.log(deleted); // true\nconsole.log(set.has(2)); // false',
+        'const set = new Set([1, 2, 3]);\n' +
+        'const deleted = set.delete(2);\n' +
+        'console.log(deleted); // true\n' +
+        'console.log(set.has(2)); // false',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.delete',
       errors: 'TypeError — если this не является множеством (set или weakSet).',
@@ -92,7 +109,9 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
       syntax: 'set.clear()',
       description: 'Метод объекта Set, очищает коллекцию от всех элементов.',
       example:
-        'const set = new Set([1, 2, 3]);\nset.clear();\nconsole.log(set.size); // 0',
+        'const set = new Set([1, 2, 3]);\n\n' +
+        'set.clear();\n\n' +
+        'console.log(set.size); // 0',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.clear',
       errors:
@@ -102,9 +121,11 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
       name: 'keys()',
       syntax: 'set.keys()',
       description:
-        'Метод объекта Set, возвращает итерируемый объект по ключам множества (ключами в Set являются значения). Для Set методы keys() и values() идентичны.',
+        'Метод объекта Set, возвращает новый итератор, содержащий значения множества в порядке их добавления. Для Set методы keys() и values() идентичны (значения являются и ключами).',
       example:
-        'const set = new Set([1, 2, 3]);\nconst keys = Array.from(set.keys());\nconsole.log(keys); // [1, 2, 3]',
+        'const set = new Set([1, 2, 3]);\n' +
+        'const keys = Array.from(set.keys());\n' +
+        'console.log(keys); // [1, 2, 3]',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.keys',
       errors:
@@ -114,9 +135,11 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
       name: 'values()',
       syntax: 'set.values()',
       description:
-        'Метод объекта Set, возвращает итерируемый объект по значениям множества. Для Set методы values() и keys() идентичны.',
+        'Метод объекта Set, возвращает новый итератор, содержащий значения множества в порядке их добавления. Для Set методы values() и keys() идентичны.',
       example:
-        'const set = new Set([1, 2, 3]);\nconst values = Array.from(set.values());\nconsole.log(values); // [1, 2, 3]',
+        'const set = new Set([1, 2, 3]);\n' +
+        'const values = Array.from(set.values());\n' +
+        'console.log(values); // [1, 2, 3]',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.values',
       errors:
@@ -126,9 +149,11 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
       name: 'entries()',
       syntax: 'set.entries()',
       description:
-        'Метод объекта Set, возвращает итерируемый объект по парам вида [ключ, значение], этот вариант используется по умолчанию в for of. В Set ключ и значение одинаковы.',
+        'Метод объекта Set, возвращает новый итератор, содержащий пары [значение, значение] для каждого элемента множества в порядке их добавления. Этот вариант используется по умолчанию в цикле for of.',
       example:
-        'const set = new Set([1, 2, 3]);\nconst entries = Array.from(set.entries());\nconsole.log(entries); // [[1, 1], [2, 2], [3, 3]]',
+        'const set = new Set([1, 2, 3]);\n' +
+        'const entries = Array.from(set.entries());\n' +
+        'console.log(entries); // [[1, 1], [2, 2], [3, 3]]',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.entries',
       errors:
@@ -145,9 +170,13 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, возвращает новое множество, содержащее все элементы исходного множества и переданного множества.',
+        'Метод объекта Set, возвращает новое множество, содержащее все элементы исходного множества и (otherSet).',
       example:
-        'const set1 = new Set([1, 2]);\nconst set2 = new Set([2, 3]);\nconst unionSet = set1.union(set2);\nconst result = Array.from(unionSet);\nconsole.log(result); // [1, 2, 3]',
+        'const set1 = new Set([1, 2]);\n' +
+        'const set2 = new Set([2, 3]);\n' +
+        'const unionSet = set1.union(set2);\n' +
+        'const result = Array.from(unionSet);\n' +
+        'console.log(result); // [1, 2, 3]',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.union',
       errors:
@@ -163,9 +192,13 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, возвращает новое множество, содержащее только элементы, присутствующие в исходном множестве и в переданном множестве.',
+        'Метод объекта Set, возвращает новое множество, содержащее только элементы, присутствующие в исходном множестве и в (otherSet).',
       example:
-        'const set1 = new Set([1, 2, 3]);\nconst set2 = new Set([2, 3, 4]);\nconst intersectionSet = set1.intersection(set2);\nconst result = Array.from(intersectionSet);\nconsole.log(result); // [2, 3]',
+        'const set1 = new Set([1, 2, 3]);\n' +
+        'const set2 = new Set([2, 3, 4]);\n' +
+        'const intersectionSet = set1.intersection(set2);\n' +
+        'const result = Array.from(intersectionSet);\n' +
+        'console.log(result); // [2, 3]',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.intersection',
       errors:

@@ -16,9 +16,13 @@ export const configWeakMap: Record<Methods.WEAK_MAP, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakMap, записывает значение по ключу. Каждый вызов set() возвращает объект WeakMap, что позволяет использовать цепочки вызовов. Ключами в WeakMap могут быть только объекты.',
+        'Метод объекта WeakMap, записывает (value) по (key). Каждый вызов set() возвращает объект WeakMap, что позволяет использовать цепочки вызовов. Ключами в WeakMap могут быть только объекты.',
       example:
-        "const weakMap = new WeakMap();\nconst key = {};\nweakMap.set(key, 'value');\nconst result = weakMap.get(key);\nconsole.log(result); // 'value'",
+        'const weakMap = new WeakMap();\n' +
+        'const key = {};\n\n' +
+        "weakMap.set(key, 'value');\n\n" +
+        'const result = weakMap.get(key);\n' +
+        "console.log(result); // 'value'",
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakmap.prototype.set',
       errors:
@@ -35,9 +39,13 @@ export const configWeakMap: Record<Methods.WEAK_MAP, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakMap, возвращает значение по ключу или undefined если ключ отсутствует.',
+        'Метод объекта WeakMap, возвращает значение по (key) или undefined если ключ отсутствует.',
       example:
-        "const weakMap = new WeakMap();\nconst key = {};\nweakMap.set(key, 'data');\nconst value = weakMap.get(key);\nconsole.log(value); // 'data'",
+        'const weakMap = new WeakMap();\n' +
+        'const key = {};\n\n' +
+        "weakMap.set(key, 'data');\n\n" +
+        'const value = weakMap.get(key);\n' +
+        "console.log(value); // 'data'",
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakmap.prototype.get',
       errors:
@@ -53,9 +61,13 @@ export const configWeakMap: Record<Methods.WEAK_MAP, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakMap, возвращает true, если ключ присутствует в коллекции, иначе false.',
+        'Метод объекта WeakMap, возвращает true, если (key) присутствует в коллекции, иначе false.',
       example:
-        "const weakMap = new WeakMap();\nconst key = {};\nweakMap.set(key, 'value');\nconst hasKey = weakMap.has(key);\nconsole.log(hasKey); // true",
+        'const weakMap = new WeakMap();\n' +
+        'const key = {};\n\n' +
+        "weakMap.set(key, 'value');\n\n" +
+        'const hasKey = weakMap.has(key);\n' +
+        'console.log(hasKey); // true',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakmap.prototype.has',
       errors:
@@ -71,9 +83,13 @@ export const configWeakMap: Record<Methods.WEAK_MAP, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakMap, удаляет элемент (пару вида «ключ/значение») по ключу и возвращает true, если оно было в коллекции на момент вызова, иначе false.',
+        'Метод объекта WeakMap, удаляет элемент (пару вида «ключ/значение») по (key) и возвращает true, если оно было в коллекции на момент вызова, иначе false.',
       example:
-        "const weakMap = new WeakMap();\nconst key = {};\nweakMap.set(key, 'value');\nconst deleted = weakMap.delete(key);\nconsole.log(deleted); // true",
+        'const weakMap = new WeakMap();\n' +
+        'const key = {};\n\n' +
+        "weakMap.set(key, 'value');\n\n" +
+        'const deleted = weakMap.delete(key);\n' +
+        'console.log(deleted); // true',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakmap.prototype.delete',
       errors:
