@@ -12,9 +12,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает абсолютное значение числа (модуль числа).',
+        'Статический метод объекта Math, возвращает абсолютное значение (x) (модуль числа).',
       example:
-        'console.log(Math.abs(-5)); // 5\nconsole.log(Math.abs(5)); // 5\nconsole.log(Math.abs(0)); // 0',
+        'console.log(Math.abs(-5)); // 5\n' +
+        'console.log(Math.abs(5)); // 5\n' +
+        'console.log(Math.abs(0)); // 0',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.abs',
     },
@@ -28,9 +30,14 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает число, округлённое до ближайшего целого. Округляет по правилам математического округления (.5 округляется вверх).',
+        'Статический метод объекта Math, возвращает округлённое значение (x) до ближайшего целого. Округляет по правилам математического округления (.5 округляется вверх).',
       example:
-        'console.log(Math.round(4.2)); // 4\nconsole.log(Math.round(4.7)); // 5\nconsole.log(Math.round(4.5)); // 5 (округляется вверх)\nconsole.log(Math.round(-4.5)); // -4 (округляется вверх)\nconsole.log(Math.round(-4.2)); // -4\nconsole.log(Math.round(-4.7)); // -5',
+        'console.log(Math.round(4.2)); // 4\n' +
+        'console.log(Math.round(4.7)); // 5\n' +
+        'console.log(Math.round(4.5)); // 5 (округляется вверх)\n' +
+        'console.log(Math.round(-4.5)); // -4 (округляется вверх)\n' +
+        'console.log(Math.round(-4.2)); // -4\n' +
+        'console.log(Math.round(-4.7)); // -5',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.round',
     },
@@ -44,9 +51,13 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, округляет число вверх до ближайшего целого.',
+        'Статический метод объекта Math, возвращает значение (x), округлённое вверх до ближайшего целого.',
       example:
-        'console.log(Math.ceil(4.2)); // 5\nconsole.log(Math.ceil(4.7)); // 5\nconsole.log(Math.ceil(4.0)); // 4\nconsole.log(Math.ceil(-4.2)); // -4\nconsole.log(Math.ceil(-4.7)); // -4',
+        'console.log(Math.ceil(4.2)); // 5\n' +
+        'console.log(Math.ceil(4.7)); // 5\n' +
+        'console.log(Math.ceil(4.0)); // 4\n' +
+        'console.log(Math.ceil(-4.2)); // -4\n' +
+        'console.log(Math.ceil(-4.7)); // -4',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.ceil',
     },
@@ -60,9 +71,13 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, округляет число вниз до ближайшего целого.',
+        'Статический метод объекта Math, возвращает значение (x), округлённое вниз до ближайшего целого.',
       example:
-        'console.log(Math.floor(4.2)); // 4\nconsole.log(Math.floor(4.7)); // 4\nconsole.log(Math.floor(4.0)); // 4\nconsole.log(Math.floor(-4.2)); // -5\nconsole.log(Math.floor(-4.7)); // -5',
+        'console.log(Math.floor(4.2)); // 4\n' +
+        'console.log(Math.floor(4.7)); // 4\n' +
+        'console.log(Math.floor(4.0)); // 4\n' +
+        'console.log(Math.floor(-4.2)); // -5\n' +
+        'console.log(Math.floor(-4.7)); // -5',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.floor',
     },
@@ -76,9 +91,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает целую часть числа, отбрасывая дробную часть.',
+        'Статический метод объекта Math, возвращает целую часть (x), отбрасывая дробную часть.',
       example:
-        'console.log(Math.trunc(4.2)); // 4\nconsole.log(Math.trunc(-4.2)); // -4\nconsole.log(Math.trunc(0.123)); // 0',
+        'console.log(Math.trunc(4.2)); // 4\n' +
+        'console.log(Math.trunc(-4.2)); // -4\n' +
+        'console.log(Math.trunc(0.123)); // 0',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.trunc',
     },
@@ -96,9 +113,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возводит основание в указанную степень. Аналог оператора **.',
+        'Статический метод объекта Math, возводит (base) в (exponent). Аналог оператора **.',
       example:
-        'console.log(Math.pow(2, 3)); // 8\nconsole.log(2 ** 3); // 8 (аналог)\nconsole.log(Math.pow(2, -2)); // 0.25',
+        'console.log(Math.pow(2, 3)); // 8\n' +
+        'console.log(2 ** 3); // 8 (аналог)\n' +
+        'console.log(Math.pow(2, -2)); // 0.25',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.pow',
     },
@@ -112,9 +131,12 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает квадратный корень числа. Если передан отрицательный аргумент, возвращает NaN.',
+        'Статический метод объекта Math, возвращает квадратный корень (x). Если (x) отрицательный, возвращает NaN.',
       example:
-        'console.log(Math.sqrt(16)); // 4\nconsole.log(Math.sqrt(2)); // 1.4142135623730951\nconsole.log(Math.sqrt(0)); // 0\nconsole.log(Math.sqrt(-16)); // NaN',
+        'console.log(Math.sqrt(16)); // 4\n' +
+        'console.log(Math.sqrt(2)); // 1.4142135623730951\n' +
+        'console.log(Math.sqrt(0)); // 0\n' +
+        'console.log(Math.sqrt(-16)); // NaN',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.sqrt',
     },
@@ -128,9 +150,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает кубический корень числа.',
+        'Статический метод объекта Math, возвращает кубический корень (x).',
       example:
-        'console.log(Math.cbrt(27)); // 3\nconsole.log(Math.cbrt(-27)); // -3\nconsole.log(Math.cbrt(0)); // 0',
+        'console.log(Math.cbrt(27)); // 3\n' +
+        'console.log(Math.cbrt(-27)); // -3\n' +
+        'console.log(Math.cbrt(0)); // 0',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.cbrt',
     },
@@ -144,9 +168,12 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает квадратный корень из суммы квадратов аргументов (длину гипотенузы).',
+        'Статический метод объекта Math, возвращает квадратный корень из суммы квадратов (x1, x2, ...) (длину гипотенузы).',
       example:
-        'console.log(Math.hypot(3, 4)); // 5 (√(3² + 4²))\nconsole.log(Math.hypot(5, 12)); // 13\nconsole.log(Math.hypot(3, 4, 5)); // 7.0710678118654755\nconsole.log(Math.hypot(0, 0)); // 0',
+        'console.log(Math.hypot(3, 4)); // 5 (√(3² + 4²))\n' +
+        'console.log(Math.hypot(5, 12)); // 13\n' +
+        'console.log(Math.hypot(3, 4, 5)); // 7.0710678118654755\n' +
+        'console.log(Math.hypot(0, 0)); // 0',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.hypot',
     },
@@ -160,9 +187,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает e (число Эйлера, ≈2.718) в степени x.',
+        'Статический метод объекта Math, возвращает e (число Эйлера, ≈2.718) в (x).',
       example:
-        'console.log(Math.exp(0)); // 1\nconsole.log(Math.exp(1)); // 2.718281828459045\nconsole.log(Math.exp(2)); // 7.38905609893065',
+        'console.log(Math.exp(0)); // 1\n' +
+        'console.log(Math.exp(1)); // 2.718281828459045\n' +
+        'console.log(Math.exp(2)); // 7.38905609893065',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.exp',
     },
@@ -176,9 +205,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает результат вычисления e^x - 1. Используется для повышения точности вычислений при очень малых значениях x, где обычное вычисление Math.exp(x) - 1 может давать погрешность из-за особенностей представления чисел с плавающей точкой.',
+        'Статический метод объекта Math, возвращает e (число Эйлера, ≈2.718) в (x) минус 1 (e^x - 1). Обеспечивает высокую точность при очень малых значениях (x). Обычное вычисление Math.exp(x) - 1 может давать погрешность из-за особенностей представления чисел с плавающей точкой.',
       example:
-        'console.log(Math.expm1(0)); // 0\nconsole.log(Math.expm1(1)); // 1.718281828459045\nconsole.log(Math.expm1(0.000001)); // 0.0000010000005000001665',
+        'console.log(Math.expm1(0)); // 0\n' +
+        'console.log(Math.expm1(1)); // 1.718281828459045\n' +
+        'console.log(Math.expm1(0.000001)); // 0.0000010000005000001665',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.expm1',
     },
@@ -193,9 +224,13 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает натуральный логарифм числа (по основанию e).',
+        'Статический метод объекта Math, возвращает натуральный логарифм (x) по основанию e. Если (x) отрицательный, возвращает NaN.',
       example:
-        'console.log(Math.log(1)); // 0\nconsole.log(Math.log(Math.E)); // 1\nconsole.log(Math.log(10)); // 2.302585092994046\nconsole.log(Math.log(0)); // -Infinity\nconsole.log(Math.log(-1)); // NaN',
+        'console.log(Math.log(1)); // 0\n' +
+        'console.log(Math.log(Math.E)); // 1\n' +
+        'console.log(Math.log(10)); // 2.302585092994046\n' +
+        'console.log(Math.log(0)); // -Infinity\n' +
+        'console.log(Math.log(-1)); // NaN',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.log',
     },
@@ -210,9 +245,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает логарифм числа по основанию 10.',
+        'Статический метод объекта Math, возвращает логарифм (x) по основанию 10.',
       example:
-        'console.log(Math.log10(1)); // 0\nconsole.log(Math.log10(10)); // 1\nconsole.log(Math.log10(100)); // 2',
+        'console.log(Math.log10(1)); // 0\n' +
+        'console.log(Math.log10(10)); // 1\n' +
+        'console.log(Math.log10(100)); // 2',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.log10',
     },
@@ -226,9 +263,12 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает логарифм числа по основанию 2.',
+        'Статический метод объекта Math, возвращает логарифм (x) по основанию 2.',
       example:
-        'console.log(Math.log2(1)); // 0\nconsole.log(Math.log2(2)); // 1\nconsole.log(Math.log2(4)); // 2\nconsole.log(Math.log2(8)); // 3',
+        'console.log(Math.log2(1)); // 0\n' +
+        'console.log(Math.log2(2)); // 1\n' +
+        'console.log(Math.log2(4)); // 2\n' +
+        'console.log(Math.log2(8)); // 3',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.log2',
     },
@@ -242,9 +282,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает натуральный логарифм от 1 + x. Обеспечивает высокую точность для очень малых значений x, где обычное вычисление Math.log(1 + x) может давать существенную погрешность из-за потери значащих разрядов при округлении.',
+        'Статический метод объекта Math, возвращает натуральный логарифм от (1 + x). Обеспечивает высокую точность для очень малых значений x, где обычное вычисление Math.log(1 + x) может давать существенную погрешность из-за потери значащих разрядов при округлении.',
       example:
-        'console.log(Math.log1p(0)); // 0\nconsole.log(Math.log1p(1)); // 0.6931471805599453\nconsole.log(Math.log1p(0.0001)); // 0.00009999500033330834',
+        'console.log(Math.log1p(0)); // 0\n' +
+        'console.log(Math.log1p(1)); // 0.6931471805599453\n' +
+        'console.log(Math.log1p(0.0001)); // 0.00009999500033330834',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.log1p',
     },
@@ -257,10 +299,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
           description: 'Угол в радианах',
         },
       ],
-      description:
-        'Статический метод объекта Math, возвращает синус угла (в радианах).',
+      description: 'Статический метод объекта Math, возвращает синус (x).',
       example:
-        'console.log(Math.sin(0)); // 0\nconsole.log(Math.sin(Math.PI / 2)); // 1\nconsole.log(Math.sin(Math.PI)); // 1.2246467991473532e-16 (≈0)',
+        'console.log(Math.sin(0)); // 0\n' +
+        'console.log(Math.sin(Math.PI / 2)); // 1\n' +
+        'console.log(Math.sin(Math.PI)); // 1.2246467991473532e-16 (≈0)',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.sin',
     },
@@ -274,9 +317,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает косинус угла (в радианах).',
+        'Статический метод объекта Math, возвращает косинус угла (x).',
       example:
-        'console.log(Math.cos(0)); // 1\nconsole.log(Math.cos(Math.PI / 2)); // 6.123233995736766e-17 (≈0)\nconsole.log(Math.cos(Math.PI)); // -1',
+        'console.log(Math.cos(0)); // 1\n' +
+        'console.log(Math.cos(Math.PI / 2)); // 6.123233995736766e-17 (≈0)\n' +
+        'console.log(Math.cos(Math.PI)); // -1',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.cos',
     },
@@ -290,9 +335,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает тангенс угла (в радианах).',
+        'Статический метод объекта Math, возвращает тангенс угла (x).',
       example:
-        'console.log(Math.tan(0)); // 0\nconsole.log(Math.tan(Math.PI / 4)); // 0.9999999999999999 (≈1)\nconsole.log(Math.tan(Math.PI / 2)); // 1.633123935319537e+16',
+        'console.log(Math.tan(0)); // 0\n' +
+        'console.log(Math.tan(Math.PI / 4)); // 0.9999999999999999 (≈1)\n' +
+        'console.log(Math.tan(Math.PI / 2)); // 1.633123935319537e+16',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.tan',
     },
@@ -306,9 +353,12 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает арксинус числа (угол в радианах).',
+        'Статический метод объекта Math, возвращает арксинус (x) в радианах.',
       example:
-        'console.log(Math.asin(0)); // 0\nconsole.log(Math.asin(1)); // 1.5707963267948966 (π/2)\nconsole.log(Math.asin(-1)); // -1.5707963267948966 (-π/2)\nconsole.log(Math.asin(0.5)); // 0.5235987755982989 (π/6)',
+        'console.log(Math.asin(0)); // 0\n' +
+        'console.log(Math.asin(1)); // 1.5707963267948966 (π/2)\n' +
+        'console.log(Math.asin(-1)); // -1.5707963267948966 (-π/2)\n' +
+        'console.log(Math.asin(0.5)); // 0.5235987755982989 (π/6)',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.asin',
     },
@@ -322,9 +372,12 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает арккосинус числа (угол в радианах).',
+        'Статический метод объекта Math, возвращает арккосинус (x) в радианах.',
       example:
-        'console.log(Math.acos(0)); // 1.5707963267948966 (π/2)\nconsole.log(Math.acos(1)); // 0\nconsole.log(Math.acos(-1)); // 3.141592653589793 (π)\nconsole.log(Math.acos(0.5)); // 1.0471975511965979 (π/3)',
+        'console.log(Math.acos(0)); // 1.5707963267948966 (π/2)\n' +
+        'console.log(Math.acos(1)); // 0\n' +
+        'console.log(Math.acos(-1)); // 3.141592653589793 (π)\n' +
+        'console.log(Math.acos(0.5)); // 1.0471975511965979 (π/3)',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.acos',
     },
@@ -338,9 +391,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает арктангенс числа (угол в радианах от -π/2 до π/2).',
+        'Статический метод объекта Math, возвращает арктангенс (x) (угол в радианах от -π/2 до π/2).',
       example:
-        'console.log(Math.atan(0)); // 0\nconsole.log(Math.atan(1)); // 0.7853981633974483 (π/4)\nconsole.log(Math.atan(Infinity)); // 1.5707963267948966 (π/2)',
+        'console.log(Math.atan(0)); // 0\n' +
+        'console.log(Math.atan(1)); // 0.7853981633974483 (π/4)\n' +
+        'console.log(Math.atan(Infinity)); // 1.5707963267948966 (π/2)',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.atan',
     },
@@ -358,9 +413,12 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает угол (в радианах) между положительной осью X и точкой (x, y). Учитывает знаки обоих аргументов для определения квадранта.',
+        'Статический метод объекта Math, возвращает угол (в радианах) между положительной осью X и точкой (x, y). Учитывает знаки (x) и (y) для определения квадранта.',
       example:
-        'console.log(Math.atan2(0, 1)); // 0\nconsole.log(Math.atan2(1, 0)); // 1.5707963267948966 (π/2)\nconsole.log(Math.atan2(0, -1)); // 3.141592653589793 (π)\nconsole.log(Math.atan2(-1, -1)); // -2.356194490192345 (-3π/4)',
+        'console.log(Math.atan2(0, 1)); // 0\n' +
+        'console.log(Math.atan2(1, 0)); // 1.5707963267948966 (π/2)\n' +
+        'console.log(Math.atan2(0, -1)); // 3.141592653589793 (π)\n' +
+        'console.log(Math.atan2(-1, -1)); // -2.356194490192345 (-3π/4)',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.atan2',
     },
@@ -374,9 +432,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает гиперболический синус числа.',
+        'Статический метод объекта Math, возвращает гиперболический синус (x).',
       example:
-        'console.log(Math.sinh(0)); // 0\nconsole.log(Math.sinh(1)); // 1.1752011936438014\nconsole.log(Math.sinh(-1)); // -1.1752011936438014',
+        'console.log(Math.sinh(0)); // 0\n' +
+        'console.log(Math.sinh(1)); // 1.1752011936438014\n' +
+        'console.log(Math.sinh(-1)); // -1.1752011936438014',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.sinh',
     },
@@ -390,9 +450,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает гиперболический косинус числа.',
+        'Статический метод объекта Math, возвращает гиперболический косинус (x).',
       example:
-        'console.log(Math.cosh(0)); // 1\nconsole.log(Math.cosh(1)); // 1.5430806348152437\nconsole.log(Math.cosh(-1)); // 1.5430806348152437',
+        'console.log(Math.cosh(0)); // 1\n' +
+        'console.log(Math.cosh(1)); // 1.5430806348152437\n' +
+        'console.log(Math.cosh(-1)); // 1.5430806348152437',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.cosh',
     },
@@ -406,9 +468,12 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает гиперболический тангенс числа.',
+        'Статический метод объекта Math, возвращает гиперболический тангенс (x).',
       example:
-        'console.log(Math.tanh(0)); // 0\nconsole.log(Math.tanh(1)); // 0.7615941559557649\nconsole.log(Math.tanh(Infinity)); // 1\nconsole.log(Math.tanh(-Infinity)); // -1',
+        'console.log(Math.tanh(0)); // 0\n' +
+        'console.log(Math.tanh(1)); // 0.7615941559557649\n' +
+        'console.log(Math.tanh(Infinity)); // 1\n' +
+        'console.log(Math.tanh(-Infinity)); // -1',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.tanh',
     },
@@ -423,9 +488,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает обратный гиперболический синус числа.',
+        'Статический метод объекта Math, возвращает обратный гиперболический синус (x).',
       example:
-        'console.log(Math.asinh(0)); // 0\nconsole.log(Math.asinh(1)); // 0.881373587019543\nconsole.log(Math.asinh(-1)); // -0.881373587019543',
+        'console.log(Math.asinh(0)); // 0\n' +
+        'console.log(Math.asinh(1)); // 0.881373587019543\n' +
+        'console.log(Math.asinh(-1)); // -0.881373587019543',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.asinh',
     },
@@ -440,9 +507,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает обратный гиперболический косинус числа.',
+        'Статический метод объекта Math, возвращает обратный гиперболический косинус (x).',
       example:
-        'console.log(Math.acosh(1)); // 0\nconsole.log(Math.acosh(2)); // 1.3169578969248166\nconsole.log(Math.acosh(10)); // 2.993222846126381',
+        'console.log(Math.acosh(1)); // 0\n' +
+        'console.log(Math.acosh(2)); // 1.3169578969248166\n' +
+        'console.log(Math.acosh(10)); // 2.993222846126381',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.acosh',
     },
@@ -457,9 +526,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает обратный гиперболический тангенс числа.',
+        'Статический метод объекта Math, возвращает обратный гиперболический тангенс (x).',
       example:
-        'console.log(Math.atanh(0)); // 0\nconsole.log(Math.atanh(0.5)); // 0.5493061443340548\nconsole.log(Math.atanh(-0.5)); // -0.5493061443340548',
+        'console.log(Math.atanh(0)); // 0\n' +
+        'console.log(Math.atanh(0.5)); // 0.5493061443340548\n' +
+        'console.log(Math.atanh(-0.5)); // -0.5493061443340548',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.atanh',
     },
@@ -473,9 +544,13 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает знак числа: -1 (отрицательное), 0 (ноль), 1 (положительное). Для -0 возвращает -0, для NaN — NaN.',
+        'Статический метод объекта Math, возвращает знак (x): -1 (отрицательное), 0 (ноль), 1 (положительное). Для -0 возвращает -0, для NaN — NaN.',
       example:
-        'console.log(Math.sign(10)); // 1\nconsole.log(Math.sign(-5)); // -1\nconsole.log(Math.sign(0)); // 0\nconsole.log(Math.sign(-0)); // -0\nconsole.log(Math.sign(NaN)); // NaN',
+        'console.log(Math.sign(10)); // 1\n' +
+        'console.log(Math.sign(-5)); // -1\n' +
+        'console.log(Math.sign(0)); // 0\n' +
+        'console.log(Math.sign(-0)); // -0\n' +
+        'console.log(Math.sign(NaN)); // NaN',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.sign',
     },
@@ -485,7 +560,8 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
       description:
         'Статический метод объекта Math, возвращает псевдослучайное число с плавающей точкой в диапазоне от 0 до 1 (не включая).',
       example:
-        '// Случайное число от 0 до 1\nconsole.log(Math.random()); // Например 0.123456789',
+        '// Случайное число от 0 до 1\n' +
+        'console.log(Math.random()); // Например 0.123456789',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.random',
     },
@@ -499,9 +575,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает наибольшее из переданных чисел. Если аргументы не переданы, возвращает -Infinity.',
+        'Статический метод объекта Math, возвращает наибольшее значение из (value1, value2, ...). Если ничего не переданно, то возвращает -Infinity.',
       example:
-        'console.log(Math.max(10, 5, 20)); // 20\nconsole.log(Math.max(-10, -5, -20)); // -5\nconsole.log(Math.max()); // -Infinity',
+        'console.log(Math.max(10, 5, 20)); // 20\n' +
+        'console.log(Math.max(-10, -5, -20)); // -5\n' +
+        'console.log(Math.max()); // -Infinity',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.max',
     },
@@ -515,9 +593,11 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает наименьшее из переданных чисел. Если аргументы не переданы, возвращает Infinity.',
+        'Статический метод объекта Math, возвращает наименьшее значение из (value1, value2, ...). Если ничего не переданно, то возвращает Infinity.',
       example:
-        'console.log(Math.min(10, 5, 20)); // 5\nconsole.log(Math.min(-10, -5, -20)); // -20\nconsole.log(Math.min()); // Infinity',
+        'console.log(Math.min(10, 5, 20)); // 5\n' +
+        'console.log(Math.min(-10, -5, -20)); // -20\n' +
+        'console.log(Math.min()); // Infinity',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.min',
     },
@@ -604,9 +684,12 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает количество ведущих нулей в 32-битном двоичном представлении числа (count leading zeros).',
+        'Статический метод объекта Math, возвращает количество ведущих нулей в 32-битном двоичном представлении (x) (count leading zeros).',
       example:
-        'console.log(Math.clz32(1)); // 31\nconsole.log(Math.clz32(2)); // 30\nconsole.log(Math.clz32(4)); // 29\nconsole.log(Math.clz32(0)); // 32',
+        'console.log(Math.clz32(1)); // 31\n' +
+        'console.log(Math.clz32(2)); // 30\n' +
+        'console.log(Math.clz32(4)); // 29\n' +
+        'console.log(Math.clz32(0)); // 32',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.clz32',
     },
@@ -624,9 +707,10 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает результат умножения двух чисел как 32-битных целых со знаком. Результат тоже является 32-битным целым. Если результат превышает 32-битный диапазон (-2^31 до 2^31 - 1), происходит переполнение, и возвращается значение с учётом этого ограничения.',
+        'Статический метод объекта Math, возвращает результат умножения (a) и (b) как 32-битных целых со знаком. Результат тоже является 32-битным целым. Если результат превышает 32-битный диапазон (-2^31 до 2^31 - 1), происходит переполнение, и возвращается значение с учётом этого ограничения.',
       example:
-        'console.log(Math.imul(2, 3)); // 6\nconsole.log(Math.imul(0xffffffff, 5)); // -5',
+        'console.log(Math.imul(2, 3)); // 6\n' +
+        'console.log(Math.imul(0xffffffff, 5)); // -5',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.imul',
     },
@@ -641,7 +725,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает ближайшее 32-битное представление числа с плавающей точкой.',
+        'Статический метод объекта Math, возвращает ближайшее 32-битное представление (x) с плавающей точкой.',
       example:
         'console.log(Math.fround(0.1)); // 0.10000000149011612\nconsole.log(Math.fround(1.0)); // 1\nconsole.log(Math.fround(1.337)); // 1.3370000123977661',
       specification:
