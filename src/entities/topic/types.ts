@@ -20,8 +20,10 @@ export type IConfig = {
 
 export enum Topics {
   BASIC = 'BASIC',
+  OBJECT = 'OBJECT',
 }
 
 export const labelTopics = {
   [Topics.BASIC]: 'Основы JavaScript',
+  [Topics.OBJECT]: 'Объектная модель JavaScript',
 };
