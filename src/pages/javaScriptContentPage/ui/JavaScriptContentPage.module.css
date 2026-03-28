@@ -1,3 +1,9 @@
+.filtersContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -5,8 +11,11 @@
 }
 
 .noResult {
-  text-align: center;
-  padding: 40px 20px;
-  color: #666;
-  font-size: 14px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: grey;
 }

@@ -1,38 +1,41 @@
 import type { FC } from 'react';
-import { labelTopics, Topics, type ITopic } from '@/entities/topic';
-import { Pills, PageContainer } from '@/shared/ui';
-import { useFilteredData } from '@/shared/hooks';
+import { labelTopics, Topics } from '@/entities/topic';
+import { Input, PageContainer } from '@/shared/ui';
+import { useFilters } from '@/shared/hooks';
 import { useTopicsData } from '../hooks/useTopicsData.ts';
 import { TopicCard } from './TopicCard/TopicCard.tsx';
 import { config } from '../config';
 import styles from './JavaScriptContentPage.module.css';
 
 export const JavaScriptContentPage: FC = () => {
-  const {
-    activeTopics,
-    setActiveTopics,
-    topicsToShow,
-    navigateToTopic,
-  } = useTopicsData();
+  const { topicsToShow, navigateToTopic } = useTopicsData();
 
-  const { pillItems } = useFilteredData<ITopic, Topics>({
-    activeCategories: activeTopics,
-    config,
-    getLabel: (category) => labelTopics[category],
-  });
+  const { searchQuery, searchChange, searchReset } = useFilters<Topics>();
 
-  const allSections = topicsToShow.flatMap((topicKey) => {
-    const sections = config[topicKey as Topics] || [];
-    return sections.map((section) => ({
-      ...section,
-      topicLabel: labelTopics[topicKey as Topics],
-    }));
-  });
+  const allSections = topicsToShow
+    .flatMap((topicKey) => {
+      const sections = config[topicKey as Topics] || [];
+      return sections.map((section) => ({
+        ...section,
+        topicLabel: labelTopics[topicKey as Topics],
+      }));
+    })
+    .filter((section) =>
+      section.name.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
 
   return (
     <PageContainer
       title="Руководство по JavaScript"
-      filtersSlot={<Pills items={pillItems} onFilterChange={setActiveTopics} />}
+      filtersSlot={
+        <div className={styles.filtersContainer}>
+          <Input
+            searchQuery={searchQuery}
+            onSearchChange={searchChange}
+            onSearchReset={searchReset}
+          />
+        </div>
+      }
     >
       <div className={styles.content}>
         {allSections.map((section) => (
