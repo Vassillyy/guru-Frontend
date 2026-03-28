@@ -86,7 +86,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Number, возвращает строковое представление исходного числа в формате с фиксированным (precision), округляя при необходимости. Если аргумент не передан, то будет возращено исходное число. Если указанное количество знаков не достижимо обрезанием десятичной части - переводит число в экспоненциальную форму.',
+        'Метод объекта Number, возвращает строковое представление исходного числа в формате с фиксированным (precision), округляя при необходимости. Если аргумент не передан, то будет возвращено исходное число. Если указанное количество знаков не достижимо обрезанием десятичной части - переводит число в экспоненциальную форму.',
       example:
         'const num = 123.456;\n' +
         "console.log(num.toPrecision()); // '123.456'\n" +
@@ -106,23 +106,34 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка с кодом локали или массив таких строк (например, 'ru-RU', 'en-US')",
+            "Строка с кодом локали или массив таких строк ('ru-RU', 'en-US' и другие)",
         },
         {
           name: 'options',
           description:
             'Объект с настройками форматирования:\n' +
-            " • style: 'decimal' (по умолчанию), 'currency', 'percent', 'unit'\n" +
-            " • currency: код валюты (например, 'USD', 'EUR', 'RUB') - обязателен при style: 'currency'\n" +
-            " • currencyDisplay: 'symbol' (по умолчанию), 'code', 'name'\n" +
-            ' • useGrouping: true/false - использовать ли разделители групп разрядов\n' +
-            ' • minimumIntegerDigits: минимальное количество целых цифр (1-21)\n' +
-            ' • minimumFractionDigits: минимальное количество дробных цифр (0-20)\n' +
-            ' • maximumFractionDigits: максимальное количество дробных цифр (0-20)\n' +
-            ' • minimumSignificantDigits: минимальное количество значащих цифр (1-21)\n' +
-            ' • maximumSignificantDigits: максимальное количество значащих цифр (1-21)\n' +
-            " • unit: единица измерения ('liter', 'meter', 'kilogram', и т.д.) - для style: 'unit'\n" +
-            " • unitDisplay: 'short', 'long', 'narrow' - для style: 'unit'",
+            'Основные стили (style):\n' +
+            " • style: 'decimal' — десятичное число (по умолчанию)\n" +
+            " • style: 'currency' — формат валюты (требует указания currency)\n" +
+            " • style: 'percent' — формат процентов (число умножается на 100)\n" +
+            " • style: 'unit' — формат с единицей измерения (требует указания unit)\n" +
+            'Настройки валюты (при style: "currency"):\n' +
+            " • currency — код валюты (например, 'USD', 'EUR', 'RUB')\n" +
+            " • currencyDisplay: 'symbol' — символ валюты (по умолчанию, например '€')\n" +
+            " • currencyDisplay: 'code' — буквенный код (например, 'EUR')\n" +
+            " • currencyDisplay: 'name' — полное название (например, 'euro')\n" +
+            'Настройки единиц измерения (при style: "unit"):\n' +
+            " • unit — единица измерения ('liter', 'meter', 'kilogram', 'celsius' и др.)\n" +
+            " • unitDisplay: 'short' — сокращённое обозначение (по умолчанию, 'l', 'km/h')\n" +
+            " • unitDisplay: 'long' — полное название ('liters', 'kilometers per hour')\n" +
+            " • unitDisplay: 'narrow' — узкое сокращение ('l', 'km/h' — может отличаться от short)\n" +
+            'Форматирование чисел:\n' +
+            ' • useGrouping — использовать разделители групп разрядов (true/false)\n' +
+            ' • minimumIntegerDigits — минимальное количество целых цифр (1-21)\n' +
+            ' • minimumFractionDigits — минимальное количество дробных цифр (0-20)\n' +
+            ' • maximumFractionDigits — максимальное количество дробных цифр (0-20)\n' +
+            ' • minimumSignificantDigits — минимальное количество значащих цифр (1-21)\n' +
+            ' • maximumSignificantDigits — максимальное количество значащих цифр (1-21)',
         },
       ],
       description:
@@ -150,8 +161,8 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-number.prototype.tolocalestring',
       errors:
-        'RangeError — если (locales) содержит недопустимые значения языковых тегов.\n' +
-        'TypeError — если this не является числом или если (options) содержит недопустимые свойства.',
+        'TypeError — если this не является числом.\n' +
+        'RangeError — если (locales) содержит недопустимые языковые теги.',
     },
     {
       name: 'Number.isInteger()',
@@ -184,7 +195,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Number, возвращает true, если (value) является числом (тип number), целым числом и находится в безопасном диапазоне от -(2⁵³ - 1) до 2⁵³ - 1.',
+        'Статический метод объекта Number, возвращает true, если (value) является целым числом (тип number) и находится в безопасном диапазоне от -(2⁵³ - 1) до 2⁵³ - 1.',
       example:
         'console.log(Number.isSafeInteger(42)); // true\n' +
         'console.log(Number.isSafeInteger(9007199254740991)); // true\n' +
@@ -261,6 +272,16 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-number.max_safe_integer',
     },
     {
+      name: 'Number.MAX_SAFE_INTEGER',
+      syntax: 'Number.MAX_SAFE_INTEGER',
+      parameters: [],
+      description:
+        'Статическое свойство объекта Number, представляет собой максимальное безопасное целое число (2⁵³ - 1 = 9007199254740991).',
+      example: 'console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991',
+      specification:
+        'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-number.max_safe_integer',
+    },
+    {
       name: 'Number.MIN_SAFE_INTEGER',
       syntax: 'Number.MIN_SAFE_INTEGER',
       parameters: [],
@@ -275,7 +296,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
       syntax: 'Number.MAX_VALUE',
       parameters: [],
       description:
-        'Статическое свойство объекта Number, представляет собой максимальное положительное число, которое можно представить в JavaScript (примерно 1.79e+308).',
+        'Статическое свойство объекта Number, представляет собой максимальное положительное число, которое можно представить (примерно 1.79e+308).',
       example: 'console.log(Number.MAX_VALUE); // 1.7976931348623157e+308',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-number.max_value',
@@ -285,7 +306,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
       syntax: 'Number.MIN_VALUE',
       parameters: [],
       description:
-        'Статическое свойство объекта Number, представляет собой минимальное положительное число, которое можно представить в JavaScript (примерно 5e-324).',
+        'Статическое свойство объекта Number, представляет собой минимальное положительное число, которое можно представить (примерно 5e-324).',
       example:
         'console.log(Number.MIN_VALUE); // 5e-324\n' +
         'console.log(Number.MIN_VALUE > 0); // true',

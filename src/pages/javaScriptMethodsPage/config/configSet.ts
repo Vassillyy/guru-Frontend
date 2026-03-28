@@ -204,5 +204,126 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
       errors:
         'TypeError — если this не является множеством (set) или если аргумент не является множеством (set).',
     },
+    {
+      name: 'difference()',
+      syntax: 'set.difference(otherSet)',
+      parameters: [
+        {
+          name: 'otherSet',
+          description:
+            'Другое множество, элементы которого нужно исключить из исходного множества',
+        },
+      ],
+      description:
+        'Метод объекта Set, возвращает новое множество, содержащее элементы исходного множества, которые отсутствуют в (otherSet).',
+      example:
+        'const set1 = new Set([1, 2, 3, 4]);\n' +
+        'const set2 = new Set([2, 4]);\n' +
+        'const differenceSet = set1.difference(set2);\n' +
+        'const result = Array.from(differenceSet);\n' +
+        'console.log(result); // [1, 3]',
+      specification:
+        'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.difference',
+      errors:
+        'TypeError — если this не является множеством (set) или если (otherSet) не является множеством (set).',
+    },
+    {
+      name: 'isSubsetOf()',
+      syntax: 'set.isSubsetOf(otherSet)',
+      parameters: [
+        {
+          name: 'otherSet',
+          description:
+            'Другое множество, в котором проверяется наличие всех элементов исходного множества',
+        },
+      ],
+      description:
+        'Метод объекта Set, возвращает true, если все элементы исходного множества присутствуют в (otherSet), иначе false.',
+      example:
+        'const set1 = new Set([1, 2]);\n' +
+        'const set2 = new Set([1, 2, 3, 4]);\n' +
+        'const isSubset = set1.isSubsetOf(set2);\n' +
+        'console.log(isSubset); // true\n\n' +
+        'const set3 = new Set([1, 5]);\n' +
+        'const isSubset2 = set3.isSubsetOf(set2);\n' +
+        'console.log(isSubset2); // false',
+      specification:
+        'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.issubsetof',
+      errors:
+        'TypeError — если this не является множеством (set) или если (otherSet) не является множеством (set).',
+    },
+    {
+      name: 'isSupersetOf()',
+      syntax: 'set.isSupersetOf(otherSet)',
+      parameters: [
+        {
+          name: 'otherSet',
+          description:
+            'Другое множество, которое проверяется на вхождение в исходное множество',
+        },
+      ],
+      description:
+        'Метод объекта Set, возвращает true, если исходное множество содержит все элементы (otherSet), иначе false.',
+      example:
+        'const set1 = new Set([1, 2, 3, 4]);\n' +
+        'const set2 = new Set([1, 2]);\n' +
+        'const isSuperset = set1.isSupersetOf(set2);\n' +
+        'console.log(isSuperset); // true\n\n' +
+        'const set3 = new Set([1, 5]);\n' +
+        'const isSuperset2 = set1.isSupersetOf(set3);\n' +
+        'console.log(isSuperset2); // false',
+      specification:
+        'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.issupersetof',
+      errors:
+        'TypeError — если this не является множеством (set) или если (otherSet) не является множеством (set).',
+    },
+    {
+      name: 'isDisjointFrom()',
+      syntax: 'set.isDisjointFrom(otherSet)',
+      parameters: [
+        {
+          name: 'otherSet',
+          description:
+            'Другое множество, с которым проверяется отсутствие общих элементов',
+        },
+      ],
+      description:
+        'Метод объекта Set, возвращает true, если у исходного множества и (otherSet) нет общих элементов, иначе false.',
+      example:
+        'const set1 = new Set([1, 2]);\n' +
+        'const set2 = new Set([3, 4]);\n' +
+        'const isDisjoint = set1.isDisjointFrom(set2);\n' +
+        'console.log(isDisjoint); // true\n\n' +
+        'const set3 = new Set([2, 3]);\n' +
+        'const isDisjoint2 = set1.isDisjointFrom(set3);\n' +
+        'console.log(isDisjoint2); // false',
+      specification:
+        'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.isdisjointfrom',
+      errors:
+        'TypeError — если this не является множеством (set) или если (otherSet) не является множеством (set).',
+    },
+    {
+      name: 'symmetricDifference()',
+      syntax: 'set.symmetricDifference(otherSet)',
+      parameters: [
+        {
+          name: 'otherSet',
+          description:
+            'Другое множество, с которым нужно найти симметрическую разность',
+        },
+      ],
+      description:
+        'Метод объекта Set, возвращает новое множество, содержащее элементы, которые присутствуют только в одном из множеств (исходном или otherSet), но не в обоих.',
+      example:
+        'const set1 = new Set([1, 2, 3]);\n' +
+        'const set2 = new Set([2, 3, 4]);\n' +
+        'const symmetricDiff = set1.symmetricDifference(set2);\n' +
+        'const result = Array.from(symmetricDiff);\n' +
+        'console.log(result); // [1, 4]',
+      specification:
+        'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.symmetricdifference',
+      errors:
+        'TypeError — если this не является множеством (set) или если (otherSet) не является множеством (set).',
+    },
   ],
 };

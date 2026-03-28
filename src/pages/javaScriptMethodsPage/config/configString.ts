@@ -661,7 +661,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
       example:
         "const str = 'The quick';\n" +
         "console.log(str.match(/[aeiou]/g)); // ['e', 'u', 'i']\n" +
-        'console.log(str.match(/xyz/)); // null\n\n' +
+        'console.log(str.match(/xyz/g)); // null\n\n' +
         'const result = str.match(/quick/);\n' +
         "console.log(result); // ['quick']\n" +
         'console.log(result.index);  // 4\n' +

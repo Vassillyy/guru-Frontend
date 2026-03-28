@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import cn from 'classnames';
 import styles from './IconArrow.module.css';
 
-export const IconArrow: FC<{ isOpen: boolean }> = ({ isOpen }) => {
+export const IconArrow: FC<{ isOpen?: boolean }> = ({ isOpen = false }) => {
   return (
     <svg
       className={cn(styles.icon, isOpen && styles.iconRotated)}

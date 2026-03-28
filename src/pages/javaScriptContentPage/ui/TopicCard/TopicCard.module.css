@@ -1,0 +1,44 @@
+.container {
+  background: #f8fbf8;
+  border-radius: 8px;
+  padding: 8px;
+  border: 2px solid #e8f5e9;
+  transition: all 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.container:hover {
+  border-color: #c8e6c9;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1);
+  transform: translateY(-1px);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 15px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.buttonArrow {
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.buttonArrow svg {
+  height: 100%;
+  width: 100%;
+  color: green;
+}

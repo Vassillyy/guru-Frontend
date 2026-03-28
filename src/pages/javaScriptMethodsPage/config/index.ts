@@ -14,6 +14,7 @@ import { configArray } from './configArray';
 import { configReflect } from './configReflect.ts';
 import { configPromise } from './configPromise';
 import { configMath } from './configMath';
+import { configIntl } from './configIntl';
 import { type TConfig } from '@/entities/method';
 
 export const config: TConfig = {
@@ -33,4 +34,5 @@ export const config: TConfig = {
   ...configMath,
   ...configReflect,
   ...configUtil,
+  ...configIntl,
 };

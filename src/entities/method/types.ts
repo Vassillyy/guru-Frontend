@@ -32,6 +32,7 @@ export enum Methods {
   FUNCTION = 'FUNCTION',
   REFLECT = 'REFLECT',
   UTIL = 'UTIL',
+  INTL = 'INTL',
 }
 
 export const labelMethods = {
@@ -51,4 +52,5 @@ export const labelMethods = {
   [Methods.SYMBOL]: 'Symbol',
   [Methods.REFLECT]: 'Reflect',
   [Methods.UTIL]: 'Util',
+  [Methods.INTL]: 'Intl',
 };
