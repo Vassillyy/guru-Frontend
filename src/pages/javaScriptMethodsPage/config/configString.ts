@@ -145,7 +145,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.replaceall',
       errors:
-        "TypeError — если this не является строкой или если (pattern) является регулярным выражением без флага 'g'.",
+        "TypeError — если this не является строкой или (pattern) является регулярным выражением без флага 'g'.",
     },
     {
       name: 'at()',
@@ -166,7 +166,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         'console.log(filename.at(20)); // undefined',
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.at',
-      errors: 'TypeError — если this не является строкой или массивом.',
+      errors: 'TypeError — если this не является строкой (или массивом).',
     },
     {
       name: 'charAt()',
@@ -230,7 +230,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         "console.log(url.indexOf('ftp')); // -1",
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.indexof',
-      errors: 'TypeError — если this не является строкой или массивом.',
+      errors: 'TypeError — если this не является строкой (или массивом).',
     },
     {
       name: 'lastIndexOf()',
@@ -242,12 +242,11 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
         {
           name: 'fromIndex',
-          description:
-            'Индекс начала поиска в обратном направлении (по умолчанию равен длине строки)',
+          description: 'Индекс начала поиска (по умолчанию равен длине строки)',
         },
       ],
       description:
-        'Метод объекта String, выполняет поиск (searchValue) в исходной строке с её конца. Метод возвращает индекс первого совпадения или -1, если подстрока не найдена.',
+        'Метод объекта String, выполняет поиск (searchValue) в исходной строке в обратном направлении, начиная с (fromIndex). Метод возвращает индекс первого совпадения или -1, если подстрока не найдена.',
       example:
         "const path = '/home/user/docs';\n" +
         "console.log(path.lastIndexOf('/')); // 11\n" +
@@ -255,7 +254,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         "console.log(path.lastIndexOf('user', 8)); // 6",
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.lastindexof',
-      errors: 'TypeError — если this не является строкой или массивом.',
+      errors: 'TypeError — если this не является строкой (или массивом).',
     },
     {
       name: 'includes()',
@@ -279,7 +278,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         "console.log(file.includes('doc')); // true",
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.includes',
-      errors: 'TypeError — если this не является строкой или массивом.',
+      errors: 'TypeError — если this не является строкой (или массивом).',
     },
     {
       name: 'slice()',
@@ -306,7 +305,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         "console.log(filename.slice(-4)); // '.pdf'",
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.slice',
-      errors: 'TypeError — если this не является строкой или массивом.',
+      errors: 'TypeError — если this не является строкой (или массивом).',
     },
     {
       name: 'substring()',
@@ -365,42 +364,58 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка или массив строк с кодом локали ('ru-RU', 'en-US')",
+            "Строка с кодом локали или массив таких строк (например, 'ru-RU', 'en-US', 'de-DE')",
         },
         {
           name: 'options',
           description:
             'Объект с настройками сравнения:\n' +
-            " • sensitivity: 'base' — различает только базовые буквы (a ≠ b), 'accent' — различает диакритики (a ≠ á), 'case' — различает регистр (a ≠ A), 'variant' — различает всё (по умолчанию)\n" +
-            ' • ignorePunctuation: true/false — игнорировать знаки пунктуации\n' +
-            " • numeric: true/false — числовое сравнение ('2' > '10' при true)\n" +
-            " • caseFirst: 'upper' — заглавные буквы первыми, 'lower' — строчные первыми, 'false' — порядок локали\n" +
-            " • usage: 'sort' (по умолчанию) или 'search' — цель сравнения (поиск или сортировка)",
+            'Основные настройки:\n' +
+            " • usage: 'sort' — для сортировки (по умолчанию), 'search' — для поиска (учитывает, что строка может быть больше или меньше)\n" +
+            ' • sensitivity: чувствительность сравнения:\n' +
+            "   • 'base' — различаются только базовые буквы (a ≠ b, но a = á)\n" +
+            "   • 'accent' — различаются базовые буквы и диакритические знаки (a ≠ á, но a = A)\n" +
+            "   • 'case' — различаются базовые буквы и регистр (a ≠ A, но a = á)\n" +
+            "   • 'variant' — различается всё (a ≠ A ≠ á) — значение по умолчанию\n" +
+            " • ignorePunctuation: true/false — игнорировать знаки пунктуации (например, 'a,b' = 'ab')\n" +
+            " • numeric: true/false — числовое сравнение (при true '10' > '2')\n" +
+            ' • caseFirst: порядок букв по регистру:\n' +
+            "   • 'upper' — заглавные буквы идут первыми\n" +
+            "   • 'lower' — строчные буквы идут первыми\n" +
+            "   • 'false' — порядок определяется локалью (по умолчанию)\n" +
+            ' • collation: строка с правилами сортировки (например, "phonebook" для немецкого, "pinyin" для китайского)\n' +
+            ' • ignorePunctuation: true/false — игнорировать пунктуацию при сравнении',
         },
       ],
       description:
-        'Метод объекта String, сравнивает исходную строку со (compareString) с учётом правил языка. Возвращает число:\n' +
+        'Метод объекта String, сравнивает исходную строку с (compareString) с учётом правил языка (локали). Возвращает число:\n' +
         ' • отрицательное, если исходная строка меньше (compareString);\n' +
-        ' • положительное, если больше (compareString);\n' +
-        ' • 0, если равны.',
+        ' • положительное, если исходная строка больше (compareString);\n' +
+        ' • 0, если строки равны с учётом локали.',
       example:
+        '// Базовое сравнение\n' +
         "const result1 = 'café'.localeCompare('cafe');\n" +
-        'console.log(result1); // 1\n\n' +
+        'console.log(result1); // 1 (é > e)\n\n' +
+        '// Числовое сравнение\n' +
         "const result2 = '10'.localeCompare('2', undefined, {\n" +
-        '  numeric: true,\n' +
+        ' numeric: true\n' +
         '});\n' +
-        'console.log(result2); // 1\n\n' +
+        'console.log(result2); // 1 (10 > 2)\n\n' +
+        '// Чувствительность к диакритике\n' +
         "const result3 = 'résumé'.localeCompare('resume', 'fr', {\n" +
         "  sensitivity: 'base'\n" +
         '});\n' +
-        'console.log(result3); // 0\n\n' +
-        "const result4 = 'ä'.localeCompare('z', 'de');\n" +
-        'console.log(result4); // -1',
+        'console.log(result3); // 0 (сравнение без учёта диакритики)\n\n' +
+        '// Сравнение с игнорированием пунктуации\n' +
+        "const result4 = 'a,b'.localeCompare('ab', undefined, {\n" +
+        ' ignorePunctuation: true\n' +
+        '});\n' +
+        'console.log(result4); // 0 (равны после удаления пунктуации)',
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.localecompare',
       errors:
         'TypeError — если this не является строкой.\n' +
-        'RangeError — если (locales) содержит недопустимые значения языковых тегов.',
+        'RangeError — если (locales) содержит недопустимые языковые теги.',
     },
     {
       name: 'toLocaleLowerCase()',
@@ -570,7 +585,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         "console.log(fullName); // 'John Doe'",
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.concat',
-      errors: 'TypeError — если this не является строкой или массивом.',
+      errors: 'TypeError — если this не является строкой (или массивом).',
     },
     {
       name: 'split()',
@@ -695,7 +710,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.matchall',
       errors:
-        'TypeError — если this не является строкой или regexp не имеет флага /g.',
+        'TypeError — если this не является строкой или (regexp) не имеет флага /g.',
     },
     {
       name: 'search()',
@@ -747,7 +762,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
       parameters: [
         {
           name: '...codeUnits',
-          description: 'Один или несколько кодовых единиц UTF-16 (0–65535)',
+          description: 'Один или несколько кодовых единиц UTF-16 (0–0xFFFF)',
         },
       ],
       description:
@@ -776,8 +791,6 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
       example:
         'const path = String.raw`C:\\Users\\name\\file.txt`;\n' +
         "console.log(path); // 'C:\\Users\\name\\file.txt'\n\n" +
-        'const str = String.raw`Hello\nWorld`;\n' +
-        "console.log(str); // 'Hello\nWorld'\n\n" +
         '// Вызов с двумя аргументами\n' +
         'const template = { raw: ["a", "b", "c"] };\n' +
         'const result = String.raw(template, "X", "Y");\n' +
