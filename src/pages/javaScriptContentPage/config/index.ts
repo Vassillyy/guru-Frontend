@@ -13,6 +13,7 @@ import { configOperatorsAndSpecialValues } from './configOperatorsAndSpecialValu
 import { configTypeConversion } from './configTypeConversion.ts';
 import { configTypesOfData } from './configTypesOfData.ts';
 import { configVariables } from './configVariables.ts';
+import { configMapSet } from './configMapSet.ts';
 
 export const config: IConfig = [
   configIntroductionToJS,
@@ -29,4 +30,5 @@ export const config: IConfig = [
   configConstructor,
   configObjectToPrimitive,
   configArrays,
+  configMapSet,
 ];
