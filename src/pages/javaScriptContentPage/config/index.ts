@@ -14,6 +14,8 @@ import { configTypeConversion } from './configTypeConversion.ts';
 import { configTypesOfData } from './configTypesOfData.ts';
 import { configVariables } from './configVariables.ts';
 import { configMapSet } from './configMapSet.ts';
+import { configDestructuring } from './configDestructuring.ts';
+import { configJSON } from './configJSON.ts';
 
 export const config: IConfig = [
   configIntroductionToJS,
@@ -31,4 +33,6 @@ export const config: IConfig = [
   configObjectToPrimitive,
   configArrays,
   configMapSet,
+  configDestructuring,
+  configJSON,
 ];

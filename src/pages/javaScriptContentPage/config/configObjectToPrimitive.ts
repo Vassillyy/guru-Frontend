@@ -51,6 +51,60 @@ export const configObjectToPrimitive: ITopic = {
           'console.log(obj2 + 10); // "[object Object]10"',
       },
       {
+        title:
+          'Алгоритмы преобразования: Prefer-String, Prefer-Number, No-Preference',
+        content:
+          'При преобразовании объекта в примитив JavaScript следует определённому алгоритму, который определяет порядок вызова методов toString() и valueOf().\n' +
+          'Существует три алгоритма (preferences), которые определяют, какой метод вызывается первым:\n' +
+          '1. Prefer-String (предпочтение строке)\n' +
+          'Используется при хинте "string":\n' +
+          '• Сначала вызывается метод toString()\n' +
+          '• Если toString() возвращает примитив — используется он\n' +
+          '• Если toString() возвращает объект — вызывается valueOf()\n' +
+          '• Если valueOf() возвращает примитив — используется он\n' +
+          '• Если оба метода вернули объект — ошибка TypeError\n' +
+          '2. Prefer-Number (предпочтение числу)\n' +
+          'Используется при хинте "number":\n' +
+          '• Сначала вызывается метод valueOf()\n' +
+          '• Если valueOf() возвращает примитив — используется он\n' +
+          '• Если valueOf() возвращает объект — вызывается toString()\n' +
+          '• Если toString() возвращает примитив — используется он\n' +
+          '• Если оба метода вернули объект — ошибка TypeError\n' +
+          '3. No-Preference (нет предпочтения)\n' +
+          'Используется при хинте "default":\n' +
+          '• Для объектов Date: prefer-string (так как даты чаще преобразуются в строку)\n' +
+          '• Для остальных объектов: prefer-number (исторически сложилось)\n' +
+          '• То есть сначала вызывается valueOf(), затем toString() (кроме Date)',
+        addition:
+          'Эти алгоритмы работают только когда у объекта нет метода Symbol.toPrimitive. Если Symbol.toPrimitive определён, он имеет наивысший приоритет и полностью заменяет стандартный алгоритм.',
+        examples:
+          '// Пример Prefer-String (хинт "string")\n' +
+          'const stringPrefObj = {\n' +
+          '  toString() { return "строка"; },\n' +
+          '  valueOf() { return 42; }\n' +
+          '};\n' +
+          'console.log(String(stringPrefObj)); // "строка" (вызван toString)\n\n' +
+          '// Пример Prefer-Number (хинт "number")\n' +
+          'const numberPrefObj = {\n' +
+          '  toString() { return "100"; },\n' +
+          '  valueOf() { return 42; }\n' +
+          '};\n' +
+          'console.log(+numberPrefObj); // 42 (вызван valueOf)\n\n' +
+          '// Пример No-Preference (хинт "default")\n' +
+          'const noPrefObj = {\n' +
+          '  toString() { return "100"; },\n' +
+          '  valueOf() { return 42; }\n' +
+          '};\n' +
+          'console.log(noPrefObj + 10); // 52 (valueOf имеет приоритет)\n\n' +
+          '// Особый случай: объект Date\n' +
+          'const date = new Date();\n' +
+          'date.toString = () => "строка даты";\n' +
+          'date.valueOf = () => Date.now();\n' +
+          'console.log(String(date)); // "строка даты" (toString)\n' +
+          'console.log(+date); // число (valueOf)\n' +
+          'console.log(date + 10); // "строка даты10" (для Date работает prefer-string!)',
+      },
+      {
         title: 'Symbol.toPrimitive',
         content:
           'Symbol.toPrimitive — это встроенный символ, который позволяет настроить преобразование объекта в примитив. Если этот метод существует, он вызывается для всех хинтов и имеет наивысший приоритет.\n\n' +

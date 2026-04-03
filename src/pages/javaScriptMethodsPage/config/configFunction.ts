@@ -3,32 +3,6 @@ import { Methods, type IMethod } from '@/entities/method';
 export const configFunction: Record<Methods.FUNCTION, IMethod[]> = {
   [Methods.FUNCTION]: [
     {
-      name: 'name',
-      syntax: 'function.name',
-      description:
-        'Свойство объектов функции, возвращает имя функции. Для анонимных функций возвращает пустую строку или имя переменной. Свойство только для чтения (read-only).',
-      example:
-        'const myFunc = function() {};\n' +
-        'const name = myFunc.name;\n' +
-        "console.log(name); // 'myFunc'",
-      specification:
-        'https://tc39.es/ecma262/multipage/functions-and-classes.html#sec-function-instances-name',
-      errors: 'TypeError — если this не является функцией.',
-    },
-    {
-      name: 'length',
-      syntax: 'function.length',
-      description:
-        'Свойство объектов функции, возвращает количество параметров, указанных в объявлении функции. Не учитывает параметры по умолчанию и rest параметры. Свойство только для чтения (read-only).',
-      example:
-        'function sum(a, b) {};\n' +
-        'const length = sum.length;\n' +
-        'console.log(length); // 2',
-      specification:
-        'https://tc39.es/ecma262/multipage/functions-and-classes.html#sec-function-instances-length',
-      errors: 'TypeError — если this не является функцией.',
-    },
-    {
       name: 'call()',
       syntax: 'func.call(thisArg, ...args)',
       parameters: [
@@ -43,7 +17,7 @@ export const configFunction: Record<Methods.FUNCTION, IMethod[]> = {
         },
       ],
       description:
-        'Встроенный метод функции, позволяет вызывать функцию, явно устанавливая this. Запускает функцию, используя (thisArg) как её контекст this, а (...args) – как её аргументы.',
+        'Метод объекта Function, позволяет вызывать исходную функцию, используя (thisArg) как её контекст this, а (...args) – как её аргументы.',
       example:
         'function greet(name) {\n' +
         " console.log(`Hello, ${name}! I'm ${this.title}`);\n" +
@@ -70,7 +44,7 @@ export const configFunction: Record<Methods.FUNCTION, IMethod[]> = {
         },
       ],
       description:
-        'Встроенный метод функции, позволяет вызывать функцию, явно устанавливая this. Запускает функцию, используя (thisArg) как её контекст this, а (argsArray) – как массив её аргументов. Единственное отличие от call() – передача аргументов массивом.',
+        'Метод объекта Function, позволяет вызывать функцию, используя (thisArg) как её контекст this, а (argsArray) – как массив её аргументов. Единственное отличие от call() – передача аргументов массивом.',
       example:
         'function sum(a, b, c) {\n' +
         ' return a + b + c;\n' +
@@ -98,7 +72,7 @@ export const configFunction: Record<Methods.FUNCTION, IMethod[]> = {
         },
       ],
       description:
-        'Встроенный метод функции, создаёт новую функцию с фиксированным this и начальными аргументами. Возвращает функцию-обёртку, которая при вызове вызывает оригинальную функцию с указанным контекстом и предустановленными аргументами, дополненными новыми аргументами при вызове.',
+        'Метод объекта Function, создаёт новую функцию с фиксированным this и начальными аргументами. Возвращает функцию-обёртку, которая при вызове вызывает оригинальную функцию с (thisArg) и (...args), дополненными новыми аргументами при вызове.',
       example:
         'function greet(greeting, name) {\n' +
         ' console.log(`${greeting}, ${name}!`);\n' +
@@ -107,6 +81,32 @@ export const configFunction: Record<Methods.FUNCTION, IMethod[]> = {
         "sayHello('John'); // 'Hello, John!'",
       specification:
         'https://tc39.es/ecma262/multipage/functions-and-classes.html#sec-function.prototype.bind',
+      errors: 'TypeError — если this не является функцией.',
+    },
+    {
+      name: 'name',
+      syntax: 'function.name',
+      description:
+        'Свойство объекта Function, возвращает имя исходной функции. Для анонимных функций возвращает пустую строку или имя переменной. Свойство только для чтения (read-only).',
+      example:
+        'const myFunc = function() {};\n' +
+        'const name = myFunc.name;\n' +
+        "console.log(name); // 'myFunc'",
+      specification:
+        'https://tc39.es/ecma262/multipage/functions-and-classes.html#sec-function-instances-name',
+      errors: 'TypeError — если this не является функцией.',
+    },
+    {
+      name: 'length',
+      syntax: 'function.length',
+      description:
+        'Свойство объекта Function, возвращает количество параметров исходной функции, указанных в объявлении. Не учитывает параметры по умолчанию и rest параметры. Свойство только для чтения (read-only).',
+      example:
+        'function sum(a, b) {};\n' +
+        'const length = sum.length;\n' +
+        'console.log(length); // 2',
+      specification:
+        'https://tc39.es/ecma262/multipage/functions-and-classes.html#sec-function-instances-length',
       errors: 'TypeError — если this не является функцией.',
     },
   ],
