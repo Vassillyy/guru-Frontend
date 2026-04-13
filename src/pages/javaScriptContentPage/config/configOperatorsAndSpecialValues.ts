@@ -327,6 +327,8 @@ export const configOperatorsAndSpecialValues: ITopic = {
           "const user = { name: 'Иван', age: 30 };\n" +
           'console.log(delete user.age); // true\n' +
           "console.log(user); // { name: 'Иван' }\n\n" +
+          '// Удаление несуществующего свойства\n' +
+          'console.log(delete user.city); // true (свойства не было)\n\n' +
           '// Удаление элемента массива\n' +
           'const numbers = [1, 2, 3, 4, 5];\n' +
           'console.log(delete numbers[2]); // true\n' +

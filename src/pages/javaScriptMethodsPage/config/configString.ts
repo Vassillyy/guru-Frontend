@@ -44,7 +44,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, проверяет, начинается ли исходная строка (searchString), начиная с (position), если да - возвращает true, иначе false.',
+        'Метод объекта String, проверяет, начинается ли исходная строка searchString, начиная с position, если да - возвращает true, иначе false.',
       example:
         "const path = '/home/user/documents';\n" +
         "console.log(path.startsWith('/home')); // true\n" +
@@ -69,7 +69,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, проверяет, заканчивается ли исходная строка (searchString), начиная с (position), если да - возвращает true, иначе false.',
+        'Метод объекта String, проверяет, заканчивается ли исходная строка searchString, начиная с position, если да - возвращает true, иначе false.',
       example:
         "const filename = 'document.pdf';\n" +
         "console.log(filename.endsWith('.pdf')); // true\n" +
@@ -94,7 +94,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, возвращает новую строку с заменёнными совпадениями (pattern) на (replacement).',
+        'Метод объекта String, возвращает новую строку с заменёнными совпадениями pattern на replacement.',
       example:
         "const text = 'Удалить пробелы';\n" +
         "const result1 = text.replace('пробелы', 'запятые');\n" +
@@ -127,7 +127,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, возвращает новую строку, заменяя все вхождения (pattern) на (replacement).',
+        'Метод объекта String, возвращает новую строку, заменяя все вхождения pattern на replacement.',
       example:
         "const version = 'Node.js v18.17.0';\n" +
         "const res1 = version.replaceAll('v18', 'v20');\n" +
@@ -145,7 +145,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.replaceall',
       errors:
-        "TypeError — если this не является строкой или (pattern) является регулярным выражением без флага 'g'.",
+        "TypeError — если this не является строкой или pattern является регулярным выражением без флага 'g'.",
     },
     {
       name: 'at()',
@@ -158,7 +158,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, возвращает символ по (index). Если индекс выходит за границы строки, возвращает undefined.',
+        'Метод объекта String, возвращает символ по index. Если индекс выходит за границы строки, возвращает undefined.',
       example:
         "const filename = 'config.json';\n" +
         "console.log(filename.at(0)); // 'c'\n" +
@@ -166,7 +166,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         'console.log(filename.at(20)); // undefined',
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.at',
-      errors: 'TypeError — если this не является строкой (или массивом).',
+      errors: 'TypeError — если this не является строкой или массивом.',
     },
     {
       name: 'charAt()',
@@ -178,7 +178,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, возвращает символ по (index). Если индекс выходит за границы строки - возвращает пустую строку.',
+        'Метод объекта String, возвращает символ по index. Если индекс выходит за границы строки - возвращает пустую строку.',
       example:
         "const domain = 'example.com';\n" +
         "console.log(domain.charAt(0)); // 'e'\n" +
@@ -198,7 +198,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, возвращает код символа (UTF-16) по (index). Возвращает целое число от 0 до 65535 или NaN, если (index) выходит за границы исходной строки.',
+        'Метод объекта String, возвращает код символа (UTF-16) по index. Возвращает целое число от 0 до 65535 или NaN, если index выходит за границы исходной строки.',
       example:
         "const str = 'ABC';\n" +
         'console.log(str.charCodeAt(0)); // 65\n' +
@@ -222,7 +222,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, выполняет поиск (searchValue) в исходной строке, начиная с (startIndex). Метод возвращает индекс первого совпадения или -1, если (searchValue) не найдена.',
+        'Метод объекта String, выполняет поиск searchValue в исходной строке, начиная с startIndex. Метод возвращает индекс первого совпадения или -1, если searchValue не найдена.',
       example:
         "const url = 'https:/site.com';\n" +
         "console.log(url.indexOf(':/')); // 5\n" +
@@ -230,7 +230,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         "console.log(url.indexOf('ftp')); // -1",
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.indexof',
-      errors: 'TypeError — если this не является строкой (или массивом).',
+      errors: 'TypeError — если this не является строкой или массивом.',
     },
     {
       name: 'lastIndexOf()',
@@ -246,7 +246,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, выполняет поиск (searchValue) в исходной строке в обратном направлении, начиная с (fromIndex). Метод возвращает индекс первого совпадения или -1, если подстрока не найдена.',
+        'Метод объекта String, выполняет поиск searchValue в исходной строке в обратном направлении, начиная с fromIndex. Метод возвращает индекс первого совпадения или -1, если searchValue не найдена.',
       example:
         "const path = '/home/user/docs';\n" +
         "console.log(path.lastIndexOf('/')); // 11\n" +
@@ -254,7 +254,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         "console.log(path.lastIndexOf('user', 8)); // 6",
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.lastindexof',
-      errors: 'TypeError — если this не является строкой (или массивом).',
+      errors: 'TypeError — если this не является строкой или массивом.',
     },
     {
       name: 'includes()',
@@ -270,7 +270,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, проверяет, содержит ли исходная строка (searchString), начиная с (position). Возвращает true если содержит, иначе false.',
+        'Метод объекта String, проверяет, содержит ли исходная строка searchString, начиная с position. Возвращает true если содержит, иначе false.',
       example:
         "const file = 'document.pdf';\n" +
         "console.log(file.includes('.pdf')); // true\n" +
@@ -278,7 +278,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         "console.log(file.includes('doc')); // true",
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.includes',
-      errors: 'TypeError — если this не является строкой (или массивом).',
+      errors: 'TypeError — если this не является строкой или массивом.',
     },
     {
       name: 'slice()',
@@ -296,8 +296,8 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
       ],
       description:
         'Метод объекта String, возвращает новую строку, содержащую символы исходной строки:\n' +
-        '• С двумя аргументами: символы от (start) до (end);\n' +
-        '• С одним аргументом: символы от (start) до конца строки;\n' +
+        '• С двумя аргументами: символы от start до end;\n' +
+        '• С одним аргументом: символы от start до конца строки;\n' +
         '• Без аргументов: полную копию исходной строки.',
       example:
         "const filename = 'document.pdf';\n" +
@@ -305,7 +305,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         "console.log(filename.slice(-4)); // '.pdf'",
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.slice',
-      errors: 'TypeError — если this не является строкой (или массивом).',
+      errors: 'TypeError — если this не является строкой или массивом.',
     },
     {
       name: 'substring()',
@@ -322,8 +322,8 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
       ],
       description:
         'Метод объекта String, возвращает новую строку, содержащую символы исходной строки:\n' +
-        '• С двумя аргументами: символы от (start) до (end), аргументы автоматически меняются местами, если (start) > (end);\n' +
-        '• С одним аргументом: символы от (start) до конца строки;\n' +
+        '• С двумя аргументами: символы от start до end, аргументы автоматически меняются местами, если start > end;\n' +
+        '• С одним аргументом: символы от start до конца строки;\n' +
         '• Без аргументов: полную копию исходной строки.',
       example:
         "const filename = 'image.png';\n" +
@@ -343,7 +343,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, возвращает код символа (Unicode) по (index). Возвращает целое число от 0 до 1114111 (0x10FFFF) или undefined, если (index) выходит за границы исходной строки. Корректно обрабатывает суррогатные пары.',
+        'Метод объекта String, возвращает код символа Unicode по index. Возвращает целое число от 0 до 1114111 (0x10FFFF) или undefined, если index выходит за границы исходной строки. Корректно обрабатывает суррогатные пары.',
       example:
         "const emoji = '🚀火箭';\n" +
         'console.log(emoji.codePointAt(0)); // 128640\n' +
@@ -415,7 +415,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.localecompare',
       errors:
         'TypeError — если this не является строкой.\n' +
-        'RangeError — если (locales) содержит недопустимые языковые теги.',
+        'RangeError — если locales содержит недопустимые языковые теги.',
     },
     {
       name: 'toLocaleLowerCase()',
@@ -424,11 +424,11 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         {
           name: 'locale',
           description:
-            "Строка или массив строк с кодом локали ('tr', 'az' и другие)",
+            "Строка или массив строк с кодом локали (например, 'tr', 'az')",
         },
       ],
       description:
-        'Метод объекта String, возвращает строку в нижнем регистре с учётом правил (locale).',
+        'Метод объекта String, возвращает строку в нижнем регистре с учётом правил локали locale.',
       example:
         "const str = 'İstanbul';\n" +
         "console.log(str.toLocaleLowerCase('tr')); // 'istanbul'\n" +
@@ -444,11 +444,11 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         {
           name: 'locale',
           description:
-            "Строка или массив строк с кодом локали ('tr', 'az' и другие)",
+            "Строка или массив строк с кодом локали (например, 'tr', 'az')",
         },
       ],
       description:
-        'Метод объекта String, возвращает строку в верхнем регистре с учётом правил (locale).',
+        'Метод объекта String, возвращает строку в верхнем регистре с учётом правил локали locale.',
       example:
         "const str = 'istanbul';\n" +
         "console.log(str.toLocaleUpperCase('tr')); // 'İSTANBUL'\n" +
@@ -508,7 +508,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, возвращает новую строку, дополняя исходную строку символами (padString) слева до достижения (targetLength).',
+        'Метод объекта String, возвращает новую строку, дополняя исходную строку символами padString слева до достижения targetLength.',
       example:
         "const code = '42';\n" +
         "console.log(code.padStart(5, '0')); // '00042'\n" +
@@ -532,7 +532,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, возвращает новую строку, дополняя исходную строку символами (padString) справа до достижения (targetLength).',
+        'Метод объекта String, возвращает новую строку, дополняя исходную строку символами padString справа до достижения targetLength.',
       example:
         "const code = '42';\n" +
         "console.log(code.padEnd(5, '0')); // '42000'\n" +
@@ -552,7 +552,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, возвращает новую строку, представляющую собой исходную строку, повторённую (count) раз. Если (count) равен 0, возвращает пустую строку.',
+        'Метод объекта String, возвращает новую строку, представляющую собой исходную строку, повторённую count раз. Если count равен 0, возвращает пустую строку.',
       example:
         "const separator = '---';\n" +
         "console.log(separator.repeat(3)); // '------------'\n\n" +
@@ -564,7 +564,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.repeat',
       errors:
         'TypeError — если this не является строкой.\n' +
-        'RangeError — если (count) отрицательный или превышает максимально допустимое значение.',
+        'RangeError — если count отрицательный или превышает максимально допустимое значение.',
     },
     {
       name: 'concat()',
@@ -577,7 +577,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, возвращает новую строку, в которую копирует содержимое из исходной строки и (...strings).',
+        'Метод объекта String, возвращает новую строку, в которую копирует содержимое из исходной строки и ...strings.',
       example:
         "const firstName = 'John';\n" +
         "const lastName = 'Doe';\n" +
@@ -585,7 +585,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         "console.log(fullName); // 'John Doe'",
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.concat',
-      errors: 'TypeError — если this не является строкой (или массивом).',
+      errors: 'TypeError — если this не является строкой или массивом.',
     },
     {
       name: 'split()',
@@ -602,7 +602,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, разбивает исходную строку на массив по (separator). (limit) отвечает за ограничение количества элементов в массиве, если их больше чем указано, то остаток будет отброшен.',
+        'Метод объекта String, разбивает исходную строку на массив по separator. limit отвечает за ограничение количества элементов в массиве, если их больше чем указано, то остаток будет отброшен.',
       example:
         "const date = '2024-12-25';\n" +
         "const parts = date.split('-');\n" +
@@ -650,7 +650,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
           description: "Форма нормализации (по умолчанию 'NFC')",
         },
       ],
-      description: 'Метод объекта String, возвращает строку в (form) Unicode.',
+      description: 'Метод объекта String, возвращает строку в form Unicode.',
       example:
         "const str = 'café';\n" +
         "const str2 = 'cafe\\u0301';\n" +
@@ -660,7 +660,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.normalize',
       errors:
         'TypeError — если this не является строкой.\n' +
-        "RangeError — если (form) не 'NFC', 'NFD', 'NFKC' или 'NFKD'",
+        "RangeError — если form не 'NFC', 'NFD', 'NFKC' или 'NFKD'.",
     },
     {
       name: 'match()',
@@ -672,7 +672,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, возвращает массив совпадений при поиске по (regexp). Без флага /g возвращает первый результат с группами захвата. С флагом /g возвращает массив всех совпадений.',
+        'Метод объекта String, возвращает массив совпадений при поиске по regexp. Без флага /g возвращает первый результат с группами захвата. С флагом /g возвращает массив всех совпадений.',
       example:
         "const str = 'The quick';\n" +
         "console.log(str.match(/[aeiou]/g)); // ['e', 'u', 'i']\n" +
@@ -695,7 +695,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, возвращает итератор по всем совпадениям регулярного выражения с флагом /g, включая группы захвата.',
+        'Метод объекта String, возвращает итератор по всем совпадениям regexp, включая группы захвата.',
       example:
         "const str = 'The quick';\n" +
         'const matches = [...str.matchAll(/[aeiou]/g)];\n' +
@@ -710,7 +710,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.matchall',
       errors:
-        'TypeError — если this не является строкой или (regexp) не имеет флага /g.',
+        'TypeError — если this не является строкой или regexp не имеет флага /g.',
     },
     {
       name: 'search()',
@@ -722,7 +722,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта String, возвращает индекс первого совпадения с (regexp) или -1, если совпадение не найдено.  Флаг /g в регулярном выражении игнорируется.',
+        'Метод объекта String, возвращает индекс первого совпадения с regexp или -1, если совпадение не найдено.  Флаг /g в регулярном выражении игнорируется.',
       example:
         "const str = 'The quick brown fox';\n" +
         'console.log(str.search(/quick/)); // 4\n' +
@@ -743,7 +743,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта String, создаёт символ по (...codePoints).',
+        'Статический метод объекта String, создаёт символ по ...codePoints.',
       example:
         'const charA = String.fromCodePoint(65);\n' +
         "console.log(charA); // 'A'\n\n" +
@@ -754,7 +754,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.fromcodepoint',
       errors:
-        'RangeError — если (...codePoints) некорректен (менее 0 или более 0x10FFFF).',
+        'RangeError — если ...codePoints некорректен (менее 0 или более 0x10FFFF).',
     },
     {
       name: 'String.fromCharCode()',
@@ -766,7 +766,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта String, возвращает строку из (...codeUnits).',
+        'Статический метод объекта String, возвращает строку из ...codeUnits.',
       example:
         "console.log(String.fromCharCode(65, 66, 67)); // 'ABC'\n" +
         "console.log(String.fromCharCode(0x4F60, 0x597D)); // '你好'",
@@ -787,7 +787,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта String, используется как тег для шаблонных строк. Возвращает сырую строку, объединяя (template.raw) и (...substitutions), без интерпретации escape-последовательностей.',
+        'Статический метод объекта String, используется как тег для шаблонных строк. Возвращает сырую строку, объединяя template.raw и ...substitutions, без интерпретации escape-последовательностей.',
       example:
         'const path = String.raw`C:\\Users\\name\\file.txt`;\n' +
         "console.log(path); // 'C:\\Users\\name\\file.txt'\n\n" +
@@ -797,7 +797,7 @@ export const configString: Record<Methods.STRING, IMethod[]> = {
         "console.log(result); // 'aXbYc'",
       specification:
         'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.raw',
-      errors: 'TypeError — если (template) не имеет свойства raw.',
+      errors: 'TypeError — если template не имеет свойства raw.',
     },
   ],
 };

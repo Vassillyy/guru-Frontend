@@ -13,13 +13,12 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         {
           name: 'options',
           description:
-            'Необязательный объект с параметрами клонирования:\n' +
+            'Объект с параметрами клонирования:\n' +
             ' • transfer - массив Transferable объектов (ArrayBuffer, MessagePort, ImageBitmap) для передачи владения без копирования\n' +
             ' • shared - boolean, если true, то SharedArrayBuffer клонируется без копирования (по ссылке)',
         },
       ],
-      description:
-        'Встроенная функция, возвращает глубокую копию обьекта (value).',
+      description: 'Встроенная функция, возвращает глубокую копию (value).',
       example:
         'const obj = { a: 1, b: { c: 2 } };\n' +
         'const cloned = structuredClone(obj);\n' +
@@ -39,12 +38,12 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        'Встроенная функция, позволяющая создавать уникальные символы. Не является конструктором.',
+        'Встроенная функция, позволяющая создавать уникальные символы. Не является конструктором. Функция может принимать (description).',
       example:
         "const sym = Symbol('id');\n" + 'console.log(sym); // Symbol(id)',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-symbol-description',
-      errors: "TypeError — если вызывается как конструктор с оператором 'new'.",
+      errors: 'TypeError — если вызывается как конструктор с оператором new.',
     },
     {
       name: 'isNaN()',
@@ -148,14 +147,14 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        'Функция, позволяющая вызвать (func) один раз через (delay). Вызов setTimeout возвращает «идентификатор таймера» timerId, который можно использовать для отмены дальнейшего выполнения. Дополнительные аргументы (после delay) будут переданы в (func) при вызове. В браузере устанавливает this=window.',
+        'Функция, позволяющая вызвать (func) один раз через (delay). Вызов setTimeout возвращает «идентификатор таймера», который можно использовать для отмены дальнейшего выполнения. (...args) будут переданы в (func) при вызове. В браузере устанавливает this=window.',
       example:
         'setTimeout(() => {\n' +
         " console.log('Выполнится через 1 секунду');\n" +
         '}, 1000);',
       specification:
         'https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#sec-setTimeout',
-      errors: 'TypeError — если первый аргумент (func) не является функцией.',
+      errors: 'TypeError — если (func) не является функцией.',
     },
     {
       name: 'clearTimeout()',
@@ -167,7 +166,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        'Функция, которая отменяет таймер, установленный ранее с помощью setTimeout(), предотвращая выполнение запланированной функции. Если передан неверный или уже сработавший (timeoutID), ничего не происходит (ошибки не возникает).',
+        'Встроенная функция, отменяет таймер, установленный ранее с помощью setTimeout(), предотвращая выполнение запланированной функции. Если передан неверный или уже сработавший (timeoutID), ничего не происходит (ошибки не возникает).',
       example:
         'const timerId = setTimeout(() => {\n' +
         " console.log('Не выполнится');\n" +
@@ -176,7 +175,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#sec-clearTimeout',
       errors:
-        'TypeError — если аргумент (timeoutID) не является числовым идентификатором таймера.',
+        'TypeError — если (timeoutID) не является числовым идентификатором таймера.',
     },
     {
       name: 'setInterval()',
@@ -198,7 +197,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        'Функция, позволяющая вызывать (func) регулярно, повторяя вызов через (delay). Вызов setInterval возвращает «идентификатор таймера» timerId, который можно использовать для отмены дальнейшего выполнения. Дополнительные аргументы (после delay) будут переданы в (func) при каждом вызове. В браузере устанавливает this=window.',
+        'Функция, позволяющая вызывать (func) регулярно, повторяя вызов через (delay). Вызов setInterval возвращает «идентификатор таймера», который можно использовать для отмены дальнейшего выполнения. (...args) будут переданы в (func) при каждом вызове. В браузере устанавливает this=window.',
       example:
         'let counter = 0;\n\n' +
         'const intervalId = setInterval(() => {\n' +
@@ -210,7 +209,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         '}, 1000);',
       specification:
         'https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#sec-setInterval',
-      errors: 'TypeError — если первый аргумент (func) не является функцией.',
+      errors: 'TypeError — если (func) не является функцией.',
     },
     {
       name: 'clearInterval()',
@@ -222,7 +221,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        'Функция, которая отменяет повторное выполнение, установленное с помощью setInterval(), предотвращая дальнейшие вызовы функции. Если передан неверный или уже остановленный (intervalID), ничего не происходит (ошибки не возникает).',
+        'Встроенная функция, отменяет повторное выполнение, установленное с помощью setInterval(), предотвращая дальнейшие вызовы функции. Если передан неверный или уже остановленный (intervalID), ничего не происходит (ошибки не возникает).',
       example:
         'let count = 0;\n' +
         'const intervalId = setInterval(() => {\n' +
@@ -235,7 +234,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#sec-clearInterval',
       errors:
-        'TypeError — если аргумент (intervalID) не является числовым идентификатором таймера.',
+        'TypeError — если (intervalID) не является числовым идентификатором таймера.',
     },
     {
       name: 'fetch()',
@@ -248,8 +247,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         {
           name: 'options',
           description:
-            'Необязательный объект с параметрами запроса. Без него выполняется простой GET-запрос.\n' +
-            'Свойства options:\n' +
+            'Объект с параметрами запроса. Без него выполняется простой GET-запрос.\n' +
             "• method – HTTP метод, например 'GET', 'POST', 'PUT', 'DELETE', 'PATCH'\n" +
             "• headers – объект с HTTP-заголовками (например, {'Content-Type': 'application/json'})\n" +
             '• body – тело запроса (для POST, PUT, PATCH):\n' +

@@ -8,19 +8,18 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
       parameters: [
         {
           name: 'key',
-          description:
-            'Имя символа для поиска или создания в глобальном реестре',
+          description: 'Имя символа',
         },
       ],
       description:
-        'Статический метод объекта Symbol, используется для поиска или создания символа в глобальном реестре. Если в реестре уже существует символ с (key), метод возвращает этот символ. Если такого символа нет, метод создаёт новый символ и записывает его в реестр.',
+        'Статический метод объекта Symbol, используется для поиска или создания символа с key в глобальном реестре. Если в реестре уже существует символ с key, метод возвращает этот символ. Если такого key нет, метод создаёт новый символ и записывает его в реестр.',
       example:
         "const sym1 = Symbol.for('app');\n" +
         "const sym2 = Symbol.for('app');\n" +
         'console.log(sym1 === sym2); // true',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-symbol.for',
-      errors: 'TypeError — если (key) является символом.',
+      errors: 'TypeError — если key является символом.',
     },
     {
       name: 'Symbol.keyFor()',
@@ -28,12 +27,11 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
       parameters: [
         {
           name: 'sym',
-          description:
-            'Глобальный символ, имя которого нужно получить из реестра',
+          description: 'Глобальный символ',
         },
       ],
       description:
-        'Статический метод объекта Symbol, используется для получения имени (sym). Метод возвращает имя символа или undefined, если (sym) не является глобальным.',
+        'Статический метод объекта Symbol, используется для получения имени sym из реестра. Метод возвращает имя sym или undefined, если sym не является глобальным.',
       example:
         "const globalSym = Symbol.for('appConfig');\n" +
         "console.log(Symbol.keyFor(globalSym)); // 'appConfig'\n\n" +
@@ -41,7 +39,7 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
         'console.log(Symbol.keyFor(localSym)); // undefined',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-symbol.keyfor',
-      errors: 'TypeError - если (sym) не является символом',
+      errors: 'TypeError — если sym не является символом',
     },
     {
       name: 'Symbol.toPrimitive',
@@ -53,7 +51,7 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
         },
       ],
       description:
-        'Встроенный символ, используется как ключ для определения метода преобразования объекта в примитивное значение. Если метод определён для объекта с этим символом в качестве ключа, он будет использоваться для всех преобразований объекта в примитив.',
+        'Встроенный символ, используется как ключ для определения метода преобразования объекта в примитивное значение. Значение hint определяет желаемый тип результата. Если метод определён для объекта с этим символом в качестве ключа, он будет использоваться для всех преобразований объекта в примитив.',
       example:
         'const obj = {\n' +
         '  value: 100,\n' +
@@ -74,7 +72,7 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
       name: 'Symbol.isConcatSpreadable',
       syntax: 'obj[Symbol.isConcatSpreadable]',
       description:
-        'Встроенный символ, который определяет поведение объекта при вызове метода concat(). Если свойство установлено в true, элементы объекта будут добавлены по отдельности; если false или отсутствует, объект будет добавлен целиком как один элемент.',
+        'Встроенный символ, определяет поведение объекта при вызове метода concat(). Если свойство установлено в true, элементы объекта будут добавлены по отдельности; если false или отсутствует, объект будет добавлен целиком как один элемент.',
       example:
         'const arrayLike = {\n' +
         "  0: 'a',\n" +
@@ -177,12 +175,11 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
       parameters: [
         {
           name: 'obj',
-          description:
-            'Объект, для которого проверяется принадлежность конструктору',
+          description: 'Целевой объект',
         },
       ],
       description:
-        'Статический метод, используется для определения того,  является ли (obj) экземпляром конструктора. Метод вызывается оператором instanceof. По умолчанию проверяет, находится ли (obj) в цепочке прототипов конструктора. Можно переопределить этот метод в классе, чтобы настроить поведение оператора instanceof и задать кастомную логику проверки принадлежности объектов к классу.',
+        'Статический метод, используется для определения того,  является ли obj экземпляром конструктора. Метод вызывается оператором instanceof. По умолчанию проверяет, находится ли obj в цепочке прототипов конструктора. Можно переопределить этот метод в классе, чтобы настроить поведение оператора instanceof и задать кастомную логику проверки принадлежности объектов к классу.',
       example:
         'class ArrayLike {\n' +
         '  static [Symbol.hasInstance](obj) {\n' +
@@ -291,7 +288,7 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
         },
       ],
       description:
-        'Встроенный символ, который определяет метод замены в строке. Используется в replace() для кастомной логики замены.',
+        'Встроенный символ, который определяет метод замены в str. Используется в replace() для кастомной логики замены. Значение replacement определяет, чем заменять найденные совпадения — строкой или результатом вызова функции.',
       example:
         'const customReplacer = {\n' +
         '  [Symbol.replace](str, replacement) {\n' +
@@ -321,7 +318,7 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
         { name: 'str', description: 'Строка, в которой выполняется поиск' },
       ],
       description:
-        'Встроенный символ, который определяет метод поиска в строке. Используется в search() для кастомной логики поиска.',
+        'Встроенный символ, который определяет метод поиска в str. Используется в search() для кастомной логики поиска.',
       example:
         'const customSearcher = {\n' +
         '  [Symbol.search](str) {\n' +
@@ -344,7 +341,7 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
         },
       ],
       description:
-        'Встроенный символ, который определяет метод разделения строки. Используется в split() для кастомной логики разделения.',
+        'Встроенный символ, который определяет метод разделения строки. Используется в split() для кастомной логики разделения. Значение limit ограничивает количество элементов в возвращаемом массиве.',
       example:
         'const customSplitter = {\n' +
         '  [Symbol.split](str, limit) {\n' +
@@ -360,7 +357,7 @@ export const configSymbol: Record<Methods.SYMBOL, IMethod[]> = {
       name: 'description',
       syntax: 'symbol.description',
       description:
-        'Свойство объекта Symbol, возвращает имя символа. Для символов, созданных без описания, свойство возвращает undefined. Свойство только для чтения (read-only).',
+        'Свойство объекта Symbol, возвращает имя исходного символа. Для символов, созданных без описания, свойство возвращает undefined. Свойство только для чтения (read-only).',
       example:
         "const userId = Symbol('userId');\n" +
         "console.log(userId.description); // 'userId'\n\n" +

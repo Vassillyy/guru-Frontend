@@ -225,6 +225,30 @@ export const configFunctions: ITopic = {
           'const arrowFunc = () => {};\n' +
           'console.log(arrowFunc.prototype); // undefined',
       },
+      {
+        title: 'new Function',
+        content:
+          'Встроенный конструктор new Function(), позволяющий создавать функцию из строки кода.\n\n' +
+          'let func = new Function([arg1, arg2, ...argN], functionBody);',
+        addition:
+          '• Параметры передаются как строки (или одна строка с параметрами через запятую)\n' +
+          '• Последний аргумент — тело функции в виде строки\n' +
+          '• Замыкание сохраняется через свойство [[Environment]], ссылающееся на глобальное лексическое окружение\n' +
+          '• Может вызываться без new: new Function === Function',
+        examples:
+          '// Функция без параметров\n' +
+          'const sayHi = new Function(\'return "Привет!";\');\n' +
+          'console.log(sayHi()); // "Привет!"\n\n' +
+          '// Функция с параметрами\n' +
+          "const sum = new Function('a', 'b', 'return a + b;');\n" +
+          'console.log(sum(1, 2)); // 3\n\n' +
+          '// Параметры через запятую в одной строке\n' +
+          "const multiply = new Function('a, b', 'return a * b;');\n" +
+          'console.log(multiply(3, 4)); // 12\n\n' +
+          '// Вызов без new\n' +
+          'const func = Function(\'return "работает без new";\');\n' +
+          'console.log(func()); // "работает без new"',
+      },
     ],
   },
 };

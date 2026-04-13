@@ -12,7 +12,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Number, округляет исходное число до (digits) и возвращает результат в виде строки.',
+        'Метод объекта Number, округляет исходное число до digits и возвращает результат в виде строки.',
       example:
         'const num = 123.123;\n' +
         "console.log(num.toFixed(2)); // '123.12'\n\n" +
@@ -22,7 +22,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-number.prototype.tofixed',
       errors:
-        'RangeError — если (digits) не в диапазоне от 0 до 100.\n' +
+        'RangeError — если digits не в диапазоне от 0 до 100.\n' +
         'TypeError — если this не является числом.',
     },
     {
@@ -31,12 +31,11 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
       parameters: [
         {
           name: 'radix',
-          description:
-            'Основание системы счисления от 2 до 36 (по умолчанию 10)',
+          description: 'Основание системы счисления (по умолчанию 10)',
         },
       ],
       description:
-        'Метод объекта Number, возвращает строковое представление исходного числа в системе счисления с (radix).',
+        'Метод объекта Number, возвращает строковое представление исходного числа в системе счисления с radix.',
       example:
         'const num = 123;\n' +
         "console.log(num.toString()); // '123'\n" +
@@ -46,7 +45,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-number.prototype.tostring',
       errors:
-        'RangeError — если (radix) не в диапазоне от 2 до 36.\n' +
+        'RangeError — если radix не в диапазоне от 2 до 36.\n' +
         'TypeError — если this является null или undefined.',
     },
     {
@@ -55,11 +54,11 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
       parameters: [
         {
           name: 'fractionDigits',
-          description: 'Количество цифр после десятичной точки (от 0 до 100)',
+          description: 'Количество цифр после десятичной точки',
         },
       ],
       description:
-        'Метод объекта Number, возвращает строковое представление исходного числа в экспоненциальной записи, округлённое до (fractionDigits).',
+        'Метод объекта Number, возвращает строковое представление исходного числа в экспоненциальной записи, округлённое до fractionDigits.',
       example:
         '// Большие числа:\n' +
         'const bigNumber = 123456.789;\n' +
@@ -73,7 +72,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-number.prototype.toexponential',
       errors:
-        'RangeError — если (fractionDigits) не в диапазоне от 0 до 100.\n' +
+        'RangeError — если fractionDigits не в диапазоне от 0 до 100.\n' +
         'TypeError — если this не является числом.',
     },
     {
@@ -82,11 +81,11 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
       parameters: [
         {
           name: 'precision',
-          description: 'Количество значащих цифр (от 1 до 100)',
+          description: 'Количество значащих цифр',
         },
       ],
       description:
-        'Метод объекта Number, возвращает строковое представление исходного числа в формате с фиксированным (precision), округляя при необходимости. Если аргумент не передан, то будет возвращено исходное число. Если указанное количество знаков не достижимо обрезанием десятичной части - переводит число в экспоненциальную форму.',
+        'Метод объекта Number, возвращает строковое представление исходного числа в формате с фиксированным precision, округляя при необходимости. Если аргумент не передан, то будет возвращено исходное число. Если указанное количество знаков не достижимо обрезанием десятичной части - переводит число в экспоненциальную форму.',
       example:
         'const num = 123.456;\n' +
         "console.log(num.toPrecision()); // '123.456'\n" +
@@ -96,7 +95,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-number.prototype.toprecision',
       errors:
-        'RangeError — если (precision) не в диапазоне от 1 до 100.\n' +
+        'RangeError — если precision не в диапазоне от 1 до 100.\n' +
         'TypeError — если this не является числом.',
     },
     {
@@ -119,14 +118,14 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
             " • style: 'unit' — формат с единицей измерения (требует указания unit)\n" +
             'Настройки валюты (при style: "currency"):\n' +
             " • currency — код валюты (например, 'USD', 'EUR', 'RUB')\n" +
-            " • currencyDisplay: 'symbol' — символ валюты (по умолчанию, например '€')\n" +
-            " • currencyDisplay: 'code' — буквенный код (например, 'EUR')\n" +
-            " • currencyDisplay: 'name' — полное название (например, 'euro')\n" +
+            " • currencyDisplay: 'symbol' — символ валюты (по умолчанию)\n" +
+            " • currencyDisplay: 'code' — буквенный код\n" +
+            " • currencyDisplay: 'name' — полное название\n" +
             'Настройки единиц измерения (при style: "unit"):\n' +
-            " • unit — единица измерения ('liter', 'meter', 'kilogram', 'celsius' и др.)\n" +
-            " • unitDisplay: 'short' — сокращённое обозначение (по умолчанию, 'l', 'km/h')\n" +
-            " • unitDisplay: 'long' — полное название ('liters', 'kilometers per hour')\n" +
-            " • unitDisplay: 'narrow' — узкое сокращение ('l', 'km/h' — может отличаться от short)\n" +
+            " • unit — единица измерения (например, 'liter', 'meter', 'kilogram', 'celsius')\n" +
+            " • unitDisplay: 'short' — сокращённое обозначение (по умолчанию)\n" +
+            " • unitDisplay: 'long' — полное название\n" +
+            " • unitDisplay: 'narrow' — узкое сокращение\n" +
             'Форматирование чисел:\n' +
             ' • useGrouping — использовать разделители групп разрядов (true/false)\n' +
             ' • minimumIntegerDigits — минимальное количество целых цифр (1-21)\n' +
@@ -137,7 +136,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Number, преобразует исходное число в строку с учётом локали (языка и региона). Поддерживает различные стили форматирования: десятичные числа, валюту, проценты, единицы измерения. Позволяет настраивать количество цифр, разделители и другие параметры отображения. Игнорирует невалидные значения.',
+        'Метод объекта Number, преобразует исходное число в строку с учётом локали. Поддерживает различные стили форматирования: десятичные числа, валюту, проценты, единицы измерения. Позволяет настраивать количество цифр, разделители и другие параметры отображения. Игнорирует невалидные значения.',
       example:
         'const num = 123456.789;\n' +
         "const result1 = num.toLocaleString('ru-RU');\n" +
@@ -162,7 +161,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-number.prototype.tolocalestring',
       errors:
         'TypeError — если this не является числом.\n' +
-        'RangeError — если (locales) содержит недопустимые языковые теги.',
+        'RangeError — если locales содержит недопустимые языковые теги.',
     },
     {
       name: 'Number.isInteger()',
@@ -174,7 +173,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Number, проверяет, является ли (value) целым числом. Возвращает true, если является целым числом, иначе false.',
+        'Статический метод объекта Number, проверяет, является ли value целым числом. Возвращает true, если является целым числом, иначе false.',
       example:
         'console.log(Number.isInteger(42)); // true\n' +
         'console.log(Number.isInteger(42.0)); // true\n' +
@@ -195,7 +194,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Number, возвращает true, если (value) является целым числом (тип number) и находится в безопасном диапазоне от -(2⁵³ - 1) до 2⁵³ - 1.',
+        'Статический метод объекта Number, возвращает true, если value является целым числом (тип number) и находится в безопасном диапазоне от -(2⁵³ - 1) до 2⁵³ - 1.',
       example:
         'console.log(Number.isSafeInteger(42)); // true\n' +
         'console.log(Number.isSafeInteger(9007199254740991)); // true\n' +
@@ -214,7 +213,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Number, возвращает true только если (value) имеет тип number и является NaN. Во всех остальных случаях возвращает false.',
+        'Статический метод объекта Number, возвращает true только если value имеет тип number и является NaN. Во всех остальных случаях возвращает false.',
       example:
         'console.log(Number.isNaN(NaN)); // true\n' +
         "console.log(Number.isNaN('NaN')); // false\n" +
@@ -236,7 +235,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Number, возвращает true только в том случае, если (value) принадлежит к типу number и не является NaN/Infinity/-Infinity. Во всех остальных случаях возвращает false.',
+        'Статический метод объекта Number, возвращает true только в том случае, если value принадлежит к типу number и не является NaN/Infinity/-Infinity. Во всех остальных случаях возвращает false.',
       example:
         'console.log(Number.isFinite(42)); // true\n' +
         'console.log(Number.isFinite(42.5)); // true\n' +

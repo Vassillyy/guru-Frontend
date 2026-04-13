@@ -18,6 +18,7 @@ import { configDestructuring } from './configDestructuring.ts';
 import { configJSON } from './configJSON.ts';
 import { configRecursion } from './configRecursion.ts';
 import { configLinkedList } from './configLinkedList.ts';
+import { configLexicalEnvironment } from './configLexicalEnvironment.ts';
 
 export const config: IConfig = [
   configIntroductionToJS,
@@ -39,4 +40,5 @@ export const config: IConfig = [
   configJSON,
   configRecursion,
   configLinkedList,
+  configLexicalEnvironment,
 ];

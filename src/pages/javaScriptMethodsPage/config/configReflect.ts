@@ -20,7 +20,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         "console.log(keys); // ['a', 'b', Symbol(id)]",
       specification:
         'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.ownkeys',
-      errors: 'TypeError — если аргумент (obj) не является объектом.',
+      errors: 'TypeError — если (obj) не является объектом.',
     },
   ],
 };
