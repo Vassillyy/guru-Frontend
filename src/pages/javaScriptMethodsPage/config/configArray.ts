@@ -22,11 +22,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       parameters: [
         {
           name: '...items',
-          description: 'Элементы для добавления в конец массива',
+          description: 'Элементы для добавления',
         },
       ],
       description:
-        'Метод объекта Array, добавляет один или несколько элементов в конец исходного массива. Возвращает новую длину массива.',
+        'Метод объекта Array, добавляет ...items в конец исходного массива. Возвращает новую длину массива.',
       example:
         'const numbers = [];\n' +
         'const length = numbers.push(1, 2, 3);\n' +
@@ -56,11 +56,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       parameters: [
         {
           name: '...items',
-          description: 'Элементы для добавления в начало массива',
+          description: 'Элементы для добавления',
         },
       ],
       description:
-        'Метод объекта Array, добавляет один или несколько элементов в начало исходного массива. Возвращает новую длину массива.',
+        'Метод объекта Array, добавляет ...items в начало исходного массива. Возвращает новую длину массива.',
       example:
         'const numbers = [3, 4];\n' +
         'const newLength = numbers.unshift(1, 2);\n' +
@@ -129,7 +129,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, выполняет поиск (searchElement) в исходном массиве, начиная с (fromIndex). Возвращает индекс первого совпадения или -1, если элемент не найден.',
+        'Метод объекта Array, выполняет поиск searchElement в исходном массиве, начиная с fromIndex. Возвращает индекс первого совпадения или -1, если элемент не найден.',
       example:
         "const users = ['alice', 'bob', 'charlie', 'bob'];\n" +
         "const index = users.indexOf('bob');\n" +
@@ -138,7 +138,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         'console.log(secondIndex); // 3',
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.indexof',
-      errors: 'TypeError — если this не является массивом (или строкой).',
+      errors: 'TypeError — если this не является массивом или строкой.',
     },
     {
       name: 'lastIndexOf()',
@@ -151,11 +151,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         {
           name: 'fromIndex',
           description:
-            'Индекс начала поиска в обратном направлении (по умолчанию равен длине массива)',
+            'Индекс начала поиска (по умолчанию равен длине массива)',
         },
       ],
       description:
-        'Метод объекта Array, выполняет поиск (searchElement) в исходном массиве с конца, начиная с (fromIndex). Возвращает индекс последнего совпадения или -1, если элемент не найден.',
+        'Метод объекта Array, выполняет поиск searchElement в исходном массиве с конца, начиная с fromIndex. Возвращает индекс последнего совпадения или -1, если элемент не найден.',
       example:
         "const logEntries = ['error', 'info', 'warning', 'info', 'error'];\n" +
         "const lastInfoIndex = logEntries.lastIndexOf('info');\n" +
@@ -164,7 +164,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         'console.log(lastErrorIndex); // 0',
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.lastindexof',
-      errors: 'TypeError — если this не является массивом (или строкой).',
+      errors: 'TypeError — если this не является массивом или строкой.',
     },
     {
       name: 'at()',
@@ -177,7 +177,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, возвращает элемент исходного массива по (index). Если (index) выходит за границы массива, возвращает undefined.',
+        'Метод объекта Array, возвращает элемент исходного массива по index. Если index выходит за границы массива, возвращает undefined.',
       example:
         "const colors = ['red', 'green', 'blue', 'yellow'];\n" +
         'const lastColor = colors.at(-1);\n' +
@@ -186,7 +186,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         "console.log(secondColor); // 'green'",
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.at',
-      errors: 'TypeError — если this не является массивом (или строкой).',
+      errors: 'TypeError — если this не является массивом или строкой.',
     },
     {
       name: 'includes()',
@@ -202,7 +202,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, проверяет, содержит ли исходный массив (searchElement), начиная с (fromIndex). Возвращает true если содержит, иначе false.\n' +
+        'Метод объекта Array, проверяет, содержит ли исходный массив searchElement, начиная с fromIndex. Возвращает true если содержит, иначе false.\n' +
         'Использует алгоритм SameValueZero (правильно обрабатывает NaN)',
       example:
         "const permissions = ['read', 'write', 'execute'];\n" +
@@ -212,7 +212,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         'console.log(hasDelete); // false',
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.includes',
-      errors: 'TypeError — если this не является массивом (или строкой).',
+      errors: 'TypeError — если this не является массивом или строкой.',
     },
     {
       name: 'slice()',
@@ -230,8 +230,8 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       ],
       description:
         'Метод объекта Array, возвращает новый массив, содержащий элементы исходного массива:\n' +
-        '• С двумя аргументами: элементы от (start) до (end);\n' +
-        '• С одним аргументом: элементы от (start) до конца массива;\n' +
+        '• С двумя аргументами: элементы от start до end;\n' +
+        '• С одним аргументом: элементы от start до конца массива;\n' +
         '• Без аргументов: поверхностную копию исходного массива.',
       example:
         'const numbers = [10, 20, 30, 40, 50];\n' +
@@ -241,7 +241,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         'console.log(lastTwo); // [40, 50]',
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.slice',
-      errors: 'TypeError — если this не является массивом (или строкой).',
+      errors: 'TypeError — если this не является массивом или строкой.',
     },
     {
       name: 'splice()',
@@ -261,11 +261,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, изменяет исходный массив начиная с (start), удаляет (deleteCount) и затем вставляет (...items) на их место. Возвращает массив удалённых элементов.\n' +
-        '• Если (deleteCount) не указан — удаляются все элементы от (start) до конца массива\n' +
-        '• Если (start) отрицательный — отсчёт с конца (-1 — последний элемент)\n' +
-        '• Если (start) больше длины массива — ничего не удаляется, (...items) добавляются в конец\n' +
-        '• Если (deleteCount) = 0 — элементы не удаляются, только вставляются',
+        'Метод объекта Array, изменяет исходный массив начиная с start, удаляет deleteCount и затем вставляет ...items на их место. Возвращает массив удалённых элементов.\n' +
+        '• Если deleteCount не указан — удаляются все элементы от start до конца массива\n' +
+        '• Если start отрицательный — отсчёт с конца (-1 — последний элемент)\n' +
+        '• Если start больше длины массива — ничего не удаляется, ...items добавляются в конец\n' +
+        '• Если deleteCount = 0 — элементы не удаляются, только вставляются',
       example:
         "const items = ['apple', 'banana', 'cherry', 'date'];\n" +
         "const removed = items.splice(1, 2, 'blueberry', 'coconut');\n" +
@@ -307,13 +307,13 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, возвращает новый массив на основе исходного, в котором начиная (start), удаляет (deleteCount) и затем вставляет (...items) на их место.\n' +
+        'Метод объекта Array, возвращает новый массив на основе исходного, в котором начиная start, удаляет deleteCount и затем вставляет ...items на их место.\n' +
         '• Не изменяет исходный массив (в отличие от splice())\n' +
-        '• Если (deleteCount) не указан — удаляются все элементы от (start) до конца массива\n' +
-        '• Если (start) отрицательный — отсчёт с конца (-1 — последний элемент)\n' +
-        '• Если (start) больше длины массива — ничего не удаляется, (...items) добавляются в конец\n' +
-        '• Если (deleteCount) = 0 — элементы не удаляются, только вставляются\n' +
-        '• Если (start) и (deleteCount) не указаны — возвращает поверхностную копию массива (эквивалентно slice())',
+        '• Если deleteCount не указан — удаляются все элементы от start до конца массива\n' +
+        '• Если start отрицательный — отсчёт с конца (-1 — последний элемент)\n' +
+        '• Если start больше длины массива — ничего не удаляется, ...items добавляются в конец\n' +
+        '• Если deleteCount = 0 — элементы не удаляются, только вставляются\n' +
+        '• Если start и deleteCount не указаны — возвращает поверхностную копию массива (эквивалентно slice())',
       example:
         "const original = ['jan', 'feb', 'mar', 'apr'];\n" +
         "const newArray = original.toSpliced(2, 1, 'march');\n" +
@@ -345,12 +345,11 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       parameters: [
         {
           name: '...items',
-          description:
-            'Элементы или массивы для объединения с исходным массивом',
+          description: 'Элементы или массивы для объединения',
         },
       ],
       description:
-        'Метод объекта Array, возвращает новый массив, состоящий из элементов исходного массива и (...items).',
+        'Метод объекта Array, возвращает новый массив, состоящий из элементов исходного массива и ...items.',
       example:
         "const firstHalf = ['a', 'b'];\n" +
         "const secondHalf = ['c', 'd'];\n" +
@@ -358,7 +357,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         "console.log(combined); // ['a', 'b', 'c', 'd', 'e']",
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.concat',
-      errors: 'TypeError — если this не является массивом (или строкой).',
+      errors: 'TypeError — если this не является массивом или строкой.',
     },
     {
       name: 'forEach()',
@@ -378,7 +377,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, вызывает (callbackFn) для каждого элемента исходного массива. Возвращает undefined.',
+        'Метод объекта Array, вызывает callbackFn для каждого элемента исходного массива. Возвращает undefined.',
       example:
         'const scores = [85, 92, 78];\n' +
         'scores.forEach((score, index) => {\n' +
@@ -390,7 +389,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.foreach',
       errors:
-        'TypeError — если this не является массивом, (множеством (set) или коллекцией (map)) или (fn) не является функцией',
+        'TypeError — если this не является массивом, множеством (set) или коллекцией (map), или fn не является функцией',
     },
     {
       name: 'find()',
@@ -410,7 +409,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, ищет первый элемент в исходном массиве, удовлетворяющий условию, заданному в (callbackFn). Возвращает элемент или undefined если элемент не найден.',
+        'Метод объекта Array, ищет первый элемент в исходном массиве, удовлетворяющий условию, заданному в callbackFn. Возвращает элемент или undefined если элемент не найден.',
       example:
         'const users = [\n' +
         "  { id: 1, name: 'Alice' },\n" +
@@ -422,7 +421,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.find',
       errors:
-        'TypeError — если this не является массивом, или аргумент (fn) не является функцией.',
+        'TypeError — если this не является массивом или fn не является функцией.',
     },
     {
       name: 'findLast()',
@@ -442,7 +441,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, ищет элемент в исходном массиве, удовлетворяющий условию, заданному в (callbackFn) с конца массива. Возвращает элемент или undefined если элемент не найден.',
+        'Метод объекта Array, ищет элемент в исходном массиве, удовлетворяющий условию, заданному в callbackFn с конца массива. Возвращает элемент или undefined если элемент не найден.',
       example:
         'const logs = [\n' +
         "  { level: 'info', message: 'Started' },\n" +
@@ -454,7 +453,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.findlast',
       errors:
-        'TypeError — если this не является массивом, или (fn) не является функцией.',
+        'TypeError — если this не является массивом или fn не является функцией.',
     },
     {
       name: 'findIndex()',
@@ -474,7 +473,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, ищет индекс первого элемента в исходном массиве, удовлетворяющего условию, заданному в (callbackFn). Возвращает индекс или -1 если элемент не найден.',
+        'Метод объекта Array, ищет индекс первого элемента в исходном массиве, удовлетворяющего условию, заданному в callbackFn. Возвращает индекс или -1 если элемент не найден.',
       example:
         'const temperatures = [22, 18, 25, 19, 30];\n' +
         'const hotDayIndex = temperatures.findIndex(temp => temp > 25);\n' +
@@ -482,7 +481,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.findindex',
       errors:
-        'TypeError — если this не является массивом, или (fn) не является функцией.',
+        'TypeError — если this не является массивом или fn не является функцией.',
     },
     {
       name: 'findLastIndex()',
@@ -502,7 +501,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, ищет индекс последнего элемента в исходном массиве, удовлетворяющего условию, заданному в (callbackFn). Возвращает индекс или -1 если элемент не найден.',
+        'Метод объекта Array, ищет индекс последнего элемента в исходном массиве, удовлетворяющего условию, заданному в callbackFn. Возвращает индекс или -1 если элемент не найден.',
       example:
         'const sums = [100, -50, 200, -30, 150];\n' +
         'const lastIndex = sums.findLastIndex(amount => amount < 0);\n' +
@@ -510,7 +509,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.findlastindex',
       errors:
-        'TypeError — если this не является массивом, или (fn) не является функцией.',
+        'TypeError — если this не является массивом или fn не является функцией.',
     },
     {
       name: 'filter()',
@@ -530,7 +529,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, возвращает новый массив с элементами исходного массива, прошедшими проверку, заданную в (callbackFn).',
+        'Метод объекта Array, возвращает новый массив с элементами исходного массива, прошедшими проверку, заданную в callbackFn.',
       example:
         'const numbers = [1, 2, 3, 4, 5, 6];\n' +
         'const evenNumbers = numbers.filter(n => n % 2 === 0);\n' +
@@ -538,7 +537,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.filter',
       errors:
-        'TypeError — если this не является массивом, или (fn) не является функцией.',
+        'TypeError — если this не является массивом или fn не является функцией.',
     },
     {
       name: 'map()',
@@ -558,7 +557,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, возвращает новый массив, где каждый элемент получен как результат вызова (callbackFn) для каждого элемента исходного массива.',
+        'Метод объекта Array, возвращает новый массив, где каждый элемент получен как результат вызова callbackFn для каждого элемента исходного массива.',
       example:
         'const prices = [100, 200, 300];\n' +
         'const discounted = prices.map(price => price * 0.9);\n' +
@@ -566,7 +565,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map',
       errors:
-        'TypeError — если this не является массивом, или (fn) не является функцией.',
+        'TypeError — если this не является массивом или fn не является функцией.',
     },
     {
       name: 'sort()',
@@ -594,7 +593,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.sort',
       errors:
-        'TypeError — если this не является массивом, или (compareFn) не является функцией.',
+        'TypeError — если this не является массивом или compareFn не является функцией.',
     },
     {
       name: 'toSorted()',
@@ -621,7 +620,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.tosorted',
       errors:
-        'TypeError — если this не является массивом, или (compareFn) не является функцией.',
+        'TypeError — если this не является массивом или compareFn не является функцией.',
     },
     {
       name: 'reverse()',
@@ -686,7 +685,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, применяет (callbackFn) к (accumulator) и каждому элементу массива (слева направо), сводя массив к одному значению.',
+        'Метод объекта Array, применяет callbackFn к accumulator и каждому элементу массива (слева направо), сводя массив к одному значению.',
       example:
         'const cart = [\n' +
         '  { price: 10, quantity: 2 },\n' +
@@ -698,7 +697,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.reduce',
       errors:
-        'TypeError — если this не является массивом или (fn) не является функцией, или массив пуст и не указано начальное значение.',
+        'TypeError — если this не является массивом или fn не является функцией, или массив пуст и не указано начальное значение.',
     },
     {
       name: 'reduceRight()',
@@ -719,7 +718,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, применяет (callbackFn) к (accumulator) и каждому элементу массива (справа налево), сводя массив к одному значению.',
+        'Метод объекта Array, применяет callbackFn к accumulator и каждому элементу массива (справа налево), сводя массив к одному значению.',
       example:
         'const nums = [2, 3, 4];\n' +
         'const rightToLeftSum = nums.reduceRight((sum, num) => sum + num);\n' +
@@ -727,7 +726,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.reduceright',
       errors:
-        'TypeError — если this не является массивом или (fn) не является функцией, или если массив пуст и не указано начальное значение.',
+        'TypeError — если this не является массивом или fn не является функцией, или если массив пуст и не указано начальное значение.',
     },
     {
       name: 'fill()',
@@ -735,7 +734,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       parameters: [
         {
           name: 'value',
-          description: 'Значение для заполнения массива',
+          description: 'Значение для заполнения',
         },
         {
           name: 'start',
@@ -747,9 +746,9 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, заполняет исходный массив повторяющимися значениями (value):\n' +
-        '• С тремя аргументами: заполняет элементы от (start) до (end);\n' +
-        '• С двумя аргументами: заполняет элементы от (start) до конца массива;\n' +
+        'Метод объекта Array, заполняет исходный массив повторяющимися значениями value:\n' +
+        '• С тремя аргументами: заполняет элементы от start до end;\n' +
+        '• С двумя аргументами: заполняет элементы от start до конца массива;\n' +
         '• С одним аргументом: заполняет все элементы массива целиком.\n' +
         'Возвращает изменённый массив.',
       example:
@@ -785,9 +784,9 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       ],
       description:
         'Метод объекта Array, копирует последовательность элементов внутри исходного массива в другое место этого же массива:\n' +
-        '• С тремя аргументами: копирует элементы от (start) до (end) и вставляет на позицию (target);\n' +
-        '• С двумя аргументами: копирует элементы от (start) до конца массива и вставляет на позицию (target);\n' +
-        '• С одним аргументом: копирует элементы от начала массива до конца и вставляет на позицию (target).\n' +
+        '• С тремя аргументами: копирует элементы от start до end и вставляет на позицию target;\n' +
+        '• С двумя аргументами: копирует элементы от start до конца массива и вставляет на позицию target;\n' +
+        '• С одним аргументом: копирует элементы от начала массива до конца и вставляет на позицию target.\n' +
         'Возвращает изменённый массив.',
       example:
         'const arr1 = [1, 2, 3, 4, 5];\n' +
@@ -813,7 +812,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, возвращает новый массив, в котором все подмассивы исходного массива рекурсивно подняты на (depth).',
+        'Метод объекта Array, возвращает новый массив, в котором все подмассивы исходного массива рекурсивно подняты на depth.',
       example:
         'const nested = [1, [2, [3, [4]]]];\n' +
         'const flattened = nested.flat(2);\n' +
@@ -821,7 +820,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.flat',
       errors:
-        'TypeError — если this не является массивом или (depth) не является числом.',
+        'TypeError — если this не является массивом или depth не является числом.',
     },
     {
       name: 'flatMap()',
@@ -842,7 +841,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, сначала применяет (callbackFn) к каждому элементу исходного массива, а затем выравнивает результат на глубину 1. Эквивалентен map(callbackFn).flat(1).',
+        'Метод объекта Array, сначала применяет callbackFn к каждому элементу исходного массива, а затем выравнивает результат на глубину 1. Эквивалентен map(callbackFn).flat(1).',
       example:
         'const orders = [\n' +
         '  { items: ["apple", "banana"] },\n' +
@@ -853,7 +852,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.flatmap',
       errors:
-        'TypeError — если this не является массивом или (callbackFn) не является функцией.',
+        'TypeError — если this не является массивом или callbackFn не является функцией.',
     },
     {
       name: 'some()',
@@ -873,7 +872,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, проверяет, удовлетворяет ли хотя бы один элемент условию, заданному в (callbackFn). Возвращает true если удовлетворяет, иначе false.',
+        'Метод объекта Array, проверяет, удовлетворяет ли хотя бы один элемент условию, заданному в callbackFn. Возвращает true если удовлетворяет, иначе false.',
       example:
         'const numbers = [1, 2, 3, 5];\n' +
         'const hasEven = numbers.some(n => n % 2 === 0);\n' +
@@ -881,7 +880,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.some',
       errors:
-        'TypeError — если this не является массивом, или (fn) не является функцией.',
+        'TypeError — если this не является массивом или fn не является функцией.',
     },
     {
       name: 'every()',
@@ -901,7 +900,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, проверяет, удовлетворяют ли все элементы условию, заданному в (callbackFn). Возвращает true если удовлетворяет, иначе false.',
+        'Метод объекта Array, проверяет, удовлетворяют ли все элементы условию, заданному в callbackFn. Возвращает true если удовлетворяет, иначе false.',
       example:
         'const ages = [18, 22, 25, 30];\n' +
         'const allAdult = ages.every(age => age >= 18);\n' +
@@ -909,7 +908,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.every',
       errors:
-        'TypeError — если this не является массивом, или (fn) не является функцией.',
+        'TypeError — если this не является массивом или fn не является функцией.',
     },
     {
       name: 'with()',
@@ -925,7 +924,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, возвращает новый массив на основе исходного массива с изменённым элементом на (value) по (index).',
+        'Метод объекта Array, возвращает новый массив на основе исходного массива с изменённым элементом на value по index.',
       example:
         "const original = ['a', 'b', 'c'];\n" +
         "const updated = original.with(1, 'B');\n" +
@@ -935,7 +934,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.with',
       errors:
         'TypeError — если this не является массивом.\n' +
-        'RangeError — если (index) выходит за границы массива.',
+        'RangeError — если index выходит за границы массива.',
     },
     {
       name: 'keys()',
@@ -949,7 +948,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.keys',
       errors:
-        'TypeError — если this не является массивом (или коллекцией (map), или множеством (set)).',
+        'TypeError — если this не является массивом, коллекцией (map) или множеством (set).',
     },
     {
       name: 'values()',
@@ -963,7 +962,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.values',
       errors:
-        'TypeError — если this не является массивом (или коллекцией (map), или множеством (set)).',
+        'TypeError — если this не является массивом, коллекцией (map) или множеством (set).',
     },
     {
       name: 'entries()',
@@ -977,7 +976,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.entries',
       errors:
-        'TypeError — если this не является массивом (или коллекцией (map), или множеством (set)).',
+        'TypeError — если this не является массивом, коллекцией (map), или множеством (set).',
     },
     {
       name: 'Array.isArray()',
@@ -989,7 +988,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Array, определяет, является ли (value) массивом. Возвращает true если является, иначе false.',
+        'Статический метод объекта Array, определяет, является ли value массивом. Возвращает true если является, иначе false.',
       example:
         'const arr = [1, 2, 3];\n' +
         'const isArr = Array.isArray(arr);\n' +
@@ -1015,7 +1014,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Array, создаёт новый массив из (arrayLike).',
+        'Статический метод объекта Array, создаёт новый массив из arrayLike.',
       example:
         'const set = new Set([1, 2, 3]);\n' +
         'const arrFromSet = Array.from(set);\n' +
@@ -1033,7 +1032,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Array, создаёт новый массив из (...items). Отличается от конструктора Array() тем, что при одном числовом аргументе создаёт массив с этим значением, а не массив указанной длины.',
+        'Статический метод объекта Array, создаёт новый массив из ...items. Отличается от конструктора Array() тем, что при одном числовом аргументе создаёт массив с этим значением, а не массив указанной длины.',
       example:
         'const arr1 = Array.of(7);\n' +
         'console.log(arr1); // [7]\n' +
@@ -1066,7 +1065,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Array, создаёт новый массив из (asyncItems). Возвращает Promise, который разрешается с новым массивом.',
+        'Статический метод объекта Array, создаёт новый массив из asyncItems. Возвращает Promise, который разрешается с новым массивом.',
       example:
         'const asyncIterable = {\n' +
         '  async *[Symbol.asyncIterator]() {\n' +
@@ -1084,7 +1083,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.fromasync',
       errors:
-        'TypeError — если (asyncItems) не является итерируемым, или (mapFn) передан, но не является функцией.',
+        'TypeError — если asyncItems не является итерируемым или mapFn передан, но не является функцией.',
     },
   ],
 };

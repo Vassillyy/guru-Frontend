@@ -49,7 +49,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Object, возвращает true, если исходный объект содержит (prop) как собственное (а не унаследованное через цепочку прототипов), иначе false.',
+        'Метод объекта Object, возвращает true, если исходный объект содержит prop как собственное (а не унаследованное через цепочку прототипов), иначе false.',
       example:
         "const user = { id: 1, name: 'Alice' };\n\n" +
         "const hasName = user.hasOwnProperty('name');\n" +
@@ -66,12 +66,11 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
       parameters: [
         {
           name: 'objB',
-          description:
-            'Объект, в чьей цепочке прототипов нужно проверить наличие исходного объекта',
+          description: 'Объект для проверки',
         },
       ],
       description:
-        'Метод объекта Object, возвращает true, если исходный объект находится где-то в прототипной цепочке (objB), иначе false.',
+        'Метод объекта Object, возвращает true, если исходный объект находится где-то в прототипной цепочке objB, иначе false.',
       example:
         'const base = { x: 1 };\n' +
         'const obj = Object.create(base);\n' +
@@ -80,7 +79,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         'console.log(Object.prototype.isPrototypeOf([])); // true',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.prototype.isprototypeof',
-      errors: 'TypeError — если this или (objB) являются null или undefined.',
+      errors: 'TypeError — если this или objB являются null или undefined.',
     },
     {
       name: 'propertyIsEnumerable()',
@@ -92,7 +91,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Object, возвращает true, если (prop) является собственным и перечисляемым свойством исходного объекта, иначе false.',
+        'Метод объекта Object, возвращает true, если prop является собственным и перечисляемым свойством исходного объекта, иначе false.',
       example:
         'const obj = {};\n' +
         'obj.a = 1; // enumerable: true по умолчанию\n' +
@@ -138,7 +137,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, копирует собственные перечисляемые свойства всех (source1, ..., sourceN) в (dest). Происходит только поверхностное копирование — если свойство является объектом, то будет скопирована только ссылка. Копирует как строковые, так и символьные свойства. Возвращает (dest).',
+        'Статический метод объекта Object, копирует собственные перечисляемые свойства всех source1, ..., sourceN в dest. Происходит только поверхностное копирование — если свойство является объектом, то будет скопирована только ссылка. Копирует как строковые, так и символьные свойства. Возвращает dest.',
       example:
         "const defaults = { theme: 'light', lang: 'en' };\n" +
         "const userSettings = { lang: 'ru' };\n" +
@@ -146,7 +145,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         "console.log(settings); // { theme: 'light', lang: 'ru' }",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.assign',
-      errors: 'TypeError — если (dest) является null или undefined.',
+      errors: 'TypeError — если dest является null или undefined.',
     },
     {
       name: 'Object.is()',
@@ -162,7 +161,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, сравнивает (value1 и value2) и определяет, являются ли они строго равными. Работает аналогично оператору строгого равенства, кроме двух случаев:\n' +
+        'Статический метод объекта Object, сравнивает value1 и value2, и определяет, являются ли они строго равными. Работает аналогично оператору строгого равенства, кроме двух случаев:\n' +
         '• Object.is(NaN, NaN) === true\n' +
         '• Object.is(0, -0) === false',
       example:
@@ -183,14 +182,14 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает массив строковых ключей из (obj). Игнорирует символьные свойства и перебирает только собственные.',
+        'Статический метод объекта Object, возвращает массив строковых ключей из obj. Игнорирует символьные свойства и перебирает только собственные.',
       example:
         "const user = { name: 'Alice', age: 30, city: 'Moscow' };\n" +
         'const keys = Object.keys(user);\n' +
         "console.log(keys); // ['name', 'age', 'city']",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.keys',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.values()',
@@ -202,14 +201,14 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает массив значений из (obj). Игнорирует символьные свойства и перебирает только собственные.',
+        'Статический метод объекта Object, возвращает массив значений из obj. Игнорирует символьные свойства и перебирает только собственные.',
       example:
         "const config = { port: 3000, host: 'localhost', debug: true };\n" +
         'const values = Object.values(config);\n' +
         "console.log(values); // [3000, 'localhost', true]",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.values',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.entries()',
@@ -221,14 +220,14 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает массив массивов, где каждый вложенный массив содержит пару вида [ключ, значение] из (obj). Игнорирует символьные свойства и перебирает только собственные.',
+        'Статический метод объекта Object, возвращает массив массивов, где каждый вложенный массив содержит пару вида [ключ, значение] из obj. Игнорирует символьные свойства и перебирает только собственные.',
       example:
         "const product = { name: 'Laptop', price: 999 };\n" +
         'const entries = Object.entries(product);\n' +
         "console.log(entries); // [['name', 'Laptop'], ['price', 999]]",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.entries',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.fromEntries()',
@@ -241,7 +240,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, создаёт объект из списка пар вида [ключ, значение] из (iterable). Является обратной операцией к Object.entries().',
+        'Статический метод объекта Object, создаёт объект из списка пар вида [ключ, значение] из iterable. Является обратной операцией к Object.entries().',
       example:
         'const map = new Map([\n' +
         "  ['name', 'Alice'],\n" +
@@ -252,7 +251,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.fromentries',
       errors:
-        'TypeError — если (iterable) не является итерируемым объектом с парами вида [ключ, значение].',
+        'TypeError — если iterable не является итерируемым объектом с парами вида [ключ, значение].',
     },
     {
       name: 'Object.getOwnPropertyDescriptor()',
@@ -268,7 +267,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает объект-дескриптор, содержащий информацию о конфигурации (prop) в (obj): значение (value), а также флаги writable, enumerable, configurable.',
+        'Статический метод объекта Object, возвращает объект-дескриптор, содержащий информацию о конфигурации prop в obj: значение value, а также флаги writable, enumerable, configurable.',
       example:
         "const obj = { name: 'Ann', age: 30 };\n" +
         "const descriptor = Object.getOwnPropertyDescriptor(obj, 'name');\n" +
@@ -281,7 +280,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         '// }',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.getownpropertydescriptor',
-      errors: 'TypeError — если (obj) равен null или undefined.',
+      errors: 'TypeError — если obj равен null или undefined.',
     },
     {
       name: 'Object.defineProperty()',
@@ -302,7 +301,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, позволяет изменить или определить свойство в (obj). Если (prop) существует, метод обновит его значение и флаги. В противном случае метод создаёт новое свойство с указанным (descriptor); если какой-либо флаг не указан явно, ему присваивается значение false.',
+        'Статический метод объекта Object, позволяет изменить или определить свойство в obj. Если prop существует, метод обновит его значение и флаги. В противном случае метод создаёт новое свойство с указанным descriptor; если какой-либо флаг не указан явно, ему присваивается значение false.',
       example:
         'const obj = {};\n' +
         "Object.defineProperty(obj, 'readonlyProp', {\n" +
@@ -314,7 +313,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         'obj.readonlyProp = 100; // TypeError в strict mode',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.defineproperty',
-      errors: 'TypeError — если (obj) равен null или undefined.',
+      errors: 'TypeError — если obj равен null или undefined.',
     },
     {
       name: 'Object.defineProperties()',
@@ -332,7 +331,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, позволяет изменить или определить несколько свойств в (obj) одновременно. Для каждого ключа из (properties) применяется соответствующий дескриптор: если свойство с таким именем существует, оно обновляется; если нет — создаётся новое.',
+        'Статический метод объекта Object, позволяет изменить или определить несколько свойств в obj одновременно. Для каждого ключа из properties применяется соответствующий дескриптор: если свойство с таким именем существует, оно обновляется; если нет — создаётся новое.',
       example:
         'const user = {};\n' +
         'Object.defineProperties(user, {\n' +
@@ -350,7 +349,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         "console.log(Object.keys(user)); // ['name']",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.defineproperties',
-      errors: 'TypeError — если (obj) равен null или undefined.',
+      errors: 'TypeError — если obj равен null или undefined.',
     },
     {
       name: 'Object.getOwnPropertyDescriptors()',
@@ -363,7 +362,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает объект, содержащий дескрипторы всех собственных свойств (obj). Вместе с Object.defineProperties() позволяет клонировать объект с сохранением всех флагов свойств.',
+        'Статический метод объекта Object, возвращает объект, содержащий дескрипторы всех собственных свойств obj. Вместе с Object.defineProperties() позволяет клонировать объект с сохранением всех флагов свойств.',
       example:
         'const obj = {};\n' +
         'Object.defineProperties(obj, {\n' +
@@ -375,7 +374,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         'console.log(descriptors.y.enumerable); // false',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.getownpropertydescriptors',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.preventExtensions()',
@@ -387,7 +386,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        "Статический метод объекта Object, запрещает добавление новых свойств в (obj). После вызова этого метода (obj) становится 'нерасширяемым' — нельзя добавлять новые свойства, но существующие можно изменять или удалять.",
+        "Статический метод объекта Object, запрещает добавление новых свойств в obj. После вызова этого метода (obj) становится 'нерасширяемым' — нельзя добавлять новые свойства, но существующие можно изменять или удалять.",
       example:
         "const obj = { prop: 'value' };\n" +
         'Object.preventExtensions(obj);\n' +
@@ -395,7 +394,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         "console.log('newProp' in obj); // false",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.preventextensions',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.isExtensible()',
@@ -407,7 +406,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, проверяет, является ли (obj) расширяемым (можно ли добавлять к нему новые свойства). Возвращает true, если расширяемый, и false, если нет.',
+        'Статический метод объекта Object, проверяет, является ли obj расширяемым (можно ли добавлять к нему новые свойства). Возвращает true, если расширяемый, и false, если нет.',
       example:
         'const obj = { x: 10 };\n' +
         'console.log(Object.isExtensible(obj)); // true\n' +
@@ -415,7 +414,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         'console.log(Object.isExtensible(obj)); // false',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.isextensible',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.seal()',
@@ -427,7 +426,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, запрещает добавление и удаление свойств в (obj), а также изменение их дескрипторов. Устанавливает configurable: false для всех существующих свойств, но позволяет изменять их значения, если writable: true.',
+        'Статический метод объекта Object, запрещает добавление и удаление свойств в obj, а также изменение их дескрипторов. Устанавливает configurable: false для всех существующих свойств, но позволяет изменять их значения, если writable: true.',
       example:
         "const obj = { name: 'John', age: 25 };\n" +
         'Object.seal(obj);\n' +
@@ -436,7 +435,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         'delete obj.name; // Не работает в strict mode',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.seal',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.isSealed()',
@@ -448,7 +447,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, проверяет, запечатан ли (obj). Возвращает true, если запечатан (нельзя добавлять/удалять свойства и изменять их дескрипторы), иначе возвращает false.',
+        'Статический метод объекта Object, проверяет, запечатан ли obj. Возвращает true, если запечатан (нельзя добавлять/удалять свойства и изменять их дескрипторы), иначе возвращает false.',
       example:
         'const obj = { x: 10, y: 20 };\n' +
         'console.log(Object.isSealed(obj)); // false\n' +
@@ -456,7 +455,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         'console.log(Object.isSealed(obj)); // true',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.issealed',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.freeze()',
@@ -468,7 +467,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, делает (obj) полностью неизменяемым. Запрещает добавление, удаление и изменение свойств, а также изменение их дескрипторов. Устанавливает configurable: false и writable: false для всех существующих свойств.',
+        'Статический метод объекта Object, делает obj полностью неизменяемым. Запрещает добавление, удаление и изменение свойств, а также изменение их дескрипторов. Устанавливает configurable: false и writable: false для всех существующих свойств.',
       example:
         "const config = { version: '1.0', debug: false };\n" +
         'Object.freeze(config);\n' +
@@ -480,7 +479,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         "console.log('newProp' in config); // false (свойство не добавилось)",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.freeze',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.isFrozen()',
@@ -492,7 +491,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, проверяет, заморожен ли (obj). Возвращает true, если полностью неизменяем (нельзя добавлять/удалять/изменять свойства), иначе возвращает false.',
+        'Статический метод объекта Object, проверяет, заморожен ли obj. Возвращает true, если полностью неизменяем (нельзя добавлять/удалять/изменять свойства), иначе возвращает false.',
       example:
         'const obj = { value: 100 };\n' +
         'console.log(Object.isFrozen(obj)); // false\n' +
@@ -500,7 +499,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         'console.log(Object.isFrozen(obj)); // true',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.isfrozen',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.create()',
@@ -508,17 +507,15 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
       parameters: [
         {
           name: 'proto',
-          description:
-            'Объект, который будет использоваться как прототип создаваемого объекта',
+          description: 'Объект, который будет использоваться как прототип',
         },
         {
           name: 'descriptors',
-          description:
-            'Объект-дескриптор для определения свойств нового объекта',
+          description: 'Объект-дескриптор для определения свойств',
         },
       ],
       description:
-        'Статический метод объекта Object, создаёт объект, используя (proto) в качестве прототипа. (descriptors) позволяет определять свойства нового объекта с помощью дескрипторов. Мы также можем использовать Object.create для «продвинутого» клонирования объекта с сохранением дескрипторов свойств.',
+        'Статический метод объекта Object, создаёт объект, используя proto в качестве прототипа. descriptors позволяет определять свойства нового объекта с помощью дескрипторов. Мы также можем использовать Object.create для «продвинутого» клонирования объекта с сохранением дескрипторов свойств.',
       example:
         "const proto = { greet() { return 'Hello'; } };\n" +
         'const obj = Object.create(proto, {\n' +
@@ -529,7 +526,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.create',
       errors:
-        'TypeError — если (proto) не является null или объектом, или (descriptors) указан и не является объектом.',
+        'TypeError — если proto не является null или объектом, или descriptors указан и не является объектом.',
     },
     {
       name: 'Object.getPrototypeOf()',
@@ -541,7 +538,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает прототип (скрытое свойство [[Prototype]]) (obj). Это альтернатива использованию свойства __proto__.',
+        'Статический метод объекта Object, возвращает прототип (скрытое свойство [[Prototype]]) obj. Это альтернатива использованию свойства __proto__.',
       example:
         'const proto = { base: true };\n' +
         'const obj = Object.create(proto);\n' +
@@ -549,7 +546,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         'console.log(prototype === proto); // true',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.getprototypeof',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.setPrototypeOf()',
@@ -565,7 +562,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, устанавливает прототип (скрытое свойство [[Prototype]]) для (obj) равным (proto). Это альтернатива использованию свойства __proto__.',
+        'Статический метод объекта Object, устанавливает прототип (скрытое свойство [[Prototype]]) для obj равным (proto). Это альтернатива использованию свойства __proto__.',
       example:
         'const animal = { eats: true };\n' +
         'const rabbit = { jumps: true };\n' +
@@ -574,7 +571,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         'console.log(Object.getPrototypeOf(rabbit) === animal); // true',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.setprototypeof',
-      errors: 'TypeError — если (obj, proto) являются null или undefined.',
+      errors: 'TypeError — если obj или proto являются null или undefined.',
     },
     {
       name: 'Object.getOwnPropertySymbols()',
@@ -586,7 +583,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает массив всех собственных символьных ключей (obj).',
+        'Статический метод объекта Object, возвращает массив всех собственных символьных ключей obj.',
       example:
         "const id = Symbol('id');\n" +
         "const token = Symbol('token');\n" +
@@ -599,7 +596,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         'console.log(symbols); // [Symbol(id), Symbol(token)]',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.getownpropertysymbols',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.getOwnPropertyNames()',
@@ -611,7 +608,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает массив всех собственных строковых ключей (obj).',
+        'Статический метод объекта Object, возвращает массив всех собственных строковых ключей obj.',
       example:
         'const obj = {};\n' +
         'Object.defineProperties(obj, {\n' +
@@ -624,7 +621,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         "console.log(names); // ['visible', 'hidden']",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.getownpropertynames',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.hasOwn()',
@@ -640,7 +637,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, возвращает true, если (prop) является собственным (не унаследованным) для (obj). Является более безопасной альтернативой методу hasOwnProperty(), так как работает даже с объектами, созданными через Object.create(null), у которых нет прототипа.',
+        'Статический метод объекта Object, возвращает true, если prop является собственным (не унаследованным) для obj. Является более безопасной альтернативой методу hasOwnProperty(), так как работает даже с объектами, созданными через Object.create(null), у которых нет прототипа.',
       example:
         'const obj1 = { a: 1 };\n' +
         'const obj2 = Object.create(null);\n' +
@@ -652,7 +649,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         "console.log(Object.hasOwn(obj2, 'toString')); // false",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.hasown',
-      errors: 'TypeError — если (obj) является null или undefined.',
+      errors: 'TypeError — если obj является null или undefined.',
     },
     {
       name: 'Object.groupBy()',
@@ -670,7 +667,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Object, группирует элементы итерируемого объекта по ключам, возвращаемым callback-функцией. Возвращает объект, где каждый ключ соответствует массиву элементов из соответствующей группы.',
+        'Статический метод объекта Object, группирует элементы items по ключам, возвращаемым callback. Возвращает объект, где каждый ключ соответствует массиву элементов из соответствующей группы.',
       example:
         'const inventory = [\n' +
         "  { name: 'asparagus', type: 'vegetables' },\n" +
@@ -697,7 +694,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.groupby',
       errors:
-        'TypeError — если (items) не является итерируемым объектом или (callback) не является функцией.',
+        'TypeError — если items не является итерируемым объектом или callback не является функцией.',
     },
   ],
 };

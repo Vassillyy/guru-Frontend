@@ -147,14 +147,15 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        'Функция, позволяющая вызвать (func) один раз через (delay). Вызов setTimeout возвращает «идентификатор таймера», который можно использовать для отмены дальнейшего выполнения. (...args) будут переданы в (func) при вызове. В браузере устанавливает this=window.',
+        'Функция, позволяющая вызвать func один раз через delay. Вызов setTimeout возвращает «идентификатор таймера», который можно использовать для отмены дальнейшего выполнения. ...args будут переданы в func при вызове. В браузере устанавливает this=window.\n' +
+        'Когда func передаётся в setTimeout, на неё создаётся внутренняя ссылка и сохраняется в планировщике. Это предотвращает попадание функции в сборщик мусора, даже если на неё нет других ссылок.',
       example:
         'setTimeout(() => {\n' +
         " console.log('Выполнится через 1 секунду');\n" +
         '}, 1000);',
       specification:
         'https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#sec-setTimeout',
-      errors: 'TypeError — если (func) не является функцией.',
+      errors: 'TypeError — если func не является функцией.',
     },
     {
       name: 'clearTimeout()',
@@ -197,7 +198,8 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        'Функция, позволяющая вызывать (func) регулярно, повторяя вызов через (delay). Вызов setInterval возвращает «идентификатор таймера», который можно использовать для отмены дальнейшего выполнения. (...args) будут переданы в (func) при каждом вызове. В браузере устанавливает this=window.',
+        'Функция, позволяющая вызывать func регулярно, повторяя вызов через delay. Вызов setInterval возвращает «идентификатор таймера», который можно использовать для отмены дальнейшего выполнения. ...args будут переданы в func при каждом вызове. В браузере устанавливает this=window.\n' +
+        'Когда func передаётся в setInterval, на неё создаётся внутренняя ссылка и сохраняется в планировщике. Это предотвращает попадание функции в сборщик мусора, даже если на неё нет других ссылок. func остаётся в памяти до тех пор, пока не будет вызван clearInterval.',
       example:
         'let counter = 0;\n\n' +
         'const intervalId = setInterval(() => {\n' +
@@ -209,7 +211,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         '}, 1000);',
       specification:
         'https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#sec-setInterval',
-      errors: 'TypeError — если (func) не является функцией.',
+      errors: 'TypeError — если func не является функцией.',
     },
     {
       name: 'clearInterval()',
