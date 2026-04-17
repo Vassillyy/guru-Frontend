@@ -16,7 +16,7 @@ export const configPromise: Record<Methods.PROMISE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Promise, добавляет обработчики (onFulfilled) и/или (onRejected). Возвращает новый промис.',
+        'Метод объекта Promise, добавляет обработчики onFulfilled и/или onRejected. Возвращает новый промис.',
       example:
         'const promise = new Promise((resolve) => resolve(42));\n\n' +
         'promise.then((value) => {\n' +
@@ -38,7 +38,7 @@ export const configPromise: Record<Methods.PROMISE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Promise, добавляет (onRejected). Является синтаксическим сахаром для promise.then(null, onRejected). Возвращает новый промис.',
+        'Метод объекта Promise, добавляет onRejected. Является синтаксическим сахаром для promise.then(null, onRejected). Возвращает новый промис.',
       example:
         "const promise = new Promise((res, rej) => rej(new Error('Failed')));\n\n" +
         'promise.catch((error) => {\n' +
@@ -58,7 +58,7 @@ export const configPromise: Record<Methods.PROMISE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Promise, добавляет (onFinally) независимо от того, завершился он успешно или с ошибкой. Возвращает новый промис.',
+        'Метод объекта Promise, добавляет onFinally независимо от того, завершился он успешно или с ошибкой. Возвращает новый промис.',
       example:
         "const promise = new Promise((resolve) => resolve('Success'));\n\n" +
         'promise.finally(() => {\n' +
@@ -79,7 +79,7 @@ export const configPromise: Record<Methods.PROMISE, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Promise, принимает (iterable) и возвращает новый промис. Новый промис завершится, когда завершится весь переданный список промисов, и его результатом будет массив их результатов. Порядок элементов массива в точности соответствует порядку исходных промисов. Если любой из промисов завершится с ошибкой, то промис, возвращённый Promise.all, немедленно завершается с этой ошибкой.',
+        'Статический метод объекта Promise, принимает iterable и возвращает новый промис. Новый промис завершится, когда завершится весь переданный список промисов, и его результатом будет массив их результатов. Порядок элементов массива в точности соответствует порядку исходных промисов. Если любой из промисов завершится с ошибкой, то промис, возвращённый Promise.all, немедленно завершается с этой ошибкой.',
       example:
         'const p1 = Promise.resolve(1);\n' +
         'const p2 = Promise.resolve(2);\n' +
@@ -90,7 +90,8 @@ export const configPromise: Record<Methods.PROMISE, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-promise.all',
       errors:
-        'TypeError — если (iterable) не является итерируемым объектом.\nPromise rejection — если любой из переданных промисов завершается с ошибкой.',
+        'TypeError — если iterable не является итерируемым объектом.\n' +
+        'Promise rejection — если любой из переданных промисов в iterable завершается с ошибкой.',
     },
     {
       name: 'Promise.allSettled()',
@@ -102,7 +103,7 @@ export const configPromise: Record<Methods.PROMISE, IMethod[]> = {
         },
       ],
       description:
-        "Статический метод объекта Promise, принимает (iterable) и возвращает новый промис. Метод всегда ждёт завершения всех промисов. В массиве результатов будет объект {status: 'fulfilled', value: результат} для успешных завершений, {status: 'rejected', reason: ошибка} для ошибок.",
+        "Статический метод объекта Promise, принимает iterable и возвращает новый промис. Метод всегда ждёт завершения всех промисов. В массиве результатов будет объект {status: 'fulfilled', value: результат} для успешных завершений, {status: 'rejected', reason: ошибка} для ошибок.",
       example:
         'const p1 = Promise.resolve(1);\n' +
         "const p2 = Promise.reject('error');\n\n" +
@@ -112,7 +113,7 @@ export const configPromise: Record<Methods.PROMISE, IMethod[]> = {
         "// [{status:'fulfilled',value:1},{status:'rejected',reason:'error'}]",
       specification:
         'https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-promise.allsettled',
-      errors: 'TypeError — если (iterable) не является итерируемым объектом.',
+      errors: 'TypeError — если iterable не является итерируемым объектом.',
     },
     {
       name: 'Promise.race()',
@@ -124,7 +125,7 @@ export const configPromise: Record<Methods.PROMISE, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Promise, принимает (iterable) и возвращает новый промис. Метод ждёт только первый выполненный промис, из которого берёт результат (или ошибку). После этого остальные промисы игнорируются.',
+        'Статический метод объекта Promise, принимает iterable и возвращает новый промис. Метод ждёт только первый выполненный промис, из которого берёт результат (или ошибку). После этого остальные промисы игнорируются.',
       example:
         "const p1 = new Promise(res => setTimeout(() => res('First'), 100));\n" +
         "const p2 = new Promise(res => setTimeout(() => res('Second'), 50));\n\n" +
@@ -133,7 +134,7 @@ export const configPromise: Record<Methods.PROMISE, IMethod[]> = {
         '});',
       specification:
         'https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-promise.race',
-      errors: 'TypeError — если (iterable) не является итерируемым объектом.',
+      errors: 'TypeError — если iterable не является итерируемым объектом.',
     },
     {
       name: 'Promise.any()',
@@ -145,7 +146,7 @@ export const configPromise: Record<Methods.PROMISE, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Promise, принимает (iterable) и возвращает новый промис. Метод ждёт только первый успешно выполненный промис, из которого берёт результат. Если ни один из переданных промисов не завершится успешно, тогда возвращённый объект Promise будет отклонён с помощью AggregateError – специального объекта ошибок, который хранит все ошибки промисов в своём свойстве errors.',
+        'Статический метод объекта Promise, принимает iterable и возвращает новый промис. Метод ждёт только первый успешно выполненный промис, из которого берёт результат. Если ни один из переданных промисов не завершится успешно, тогда возвращённый объект Promise будет отклонён с помощью AggregateError – специального объекта ошибок, который хранит все ошибки промисов в своём свойстве errors.',
       example:
         "const p1 = new Promise((res, rej) => setTimeout(() => rej('Er'), 90));\n" +
         "const p2 = new Promise(res => setTimeout(() => res('Success'), 50));\n\n" +
@@ -155,7 +156,8 @@ export const configPromise: Record<Methods.PROMISE, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-promise.any',
       errors:
-        'TypeError — если (iterable) не является итерируемым объектом.\nAggregateError — если все промисы завершаются с ошибкой (содержит свойство errors с массивом всех ошибок).',
+        'TypeError — если iterable не является итерируемым объектом.\n' +
+        'AggregateError — если все промисы завершаются с ошибкой (содержит свойство errors с массивом всех ошибок).',
     },
     {
       name: 'Promise.resolve()',
@@ -167,7 +169,7 @@ export const configPromise: Record<Methods.PROMISE, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Promise, возвращает промис, завершённый успешно с (value). Если (value) само является промисом, метод вернёт этот промис. Если (value) — thenable (объект с методом then), будет создан новый промис, который следует за этим значением (thenable).',
+        'Статический метод объекта Promise, возвращает промис, завершённый успешно с value. Если value само является промисом, метод вернёт этот промис. Если value — thenable (объект с методом then), будет создан новый промис, который следует за этим значением (thenable).',
       example:
         '// Обычное значение\n' +
         'const promise1 = Promise.resolve(42);\n' +
@@ -201,7 +203,7 @@ export const configPromise: Record<Methods.PROMISE, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Promise, возвращает промис, завершённый с ошибкой с (reason). В отличие от Promise.resolve(), метод не преобразует thenable объекты и не разворачивает промисы — (reason) всегда используется как причина отклонения, включая случаи, когда (reason) сам является промисом или thenable объектом.',
+        'Статический метод объекта Promise, возвращает промис, завершённый с ошибкой с reason. В отличие от Promise.resolve(), метод не преобразует thenable объекты и не разворачивает промисы — reason всегда используется как причина отклонения, включая случаи, когда reason сам является промисом или thenable объектом.',
       example:
         '// Обычная ошибка\n' +
         'const promise1 = Promise.reject("Error");\n' +

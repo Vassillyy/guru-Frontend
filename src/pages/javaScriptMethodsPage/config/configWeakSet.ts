@@ -12,7 +12,7 @@ export const configWeakSet: Record<Methods.WEAK_SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakSet, добавляет (value) в исходное множество. Если (value) уже есть, то ничего не делает. Возвращает тот же объект WeakSet.',
+        'Метод объекта WeakSet, добавляет value в исходное множество. Если value уже есть, то ничего не делает. Возвращает тот же объект WeakSet.',
       example:
         'const weakSet = new WeakSet();\n' +
         'const obj = {};\n\n' +
@@ -22,7 +22,7 @@ export const configWeakSet: Record<Methods.WEAK_SET, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakset.prototype.add',
       errors:
-        'TypeError — если this не является Set или WeakSet, или (value) не является объектом.',
+        'TypeError — если this не является множеством (set или weakSet) или value не является объектом.',
     },
     {
       name: 'has()',
@@ -34,7 +34,7 @@ export const configWeakSet: Record<Methods.WEAK_SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakSet, возвращает true, если (value) присутствует в исходном множестве, иначе false.',
+        'Метод объекта WeakSet, возвращает true, если value присутствует в исходном множестве, иначе false.',
       example:
         'const obj = {};\n' +
         'const weakSet = new WeakSet([obj]);\n' +
@@ -43,7 +43,7 @@ export const configWeakSet: Record<Methods.WEAK_SET, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakset.prototype.has',
       errors:
-        'TypeError —  если this не является Set, WeakSet, Map или WeakMap, или (value) не является объектом.',
+        'TypeError —  если this не является множеством (set или weakSet) или коллекцией (map или weakMap), или value не является объектом.',
     },
     {
       name: 'delete()',
@@ -55,7 +55,7 @@ export const configWeakSet: Record<Methods.WEAK_SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakSet, удаляет (value) и возвращает true, если оно было в исходном множестве на момент вызова, иначе false.',
+        'Метод объекта WeakSet, удаляет value и возвращает true, если оно было в исходном множестве на момент вызова, иначе false.',
       example:
         'const obj = {};\n' +
         'const weakSet = new WeakSet([obj]);\n' +
@@ -65,7 +65,7 @@ export const configWeakSet: Record<Methods.WEAK_SET, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakset.prototype.delete',
       errors:
-        'TypeError —  если this не является Set, WeakSet, Map или WeakMap, или (value) не является объектом.',
+        'TypeError —  если this не является множеством (set или weakSet) или коллекцией (map или weakMap), или (value) не является объектом.',
     },
   ],
 };

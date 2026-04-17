@@ -105,7 +105,7 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка с кодом локали или массив таких строк ('ru-RU', 'en-US' и другие)",
+            "Строка с кодом локали или массив таких строк (например, 'ru-RU', 'en-US')",
         },
         {
           name: 'options',
@@ -259,16 +259,6 @@ export const configNumber: Record<Methods.NUMBER, IMethod[]> = {
         'console.log(Number.EPSILON); // 2.220446049250313e-16',
       specification:
         'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-number.epsilon',
-    },
-    {
-      name: 'Number.MAX_SAFE_INTEGER',
-      syntax: 'Number.MAX_SAFE_INTEGER',
-      parameters: [],
-      description:
-        'Статическое свойство объекта Number, представляет собой максимальное безопасное целое число (2⁵³ - 1 = 9007199254740991).',
-      example: 'console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991',
-      specification:
-        'https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-number.max_safe_integer',
     },
     {
       name: 'Number.MAX_SAFE_INTEGER',

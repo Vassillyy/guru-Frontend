@@ -9,7 +9,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка или массив строк с кодом локали ('ru-RU', 'en-US' и тд)",
+            "Строка или массив строк с кодом локали (например, 'ru-RU', 'en-US')",
         },
         {
           name: 'options',
@@ -66,8 +66,8 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
       specification:
         'https://tc39.es/ecma402/#sec-intl-datetimeformat-constructor',
       errors:
-        'RangeError — если недопустимые (locales) или (options).\n' +
-        'TypeError — если (date) невалидный тип значения (не объект Date и не число).',
+        'RangeError — если недопустимые locales или options.\n' +
+        'TypeError — если date невалидный тип значения (не объект Date и не число).',
     },
     {
       name: 'Intl.NumberFormat',
@@ -76,7 +76,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка или массив строк с кодом локали ('ru-RU', 'en-US' и тд)",
+            "Строка или массив строк с кодом локали (например, 'ru-RU', 'en-US')",
         },
         {
           name: 'options',
@@ -109,7 +109,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         '// Русский формат\n' +
         "const ruFormat = new Intl.NumberFormat('ru-RU');\n" +
         "console.log(ruFormat.format(number)); // '1 234 567,89'\n\n" +
-        "console.log(currency.format(1234.5)); // '1 234,50 ₽'\n\n" +
+        "console.log(ruFormat.format(1234.5)); // '1 234,50 ₽'\n\n" +
         '// Проценты\n' +
         "const percent = new Intl.NumberFormat('ru-RU', {\n" +
         "  style: 'percent',\n" +
@@ -133,8 +133,8 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
       specification:
         'https://tc39.es/ecma402/#sec-intl-numberformat-constructor',
       errors:
-        'RangeError — если недопустимые (locales) или (options).\n' +
-        'TypeError — если (number) невалидный тип значения (не число и не преобразуемый в число).',
+        'RangeError — если недопустимые locales или options.\n' +
+        'TypeError — если number невалидный тип значения (не число и не преобразуемый в число).',
     },
     {
       name: 'Intl.PluralRules',
@@ -143,7 +143,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка или массив строк с кодом локали ('ru-RU', 'en-US' и тд)",
+            "Строка или массив строк с кодом локали (например, 'ru-RU', 'en-US')",
         },
         {
           name: 'options',
@@ -184,8 +184,8 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
       specification:
         'https://tc39.es/ecma402/#sec-intl-pluralrules-constructor',
       errors:
-        'RangeError — если недопустимые (locales) или (options).\n' +
-        'TypeError — если (number) невалидный тип значения (не число и не преобразуемый в число).',
+        'RangeError — если недопустимые locales или options.\n' +
+        'TypeError — если number невалидный тип значения (не число и не преобразуемый в число).',
     },
     {
       name: 'Intl.Collator',
@@ -194,7 +194,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка или массив строк с кодом локали ('ru-RU', 'en-US' и тд)",
+            "Строка или массив строк с кодом локали (например, 'ru-RU', 'en-US')",
         },
         {
           name: 'options',
@@ -242,8 +242,8 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         "console.log(resolved.sensitivity); // 'variant'",
       specification: 'https://tc39.es/ecma402/#sec-intl-collator-constructor',
       errors:
-        'RangeError — если недопустимые (locales) или (options).\n' +
-        'TypeError — если (string1) или (string2) не являются строками (или не преобразуются в строку).',
+        'RangeError — если недопустимые locales или options.\n' +
+        'TypeError — если string1 или string2 не являются строками (или не преобразуются в строку).',
     },
     {
       name: 'Intl.DisplayNames',
@@ -252,7 +252,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка или массив строк с кодом локали ('ru-RU', 'en-US' и тд)",
+            "Строка или массив строк с кодом локали (например, 'ru-RU', 'en-US')",
         },
         {
           name: 'options',
@@ -295,8 +295,8 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
       specification:
         'https://tc39.es/ecma402/#sec-intl-displaynames-constructor',
       errors:
-        'RangeError — если недопустимые (locales) или (options).\n' +
-        'TypeError — если (code) невалидный тип значения (не строка) или код не найден.',
+        'RangeError — если недопустимые locales или options.\n' +
+        'TypeError — если code невалидный тип значения (не строка) или код не найден.',
     },
     {
       name: 'Intl.ListFormat',
@@ -305,7 +305,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка или массив строк с кодом локали ('ru-RU', 'en-US' и тд)",
+            "Строка или массив строк с кодом локали (например, 'ru-RU', 'en-US')",
         },
         {
           name: 'options',
@@ -349,8 +349,8 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         "console.log(resolved.style);  // 'long'",
       specification: 'https://tc39.es/ecma402/#sec-intl-listformat-constructor',
       errors:
-        'RangeError — если недопустимые (locales) или (options).\n' +
-        'TypeError — если (list) не является массивом или содержит нестроковые элементы.',
+        'RangeError — если недопустимые locales или options.\n' +
+        'TypeError — если list не является массивом или содержит нестроковые элементы.',
     },
     {
       name: 'Intl.RelativeTimeFormat',
@@ -359,7 +359,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка или массив строк с кодом локали ('ru-RU', 'en-US' и тд)",
+            "Строка или массив строк с кодом локали (например, 'ru-RU', 'en-US')",
         },
         {
           name: 'options',
@@ -417,8 +417,8 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
       specification:
         'https://tc39.es/ecma402/#sec-intl-relativetimeformat-constructor',
       errors:
-        'RangeError — если недопустимые (locales) или (options).\n' +
-        'TypeError — если (value) не число или (unit) невалидная единица времени.',
+        'RangeError — если недопустимые locales или options.\n' +
+        'TypeError — если value не число или unit невалидная единица времени.',
     },
     {
       name: 'Intl.Segmenter',
@@ -427,7 +427,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка или массив строк с кодом локали ('ru-RU', 'en-US' и тд)",
+            "Строка или массив строк с кодом локали (например, 'ru-RU', 'en-US')",
         },
         {
           name: 'options',
@@ -488,8 +488,8 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         "console.log(resolved.granularity); // 'grapheme'",
       specification: 'https://tc39.es/ecma402/#sec-intl-segmenter-constructor',
       errors:
-        'RangeError — если недопустимые (locales) или (options).\n' +
-        'TypeError — если (string) не является строкой.',
+        'RangeError — если недопустимые locales или options.\n' +
+        'TypeError — если string не является строкой.',
     },
     {
       name: 'Intl.Locale',
@@ -498,7 +498,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         {
           name: 'tag',
           description:
-            'Строка с языковым тегом ("en-US", "ru-RU", "sr-Cyrl-RS" и тд)',
+            'Строка с языковым тегом (например, "en-US", "ru-RU", "sr-Cyrl-RS")',
         },
         {
           name: 'options',
@@ -557,7 +557,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         "console.log(simpleLocale.language); // 'ru'\n" +
         'console.log(simpleLocale.region); // undefined',
       specification: 'https://tc39.es/ecma402/#sec-intl-locale-constructor',
-      errors: 'RangeError — если недопустимые (locales) или (options).',
+      errors: 'RangeError — если недопустимые locales или options.',
     },
     {
       name: 'Intl.getCanonicalLocales',
@@ -566,7 +566,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         {
           name: 'locales',
           description:
-            'Строка или массив строк с кодами локалей для канонизации ("en-us", ["ru", "EN-gb"] и тд)',
+            'Строка или массив строк с кодами локалей для канонизации (например, "en-us", ["ru", "EN-gb"])',
         },
       ],
       description:
@@ -586,7 +586,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         "  console.log(e.name); // 'RangeError'\n" +
         '}',
       specification: 'https://tc39.es/ecma402/#sec-intl.getcanonicallocales',
-      errors: 'RangeError — если хотя бы один из (locales) невалиден.',
+      errors: 'RangeError — если хотя бы один из locales невалиден.',
     },
     {
       name: 'Intl.supportedValuesOf',
@@ -599,7 +599,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод, возвращающий массив поддерживаемых значений для указанного ключа.\n' +
+        'Статический метод, возвращающий массив поддерживаемых значений для key.\n' +
         'Возвращает отсортированный массив уникальных строк, которые гарантированно поддерживаются реализацией.\n' +
         'Может использоваться для проверки доступности календарей, валют, часовых поясов и т.д. перед использованием в других Intl-конструкторах.',
       example:
@@ -616,7 +616,7 @@ export const configIntl: Record<Methods.INTL, IMethod[]> = {
         "console.log(Intl.supportedValuesOf('unit'));\n" +
         "// ['acre', 'bit', 'byte', 'celsius', ...]",
       specification: 'https://tc39.es/ecma402/#sec-intl.supportedvaluesof',
-      errors: 'RangeError — если передан недопустимый ключ.',
+      errors: 'RangeError — если передан недопустимый key.',
     },
   ],
 };

@@ -20,16 +20,16 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, вызывает (callbackFn) для каждого значения исходной коллекции в порядке их добавления. Возвращает undefined.',
+        'Метод объекта Set, вызывает callbackFn для каждого значения исходной коллекции в порядке их добавления. Возвращает undefined.',
       example:
         'const set = new Set([1, 2, 3]);\n\n' +
         'set.forEach((value) => {\n' +
-        ' console.log(value); // 1, 2, 3\n' +
+        '  console.log(value); // 1, 2, 3\n' +
         '});',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.foreach',
       errors:
-        'TypeError — если this не является Map, Array и Set или (fn) не является функцией.',
+        'TypeError — если this не является коллекцией (map), массивом или множеством (set), или fn не является функцией.',
     },
     {
       name: 'add()',
@@ -41,7 +41,7 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, добавляет (value) в исходное множество. Если (value) уже есть, то ничего не делает. Возвращает тот же объект Set.',
+        'Метод объекта Set, добавляет value в исходное множество. Если value уже есть, то ничего не делает. Возвращает тот же объект Set.',
       example:
         'const set = new Set([1, 2]);\n\n' +
         'set.add(3);\n\n' +
@@ -49,7 +49,7 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         'console.log(hasValue); // true',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.add',
-      errors: 'TypeError — если this не является Set или WeakSet.',
+      errors: 'TypeError — если this не является множеством (set или weakSet).',
     },
     {
       name: 'has()',
@@ -61,7 +61,7 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, возвращает true, если (value) присутствует в исходном множестве, иначе false.',
+        'Метод объекта Set, возвращает true, если value присутствует в исходном множестве, иначе false.',
       example:
         'const set = new Set([1, 2, 3]);\n' +
         'const hasValue = set.has(2);\n' +
@@ -69,7 +69,7 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.has',
       errors:
-        'TypeError — если this не является Set, WeakSet, Map или WeakMap.',
+        'TypeError — если this не является множеством (set или weakSet) или коллекцией (map или weakMap).',
     },
     {
       name: 'delete()',
@@ -81,7 +81,7 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, удаляет (value) и возвращает true, если оно было в исходном множестве на момент вызова, иначе false.',
+        'Метод объекта Set, удаляет value и возвращает true, если оно было в исходном множестве на момент вызова, иначе false.',
       example:
         'const set = new Set([1, 2, 3]);\n' +
         'const deleted = set.delete(2);\n' +
@@ -90,7 +90,7 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.delete',
       errors:
-        'TypeError — если this не является Set, WeakSet, Map или WeakMap.',
+        'TypeError — если this не является множеством (set или weakSet) или коллекцией (map или weakMap).',
     },
     {
       name: 'clear()',
@@ -103,7 +103,8 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         'console.log(set.size); // 0',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.clear',
-      errors: 'TypeError — если this не является Set или Map.',
+      errors:
+        'TypeError — если this не является множеством (set) или коллекцией (map).',
     },
     {
       name: 'keys()',
@@ -116,7 +117,8 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         'console.log(keys); // [1, 2, 3]',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.keys',
-      errors: 'TypeError — если this не является Set, Array или Map.',
+      errors:
+        'TypeError — если this не является множеством (set), массивом или коллекцией (map).',
     },
     {
       name: 'values()',
@@ -129,7 +131,8 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         'console.log(values); // [1, 2, 3]',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.values',
-      errors: 'TypeError — если this не является Set, Array или Map.',
+      errors:
+        'TypeError — если this не является множеством (set), массивом или коллекцией (map).',
     },
     {
       name: 'entries()',
@@ -142,7 +145,8 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         'console.log(entries); // [[1, 1], [2, 2], [3, 3]]',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.entries',
-      errors: 'TypeError — если this не является Set, Array или Map.',
+      errors:
+        'TypeError — если this не является множеством (set), массивом или коллекцией (map).',
     },
     {
       name: 'union()',
@@ -155,7 +159,7 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, возвращает новое множество, содержащее все элементы исходного множества и (otherSet).',
+        'Метод объекта Set, возвращает новое множество, содержащее все элементы исходного множества и otherSet.',
       example:
         'const set1 = new Set([1, 2]);\n' +
         'const set2 = new Set([2, 3]);\n' +
@@ -164,7 +168,8 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         'console.log(result); // [1, 2, 3]',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.union',
-      errors: 'TypeError — если this или (otherSet) не являются Set.',
+      errors:
+        'TypeError — если this или otherSet не являются множеством (set).',
     },
     {
       name: 'intersection()',
@@ -176,7 +181,7 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, возвращает новое множество, содержащее только элементы, присутствующие в исходном множестве и в (otherSet).',
+        'Метод объекта Set, возвращает новое множество, содержащее только элементы, присутствующие в исходном множестве и в otherSet.',
       example:
         'const set1 = new Set([1, 2, 3]);\n' +
         'const set2 = new Set([2, 3, 4]);\n' +
@@ -185,7 +190,8 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         'console.log(result); // [2, 3]',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.intersection',
-      errors: 'TypeError — если this или (otherSet) не являются Set.',
+      errors:
+        'TypeError — если this или otherSet не являются множеством (set).',
     },
     {
       name: 'difference()',
@@ -198,7 +204,7 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, возвращает новое множество, содержащее элементы исходного множества, которые отсутствуют в (otherSet).',
+        'Метод объекта Set, возвращает новое множество, содержащее элементы исходного множества, которые отсутствуют в otherSet.',
       example:
         'const set1 = new Set([1, 2, 3, 4]);\n' +
         'const set2 = new Set([2, 4]);\n' +
@@ -207,7 +213,8 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         'console.log(result); // [1, 3]',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.difference',
-      errors: 'TypeError — если this или (otherSet) не являются Set.',
+      errors:
+        'TypeError — если this или otherSet не являются множеством (set).',
     },
     {
       name: 'isSubsetOf()',
@@ -220,7 +227,7 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, возвращает true, если все элементы исходного множества присутствуют в (otherSet), иначе false.',
+        'Метод объекта Set, возвращает true, если все элементы исходного множества присутствуют в otherSet, иначе false.',
       example:
         'const set1 = new Set([1, 2]);\n' +
         'const set2 = new Set([1, 2, 3, 4]);\n' +
@@ -231,7 +238,8 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         'console.log(isSubset2); // false',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.issubsetof',
-      errors: 'TypeError — если this или (otherSet) не являются Set.',
+      errors:
+        'TypeError — если this или otherSet не являются множеством (set).',
     },
     {
       name: 'isSupersetOf()',
@@ -244,7 +252,7 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, возвращает true, если исходное множество содержит все элементы (otherSet), иначе false.',
+        'Метод объекта Set, возвращает true, если исходное множество содержит все элементы otherSet, иначе false.',
       example:
         'const set1 = new Set([1, 2, 3, 4]);\n' +
         'const set2 = new Set([1, 2]);\n' +
@@ -255,7 +263,8 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         'console.log(isSuperset2); // false',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.issupersetof',
-      errors: 'TypeError — если this или (otherSet) не являются Set.',
+      errors:
+        'TypeError — если this или otherSet не являются множеством (set).',
     },
     {
       name: 'isDisjointFrom()',
@@ -268,7 +277,7 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Set, возвращает true, если у исходного множества и (otherSet) нет общих элементов, иначе false.',
+        'Метод объекта Set, возвращает true, если у исходного множества и otherSet нет общих элементов, иначе false.',
       example:
         'const set1 = new Set([1, 2]);\n' +
         'const set2 = new Set([3, 4]);\n' +
@@ -279,7 +288,8 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         'console.log(isDisjoint2); // false',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.isdisjointfrom',
-      errors: 'TypeError — если this или (otherSet) не являются Set.',
+      errors:
+        'TypeError — если this или otherSet не являются множеством (set).',
     },
     {
       name: 'symmetricDifference()',
@@ -301,7 +311,8 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         'console.log(result); // [1, 4]',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set.prototype.symmetricdifference',
-      errors: 'TypeError — если this или (otherSet) не являются Set.',
+      errors:
+        'TypeError — если this или otherSet не являются множеством (set).',
     },
     {
       name: 'size',
@@ -314,7 +325,8 @@ export const configSet: Record<Methods.SET, IMethod[]> = {
         'console.log(size); // 3',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-get-set.prototype.size',
-      errors: 'TypeError — если this не является Set или Map.',
+      errors:
+        'TypeError —  если this не является множеством (set) или коллекцией (map).',
     },
   ],
 };

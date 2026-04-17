@@ -12,7 +12,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает абсолютное значение (x) (модуль числа).',
+        'Статический метод объекта Math, возвращает абсолютное значение x (модуль числа).',
       example:
         'console.log(Math.abs(-5)); // 5\n' +
         'console.log(Math.abs(5)); // 5\n' +
@@ -30,7 +30,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает округлённое значение (x) до ближайшего целого. Округляет по правилам математического округления (.5 округляется вверх).',
+        'Статический метод объекта Math, возвращает округлённое значение x до ближайшего целого. Округляет по правилам математического округления (.5 округляется вверх).',
       example:
         'console.log(Math.round(4.2)); // 4\n' +
         'console.log(Math.round(4.7)); // 5\n' +
@@ -51,7 +51,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает значение (x), округлённое вверх до ближайшего целого.',
+        'Статический метод объекта Math, возвращает значение x, округлённое вверх до ближайшего целого.',
       example:
         'console.log(Math.ceil(4.2)); // 5\n' +
         'console.log(Math.ceil(4.7)); // 5\n' +
@@ -71,7 +71,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает значение (x), округлённое вниз до ближайшего целого.',
+        'Статический метод объекта Math, возвращает значение x, округлённое вниз до ближайшего целого.',
       example:
         'console.log(Math.floor(4.2)); // 4\n' +
         'console.log(Math.floor(4.7)); // 4\n' +
@@ -91,7 +91,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает целую часть (x), отбрасывая дробную часть.',
+        'Статический метод объекта Math, возвращает целую часть x, отбрасывая дробную часть.',
       example:
         'console.log(Math.trunc(4.2)); // 4\n' +
         'console.log(Math.trunc(-4.2)); // -4\n' +
@@ -113,7 +113,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возводит (base) в (exponent). Аналог оператора **.',
+        'Статический метод объекта Math, возводит base в exponent. Аналог оператора **.',
       example:
         'console.log(Math.pow(2, 3)); // 8\n' +
         'console.log(2 ** 3); // 8 (аналог)\n' +
@@ -131,7 +131,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает квадратный корень (x). Если (x) отрицательный, возвращает NaN.',
+        'Статический метод объекта Math, возвращает квадратный корень x. Если x отрицательный, возвращает NaN.',
       example:
         'console.log(Math.sqrt(16)); // 4\n' +
         'console.log(Math.sqrt(2)); // 1.4142135623730951\n' +
@@ -150,7 +150,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает кубический корень (x).',
+        'Статический метод объекта Math, возвращает кубический корень x.',
       example:
         'console.log(Math.cbrt(27)); // 3\n' +
         'console.log(Math.cbrt(-27)); // -3\n' +
@@ -168,7 +168,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает квадратный корень из суммы квадратов (x1, x2, ...) (длину гипотенузы).',
+        'Статический метод объекта Math, возвращает квадратный корень из суммы квадратов x1, x2, ... (длину гипотенузы).',
       example:
         'console.log(Math.hypot(3, 4)); // 5 (√(3² + 4²))\n' +
         'console.log(Math.hypot(5, 12)); // 13\n' +
@@ -187,7 +187,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает e (число Эйлера, ≈2.718) в (x).',
+        'Статический метод объекта Math, возвращает e (число Эйлера, ≈2.718) в x.',
       example:
         'console.log(Math.exp(0)); // 1\n' +
         'console.log(Math.exp(1)); // 2.718281828459045\n' +
@@ -205,7 +205,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает e (число Эйлера, ≈2.718) в (x) минус 1 (e^x - 1). Обеспечивает высокую точность при очень малых значениях (x). Обычное вычисление Math.exp(x) - 1 может давать погрешность из-за особенностей представления чисел с плавающей точкой.',
+        'Статический метод объекта Math, возвращает e (число Эйлера, ≈2.718) в x минус 1 (e^x - 1). Обеспечивает высокую точность при очень малых значениях x. Обычное вычисление Math.exp(x) - 1 может давать погрешность из-за особенностей представления чисел с плавающей точкой.',
       example:
         'console.log(Math.expm1(0)); // 0\n' +
         'console.log(Math.expm1(1)); // 1.718281828459045\n' +
@@ -224,7 +224,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает натуральный логарифм (x) по основанию e. Если (x) отрицательный, возвращает NaN.',
+        'Статический метод объекта Math, возвращает натуральный логарифм x по основанию e. Если (x) отрицательный, возвращает NaN.',
       example:
         'console.log(Math.log(1)); // 0\n' +
         'console.log(Math.log(Math.E)); // 1\n' +
@@ -245,7 +245,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает логарифм (x) по основанию 10.',
+        'Статический метод объекта Math, возвращает логарифм x по основанию 10.',
       example:
         'console.log(Math.log10(1)); // 0\n' +
         'console.log(Math.log10(10)); // 1\n' +
@@ -263,7 +263,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает логарифм (x) по основанию 2.',
+        'Статический метод объекта Math, возвращает логарифм x по основанию 2.',
       example:
         'console.log(Math.log2(1)); // 0\n' +
         'console.log(Math.log2(2)); // 1\n' +
@@ -282,7 +282,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает натуральный логарифм от (1 + x). Обеспечивает высокую точность для очень малых значений x, где обычное вычисление Math.log(1 + x) может давать существенную погрешность из-за потери значащих разрядов при округлении.',
+        'Статический метод объекта Math, возвращает натуральный логарифм от 1 + x. Обеспечивает высокую точность для очень малых значений x, где обычное вычисление Math.log(1 + x) может давать существенную погрешность из-за потери значащих разрядов при округлении.',
       example:
         'console.log(Math.log1p(0)); // 0\n' +
         'console.log(Math.log1p(1)); // 0.6931471805599453\n' +
@@ -299,7 +299,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
           description: 'Угол в радианах',
         },
       ],
-      description: 'Статический метод объекта Math, возвращает синус (x).',
+      description: 'Статический метод объекта Math, возвращает синус x.',
       example:
         'console.log(Math.sin(0)); // 0\n' +
         'console.log(Math.sin(Math.PI / 2)); // 1\n' +
@@ -316,8 +316,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
           description: 'Угол в радианах',
         },
       ],
-      description:
-        'Статический метод объекта Math, возвращает косинус угла (x).',
+      description: 'Статический метод объекта Math, возвращает косинус угла x.',
       example:
         'console.log(Math.cos(0)); // 1\n' +
         'console.log(Math.cos(Math.PI / 2)); // 6.123233995736766e-17 (≈0)\n' +
@@ -334,8 +333,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
           description: 'Угол в радианах',
         },
       ],
-      description:
-        'Статический метод объекта Math, возвращает тангенс угла (x).',
+      description: 'Статический метод объекта Math, возвращает тангенс угла x.',
       example:
         'console.log(Math.tan(0)); // 0\n' +
         'console.log(Math.tan(Math.PI / 4)); // 0.9999999999999999 (≈1)\n' +
@@ -353,7 +351,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает арксинус (x) в радианах.',
+        'Статический метод объекта Math, возвращает арксинус x в радианах.',
       example:
         'console.log(Math.asin(0)); // 0\n' +
         'console.log(Math.asin(1)); // 1.5707963267948966 (π/2)\n' +
@@ -372,7 +370,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает арккосинус (x) в радианах.',
+        'Статический метод объекта Math, возвращает арккосинус x в радианах.',
       example:
         'console.log(Math.acos(0)); // 1.5707963267948966 (π/2)\n' +
         'console.log(Math.acos(1)); // 0\n' +
@@ -391,7 +389,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает арктангенс (x) (угол в радианах от -π/2 до π/2).',
+        'Статический метод объекта Math, возвращает арктангенс x (угол в радианах от -π/2 до π/2).',
       example:
         'console.log(Math.atan(0)); // 0\n' +
         'console.log(Math.atan(1)); // 0.7853981633974483 (π/4)\n' +
@@ -413,7 +411,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает угол (в радианах) между положительной осью X и точкой (x, y). Учитывает знаки (x) и (y) для определения квадранта.',
+        'Статический метод объекта Math, возвращает угол (в радианах) между положительной осью X и точкой (x, y). Учитывает знаки x и y для определения квадранта.',
       example:
         'console.log(Math.atan2(0, 1)); // 0\n' +
         'console.log(Math.atan2(1, 0)); // 1.5707963267948966 (π/2)\n' +
@@ -432,7 +430,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает гиперболический синус (x).',
+        'Статический метод объекта Math, возвращает гиперболический синус x.',
       example:
         'console.log(Math.sinh(0)); // 0\n' +
         'console.log(Math.sinh(1)); // 1.1752011936438014\n' +
@@ -450,7 +448,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает гиперболический косинус (x).',
+        'Статический метод объекта Math, возвращает гиперболический косинус x.',
       example:
         'console.log(Math.cosh(0)); // 1\n' +
         'console.log(Math.cosh(1)); // 1.5430806348152437\n' +
@@ -468,7 +466,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает гиперболический тангенс (x).',
+        'Статический метод объекта Math, возвращает гиперболический тангенс x.',
       example:
         'console.log(Math.tanh(0)); // 0\n' +
         'console.log(Math.tanh(1)); // 0.7615941559557649\n' +
@@ -488,7 +486,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает обратный гиперболический синус (x).',
+        'Статический метод объекта Math, возвращает обратный гиперболический синус x.',
       example:
         'console.log(Math.asinh(0)); // 0\n' +
         'console.log(Math.asinh(1)); // 0.881373587019543\n' +
@@ -507,7 +505,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает обратный гиперболический косинус (x).',
+        'Статический метод объекта Math, возвращает обратный гиперболический косинус x.',
       example:
         'console.log(Math.acosh(1)); // 0\n' +
         'console.log(Math.acosh(2)); // 1.3169578969248166\n' +
@@ -526,7 +524,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает обратный гиперболический тангенс (x).',
+        'Статический метод объекта Math, возвращает обратный гиперболический тангенс x.',
       example:
         'console.log(Math.atanh(0)); // 0\n' +
         'console.log(Math.atanh(0.5)); // 0.5493061443340548\n' +
@@ -544,7 +542,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает знак (x): -1 (отрицательное), 0 (ноль), 1 (положительное). Для -0 возвращает -0, для NaN — NaN.',
+        'Статический метод объекта Math, возвращает знак x: -1 (отрицательное), 0 (ноль), 1 (положительное). Для -0 возвращает -0, для NaN — NaN.',
       example:
         'console.log(Math.sign(10)); // 1\n' +
         'console.log(Math.sign(-5)); // -1\n' +
@@ -575,7 +573,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает наибольшее значение из (value1, value2, ...). Если ничего не переданно, то возвращает -Infinity.',
+        'Статический метод объекта Math, возвращает наибольшее значение из value1, value2, ... . Если ничего не передано, то возвращает -Infinity.',
       example:
         'console.log(Math.max(10, 5, 20)); // 20\n' +
         'console.log(Math.max(-10, -5, -20)); // -5\n' +
@@ -593,7 +591,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает наименьшее значение из (value1, value2, ...). Если ничего не переданно, то возвращает Infinity.',
+        'Статический метод объекта Math, возвращает наименьшее значение из value1, value2, ... . Если ничего не переднно, то возвращает Infinity.',
       example:
         'console.log(Math.min(10, 5, 20)); // 5\n' +
         'console.log(Math.min(-10, -5, -20)); // -20\n' +
@@ -684,7 +682,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает количество ведущих нулей в 32-битном двоичном представлении (x) (count leading zeros).',
+        'Статический метод объекта Math, возвращает количество ведущих нулей в 32-битном двоичном представлении x.',
       example:
         'console.log(Math.clz32(1)); // 31\n' +
         'console.log(Math.clz32(2)); // 30\n' +
@@ -707,7 +705,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает результат умножения (a) и (b) как 32-битных целых со знаком. Результат тоже является 32-битным целым. Если результат превышает 32-битный диапазон (-2^31 до 2^31 - 1), происходит переполнение, и возвращается значение с учётом этого ограничения.',
+        'Статический метод объекта Math, возвращает результат умножения a и b как 32-битных целых со знаком. Результат тоже является 32-битным целым. Если результат превышает 32-битный диапазон (-2^31 до 2^31 - 1), происходит переполнение, и возвращается значение с учётом этого ограничения.',
       example:
         'console.log(Math.imul(2, 3)); // 6\n' +
         'console.log(Math.imul(0xffffffff, 5)); // -5',
@@ -725,7 +723,7 @@ export const configMath: Record<Methods.MATH, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Math, возвращает ближайшее 32-битное представление (x) с плавающей точкой.',
+        'Статический метод объекта Math, возвращает ближайшее 32-битное представление x с плавающей точкой.',
       example:
         'console.log(Math.fround(0.1)); // 0.10000000149011612\nconsole.log(Math.fround(1.0)); // 1\nconsole.log(Math.fround(1.337)); // 1.3370000123977661',
       specification:

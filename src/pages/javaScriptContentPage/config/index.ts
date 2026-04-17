@@ -22,6 +22,7 @@ import { configLexicalEnvironment } from './configLexicalEnvironment.ts';
 import { configPropertyDescriptors } from './configPropertyDescriptors.ts';
 import { configPrototypes } from './configPrototypes.ts';
 import { configClasses } from './configClasses.ts';
+import { configErrorHandling } from './configErrorHandling.ts';
 
 export const config: IConfig = [
   configIntroductionToJS,
@@ -47,4 +48,5 @@ export const config: IConfig = [
   configPropertyDescriptors,
   configPrototypes,
   configClasses,
+  configErrorHandling,
 ];

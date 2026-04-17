@@ -17,7 +17,7 @@ export const configFunction: Record<Methods.FUNCTION, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Function, позволяет вызывать исходную функцию, используя (thisArg) как её контекст this, а (...args) – как её аргументы.',
+        'Метод объекта Function, позволяет вызывать исходную функцию, используя thisArg как её контекст this, а ...args – как её аргументы.',
       example:
         'function greet(name) {\n' +
         " console.log(`Hello, ${name}! I'm ${this.title}`);\n" +
@@ -44,7 +44,7 @@ export const configFunction: Record<Methods.FUNCTION, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Function, позволяет вызывать функцию, используя (thisArg) как её контекст this, а (argsArray) – как массив её аргументов. Единственное отличие от call() – передача аргументов массивом.',
+        'Метод объекта Function, позволяет вызывать функцию, используя thisArg как её контекст this, а argsArray – как массив её аргументов. Единственное отличие от call() – передача аргументов массивом.',
       example:
         'function sum(a, b, c) {\n' +
         ' return a + b + c;\n' +
@@ -72,7 +72,7 @@ export const configFunction: Record<Methods.FUNCTION, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Function, создаёт новую функцию с фиксированным this и начальными аргументами. Возвращает функцию-обёртку, которая при вызове вызывает оригинальную функцию с (thisArg) и (...args), дополненными новыми аргументами при вызове.',
+        'Метод объекта Function, создаёт новую функцию с фиксированным this и начальными аргументами. Возвращает функцию-обёртку, которая при вызове вызывает оригинальную функцию с thisArg и ...args, дополненными новыми аргументами при вызове.',
       example:
         'function greet(greeting, name) {\n' +
         ' console.log(`${greeting}, ${name}!`);\n' +

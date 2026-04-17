@@ -16,7 +16,7 @@ export const configWeakMap: Record<Methods.WEAK_MAP, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakMap, записывает (value) по (key). Каждый вызов set() возвращает объект WeakMap, что позволяет использовать цепочки вызовов. Ключами в WeakMap могут быть только объекты.',
+        'Метод объекта WeakMap, записывает value по key. Каждый вызов set() возвращает объект WeakMap, что позволяет использовать цепочки вызовов. Ключами в WeakMap могут быть только объекты.',
       example:
         'const weakMap = new WeakMap();\n' +
         'const key = {};\n\n' +
@@ -26,7 +26,7 @@ export const configWeakMap: Record<Methods.WEAK_MAP, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakmap.prototype.set',
       errors:
-        'TypeError — если this не является коллекцией (weakMap или map) или (key) не является объектом.',
+        'TypeError — если this не является коллекцией (map или weakMap) или key не является объектом.',
     },
     {
       name: 'get()',
@@ -39,7 +39,7 @@ export const configWeakMap: Record<Methods.WEAK_MAP, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakMap, возвращает значение по (key) или undefined если (key) отсутствует в исходной коллекции.',
+        'Метод объекта WeakMap, возвращает значение по key или undefined если key отсутствует в исходной коллекции.',
       example:
         'const weakMap = new WeakMap();\n' +
         'const key = {};\n\n' +
@@ -49,7 +49,7 @@ export const configWeakMap: Record<Methods.WEAK_MAP, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakmap.prototype.get',
       errors:
-        'TypeError — если this не является коллекцией (weakMap или map) или (key) не является объектом.',
+        'TypeError — если this не является коллекцией (map или weakMap) или key не является объектом.',
     },
     {
       name: 'has()',
@@ -61,7 +61,7 @@ export const configWeakMap: Record<Methods.WEAK_MAP, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakMap, возвращает true, если (key) присутствует в исходной коллекции, иначе false.',
+        'Метод объекта WeakMap, возвращает true, если key присутствует в исходной коллекции, иначе false.',
       example:
         'const weakMap = new WeakMap();\n' +
         'const key = {};\n\n' +
@@ -71,7 +71,7 @@ export const configWeakMap: Record<Methods.WEAK_MAP, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakmap.prototype.has',
       errors:
-        'TypeError — если this не является коллекцией (weakMap или map) или (key) не является объектом.',
+        'TypeError — если this не является коллекцией (map или weakMap) или множеством (set или weakSet), или key не является объектом.',
     },
     {
       name: 'delete()',
@@ -83,7 +83,7 @@ export const configWeakMap: Record<Methods.WEAK_MAP, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта WeakMap, удаляет элемент (пару вида «ключ/значение») по (key) и возвращает true, если оно было в исходной коллекции на момент вызова, иначе false.',
+        'Метод объекта WeakMap, удаляет элемент (пару вида «ключ/значение») по key и возвращает true, если оно было в исходной коллекции на момент вызова, иначе false.',
       example:
         'const weakMap = new WeakMap();\n' +
         'const key = {};\n\n' +
@@ -93,7 +93,7 @@ export const configWeakMap: Record<Methods.WEAK_MAP, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-weakmap.prototype.delete',
       errors:
-        'TypeError — если this не является коллекцией (weakMap или map) или (key) не является объектом.',
+        'TypeError — если this не является коллекцией (map или weakMap) или множеством (set или weakSet), или key не является объектом.',
     },
   ],
 };

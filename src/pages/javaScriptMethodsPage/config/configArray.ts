@@ -626,7 +626,7 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
       name: 'reverse()',
       syntax: 'arr.reverse()',
       description:
-        'Метод объекта Array, изменяет порядок элементов  исходного массива на обратный.',
+        'Метод объекта Array, изменяет порядок элементов исходного массива на обратный.',
       example:
         "const letters = ['a', 'b', 'c'];\n" +
         'letters.reverse();\n' +

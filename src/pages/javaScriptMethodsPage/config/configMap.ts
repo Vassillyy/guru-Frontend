@@ -20,16 +20,16 @@ export const configMap: Record<Methods.MAP, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Map, вызывает (callbackFn) для каждой пары (ключ/значение) исходной коллекции. Возвращает undefined.',
+        'Метод объекта Map, вызывает callbackFn для каждой пары (ключ/значение) исходной коллекции. Возвращает undefined.',
       example:
         "const map = new Map([['a', 1], ['b', 2]]);\n" +
         'map.forEach((value, key) => {\n' +
-        " console.log(key, value); // 'a' 1, 'b' 2\n" +
+        "  console.log(key, value); // 'a' 1, 'b' 2\n" +
         '});',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-map.prototype.foreach',
       errors:
-        'TypeError — если this не является множеством (set), (массивом или коллекцией (map)), или (fn) не является функцией.',
+        'TypeError — если this не является множеством (set), массивом или коллекцией (map), или fn не является функцией.',
     },
     {
       name: 'set()',
@@ -45,7 +45,7 @@ export const configMap: Record<Methods.MAP, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Map, записывает (value) по (key) в исходную коллекцию. Каждый вызов set() возвращает объект Map, что позволяет использовать цепочки вызовов. Если (key) уже существует в Map, его значение обновляется.',
+        'Метод объекта Map, записывает value по key в исходную коллекцию. Каждый вызов set() возвращает объект Map, что позволяет использовать цепочки вызовов. Если key уже существует в Map, его значение обновляется.',
       example:
         'const map = new Map();\n\n' +
         "map.set('key', 'value');\n\n" +
@@ -65,7 +65,7 @@ export const configMap: Record<Methods.MAP, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Map, возвращает значение по (key) или undefined если (key) отсутствует в исходной коллекции.',
+        'Метод объекта Map, возвращает значение по key или undefined если key отсутствует в исходной коллекции.',
       example:
         "const map = new Map([['a', 1], ['b', 2]]);\n" +
         "const value = map.get('a');\n" +
@@ -84,14 +84,15 @@ export const configMap: Record<Methods.MAP, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Map, возвращает true, если (key), присутствует в исходной коллекции, иначе false.',
+        'Метод объекта Map, возвращает true, если key, присутствует в исходной коллекции, иначе false.',
       example:
         "const map = new Map([['a', 1], ['b', 2]]);\n" +
         "const hasKey = map.has('a');\n" +
         'console.log(hasKey); // true',
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-map.prototype.has',
-      errors: 'TypeError — если this не является коллекцией (map или weakMap).',
+      errors:
+        'TypeError — если this не является коллекцией (map или weakMap) или множеством (Set или WeakSet).',
     },
     {
       name: 'delete()',
@@ -103,7 +104,7 @@ export const configMap: Record<Methods.MAP, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Map, удаляет элемент (пару вида «ключ/значение») по (key) и возвращает true, если оно было в исходной коллекции на момент вызова, иначе false.',
+        'Метод объекта Map, удаляет элемент (пару вида «ключ/значение») по key и возвращает true, если оно было в исходной коллекции на момент вызова, иначе false.',
       example:
         "const map = new Map([['a', 1], ['b', 2]]);\n\n" +
         "const deleted = map.delete('a');\n\n" +
@@ -111,7 +112,8 @@ export const configMap: Record<Methods.MAP, IMethod[]> = {
         "console.log(map.has('a')); // false",
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-map.prototype.delete',
-      errors: 'TypeError — если this не является коллекцией (map или weakMap).',
+      errors:
+        'TypeError — если this не является коллекцией (map или weakMap) или множеством (Set или WeakSet).',
     },
     {
       name: 'clear()',
@@ -139,7 +141,7 @@ export const configMap: Record<Methods.MAP, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-map.prototype.keys',
       errors:
-        'TypeError — если this не является коллекцией (map), (массивом или множеством (set)).',
+        'TypeError — если this не является коллекцией (map), массивом или множеством (set).',
     },
     {
       name: 'values()',
@@ -153,7 +155,7 @@ export const configMap: Record<Methods.MAP, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-map.prototype.values',
       errors:
-        'TypeError — если this не является коллекцией (map), (массивом или множеством (set)).',
+        'TypeError — если this не является коллекцией (map), массивом или множеством (set).',
     },
     {
       name: 'entries()',
@@ -167,7 +169,7 @@ export const configMap: Record<Methods.MAP, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/keyed-collections.html#sec-map.prototype.entries',
       errors:
-        'TypeError — если this не является коллекцией (map), (массивом или множеством (set)).',
+        'TypeError — если this не является коллекцией (map), массивом или множеством (set).',
     },
     {
       name: 'size',

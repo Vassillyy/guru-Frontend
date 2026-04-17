@@ -33,7 +33,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (year) исходной даты по местному времени. Дополнительно может установить (month) и (day). Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает year исходной даты по местному времени. Дополнительно может установить month и day. Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2023-01-15');\n" +
         'const timestamp = date.setFullYear(2024);\n' +
@@ -76,7 +76,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (year) исходной даты по всемирному координированному времени (UTC). Дополнительно может установить (month) и (day). Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает year исходной даты по всемирному координированному времени (UTC). Дополнительно может установить month и day. Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2023-01-15T00:00:00Z');\n" +
         'const timestamp = date.setUTCFullYear(2025);\n' +
@@ -113,7 +113,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (month) исходной даты по местному времени. Дополнительно может установить (day). Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает month исходной даты по местному времени. Дополнительно может установить day. Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2024-01-15');\n" +
         'const timestamp = date.setMonth(5);\n' +
@@ -149,7 +149,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (month) исходной даты по всемирному координированному времени (UTC). Дополнительно может установить (day). Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает month исходной даты по всемирному координированному времени (UTC). Дополнительно может установить day. Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2024-01-15T12:00:00Z');\n" +
         'const timestamp = date.setUTCMonth(8);\n' +
@@ -182,7 +182,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (day) месяца исходной даты по местному времени. Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает day месяца исходной даты по местному времени. Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2024-01-10');\n" +
         'const timestamp = date.setDate(25);\n' +
@@ -214,7 +214,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (day) месяца исходной даты по всемирному координированному времени (UTC). Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает day месяца исходной даты по всемирному координированному времени (UTC). Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2024-03-10T12:00:00Z');\n" +
         'const timestamp = date.setUTCDate(15);\n' +
@@ -259,7 +259,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (hours) исходной даты по местному времени. Дополнительно может установить (minutes), (seconds) и (milliseconds). Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает hours исходной даты по местному времени. Дополнительно может установить minutes, seconds и milliseconds. Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2024-01-01T00:00:00');\n" +
         'const timestamp = date.setHours(14);\n' +
@@ -304,7 +304,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (hours) исходной даты по всемирному координированному времени (UTC). Дополнительно может установить (minutes), (seconds) и (milliseconds). Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает hours исходной даты по всемирному координированному времени (UTC). Дополнительно может установить minutes, seconds и milliseconds. Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2024-01-01T00:00:00Z');\n" +
         'const timestamp = date.setUTCHours(15);\n' +
@@ -345,7 +345,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (minutes) исходной даты по местному времени. Дополнительно может установить (seconds) и (milliseconds). Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает minutes исходной даты по местному времени. Дополнительно может установить seconds и milliseconds. Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2024-03-10T12:00:00');\n" +
         'const timestamp = date.setMinutes(15);\n' +
@@ -386,7 +386,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (minutes) исходной даты по всемирному координированному времени (UTC). Дополнительно может установить (seconds) и (milliseconds). Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает minutes исходной даты по всемирному координированному времени (UTC). Дополнительно может установить seconds и milliseconds. Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2024-01-01T12:00:00Z');\n" +
         'const timestamp = date.setUTCMinutes(45);\n' +
@@ -422,7 +422,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (seconds) исходной даты по местному времени. Дополнительно может установить (milliseconds). Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает seconds исходной даты по местному времени. Дополнительно может установить milliseconds. Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2024-01-01T12:30:00');\n" +
         'const timestamp = date.setSeconds(45);\n' +
@@ -459,7 +459,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (seconds) исходной даты по всемирному координированному времени (UTC). Дополнительно может установить (milliseconds). Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает seconds исходной даты по всемирному координированному времени (UTC). Дополнительно может установить milliseconds. Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2024-01-01T12:30:00Z');\n" +
         'const timestamp = date.setUTCSeconds(45);\n' +
@@ -492,7 +492,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (milliseconds) исходной даты по местному времени. Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает milliseconds исходной даты по местному времени. Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2024-01-01T12:30:45.000');\n" +
         'const timestamp = date.setMilliseconds(50);\n' +
@@ -525,7 +525,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Date, устанавливает (milliseconds) исходной даты по всемирному координированному времени (UTC). Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает milliseconds исходной даты по всемирному координированному времени (UTC). Возвращает таймстамп обновлённой даты.',
       example:
         "const date = new Date('2024-01-01T12:30:45.000Z');\n" +
         'const timestamp = date.setUTCMilliseconds(50);\n' +
@@ -580,12 +580,11 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
       parameters: [
         {
           name: 'time',
-          description:
-            'Таймпстампа (количество миллисекунд с 1 января 1970 года, 00:00:00 UTC)',
+          description: 'Таймпстамп',
         },
       ],
       description:
-        'Метод объекта Date, устанавливает дату и время с помощью (time). Возвращает таймстамп обновлённой даты.',
+        'Метод объекта Date, устанавливает дату и время с помощью time. Возвращает таймстамп обновлённой даты.',
       example:
         'const date = new Date();\n' +
         'const timestamp = date.setTime(1704067200000);\n' +
@@ -679,7 +678,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка с языковым кодом ('ru-RU', 'en-US' и тд) или массив таких строк",
+            "Строка с языковым кодом (например, 'ru-RU', 'en-US') или массив таких строк",
         },
         {
           name: 'options',
@@ -694,14 +693,14 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
             " • second: 'numeric' — числовые секунды ('9'), '2-digit' — две цифры ('09')\n" +
             ' • fractionalSecondDigits: 1, 2 или 3 — количество цифр в дробной части секунды\n' +
             " • era: 'long' — полное название эры ('нашей эры'), 'short' — короткое ('н.э.'), 'narrow' — узкое ('н')\n" +
-            " • timeZone: строка с часовым поясом ('Europe/Moscow', 'America/New_York' и тд)\n" +
+            " • timeZone: строка с часовым поясом (например, 'Europe/Moscow', 'America/New_York')\n" +
             ' • hour12: true/false — 12-часовой (true) или 24-часовой (false) формат\n' +
             " • timeZoneName: 'long' — полное название ('Москва, стандартное время'), 'short' — короткое ('GMT+3'), 'shortOffset' — короткий офсет ('GMT+3'), 'longOffset' — длинный офсет ('GMT+03:00'), 'shortGeneric' — короткое общее ('MSK'), 'longGeneric' — длинное общее ('московское время')\n" +
             ' • formatMatcher: стратегия подбора формата — "basic" (базовая) или "best fit" (наилучшее соответствие)',
         },
       ],
       description:
-        'Метод объекта Date, возвращает дату и время в виде строки с учётом (locales и options). Без (locales и options) использует стандартные настройки операционной системы (язык, формат даты и времени). Объединяет возможности toLocaleDateString() и toLocaleTimeString(). Возвращает строку с отформатированной датой и временем по местному времени.',
+        'Метод объекта Date, возвращает дату и время в виде строки с учётом locales и options. Без locales и options использует стандартные настройки операционной системы (язык, формат даты и времени). Объединяет возможности toLocaleDateString() и toLocaleTimeString(). Возвращает строку с отформатированной датой и временем по местному времени.',
       example:
         "const date = new Date('2024-01-15T14:30:45');\n" +
         'const defaultString = date.toLocaleString();\n' +
@@ -730,7 +729,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка с языковым кодом ('ru-RU', 'en-US' и тд) или массив таких строк",
+            "Строка с языковым кодом (например, 'ru-RU', 'en-US') или массив таких строк",
         },
         {
           name: 'options',
@@ -741,13 +740,13 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
             " • month: 'numeric' — числовой ('1'), '2-digit' — две цифры ('01'), 'long' — полное название ('январь'), 'short' — короткое ('янв.'), 'narrow' — узкое ('я')\n" +
             " • day: 'numeric' — числовой ('1'), '2-digit' — две цифры ('01')\n" +
             " • era: 'long' — полное название эры ('нашей эры'), 'short' — короткое ('н.э.'), 'narrow' — узкое ('н')\n" +
-            " • timeZone: строка с часовым поясом ('Europe/Moscow', 'America/New_York' и тд)\n" +
+            " • timeZone: строка с часовым поясом (например, 'Europe/Moscow', 'America/New_York')\n" +
             ' • hour12: true/false — 12-часовой или 24-часовой формат\n' +
             ' • formatMatcher: стратегия подбора формата — "basic" (базовая) или "best fit" (наилучшее соответствие)',
         },
       ],
       description:
-        'Метод объекта Date, возвращает дату в виде строки с учётом (locales и options). Без (locales и options) использует стандартные настройки операционной системы (язык и формат даты). Позволяет гибко настраивать формат вывода (год, месяц, день и т.д.) по местному времени. Возвращает строку с отформатированной датой.',
+        'Метод объекта Date, возвращает дату в виде строки с учётом locales и options. Без locales и options использует стандартные настройки операционной системы (язык и формат даты). Позволяет гибко настраивать формат вывода (год, месяц, день и т.д.) по местному времени. Возвращает строку с отформатированной датой.',
       example:
         "const date = new Date('2024-01-15T14:30:45');\n" +
         'const defaultDate = date.toLocaleDateString();\n' +
@@ -774,7 +773,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         {
           name: 'locales',
           description:
-            "Строка с языковым кодом ('ru-RU', 'en-US' и тд) или массив таких строк",
+            "Строка с языковым кодом (например, 'ru-RU', 'en-US') или массив таких строк",
         },
         {
           name: 'options',
@@ -785,13 +784,13 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
             " • second: 'numeric' — числовые секунды ('9'), '2-digit' — две цифры ('09')\n" +
             ' • fractionalSecondDigits: 1, 2 или 3 — количество цифр в дробной части секунды\n' +
             ' • hour12: true/false — 12-часовой (true) или 24-часовой (false) формат\n' +
-            " • timeZone: строка с часовым поясом ('Europe/Moscow', 'America/New_York' и тд)\n" +
+            " • timeZone: строка с часовым поясом (например, 'Europe/Moscow', 'America/New_York')\n" +
             " • timeZoneName: 'long' — полное название ('Москва, стандартное время'), 'short' — короткое ('GMT+3'), 'shortOffset' — короткий офсет ('GMT+3'), 'longOffset' — длинный офсет ('GMT+03:00'), 'shortGeneric' — короткое общее ('MSK'), 'longGeneric' — длинное общее ('московское время')\n" +
             ' • formatMatcher: стратегия подбора формата — "basic" (базовая) или "best fit" (наилучшее соответствие)',
         },
       ],
       description:
-        'Метод объекта Date, возвращает время в виде строки с учётом (locales и options). Без (locales и options) использует стандартные настройки операционной системы (язык и формат времени). Позволяет гибко настраивать формат вывода (час, минута, секунда, часовая система и т.д.) по местному времени. Возвращает строку с отформатированным временем.',
+        'Метод объекта Date, возвращает время в виде строки с учётом locales и options. Без locales и options использует стандартные настройки операционной системы (язык и формат времени). Позволяет гибко настраивать формат вывода (час, минута, секунда, часовая система и т.д.) по местному времени. Возвращает строку с отформатированным временем.',
       example:
         "const date = new Date('2024-01-15T14:30:45');\n" +
         'const defaultTime = date.toLocaleTimeString();\n' +
@@ -833,7 +832,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        "Статический метод объекта Date, парсит (string) и возвращает таймстамп. Если формат неправильный, возвращается NaN. Предпочтительный формат: YYYY-MM-DDTHH:mm:ss.sssZ, где:\n • YYYY-MM-DD – дата: год-месяц-день;\n • 'T' – разделитель;\n • HH:mm:ss.sss – время: часы, минуты, секунды, миллисекунды;\n • 'Z' – часовой пояс в формате +-hh:mm (необязательно).",
+        "Статический метод объекта Date, парсит string и возвращает таймстамп. Если формат неправильный, возвращается NaN. Предпочтительный формат: YYYY-MM-DDTHH:mm:ss.sssZ, где:\n • YYYY-MM-DD – дата: год-месяц-день;\n • 'T' – разделитель;\n • HH:mm:ss.sss – время: часы, минуты, секунды, миллисекунды;\n • 'Z' – часовой пояс в формате +-hh:mm (необязательно).",
       example:
         "const timestamp = Date.parse('2024-01-01T00:00:00Z');\n" +
         'console.log(timestamp); // 1704067200000',
@@ -875,7 +874,7 @@ export const configDate: Record<Methods.DATE, IMethod[]> = {
         },
       ],
       description:
-        'Статический метод объекта Date, возвращает таймстамп для (year, month, day) и (hour, minute, second, millisecond) по UTC. В отличие от конструктора new Date(), параметры интерпретируются как UTC время, а не локальное время.',
+        'Статический метод объекта Date, возвращает таймстамп для year, month, day и hour, minute, second, millisecond по UTC. В отличие от конструктора new Date(), параметры интерпретируются как UTC время, а не локальное время.',
       example:
         'const timestamp = Date.UTC(2024, 0, 1);\n' +
         'console.log(timestamp); // 1704067200000',

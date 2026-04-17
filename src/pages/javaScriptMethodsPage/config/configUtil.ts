@@ -18,7 +18,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
             ' • shared - boolean, если true, то SharedArrayBuffer клонируется без копирования (по ссылке)',
         },
       ],
-      description: 'Встроенная функция, возвращает глубокую копию (value).',
+      description: 'Встроенная функция, возвращает глубокую копию value.',
       example:
         'const obj = { a: 1, b: { c: 2 } };\n' +
         'const cloned = structuredClone(obj);\n' +
@@ -38,7 +38,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        'Встроенная функция, позволяющая создавать уникальные символы. Не является конструктором. Функция может принимать (description).',
+        'Встроенная функция, позволяющая создавать уникальные символы с description. Не является конструктором.',
       example:
         "const sym = Symbol('id');\n" + 'console.log(sym); // Symbol(id)',
       specification:
@@ -55,7 +55,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        'Встроенная функция, которая преобразует (value) в число и проверяет является ли он NaN. Возвращает true, если является, и false, если является числом.',
+        'Встроенная функция, которая преобразует value в число и проверяет является ли он NaN. Возвращает true, если является, и false, если является числом.',
       example:
         "console.log(isNaN('abc')); // true\n" +
         'console.log(isNaN(123)); // false\n' +
@@ -74,7 +74,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        'Встроенная функция, которая преобразует (value) в число и возвращает true, если оно является обычным числом, т.е. не NaN/Infinity/-Infinity, иначе false.',
+        'Встроенная функция, которая преобразует value в число и возвращает true, если оно является обычным числом, т.е. не NaN/Infinity/-Infinity, иначе false.',
       example:
         "console.log(isFinite('123')); // true\n" +
         "console.log(isFinite('abc')); // false\n" +
@@ -98,7 +98,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        "Встроенная функция, преобразует (string) в целое число по (radix). Функция 'читает' число из строки. Если в процессе чтения возникает ошибка, возвращает полученное до ошибки число. Вернёт NaN, если не смогла прочитать ни одну цифру.",
+        "Встроенная функция, преобразует string в целое число по radix. Функция 'читает' число из строки. Если в процессе чтения возникает ошибка, возвращает полученное до ошибки число. Вернёт NaN, если не смогла прочитать ни одну цифру.",
       example:
         "console.log(parseInt('123px')); // 123\n" +
         "console.log(parseInt('101', 2)); // 5\n" +
@@ -118,7 +118,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        "Встроенная функция, преобразует (string) в число с плавающей точкой. Функция 'читает' число из строки. Если в процессе чтения возникает ошибка, возвращает полученное до ошибки число. Вернёт NaN, если не смогла прочитать ни одну цифру.",
+        "Встроенная функция, преобразует string в число с плавающей точкой. Функция 'читает' число из строки. Если в процессе чтения возникает ошибка, возвращает полученное до ошибки число. Вернёт NaN, если не смогла прочитать ни одну цифру.",
       example:
         "console.log(parseFloat('12.34px')); // 12.34\n" +
         "console.log(parseFloat('12.3.4')); // 12.3\n" +
@@ -151,7 +151,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         'Когда func передаётся в setTimeout, на неё создаётся внутренняя ссылка и сохраняется в планировщике. Это предотвращает попадание функции в сборщик мусора, даже если на неё нет других ссылок.',
       example:
         'setTimeout(() => {\n' +
-        " console.log('Выполнится через 1 секунду');\n" +
+        "  console.log('Выполнится через 1 секунду');\n" +
         '}, 1000);',
       specification:
         'https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#sec-setTimeout',
@@ -167,7 +167,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        'Встроенная функция, отменяет таймер, установленный ранее с помощью setTimeout(), предотвращая выполнение запланированной функции. Если передан неверный или уже сработавший (timeoutID), ничего не происходит (ошибки не возникает).',
+        'Встроенная функция, отменяет таймер, установленный ранее с помощью setTimeout(), предотвращая выполнение запланированной функции. Если передан неверный или уже сработавший timeoutID, ничего не происходит (ошибки не возникает).',
       example:
         'const timerId = setTimeout(() => {\n' +
         " console.log('Не выполнится');\n" +
@@ -176,7 +176,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
       specification:
         'https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#sec-clearTimeout',
       errors:
-        'TypeError — если (timeoutID) не является числовым идентификатором таймера.',
+        'TypeError — если timeoutID не является числовым идентификатором таймера.',
     },
     {
       name: 'setInterval()',
@@ -203,11 +203,11 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
       example:
         'let counter = 0;\n\n' +
         'const intervalId = setInterval(() => {\n' +
-        " console.log(\"Выведется 3 раза: 'Tick', 'Tick', 'Tick'\");\n" +
-        ' counter++;\n' +
-        ' if (counter === 3) {\n' +
-        ' clearInterval(intervalId);\n' +
-        ' }\n' +
+        "  console.log(\"Выведется 3 раза: 'Tick', 'Tick', 'Tick'\");\n" +
+        '  counter++;\n' +
+        '  if (counter === 3) {\n' +
+        '    clearInterval(intervalId);\n' +
+        '  }\n' +
         '}, 1000);',
       specification:
         'https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#sec-setInterval',
@@ -223,20 +223,20 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         },
       ],
       description:
-        'Встроенная функция, отменяет повторное выполнение, установленное с помощью setInterval(), предотвращая дальнейшие вызовы функции. Если передан неверный или уже остановленный (intervalID), ничего не происходит (ошибки не возникает).',
+        'Встроенная функция, отменяет повторное выполнение, установленное с помощью setInterval(), предотвращая дальнейшие вызовы функции. Если передан неверный или уже остановленный intervalID, ничего не происходит (ошибки не возникает).',
       example:
         'let count = 0;\n' +
         'const intervalId = setInterval(() => {\n' +
-        " console.log('Выполнится 3 раза');\n" +
-        ' count++;\n' +
-        ' if (count === 3) {\n' +
-        ' clearInterval(intervalId); // Остановка после 3 выполнений\n' +
-        ' }\n' +
+        "  console.log('Выполнится 3 раза');\n" +
+        '  count++;\n' +
+        '  if (count === 3) {\n' +
+        '    clearInterval(intervalId); // Остановка после 3 выполнений\n' +
+        '  }\n' +
         '}, 1000);',
       specification:
         'https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#sec-clearInterval',
       errors:
-        'TypeError — если (intervalID) не является числовым идентификатором таймера.',
+        'TypeError — если intervalID не является числовым идентификатором таймера.',
     },
     {
       name: 'fetch()',
