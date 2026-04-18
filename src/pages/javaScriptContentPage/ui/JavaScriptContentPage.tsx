@@ -1,14 +1,22 @@
 import type { FC } from 'react';
 import { Input, PageContainer } from '@/shared/ui';
-import { useFilters } from '@/shared/hooks';
+import { useFilters, useInfiniteScroll } from '@/shared/hooks';
 import { useTopicsData } from '../hooks/useTopicsData.ts';
 import { TopicCard } from './TopicCard/TopicCard.tsx';
 import styles from './JavaScriptContentPage.module.css';
 
 export const JavaScriptContentPage: FC = () => {
-  const { topicsToShow, navigateToTopic } = useTopicsData();
+  const { searchQuery, searchChange, searchReset, loadedCount, loadMore } = useFilters();
 
-  const { searchQuery, searchChange, searchReset } = useFilters();
+  const { topicsToShow, navigateToTopic, hasMore } = useTopicsData({
+    searchQuery,
+    loadedCount,
+  });
+
+  const sentinelRef = useInfiniteScroll({
+    hasMore,
+    onLoadMore: loadMore,
+  });
 
   const filteredTopics = topicsToShow.filter((section) =>
     section.name.toLowerCase().includes(searchQuery.toLowerCase()),
@@ -40,6 +48,8 @@ export const JavaScriptContentPage: FC = () => {
       {filteredTopics.length === 0 && (
         <div className={styles.noResult}>По данному запросу данных нет</div>
       )}
+
+      {hasMore && <div ref={sentinelRef} className={styles.sentinel} />}
     </PageContainer>
   );
 };
