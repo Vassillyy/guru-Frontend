@@ -8,7 +8,7 @@ export const configMapSet: ITopic = {
       'Map и Set — это современные структуры данных для работы с коллекциями. WeakMap и WeakSet — их «слабые» версии, которые позволяют сборщику мусора очищать память.',
     sections: [
       {
-        title: 'Map',
+        title: 'Объект Map',
         content:
           'Map — это коллекция пар вида ключ-значение.\n' +
           '• Ключи могут быть любого типа\n' +
@@ -40,7 +40,7 @@ export const configMapSet: ITopic = {
           'console.log(map.size); // 0',
       },
       {
-        title: 'Set',
+        title: 'Объект Set',
         content:
           'Set — это коллекция уникальных значений.\n' +
           '• Хранит только уникальные значения\n' +
@@ -71,7 +71,7 @@ export const configMapSet: ITopic = {
           'console.log(unique); // [1, 2, 3]',
       },
       {
-        title: 'WeakMap',
+        title: 'Объект WeakMap',
         content:
           'WeakMap — это Map-подобная коллекция пар вида ключ-значение, где ключами могут быть только объекты, и ссылки на ключи являются «слабыми».\n' +
           '• Ключами могут быть только объекты\n' +
@@ -100,7 +100,7 @@ export const configMapSet: ITopic = {
           'obj = null; // объект будет удалён сборщиком мусора',
       },
       {
-        title: 'WeakSet',
+        title: 'Объект WeakSet',
         content:
           'WeakSet — это Set-подобная коллекция уникальных объектов со слабыми ссылками.\n' +
           '• Хранит только объекты\n' +

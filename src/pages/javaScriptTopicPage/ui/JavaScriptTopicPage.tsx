@@ -21,7 +21,7 @@ export const JavaScriptTopicPage: FC = () => {
     <div className={styles.container}>
       <div className={styles.header}>
         <button className={styles.backButton} onClick={() => navigate(-1)}>
-          ← Назад
+          Вернуться к списку тем
         </button>
         <h1 className={styles.title}>{topicData.name}</h1>
       </div>

@@ -22,7 +22,7 @@ export const SectionItem: FC<{ section: ITopicSection }> = ({ section }) => {
   });
 
   return (
-    <div className={styles.section}>
+    <div id={section.title} className={styles.section}>
       <button
         className={styles.header}
         onClick={() => setIsOpen((prev) => !prev)}

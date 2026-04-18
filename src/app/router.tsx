@@ -4,7 +4,7 @@ import { TypeScriptUtilityTypesPage } from '@/pages/typeScriptUtilityTypesPage';
 import { MainPage } from '@/pages/mainPage';
 import { JavaScriptMethodsPage } from '@/pages/javaScriptMethodsPage';
 import { AppPaths } from '@/shared/constants/route';
-import { MainLayout } from './layouts';
+import { MainLayout, TopicLayout } from './layouts';
 import { JavaScriptTopicPage } from '@/pages/javaScriptTopicPage';
 
 export const router = createBrowserRouter([
@@ -28,8 +28,14 @@ export const router = createBrowserRouter([
         path: AppPaths.TYPE_SCRIPT_UTILITY_TYPES,
         element: <TypeScriptUtilityTypesPage />,
       },
+    ],
+  },
+  {
+    path: `${AppPaths.JAVA_SCRIPT}/topic/:topicId`,
+    element: <TopicLayout />,
+    children: [
       {
-        path: `${AppPaths.JAVA_SCRIPT}/topic/:topicId`,
+        index: true,
         element: <JavaScriptTopicPage />,
       },
     ],

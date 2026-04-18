@@ -8,8 +8,7 @@ export const configTypeConversion: ITopic = {
       'JavaScript — язык с динамической типизацией, где значения могут автоматически или явно преобразовываться к другому типу.',
     sections: [
       {
-        title:
-          'Преобразование примитивов: Number, String, Boolean, BigInt, Symbol',
+        title: 'Преобразование Number, String, Boolean, BigInt и Symbol',
         content:
           'Преобразование к числу (Number)\n' +
           '• String → Number: строка парсится как число. Пустая строка → 0. Пробельные символы игнорируются. Не числовые строки → NaN.\n' +

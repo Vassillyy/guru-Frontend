@@ -8,7 +8,7 @@ export const configVariables: ITopic = {
       'JavaScript предоставляет три способа объявления переменных: let, const и var. Каждый имеет свои особенности.',
     sections: [
       {
-        title: 'let',
+        title: 'Ключевое слово let',
         content:
           'let — ключевое слово для объявления переменной, введённое в ECMAScript 6 (2015).',
         addition:
@@ -25,7 +25,7 @@ export const configVariables: ITopic = {
           '// Без инициализации = undefined\nlet notInit;\nconsole.log(notInit); // undefined',
       },
       {
-        title: 'const',
+        title: 'Ключевое слово const',
         content:
           'const — ключевое слово для объявления константы, введённое в ECMAScript 6 (2015).',
         addition:
@@ -44,7 +44,7 @@ export const configVariables: ITopic = {
           '// Обязательна инициализация\nconst notInit; // Ошибка!',
       },
       {
-        title: 'var',
+        title: 'Ключевое слово var',
         content:
           'var — ключевое слово для объявления переменной, использовавшееся до появления let и const.',
         addition:

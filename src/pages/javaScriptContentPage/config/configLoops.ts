@@ -141,7 +141,7 @@ export const configLoops: ITopic = {
           '}',
       },
       {
-        title: 'Метки (Labels)',
+        title: 'Метки',
         content:
           'Позволяют дать имя циклу или блоку для использования с break/continue.',
         addition:
