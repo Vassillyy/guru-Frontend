@@ -49,9 +49,9 @@
   flex: 1;
   padding: 16px;
   background: #1e1e1e;
-  overflow-x: hidden;
-  animation: typing 1.5s steps(60, end);
+  overflow-x: auto;
 }
+
 .code .control {
   color: #569cd6;
 }
@@ -108,15 +108,4 @@
     .global
   ):not(.boolean) {
   color: #d4d4d4;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-    opacity: 0;
-  }
-  to {
-    width: 100%;
-    opacity: 1;
-  }
 }

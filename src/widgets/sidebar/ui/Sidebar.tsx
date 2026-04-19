@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import cn from 'classnames';
-import { NAV_ITEMS, findParentItemIdForActivePath } from '../model';
+import { sidebarMenu } from '@/shared/constants/sidebarMenu.ts';
+import { findParentItemIdForActivePath } from '../model/findParentItemIdForActivePath.ts';
 import { NavItem } from './navItem/NavItem.tsx';
 import styles from './Sidebar.module.css';
 
@@ -9,7 +10,7 @@ export const Sidebar = () => {
   const location = useLocation();
   const [expandedItems, setExpandedItems] = useState<string[]>(() => {
     const parentId = findParentItemIdForActivePath(
-      NAV_ITEMS,
+      sidebarMenu,
       location.pathname,
     );
     return parentId ? [parentId] : [];
@@ -33,11 +34,11 @@ export const Sidebar = () => {
   };
 
   return (
-    <div className={cn(styles.sidebar, isCollapsed && styles.hiddenSidebar)}>
+    <div className={cn(styles.sidebar, isCollapsed && styles.hidden)}>
       <div className={styles.header}>
         <div className={styles.headerTop}>
           {!isCollapsed && <h2 className={styles.title}>Навигация</h2>}
-          <button className={styles.collapseButton} onClick={toggleSidebar}>
+          <button className={styles.toggle} onClick={toggleSidebar}>
             {isCollapsed ? '→' : '←'}
           </button>
         </div>
@@ -47,7 +48,7 @@ export const Sidebar = () => {
       {!isCollapsed && (
         <nav className={styles.nav}>
           <ul className={styles.navList}>
-            {NAV_ITEMS.map((item) => {
+            {sidebarMenu.map((item) => {
               const itemHasChildren = item.children && item.children.length > 0;
               const isExpanded = item.id
                 ? expandedItems.includes(item.id)

@@ -5,4 +5,21 @@
   font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
+  /* Sidebar */
+  --color-sidebar-nav-link-border: #d9f2d9;
+  --color-sidebar-nav-link-text: #1a5f1a;
+  --color-sidebar-nav-active-link-text: #ffffff;
+  --color-sidebar-nav-link-bg: #edf9ed;
+  --color-sidebar-nav-active-link-bg: #2ecc71;
+  --color-sidebar-nav-link-bg-hover: #e2f7e2;
+  --color-sidebar-bg: #f8fdf8;
+  --color-sidebar-border: #ddf4dd;
+  --color-sidebar-title-text: #1a5f1a;
+  --color-sidebar-button-toggle-text: #5a8d5a;
+  --color-sidebar-button-toggle-text-hover: #e6f7e6;
+  --color-sidebar-subtitle-text: #5a8d5a;
+  --color-sidebar-scroll: #c8e6c9 #f5fff7;
+
+  --shadow-sidebar-nav-link: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

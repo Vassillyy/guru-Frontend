@@ -1,25 +1,21 @@
 .sidebar {
   width: 250px;
   height: 100vh;
-  background-color: #f8fdf8;
+  background-color: var(--color-sidebar-bg);
   padding: 15px;
-  border-right: 2px solid #e6f7e6;
-  border-left: 2px solid #e6f7e6;
+  border-right: 2px solid var(--color-sidebar-border);
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
-  box-shadow: 2px 0 10px rgba(0, 100, 0, 0.05);
-  overflow-y: auto;
 }
 
-.hiddenSidebar {
+.sidebar.hidden {
   width: 70px;
 }
 
 .header {
   margin-bottom: 15px;
   padding-bottom: 10px;
-  border-bottom: 2px solid #e0f5e0;
+  border-bottom: 2px solid var(--color-sidebar-border);
 }
 
 .headerTop {
@@ -30,54 +26,45 @@
 }
 
 .title {
-  margin: 0;
   font-size: 22px;
   font-weight: 700;
-  color: #1a5f1a;
+  color: var(--color-sidebar-title-text);
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.collapseButton {
+.toggle {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 18px;
-  color: #5a8d5a;
+  color: var(--color-sidebar-button-toggle-text);
   padding: 6px 10px;
   border-radius: 6px;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 36px;
   height: 36px;
-  flex-shrink: 0;
 }
 
-.collapseButton:hover {
-  background-color: #e6f7e6;
-  color: #1a5f1a;
+.toggle:hover {
+  background-color: var(--color-sidebar-button-toggle-text-hover);
 }
 
 .subtitle {
-  margin: 3px 0 0 0;
   font-size: 13px;
-  color: #5a8d5a;
-  opacity: 0.8;
+  color: var(--color-sidebar-subtitle-text);
 }
 
 .nav {
   flex: 1;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-sidebar-scroll);
   padding-right: 5px;
 }
 
 .navList {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .navItem {
@@ -88,10 +75,8 @@
   list-style: none;
   margin: 8px 0 0 16px;
   overflow: hidden;
-  border-left: 2px solid #d9f2d9;
+  border-left: 2px solid var(--color-sidebar-border);
   padding-left: 10px;
-  animation: slideDown 0.3s ease-out;
-  transition: max-height 0.3s ease;
 }
 
 .childrenList .navItem {

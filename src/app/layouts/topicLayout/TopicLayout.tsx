@@ -6,7 +6,7 @@ import styles from './TopicLayout.module.css';
 
 export const TopicLayout = () => {
   const location = useLocation();
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+  const [isHidden, setIsHidden] = useState<boolean>(false);
 
   const topicData = location.state as { topicData?: ITopic };
   const sections = topicData?.topicData?.content?.sections || [];
@@ -19,20 +19,20 @@ export const TopicLayout = () => {
   };
 
   const toggleSidebar = () => {
-    setIsCollapsed((prev) => !prev);
+    setIsHidden((prev) => !prev);
   };
 
   return (
     <div className={styles.layout}>
-      <aside className={cn(styles.sidebar, isCollapsed && styles.collapsed)}>
+      <aside className={cn(styles.sidebar, isHidden && styles.hidden)}>
         <div className={styles.header}>
           <div className={styles.headerTop}>
-            {!isCollapsed && <h2 className={styles.title}>Навигация</h2>}
+            {!isHidden && <h2 className={styles.title}>Навигация</h2>}
             <button className={styles.collapseButton} onClick={toggleSidebar}>
-              {isCollapsed ? '→' : '←'}
+              {isHidden ? '→' : '←'}
             </button>
           </div>
-          {!isCollapsed && (
+          {!isHidden && (
             <span className={styles.subtitle}>Выберите секцию</span>
           )}
         </div>
