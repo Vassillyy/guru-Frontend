@@ -14,9 +14,8 @@ export const TopicLayout = () => {
 
   const scrollToSection = (title: string) => {
     const element = document.getElementById(title);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
   const toggleSidebar = () => {
