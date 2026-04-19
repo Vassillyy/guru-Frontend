@@ -1,13 +1,13 @@
 import { AppPaths } from './route.ts';
 
-export interface SidebarItem {
+export interface ISidebarItem {
   label: string;
   path: string;
   id?: string;
-  children?: SidebarItem[];
+  children?: ISidebarItem[];
 }
 
-export const sidebarMenu: SidebarItem[] = [
+export const sidebarMenu: ISidebarItem[] = [
   {
     path: AppPaths.MAIN,
     label: 'Главная страница',

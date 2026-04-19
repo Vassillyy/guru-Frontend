@@ -1,7 +1,7 @@
 import { type FC, useState } from 'react';
 import type { IUtilityType } from '@/entities/utilityType';
 import { useFormattedText } from '@/shared/hooks';
-import { CodeWS, IconArrow } from '@/shared/ui';
+import { CodeWS, ShortArrow } from '@/shared/ui';
 import { TableSyntaxBreakdown } from './table/TableSyntaxBreakdown.tsx';
 import styles from './UtilityTypeCard.module.css';
 
@@ -20,7 +20,7 @@ export const UtilityTypeCard: FC<{ utility: IUtilityType }> = ({ utility }) => {
         >
           <h3 className={styles.headerText}>{utility.name}</h3>
           <div className={styles.buttonArrow}>
-            <IconArrow isOpen={isOpen} />
+            <ShortArrow isOpen={isOpen} />
           </div>
         </button>
 

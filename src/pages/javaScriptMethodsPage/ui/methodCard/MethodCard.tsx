@@ -1,6 +1,6 @@
 import { useState, type FC } from 'react';
 import type { IMethod } from '@/entities/method';
-import { CodeWS, IconArrow } from '@/shared/ui';
+import { CodeWS, ShortArrow } from '@/shared/ui';
 import { useFormattedText } from '@/shared/hooks/useFormattedText.tsx';
 import { ErrorList } from '@/pages/javaScriptMethodsPage/ui/methodCard/errors/ErrorList.tsx';
 import styles from './MethodCard.module.css';
@@ -21,7 +21,7 @@ export const MethodCard: FC<{ method: IMethod }> = ({ method }) => {
         >
           <h3 className={styles.methodName}>{method.name}</h3>
           <div className={styles.buttonArrow}>
-            <IconArrow isOpen={isOpen} />
+            <ShortArrow isOpen={isOpen} />
           </div>
         </button>
 

@@ -47,72 +47,72 @@ export const configTypeConversion: ITopic = {
           'Двойное НЕ (!!) — компактный способ преобразовать значение в boolean.',
         examples:
           '// Number() — преобразование к числу\n' +
-          'console.log(Number("42"));      // 42\n' +
+          'console.log(Number("42")); // 42\n' +
           'console.log(Number("  3.14  ")); // 3.14 (пробелы игнорируются)\n' +
-          'console.log(Number(""));        // 0 (пустая строка)\n' +
-          'console.log(Number("hello"));   // NaN (не числовая строка)\n' +
-          'console.log(Number("123abc"));  // NaN (символы после числа)\n' +
-          'console.log(Number(true));      // 1\n' +
-          'console.log(Number(false));     // 0\n' +
-          'console.log(Number(null));      // 0 (особенность!)\n' +
+          'console.log(Number("")); // 0 (пустая строка)\n' +
+          'console.log(Number("hello")); // NaN (не числовая строка)\n' +
+          'console.log(Number("123abc")); // NaN (символы после числа)\n' +
+          'console.log(Number(true)); // 1\n' +
+          'console.log(Number(false)); // 0\n' +
+          'console.log(Number(null)); // 0 (особенность!)\n' +
           'console.log(Number(undefined)); // NaN\n' +
           'console.log(Number(Symbol("id"))); // TypeError\n\n' +
           '// Унарный плюс — компактное преобразование в число\n' +
-          'console.log(+"42");   // 42\n' +
-          'console.log(+true);   // 1\n' +
-          'console.log(+"");     // 0\n\n' +
+          'console.log(+"42"); // 42\n' +
+          'console.log(+true); // 1\n' +
+          'console.log(+""); // 0\n\n' +
           '// String() — преобразование к строке\n' +
-          'console.log(String(42));        // "42"\n' +
-          'console.log(String(NaN));       // "NaN"\n' +
-          'console.log(String(Infinity));  // "Infinity"\n' +
-          'console.log(String(-0));        // "0"\n' +
-          'console.log(String(false));     // "false"\n' +
+          'console.log(String(42)); // "42"\n' +
+          'console.log(String(NaN)); // "NaN"\n' +
+          'console.log(String(Infinity)); // "Infinity"\n' +
+          'console.log(String(-0)); // "0"\n' +
+          'console.log(String(false)); // "false"\n' +
           'console.log(String(Symbol("id"))); // "Symbol(id)" — явное преобразование работает\n' +
-          'console.log(String(Symbol()));      // "Symbol()" — даже без описания\n\n' +
+          'console.log(String(Symbol())); // "Symbol()" — даже без описания\n\n' +
           '// Неявное преобразование Symbol к строке (конкатенация)\n' +
           'console.log("Символ: " + Symbol("id")); // TypeError\n' +
           '// Шаблонные строки — неявное преобразование\n' +
-          'console.log(`Значение: ${42}`);      // "Значение: 42"\n' +
-          'console.log(`Результат: ${true}`);   // "Результат: true"\n\n' +
+          'console.log(`Значение: ${42}`); // "Значение: 42"\n' +
+          'console.log(`Результат: ${true}`); // "Результат: true"\n\n' +
           '// Boolean() — преобразование к boolean\n' +
-          'console.log(Boolean(1));        // true\n' +
-          'console.log(Boolean(0));        // false\n' +
-          'console.log(Boolean(-0));       // false\n' +
-          'console.log(Boolean(NaN));      // false\n' +
-          'console.log(Boolean(42));       // true\n' +
-          'console.log(Boolean("text"));   // true\n' +
-          'console.log(Boolean(""));       // false\n' +
-          'console.log(Boolean(" "));      // true (пробел — не пустая строка!)\n' +
-          'console.log(Boolean(0n));       // false\n' +
-          'console.log(Boolean(10n));      // true\n' +
+          'console.log(Boolean(1)); // true\n' +
+          'console.log(Boolean(0)); // false\n' +
+          'console.log(Boolean(-0)); // false\n' +
+          'console.log(Boolean(NaN)); // false\n' +
+          'console.log(Boolean(42)); // true\n' +
+          'console.log(Boolean("text")); // true\n' +
+          'console.log(Boolean("")); // false\n' +
+          'console.log(Boolean(" ")); // true (пробел — не пустая строка!)\n' +
+          'console.log(Boolean(0n)); // false\n' +
+          'console.log(Boolean(10n)); // true\n' +
           'console.log(Boolean(Symbol("id"))); // true\n\n' +
           '// Двойное НЕ (!!) — компактное преобразование в boolean\n' +
-          'console.log(!!"text");  // true\n' +
-          'console.log(!!"");      // false\n' +
-          'console.log(!!0);       // false\n' +
-          'console.log(!!42);      // true\n\n' +
+          'console.log(!!"text"); // true\n' +
+          'console.log(!!""); // false\n' +
+          'console.log(!!0); // false\n' +
+          'console.log(!!42); // true\n\n' +
           '// BigInt() — преобразование к BigInt\n' +
-          'console.log(BigInt("42"));       // 42n\n' +
-          'console.log(BigInt("0"));        // 0n\n' +
-          'console.log(BigInt(true));       // 1n\n' +
-          'console.log(BigInt(false));      // 0n\n' +
-          'console.log(BigInt(100));        // 100n\n' +
-          'console.log(BigInt(3.14));       // RangeError (дробные не допускаются)\n' +
-          'console.log(BigInt("hello"));    // SyntaxError\n\n' +
+          'console.log(BigInt("42")); // 42n\n' +
+          'console.log(BigInt("0")); // 0n\n' +
+          'console.log(BigInt(true)); // 1n\n' +
+          'console.log(BigInt(false)); // 0n\n' +
+          'console.log(BigInt(100)); // 100n\n' +
+          'console.log(BigInt(3.14)); // RangeError (дробные не допускаются)\n' +
+          'console.log(BigInt("hello")); // SyntaxError\n\n' +
           '// Symbol() — преобразование к символу\n' +
-          'console.log(Symbol("id"));       // Symbol(id)\n' +
-          'console.log(Symbol(42));         // Symbol(42)\n' +
-          'console.log(Symbol(true));       // Symbol(true)\n' +
-          'console.log(Symbol(null));       // Symbol(null)\n' +
-          'console.log(Symbol({}));         // Symbol([object Object])\n\n' +
+          'console.log(Symbol("id")); // Symbol(id)\n' +
+          'console.log(Symbol(42)); // Symbol(42)\n' +
+          'console.log(Symbol(true)); // Symbol(true)\n' +
+          'console.log(Symbol(null)); // Symbol(null)\n' +
+          'console.log(Symbol({})); // Symbol([object Object])\n\n' +
           '// Автоматическое преобразование в операциях\n' +
-          'console.log("5" - 2);      // 3 (строка → число)\n' +
-          'console.log("5" + 2);      // "52" (число → строка, конкатенация!)\n' +
-          'console.log("10" * "2");   // 20 (обе строки → числа)\n' +
-          'console.log("10" / "4");   // 2.5\n' +
-          'console.log("5" > 2);      // true (строка → число)\n' +
-          'console.log(true + 1);     // 2 (true → 1)\n' +
-          'console.log(false * 5);    // 0 (false → 0)\n' +
+          'console.log("5" - 2); // 3 (строка → число)\n' +
+          'console.log("5" + 2); // "52" (число → строка, конкатенация!)\n' +
+          'console.log("10" * "2"); // 20 (обе строки → числа)\n' +
+          'console.log("10" / "4"); // 2.5\n' +
+          'console.log("5" > 2); // true (строка → число)\n' +
+          'console.log(true + 1); // 2 (true → 1)\n' +
+          'console.log(false * 5); // 0 (false → 0)\n' +
           'console.log(5 && "hello"); // "hello" (логическое И)\n' +
           'console.log(0 || "default"); // "default" (логическое ИЛИ)',
       },
@@ -136,30 +136,30 @@ export const configTypeConversion: ITopic = {
           'Также: null > 0 && null == 0 – false, null >= 0 - true',
         examples:
           '// undefined\n' +
-          'console.log(Number(undefined));    // NaN\n' +
-          'console.log(+undefined);           // NaN\n' +
-          'console.log(String(undefined));    // "undefined"\n' +
-          'console.log(`${undefined}`);       // "undefined"\n' +
-          'console.log(Boolean(undefined));   // false\n' +
-          'console.log(!!undefined);          // false\n' +
-          'console.log(BigInt(undefined));    // TypeError\n\n' +
+          'console.log(Number(undefined)); // NaN\n' +
+          'console.log(+undefined); // NaN\n' +
+          'console.log(String(undefined)); // "undefined"\n' +
+          'console.log(`${undefined}`); // "undefined"\n' +
+          'console.log(Boolean(undefined)); // false\n' +
+          'console.log(!!undefined); // false\n' +
+          'console.log(BigInt(undefined)); // TypeError\n\n' +
           '// null\n' +
-          'console.log(Number(null));         // 0 (особенность!)\n' +
-          'console.log(+null);                // 0\n' +
-          'console.log(String(null));         // "null"\n' +
-          'console.log(`${null}`);            // "null"\n' +
-          'console.log(Boolean(null));        // false\n' +
-          'console.log(!!null);               // false\n' +
-          'console.log(BigInt(null));         // TypeError\n\n' +
+          'console.log(Number(null)); // 0 (особенность!)\n' +
+          'console.log(+null); // 0\n' +
+          'console.log(String(null)); // "null"\n' +
+          'console.log(`${null}`); // "null"\n' +
+          'console.log(Boolean(null)); // false\n' +
+          'console.log(!!null); // false\n' +
+          'console.log(BigInt(null)); // TypeError\n\n' +
           '// Сравнение null и undefined\n' +
-          'console.log(null == undefined);    // true (равны)\n' +
-          'console.log(null === undefined);   // false (строгое сравнение)\n' +
-          'console.log(null == 0);            // false (null не равно 0!)\n' +
-          'console.log(undefined == 0);       // false\n' +
-          'console.log(null > 0);             // false\n' +
-          'console.log(null >= 0);            // true (null → 0, поэтому 0 >= 0)\n' +
-          'console.log(undefined > 0);        // false (undefined → NaN)\n' +
-          'console.log(undefined >= 0);       // false (NaN >= 0 всегда false)',
+          'console.log(null == undefined); // true (равны)\n' +
+          'console.log(null === undefined); // false (строгое сравнение)\n' +
+          'console.log(null == 0); // false (null не равно 0!)\n' +
+          'console.log(undefined == 0); // false\n' +
+          'console.log(null > 0); // false\n' +
+          'console.log(null >= 0); // true (null → 0, поэтому 0 >= 0)\n' +
+          'console.log(undefined > 0); // false (undefined → NaN)\n' +
+          'console.log(undefined >= 0); // false (NaN >= 0 всегда false)',
       },
     ],
   },

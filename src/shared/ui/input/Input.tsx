@@ -1,13 +1,14 @@
 import type { ChangeEvent, FC } from 'react';
+import ClearIcon from '../icons/clear.svg';
 import styles from './Input.module.css';
 
-interface IInputProps {
+interface IInput {
   searchQuery: string;
   onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onSearchReset: () => void;
 }
 
-export const Input: FC<IInputProps> = ({
+export const Input: FC<IInput> = ({
   searchQuery,
   onSearchChange,
   onSearchReset,
@@ -23,7 +24,7 @@ export const Input: FC<IInputProps> = ({
       />
       {searchQuery && (
         <button className={styles.clear} onClick={onSearchReset}>
-          ×
+          <ClearIcon />
         </button>
       )}
     </div>

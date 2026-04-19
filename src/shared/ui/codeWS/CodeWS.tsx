@@ -2,13 +2,13 @@ import { type FC, useState } from 'react';
 import { formatExample } from './model/formatExample.tsx';
 import styles from './CodeWS.module.css';
 
-interface ICodeWSProps {
+interface ICodeWS {
   text: string;
   isShowToggle?: boolean;
   isHiddenDefault?: boolean;
 }
 
-export const CodeWS: FC<ICodeWSProps> = ({
+export const CodeWS: FC<ICodeWS> = ({
   text,
   isShowToggle = false,
   isHiddenDefault = false,
@@ -17,8 +17,8 @@ export const CodeWS: FC<ICodeWSProps> = ({
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        Примеры использования:
+      <div className={styles.title}>
+        Примеры:
         {isShowToggle && (
           <button
             className={styles.toggleButton}

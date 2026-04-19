@@ -5,6 +5,7 @@ import { sidebarMenu } from '@/shared/constants/sidebarMenu.ts';
 import { findParentItemIdForActivePath } from '../model/findParentItemIdForActivePath.ts';
 import { NavItem } from './navItem/NavItem.tsx';
 import styles from './Sidebar.module.css';
+import { LongArrow } from '@/shared/ui/icons/LongArrow.tsx';
 
 export const Sidebar = () => {
   const location = useLocation();
@@ -39,7 +40,7 @@ export const Sidebar = () => {
         <div className={styles.headerTop}>
           {!isCollapsed && <h2 className={styles.title}>Навигация</h2>}
           <button className={styles.toggle} onClick={toggleSidebar}>
-            {isCollapsed ? '→' : '←'}
+            <LongArrow isExpanded={isCollapsed} />
           </button>
         </div>
         {!isCollapsed && <p className={styles.subtitle}>Выберите раздел</p>}

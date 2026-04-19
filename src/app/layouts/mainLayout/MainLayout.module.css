@@ -5,6 +5,6 @@
 
 .content {
   flex: 1;
-  background-color: #ffffff;
+  background: var(--color-main-layout-bg);
   overflow-y: auto;
 }

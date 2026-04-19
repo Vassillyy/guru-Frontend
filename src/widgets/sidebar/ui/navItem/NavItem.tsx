@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react';
 import { Link, type LinkProps } from 'react-router-dom';
 import cn from 'classnames';
-import { IconArrow } from '@/shared/ui';
+import { ShortArrow } from '@/shared/ui';
 import styles from './NavItem.module.css';
 
-interface INavItemProps extends Omit<LinkProps, 'to'> {
+interface INavItem extends Omit<LinkProps, 'to'> {
   to: string;
   children: ReactNode;
   isActive?: boolean;
@@ -23,7 +23,7 @@ export const NavItem = ({
   isExpanded = false,
   onClick,
   ...props
-}: INavItemProps) => {
+}: INavItem) => {
   return (
     <Link
       to={to}
@@ -33,7 +33,7 @@ export const NavItem = ({
     >
       <span className={styles.content}>
         {children}
-        {hasChildren && <IconArrow isOpen={isExpanded} />}
+        {hasChildren && <ShortArrow isOpen={isExpanded} />}
       </span>
     </Link>
   );

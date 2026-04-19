@@ -1,24 +1,19 @@
 .container {
   width: 100%;
-  background: #1e1e1e;
+  background: var(--color-code-ws-bg);
   border-radius: 8px;
-  padding: 0;
   display: flex;
   flex-direction: column;
-  font-family: 'Monaco', 'Menlo', 'Consolas', 'Courier New', monospace;
-  font-size: 14px;
-  line-height: 1.6;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-code-ws);
   overflow: hidden;
 }
 
-.header {
-  background: #252526;
+.title {
+  background: var(--color-code-ws-title-bg);
   padding: 10px 12px;
-  border-bottom: 1px solid #333;
-  font-size: 13px;
-  font-weight: 600;
-  color: #d4d4d4;
+  border-bottom: 1px solid var(--color-code-ws-title-border);
+  font: var(--font-code-ws-title);
+  color: var(--color-code-ws-title-text);
   text-transform: uppercase;
   letter-spacing: 1px;
   display: flex;
@@ -27,78 +22,73 @@
 }
 
 .toggleButton {
-  background: #3c3c3c;
-  border: 1px solid #4a4a4a;
+  background: var(--color-code-ws-togle-button-bg);
+  border: 1px solid var(--color-code-ws-togle-button-border);
   border-radius: 4px;
   padding: 6px 12px;
-  font-size: 12px;
-  font-weight: 500;
-  color: #e0e0e0;
+  font: var(--font-code-ws-togle-button);
+  color: var(--color-code-ws-togle-button-text);
   cursor: pointer;
   transition: all 0.2s ease;
-  text-transform: none;
-  letter-spacing: normal;
 }
 
 .code {
   display: block;
   white-space: pre;
-  font-family: 'Monaco', 'Menlo', 'Consolas', 'Courier New', monospace;
-  font-size: 14px;
-  line-height: 1.5;
+  font: var(--font-code-ws-code);
   flex: 1;
   padding: 16px;
-  background: #1e1e1e;
+  background: var(--color-code-ws-code-bg);
   overflow-x: auto;
 }
 
 .code .control {
-  color: #569cd6;
+  color: var(--color-code-ws-code-control);
 }
 
 .code .declaration {
-  color: #4fc1ff;
+  color: var(--color-code-ws-code-declaration);
 }
 
 .code .tsKeyword {
-  color: #4ec9b0;
+  color: var(--color-code-ws-code-tsKeyword);
 }
 
 .code .type {
-  color: #4ce68a;
+  color: var(--color-code-ws-code-type);
 }
 
 .code .classKeyword {
-  color: #ce9178;
+  color: var(--color-code-ws-code-classKeyword);
 }
 
 .code .module {
-  color: #c586c0;
+  color: var(--color-code-ws-code-module);
 }
 
 .code .method {
-  color: #dcdcaa;
+  color: var(--color-code-ws-code-method);
 }
 
 .code .string {
-  color: #ce9178;
+  color: var(--color-code-ws-code-string);
 }
 
 .code .number {
-  color: #b5cea8;
+  color: var(--color-code-ws-code-number);
 }
 
 .code .global {
-  color: #ffa500;
+  color: var(--color-code-ws-code-global);
 }
 
 .code .comment {
-  color: #6a9955;
+  color: var(--color-code-ws-code-comment);
   font-style: italic;
 }
 
 .code .boolean {
-  color: #569cd6;
+  color: var(--color-code-ws-code-boolean);
 }
 
 .code
@@ -107,5 +97,5 @@
   ):not(.module):not(.method):not(.string):not(.number):not(.comment):not(
     .global
   ):not(.boolean) {
-  color: #d4d4d4;
+  color: var(--color-code-ws-code-other);
 }

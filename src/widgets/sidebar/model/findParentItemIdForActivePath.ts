@@ -1,7 +1,7 @@
-import type { SidebarItem } from '@/shared/constants/sidebarMenu.ts';
+import type { ISidebarItem } from '@/shared/constants/sidebarMenu.ts';
 
 export const findParentItemIdForActivePath = (
-  items: SidebarItem[],
+  items: ISidebarItem[],
   currentPath: string,
 ) => {
   for (const item of items) {

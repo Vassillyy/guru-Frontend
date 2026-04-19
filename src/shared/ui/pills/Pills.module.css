@@ -7,41 +7,34 @@
 
 .pills {
   border-radius: 20px;
-  border: 1px solid #e8f5e9;
+  border: 1px solid var(--color-pills-border);
   padding: 4px 12px;
-  font-size: 12px;
-  font-weight: 600;
+  font: var(--font-pills);
   cursor: pointer;
   height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   white-space: nowrap;
-  background: #ffffff;
-  color: #2e7d32;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 4px rgba(76, 176, 108, 0.08);
-  position: relative;
-  overflow: hidden;
+  background: var(--color-pills-bg);
+  color: var(--color-pills-text);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pills:hover {
   transform: translateY(-1px);
-  box-shadow: 0 3px 8px rgba(76, 176, 108, 0.15);
-  border-color: #a5d6a7;
-  color: #1b5e20;
+  box-shadow: var(--shadow-pills-hover);
+  border-color: var(--color-pills-border-hover);
+  color: var(--color-pills-text-hover);
 }
 
 .pills.active {
-  background: linear-gradient(135deg, #5bc47d, #4cb06c);
-  color: white;
-  border-color: #5bc47d;
-  box-shadow: 0 2px 6px rgba(91, 196, 125, 0.25);
+  background: var(--color-pills-bg-active);
+  color: var(--color-pills-text-active);
   transform: translateY(-1px);
 }
 
 .pills.active:hover {
-  background: linear-gradient(135deg, #4cb06c, #3da15f);
-  box-shadow: 0 3px 9px rgba(76, 176, 108, 0.35);
+  background: var(--color-pills-bg-active-hover);
   transform: translateY(-2px);
 }

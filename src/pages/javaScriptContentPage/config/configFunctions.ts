@@ -193,7 +193,7 @@ export const configFunctions: ITopic = {
           '})(window);',
       },
       {
-        title: 'Arrow Functions Expression (Стрелочные функции)',
+        title: 'ShortArrow Functions Expression (Стрелочные функции)',
         content:
           'Современный синтаксис с использованием =>, появился в ES6.\n\n' +
           'const/let/var имяПеременной = (параметры) => { тело }',

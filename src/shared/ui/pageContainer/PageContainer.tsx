@@ -1,13 +1,13 @@
 import type { FC, ReactNode } from 'react';
 import styles from './PageContainer.module.css';
 
-interface IPageContainerProps {
+interface IPageContainer {
   title: string;
   children: ReactNode;
   filtersSlot?: ReactNode;
 }
 
-export const PageContainer: FC<IPageContainerProps> = ({
+export const PageContainer: FC<IPageContainer> = ({
   title,
   filtersSlot,
   children,

@@ -7,7 +7,7 @@ interface IPillItem<T> {
   value: T;
 }
 
-interface IPillsProps<T> {
+interface IPills<T> {
   items: IPillItem<T>[];
   onFilterChange: (activeFilters: T[]) => void;
 }
@@ -15,10 +15,10 @@ interface IPillsProps<T> {
 export const Pills = <T extends string>({
   items,
   onFilterChange,
-}: IPillsProps<T>) => {
+}: IPills<T>) => {
   const [activePills, setActivePills] = useState<T[]>([]);
 
-  const handleClick = (value: T) => {
+  const updatePills = (value: T) => {
     const newPills = activePills.includes(value)
       ? activePills.filter((item) => item !== value)
       : [...activePills, value];
@@ -35,7 +35,7 @@ export const Pills = <T extends string>({
             [styles.active]: activePills.includes(item.value),
           })}
           key={item.value}
-          onClick={() => handleClick(item.value)}
+          onClick={() => updatePills(item.value)}
         >
           {item.label}
         </div>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import cn from 'classnames';
 import type { ITopic } from '@/entities/topic';
+import { LongArrow } from '@/shared/ui/icons/LongArrow.tsx';
 import styles from './TopicLayout.module.css';
 
 export const TopicLayout = () => {
@@ -28,8 +29,8 @@ export const TopicLayout = () => {
         <div className={styles.header}>
           <div className={styles.headerTop}>
             {!isHidden && <h2 className={styles.title}>Навигация</h2>}
-            <button className={styles.collapseButton} onClick={toggleSidebar}>
-              {isHidden ? '→' : '←'}
+            <button className={styles.toggle} onClick={toggleSidebar}>
+              <LongArrow isExpanded={isHidden} />
             </button>
           </div>
           {!isHidden && (
@@ -40,9 +41,9 @@ export const TopicLayout = () => {
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             {sections.map((section, index) => (
-              <li key={index} className={styles.navItem}>
+              <li key={index}>
                 <button
-                  className={styles.navButton}
+                  className={styles.link}
                   onClick={() => scrollToSection(section.title)}
                 >
                   {section.title}

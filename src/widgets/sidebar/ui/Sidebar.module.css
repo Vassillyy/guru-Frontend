@@ -1,7 +1,7 @@
 .sidebar {
   width: 250px;
   height: 100vh;
-  background-color: var(--color-sidebar-bg);
+  background: var(--color-sidebar-bg);
   padding: 15px;
   border-right: 2px solid var(--color-sidebar-border);
   display: flex;
@@ -22,12 +22,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .title {
-  font-size: 22px;
-  font-weight: 700;
+  font: var(--font-sidebar-title);
   color: var(--color-sidebar-title-text);
   display: flex;
   align-items: center;
@@ -38,7 +37,6 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 18px;
   color: var(--color-sidebar-button-toggle-text);
   padding: 6px 10px;
   border-radius: 6px;
@@ -47,11 +45,11 @@
 }
 
 .toggle:hover {
-  background-color: var(--color-sidebar-button-toggle-text-hover);
+  background: var(--color-sidebar-button-toggle-text-hover);
 }
 
 .subtitle {
-  font-size: 13px;
+  font: var(--font-sidebar-subtitle);
   color: var(--color-sidebar-subtitle-text);
 }
 

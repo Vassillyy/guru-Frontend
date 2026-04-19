@@ -1,16 +1,16 @@
 import type { FC } from 'react';
-import cn from 'classnames';
-import styles from './IconArrow.module.css';
 
-export const IconArrow: FC<{ isOpen?: boolean }> = ({ isOpen = false }) => {
+export const ShortArrow: FC<{ isOpen?: boolean }> = ({ isOpen = false }) => {
   return (
     <svg
-      className={cn(styles.icon, isOpen && styles.iconRotated)}
       width="16"
       height="16"
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      style={{
+        transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+      }}
     >
       <path
         d="M6 12L10 8L6 4"
