@@ -1,8 +1,8 @@
 .container {
-  background: #f8fbf8;
+  background: var(--color-topic-card-bg);
   border-radius: 8px;
   padding: 8px;
-  border: 2px solid #e8f5e9;
+  border: 2px solid var(--color-topic-card-border);
   transition: all 0.2s;
   cursor: pointer;
   display: flex;
@@ -11,8 +11,8 @@
 }
 
 .container:hover {
-  border-color: #c8e6c9;
-  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1);
+  border-color: var(--color-topic-card-border-hover);
+  box-shadow: var(--shadow-topic-card-hover);
   transform: translateY(-1px);
 }
 
@@ -23,8 +23,6 @@
 }
 
 .title {
-  margin: 0;
-  font-size: 15px;
-  color: #2c3e50;
-  font-weight: 600;
+  font: var(--font-topic-card);
+  color: var(--color-topic-card-title);
 }

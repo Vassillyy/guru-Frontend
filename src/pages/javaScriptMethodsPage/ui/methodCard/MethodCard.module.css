@@ -1,5 +1,5 @@
 .methodCard {
-  border: 2px solid #e9ecef;
+  border: 2px solid var(--color-method-card-border);
   border-radius: 8px;
   padding: 6px;
   transition:
@@ -12,7 +12,7 @@
 
 .methodCard:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-method-card-hover);
 }
 
 .methodInfo {
@@ -41,38 +41,35 @@
 .buttonArrow svg {
   height: 100%;
   width: 100%;
-  color: #1864ab;
+  color: var(--color-method-card-button-arrow);
 }
 
 .methodName {
-  font-size: 20px;
-  color: #1864ab;
-  margin: 0;
-  font-weight: 600;
+  font: var(--font-method-card-name);
+  color: var(--color-method-card-name);
 }
 
 .methodSyntax {
   width: fit-content;
-  background: #f8f9fa;
+  background: var(--color-method-card-syntax-bg);
   padding: 6px 12px;
   border-radius: 4px;
-  font-size: 16px;
-  color: #e8590c;
-  border-left: 3px solid #4dabf7;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font: var(--font-method-card-syntax);
+  color: var(--color-method-card-syntax-text);
+  border-left: 3px solid var(--color-method-card-syntax-border);
+  box-shadow: var(--shadow-method-card-syntax);
 }
 
 .parametersBlock {
-  background: #f8f9fa;
+  background: var(--color-method-card-parametrs-block-bg);
   border-radius: 8px;
   padding: 10px;
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--color-method-card-parametrs-block-border);
 }
 
 .parametersTitle {
-  font-size: 12px;
-  font-weight: 600;
-  color: #495057;
+  font: var(--font-method-card-parametrs-title);
+  color: var(--color-method-card-parametrs-title);
   margin-bottom: 6px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -89,7 +86,7 @@
   align-items: center;
   gap: 4px;
   padding-bottom: 4px;
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid var(--color-method-card-parametr-item-border);
 }
 
 .parameterItem:last-child {
@@ -99,20 +96,17 @@
 
 .parameterName {
   width: 100%;
-  font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-  font-size: 13px;
-  font-weight: 600;
-  color: #1864ab;
-  background: #e7f5ff;
+  font: var(--font-method-card-parametr-name);
+  color: var(--color-method-card-parametr-name-text);
+  background: var(--color-method-card-parametr-name-bg);
   padding: 3px 6px;
   border-radius: 4px;
   display: inline-block;
 }
 
 .parameterDescription {
-  font-size: 12px;
-  color: #495057;
-  line-height: 1.5;
+  font: var(--font-method-card-parametr-description);
+  color: var(--color-method-card-parametr-description-text);
   flex: 1;
   padding: 4px 0;
   white-space: pre-line;
@@ -123,31 +117,28 @@
 }
 
 .methodDescription {
-  color: #495057;
-  line-height: 1.6;
-  font-size: 14px;
-  margin: 0;
+  color: var(--color-method-card-method-description-text);
+  font: var(--font-method-card-method-description);
 }
 
 .specLink {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #4dabf7;
+  color: var(--color-method-card-link-text);
   text-decoration: none;
-  font-size: 10px;
-  font-weight: 500;
+  font: var(--font-method-card-link);
   padding: 4px 10px;
   border-radius: 4px;
-  border: 1px solid #4dabf7;
+  border: 1px solid var(--color-method-card-link-border);
   width: fit-content;
   transition: all 0.2s;
 }
 
 .specLink:hover {
-  background: #e7f5ff;
-  color: #1971c2;
+  background: var(--color-method-card-link-bg-hover);
+  color: var(--color-method-card-link-text-hover);
   text-decoration: none;
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(77, 171, 247, 0.2);
+  box-shadow: var(--shadow-method-card-link);
 }

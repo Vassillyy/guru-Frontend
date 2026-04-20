@@ -15,9 +15,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
-  font-weight: 600;
-  color: grey;
+  font: var(--font-js-content-page-no-result);
+  color: var(--color-js-content-page-no-result-text);
 }
 
 .sentinel {

@@ -7,11 +7,11 @@
 }
 
 .categoryTitle {
-  font-size: 24px;
-  color: #2c3e50;
+  font: var(--font-js-methods-page);
+  color: var(--color-js-methods-page-title);
   margin: 0 0 10px;
   padding-bottom: 10px;
-  border-bottom: 2px solid #4dabf7;
+  border-bottom: 2px solid var(--color-js-methods-page-title-border);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,9 +28,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
-  font-weight: 600;
-  color: grey;
+  font: var(--font-js-methods-page-no-result);
+  color: var(--color-js-methods-page-no-result-text);
 }
 
 .sentinel {

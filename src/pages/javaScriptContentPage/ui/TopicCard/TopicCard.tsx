@@ -2,12 +2,12 @@ import { type FC } from 'react';
 import { type ITopic } from '@/entities/topic';
 import styles from './TopicCard.module.css';
 
-interface ITopicCardProps {
+interface ITopicCard {
   section: ITopic & { topicLabel?: string };
   onClick: () => void;
 }
 
-export const TopicCard: FC<ITopicCardProps> = ({ section, onClick }) => {
+export const TopicCard: FC<ITopicCard> = ({ section, onClick }) => {
   return (
     <div className={styles.container} onClick={onClick}>
       <div className={styles.content}>

@@ -7,11 +7,11 @@
 }
 
 .categoryTitle {
-  font-size: 24px;
-  color: #2c3e50;
+  font: var(--font-ts-utility-types-page-title);
+  color: var(--color-ts-utility-types-page-title);
   margin: 0 0 16px;
   padding-bottom: 8px;
-  border-bottom: 2px solid #4dabf7;
+  border-bottom: 2px solid var(--color-ts-utility-types-page-title-border);
 }
 
 .typesList {
@@ -25,7 +25,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
-  font-weight: 600;
-  color: grey;
+  font: var(--font-ts-utility-types-page-no-result);
+  color: var(--color-ts-utility-types-page-no-result-text);
 }
