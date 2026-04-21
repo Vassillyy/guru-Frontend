@@ -5,7 +5,7 @@ export const configGenerators: ITopic = {
   name: 'Генераторы',
   content: {
     introduction:
-      'Генераторы — это функции, которые могут приостанавливать своё выполнение, возвращать промежуточный результат и продолжать работу позже. Они создают значения лениво и отлично работают с перебираемыми объектами. Асинхронные генераторы и итераторы позволяют работать с асинхронными потоками данных.',
+      'Генераторы — это функции, которые могут приостанавливать своё выполнение, возвращать промежуточный результат и продолжать работу позже. Они отлично работают с перебираемыми объектами. Асинхронные генераторы и итераторы позволяют работать с асинхронными потоками данных.',
     sections: [
       {
         title: 'Функция-генератор',
@@ -38,21 +38,13 @@ export const configGenerators: ITopic = {
           'for (const v of generateFull()) console.log(v); // 1, 2, 3',
       },
       {
-        title: 'yield — дорога в обе стороны',
+        title: 'Оператор yield',
         content:
           'yield не только возвращает значение наружу, но и может принимать значение извне через next(value). Первый вызов next() всегда без аргумента.\n\n' +
           'generator.next(value) передаёт value как результат текущего yield и возобновляет выполнение.',
         addition:
-          'Можно передавать ошибки через generator.throw(err) — исключение возникнет на строке с yield. Это позволяет обрабатывать ошибки внутри генератора через try..catch.',
+          'Можно передавать ошибки через generator.throw(err) — исключение возникнет на строке с yield.',
         examples:
-          'function* gen() {\n' +
-          '  const result = yield "2 + 2 = ?";\n' +
-          '  console.log(result); // 4\n' +
-          '}\n\n' +
-          'const generator = gen();\n' +
-          'const question = generator.next().value;\n' +
-          'generator.next(4); // передаём результат\n\n' +
-          '// Несколько обменов данными\n' +
           'function* ask() {\n' +
           '  const a = yield "2 + 2?";\n' +
           '  const b = yield "3 + 3?";\n' +
@@ -61,7 +53,19 @@ export const configGenerators: ITopic = {
           'const it = ask();\n' +
           'console.log(it.next().value); // "2 + 2?"\n' +
           'console.log(it.next(4).value); // "3 + 3?"\n' +
-          'console.log(it.next(6).value); // 10 (4 + 6)',
+          'console.log(it.next(6).value); // 10\n\n' +
+          '// Обработка ошибок через throw\n' +
+          'function* errorExample() {\n' +
+          '  try {\n' +
+          '    const result = yield "введите число";\n' +
+          '    console.log("Результат:", result);\n' +
+          '  } catch (err) {\n' +
+          '    console.log("Ошибка поймана:", err.message);\n' +
+          '  }\n' +
+          '}\n\n' +
+          'const errGen = errorExample();\n' +
+          'console.log(errGen.next().value); // "введите число"\n' +
+          'errGen.throw(new Error("что-то пошло не так")); // Ошибка поймана: что-то пошло не так',
       },
       {
         title: 'Композиция генераторов',
@@ -83,36 +87,6 @@ export const configGenerators: ITopic = {
           '  .map(code => String.fromCharCode(code))\n' +
           '  .join("");\n' +
           'console.log(str); // "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"',
-      },
-      {
-        title: 'Генераторы для перебираемых объектов',
-        content:
-          'Генератор можно указать в качестве метода Symbol.iterator объекта. Это позволяет создавать перебираемые объекты очень компактно.\n\n' +
-          'Генератор автоматически реализует метод next() в нужном формате {value, done}.',
-        addition:
-          'Генератор может быть бесконечным. В таком случае нужно использовать break в цикле for..of, иначе он будет работать бесконечно.',
-        examples:
-          '// Перебираемый объект range\n' +
-          'const range = {\n' +
-          '  from: 1,\n' +
-          '  to: 5,\n' +
-          '  *[Symbol.iterator]() {\n' +
-          '    for (let i = this.from; i <= this.to; i++) {\n' +
-          '      yield i;\n' +
-          '    }\n' +
-          '  }\n' +
-          '};\n\n' +
-          'console.log([...range]); // [1, 2, 3, 4, 5]\n\n' +
-          '// Бесконечный генератор\n' +
-          'function* infiniteRandom() {\n' +
-          '  while (true) {\n' +
-          '    yield Math.floor(Math.random() * 100);\n' +
-          '  }\n' +
-          '}\n\n' +
-          'for (const n of infiniteRandom()) {\n' +
-          '  console.log(n);\n' +
-          '  if (n > 90) break; // обязателен!\n' +
-          '}',
       },
       {
         title: 'Асинхронные итераторы',
@@ -151,7 +125,7 @@ export const configGenerators: ITopic = {
           'Асинхронный генератор объявляется как async function*. Внутри можно использовать await.\n\n' +
           'Метод generator.next() теперь возвращает промис, поэтому нужно await generator.next().',
         addition:
-          'async генераторы позволяют создавать асинхронно перебираемые объекты через Symbol.asyncIterator. Это удобно для работы с потоками данных, например, при постраничной загрузке с API.',
+          'async генераторы позволяют создавать асинхронно перебираемые объекты через Symbol.asyncIterator.',
         examples:
           'async function* asyncGenerate(start, end) {\n' +
           '  for (let i = start; i <= end; i++) {\n' +
