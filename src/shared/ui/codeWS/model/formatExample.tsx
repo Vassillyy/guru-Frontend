@@ -16,7 +16,18 @@ export const formatExample = (
       return;
     }
 
-    const commentIndex = line.indexOf('//');
+    const doubleSlashIndex = line.indexOf('//');
+    const htmlCommentStart = line.indexOf('<!--');
+
+    let commentIndex = -1;
+
+    if (doubleSlashIndex !== -1 && htmlCommentStart !== -1) {
+      commentIndex = Math.min(doubleSlashIndex, htmlCommentStart);
+    } else if (doubleSlashIndex !== -1) {
+      commentIndex = doubleSlashIndex;
+    } else if (htmlCommentStart !== -1) {
+      commentIndex = htmlCommentStart;
+    }
 
     if (commentIndex !== -1) {
       const codePart = line.substring(0, commentIndex);

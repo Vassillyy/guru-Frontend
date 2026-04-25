@@ -310,7 +310,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
         '  enumerable: true\n' +
         '});\n' +
         'console.log(obj.readonlyProp); // 42\n' +
-        'obj.readonlyProp = 100; // TypeError в strict mode',
+        'obj.readonlyProp = 100;',
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.defineproperty',
       errors: 'TypeError — если obj равен null или undefined.',
@@ -390,7 +390,7 @@ export const configObject: Record<Methods.OBJECT, IMethod[]> = {
       example:
         "const obj = { prop: 'value' };\n" +
         'Object.preventExtensions(obj);\n' +
-        "obj.newProp = 'new'; // TypeError в strict mode\n" +
+        "obj.newProp = 'new';\n" +
         "console.log('newProp' in obj); // false",
       specification:
         'https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.preventextensions',

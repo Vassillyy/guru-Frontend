@@ -872,7 +872,8 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, проверяет, удовлетворяет ли хотя бы один элемент условию, заданному в callbackFn. Возвращает true если удовлетворяет, иначе false.',
+        'Метод объекта Array, проверяет, удовлетворяет ли хотя бы один элемент условию, заданному в callbackFn. Возвращает true если удовлетворяет, иначе false.\n' +
+        'При вызове на пустом массиве возвращает false.',
       example:
         'const numbers = [1, 2, 3, 5];\n' +
         'const hasEven = numbers.some(n => n % 2 === 0);\n' +
@@ -900,7 +901,8 @@ export const configArray: Record<Methods.ARRAY, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Array, проверяет, удовлетворяют ли все элементы условию, заданному в callbackFn. Возвращает true если удовлетворяет, иначе false.',
+        'Метод объекта Array, проверяет, удовлетворяют ли все элементы условию, заданному в callbackFn. Возвращает true если удовлетворяет, иначе false.\n' +
+        'При вызове на пустом массиве возвращает true.',
       example:
         'const ages = [18, 22, 25, 30];\n' +
         'const allAdult = ages.every(age => age >= 18);\n' +

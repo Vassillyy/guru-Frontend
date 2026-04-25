@@ -26,6 +26,7 @@ import { configErrorHandling } from './configErrorHandling.ts';
 import { configPromises } from './configPromises.ts';
 import { configGenerators } from './configGenerators.ts';
 import { configModulesIntro } from './configModulesIntro.ts';
+import { configProxy } from './configProxy.ts';
 
 export const config: IConfig = [
   configIntroductionToJS,
@@ -55,4 +56,5 @@ export const config: IConfig = [
   configPromises,
   configGenerators,
   configModulesIntro,
+  configProxy,
 ];
