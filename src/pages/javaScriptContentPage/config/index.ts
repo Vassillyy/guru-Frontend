@@ -29,6 +29,7 @@ import { configGenerators } from './configGenerators.ts';
 import { configModulesIntro } from './configModulesIntro.ts';
 import { configProxy } from './configProxy.ts';
 import { configUnicode } from './configUnicode.ts';
+import { configWeakRef } from './configWeakRef.ts';
 
 export const config: IConfig = [
   configIntroductionToJS,
@@ -61,4 +62,5 @@ export const config: IConfig = [
   configModulesIntro,
   configProxy,
   configCurrying,
+  configWeakRef,
 ];
