@@ -28,11 +28,13 @@ import { configPromises } from './configPromises.ts';
 import { configGenerators } from './configGenerators.ts';
 import { configModulesIntro } from './configModulesIntro.ts';
 import { configProxy } from './configProxy.ts';
+import { configUnicode } from './configUnicode.ts';
 
 export const config: IConfig = [
   configIntroductionToJS,
   configTypesOfData,
   configTypeConversion,
+  configUnicode,
   configOperatorsAndSpecialValues,
   configVariables,
   configNumericSystems,
