@@ -1,3 +1,4 @@
+import { configCurrying } from './configCurrying.ts';
 import { type IConfig } from '@/entities/topic';
 import { configArrays } from './configArrays.ts';
 import { configConditionalStatements } from './configConditionalStatements.ts';
@@ -57,4 +58,5 @@ export const config: IConfig = [
   configGenerators,
   configModulesIntro,
   configProxy,
+  configCurrying,
 ];
