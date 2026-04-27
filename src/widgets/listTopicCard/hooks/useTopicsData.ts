@@ -2,16 +2,17 @@ import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { type ITopic } from '@/entities/topic';
 import { AppPaths } from '@/shared/constants/route.ts';
-import { config } from '../config';
 
 interface IUseTopicsData {
   searchQuery: string;
   loadedCount: number;
+  config: ITopic[];
 }
 
 export const useTopicsData = ({
   searchQuery = '',
   loadedCount,
+  config,
 }: IUseTopicsData) => {
   const navigate = useNavigate();
 

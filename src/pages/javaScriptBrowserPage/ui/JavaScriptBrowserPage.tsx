@@ -1,17 +1,16 @@
-import type { FC } from 'react';
 import { ListTopicCard } from '@/widgets/listTopicCard';
 import { Input, PageContainer } from '@/shared/ui';
 import { useFilters } from '@/shared/hooks';
 import { config } from '../config/index';
-import styles from './JavaScriptContentPage.module.css';
+import styles from './JavaScriptBrowserPage.module.css';
 
-export const JavaScriptContentPage: FC = () => {
+export const JavaScriptBrowserPage = () => {
   const { searchQuery, searchChange, searchReset, loadedCount, loadMore } =
     useFilters();
 
   return (
     <PageContainer
-      title="Руководство по JavaScript"
+      title="Среда выполнения: Браузер"
       filtersSlot={
         <div className={styles.filtersContainer}>
           <Input

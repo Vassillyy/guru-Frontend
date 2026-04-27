@@ -3,9 +3,10 @@ import { JavaScriptContentPage } from '@/pages/javaScriptContentPage';
 import { TypeScriptUtilityTypesPage } from '@/pages/typeScriptUtilityTypesPage';
 import { MainPage } from '@/pages/mainPage';
 import { JavaScriptMethodsPage } from '@/pages/javaScriptMethodsPage';
+import { JavaScriptTopicPage } from '@/pages/javaScriptTopicPage';
+import { JavaScriptBrowserPage } from '@/pages/javaScriptBrowserPage';
 import { AppPaths } from '@/shared/constants/route';
 import { MainLayout, TopicLayout } from './layouts';
-import { JavaScriptTopicPage } from '@/pages/javaScriptTopicPage';
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: AppPaths.TYPE_SCRIPT_UTILITY_TYPES,
         element: <TypeScriptUtilityTypesPage />,
+      },
+      {
+        path: AppPaths.JAVA_SCRIPT_BRAWSER,
+        element: <JavaScriptBrowserPage />,
       },
     ],
   },

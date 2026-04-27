@@ -25,6 +25,10 @@ export const sidebarMenu: ISidebarItem[] = [
         path: AppPaths.JAVA_SCRIPT_METHODS,
         label: 'API',
       },
+      {
+        path: AppPaths.JAVA_SCRIPT_BRAWSER,
+        label: 'Браузер',
+      },
     ],
   },
   {
