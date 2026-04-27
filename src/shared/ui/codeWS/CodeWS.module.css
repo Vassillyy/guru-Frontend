@@ -92,11 +92,15 @@
   color: var(--color-code-ws-code-boolean);
 }
 
+.code .tag {
+  color: var(--color-code-ws-code-tag);
+}
+
 .code
   span:not(.control):not(.declaration):not(.tsKeyword):not(.type):not(
     .classKeyword
   ):not(.module):not(.method):not(.string):not(.number):not(.comment):not(
     .global
-  ):not(.boolean) {
+  ):not(.boolean):not(.tag) {
   color: var(--color-code-ws-code-other);
 }

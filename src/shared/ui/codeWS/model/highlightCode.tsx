@@ -10,6 +10,38 @@ export const highlightCode = (
   let prevTokenWasDot = false;
 
   while (i < code.length) {
+    if (code[i] === '<') {
+      let j = i + 1;
+      let hasSlash = false;
+
+      if (j < code.length && code[j] === '/') {
+        hasSlash = true;
+        j++;
+      }
+
+      const nameStart = j;
+      while (j < code.length && /[a-zA-Z0-9-]/.test(code[j])) j++;
+
+      if (j > nameStart) {
+        parts.push(<span key={`char-${keyCounter++}`}>{code[i]}</span>);
+        i++;
+
+        if (hasSlash) {
+          parts.push(<span key={`char-${keyCounter++}`}>/</span>);
+          i++;
+        }
+
+        parts.push(
+          <span key={`tag-${keyCounter++}`} className={styles.tag}>
+            {code.slice(i, j)}
+          </span>
+        );
+        i = j;
+        prevTokenWasDot = false;
+        continue;
+      }
+    }
+
     if (/\s/.test(code[i])) {
       let j = i;
       while (j < code.length && /\s/.test(code[j])) j++;

@@ -100,6 +100,7 @@
   --color-code-ws-code-global: #ffa500;
   --color-code-ws-code-comment: #6a9955;
   --color-code-ws-code-boolean: #569cd6;
+  --color-code-ws-code-tag: #ff7b72;
   --color-code-ws-code-other: #d4d4d4;
   --font-code-ws-title: var(--font-weight-600) var(--font-size-13)
     var(--font-family);
