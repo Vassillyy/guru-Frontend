@@ -2,5 +2,6 @@ import type { IConfig } from '@/entities/topic';
 import { configDomNodes } from './configDomNodes';
 import { configDomNavigation } from './configDomNavigation';
 import { configSearchingElementsDom } from './configSearchingElementsDom';
+import { configBasicDomNodeProperties } from './configBasicDomNodeProperties';
 
-export const config: IConfig = [configDomNodes, configDomNavigation, configSearchingElementsDom];
+export const config: IConfig = [configDomNodes, configDomNavigation, configSearchingElementsDom, configBasicDomNodeProperties];
