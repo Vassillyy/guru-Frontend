@@ -72,13 +72,15 @@ export const configFunction: Record<Methods.FUNCTION, IMethod[]> = {
         },
       ],
       description:
-        'Метод объекта Function, создаёт новую функцию с фиксированным this и начальными аргументами. Возвращает функцию-обёртку, которая при вызове вызывает оригинальную функцию с thisArg и ...args, дополненными новыми аргументами при вызове.',
+        'Метод объекта Function, создаёт новую функцию с фиксированным this и начальными аргументами. Возвращает функцию-обёртку, которая при вызове вызывает оригинальную функцию с thisArg и ...args, дополненными новыми аргументами при вызове.\n' +
+        'Свойство name функции, возвращённой bind(), будет свойством name исходной функции с префиксом "bound ".',
       example:
         'function greet(greeting, name) {\n' +
         ' console.log(`${greeting}, ${name}!`);\n' +
         '}\n' +
         "const sayHello = greet.bind(null, 'Hello');\n" +
-        "sayHello('John'); // 'Hello, John!'",
+        "sayHello('John'); // 'Hello, John!'\n\n" +
+        'console.log(sayHello.name); // "bound greet"',
       specification:
         'https://tc39.es/ecma262/multipage/functions-and-classes.html#sec-function.prototype.bind',
       errors: 'TypeError — если this не является функцией.',
