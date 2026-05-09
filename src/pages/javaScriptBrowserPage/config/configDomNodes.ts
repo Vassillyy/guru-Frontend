@@ -77,7 +77,6 @@ export const configDomNodes: ITopic = {
           '• nodeName = "#comment"\n' +
           '• nodeValue — содержимое комментария (например, " комментарий ")',
         examples:
-          '<!DOCTYPE html>\n' +
           '<html lang="en">\n' +
           '<head>\n' +
           '  <meta charset="utf-8">\n' +

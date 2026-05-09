@@ -59,7 +59,6 @@ export const configDomNavigation: ITopic = {
           '• parentElement — родитель-элемент (может вернуть null для корневого <html>)\n\n' +
           'Все навигационные свойства доступны только для чтения.',
         examples:
-          '<!DOCTYPE html>\n' +
           '<html>\n' +
           '  <body>\n' +
           '    <div>Начало</div>\n' +
@@ -128,7 +127,6 @@ export const configDomNavigation: ITopic = {
           'Ячейки <td> и <th>:\n' +
           '• td.cellIndex — номер ячейки в строке',
         examples:
-          '<!DOCTYPE html>\n' +
           '<html>\n' +
           '  <body>\n' +
           '    <table id="table" border="1">\n' +

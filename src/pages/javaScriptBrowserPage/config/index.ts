@@ -5,6 +5,8 @@ import { configSearchingElementsDom } from './configSearchingElementsDom';
 import { configBasicDomNodeProperties } from './configBasicDomNodeProperties';
 import { configAttributesAndProperties } from './configAttributesAndProperties';
 import { configModifyingDocument } from './configModifyingDocument';
+import { configStylesAndClasses } from './configStylesAndClasses';
+import { configSizeAndScroll } from './configSizeAndScroll';
 
 export const config: IConfig = [
   configDomNodes,
@@ -13,4 +15,6 @@ export const config: IConfig = [
   configBasicDomNodeProperties,
   configAttributesAndProperties,
   configModifyingDocument,
+  configStylesAndClasses,
+  configSizeAndScroll,
 ];

@@ -22,7 +22,6 @@ export const configModifyingDocument: ITopic = {
           '• node.replaceWith(...nodes or strings) – заменяет node заданными узлами или строками\n' +
           'Все методы вставки автоматически удаляют узлы со старых мест при перемещении.',
         examples:
-          '<!DOCTYPE html>\n' +
           '<html>\n' +
           '  <body>\n' +
           '    <ol id="ol">\n' +
@@ -74,7 +73,6 @@ export const configModifyingDocument: ITopic = {
           '• insertAdjacentHTML вставляет HTML-строку, парся теги\n' +
           '• append/prepend вставляют строки как текст',
         examples:
-          '<!DOCTYPE html>\n' +
           '<html>\n' +
           '  <body>\n' +
           '    <div id="div"></div>\n\n' +
@@ -109,7 +107,6 @@ export const configModifyingDocument: ITopic = {
           '• elem.cloneNode(true) — глубокое клонирование (с дочерними элементами)\n' +
           '• elem.cloneNode(false) — поверхностное клонирование (без детей)',
         examples:
-          '<!DOCTYPE html>\n' +
           '<html>\n' +
           '  <body>\n' +
           '    <div id="first">Первый</div>\n' +
