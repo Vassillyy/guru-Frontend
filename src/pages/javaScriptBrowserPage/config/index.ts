@@ -9,6 +9,7 @@ import { configStylesAndClasses } from './configStylesAndClasses';
 import { configSizeAndScroll } from './configSizeAndScroll';
 import { configSizeAndScrollWindow } from './configSizeAndScrollWindow';
 import { configCoordinates } from './configCoordinates';
+import { configIntroductionBrowserEvents } from './configIntroductionBrowserEvents';
 
 export const config: IConfig = [
   configDomNodes,
@@ -21,4 +22,5 @@ export const config: IConfig = [
   configSizeAndScroll,
   configSizeAndScrollWindow,
   configCoordinates,
+  configIntroductionBrowserEvents,
 ];
