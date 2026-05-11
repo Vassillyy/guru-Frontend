@@ -7,6 +7,8 @@ import { configAttributesAndProperties } from './configAttributesAndProperties';
 import { configModifyingDocument } from './configModifyingDocument';
 import { configStylesAndClasses } from './configStylesAndClasses';
 import { configSizeAndScroll } from './configSizeAndScroll';
+import { configSizeAndScrollWindow } from './configSizeAndScrollWindow';
+import { configCoordinates } from './configCoordinates';
 
 export const config: IConfig = [
   configDomNodes,
@@ -17,4 +19,6 @@ export const config: IConfig = [
   configModifyingDocument,
   configStylesAndClasses,
   configSizeAndScroll,
+  configSizeAndScrollWindow,
+  configCoordinates,
 ];
