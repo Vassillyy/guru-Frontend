@@ -18,8 +18,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         'const obj = { a: 1, b: 2, [sym]: 3 };\n' +
         'const keys = Reflect.ownKeys(obj);\n' +
         "console.log(keys); // ['a', 'b', Symbol(id)]",
-      specification:
-        'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.ownkeys',
+      specification: 'https://tc39.es/ecma262/#sec-reflect.ownkeys',
       errors: 'TypeError — если obj не является объектом.',
     },
     {
@@ -46,8 +45,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         'const obj = { a: 1, b: 2 };\n' +
         'const value = Reflect.get(obj, "a");\n' +
         'console.log(value); // 1',
-      specification:
-        'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.get',
+      specification: 'https://tc39.es/ecma262/#sec-reflect.get',
       errors: 'TypeError — если target не является объектом.',
     },
     {
@@ -78,8 +76,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         'const obj = { a: 1 };\n' +
         'Reflect.set(obj, "a", 42);\n' +
         'console.log(obj.a); // 42',
-      specification:
-        'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.set',
+      specification: 'https://tc39.es/ecma262/#sec-reflect.set',
       errors: 'TypeError — если target не является объектом.',
     },
     {
@@ -101,8 +98,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         'const obj = { a: 1 };\n' +
         'console.log(Reflect.has(obj, "a")); // true\n' +
         'console.log(Reflect.has(obj, "b")); // false',
-      specification:
-        'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.has',
+      specification: 'https://tc39.es/ecma262/#sec-reflect.has',
       errors: 'TypeError — если target не является объектом.',
     },
     {
@@ -124,8 +120,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         'const obj = { a: 1, b: 2 };\n' +
         'Reflect.deleteProperty(obj, "a");\n' +
         'console.log(obj); // { b: 2 }',
-      specification:
-        'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.deleteproperty',
+      specification: 'https://tc39.es/ecma262/#sec-reflect.deleteproperty',
       errors: 'TypeError — если target не является объектом.',
     },
     {
@@ -156,8 +151,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         '}\n' +
         'const rect = Reflect.construct(Rectangle, [10, 20]);\n' +
         'console.log(rect.width); // 10',
-      specification:
-        'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.construct',
+      specification: 'https://tc39.es/ecma262/#sec-reflect.construct',
       errors:
         'TypeError — если target не является конструктором или не функцией.',
     },
@@ -186,8 +180,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         '}\n' +
         'const result = Reflect.apply(sum, null, [5, 3]);\n' +
         'console.log(result); // 8',
-      specification:
-        'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.apply',
+      specification: 'https://tc39.es/ecma262/#sec-reflect.apply',
       errors: 'TypeError — если target не является функцией.',
     },
     {
@@ -216,8 +209,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         '  writable: false\n' +
         '});\n' +
         'console.log(obj.a); // 42',
-      specification:
-        'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.defineproperty',
+      specification: 'https://tc39.es/ecma262/#sec-reflect.defineproperty',
       errors:
         'TypeError — если target не является объектом или descriptor не является объектом.',
     },
@@ -242,7 +234,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         'const descriptor = Reflect.getOwnPropertyDescriptor(obj, "a");\n' +
         'console.log(descriptor.value); // 42',
       specification:
-        'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.getownpropertydescriptor',
+        'https://tc39.es/ecma262/#sec-reflect.getownpropertydescriptor',
       errors: 'TypeError — если target не является объектом.',
     },
     {
@@ -261,8 +253,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         'const child = Object.create(parent);\n' +
         'const proto = Reflect.getPrototypeOf(child);\n' +
         'console.log(proto === parent); // true',
-      specification:
-        'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.getprototypeof',
+      specification: 'https://tc39.es/ecma262/#sec-reflect.getprototypeof',
       errors: 'TypeError — если target не является объектом.',
     },
     {
@@ -285,8 +276,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         'const proto = { a: 1 };\n' +
         'Reflect.setPrototypeOf(obj, proto);\n' +
         'console.log(obj.a); // 1',
-      specification:
-        'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.setprototypeof',
+      specification: 'https://tc39.es/ecma262/#sec-reflect.setprototypeof',
       errors:
         'TypeError — если target не является объектом или prototype не является объектом или null.',
     },
@@ -306,8 +296,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         'console.log(Reflect.isExtensible(obj)); // true\n' +
         'Object.preventExtensions(obj);\n' +
         'console.log(Reflect.isExtensible(obj)); // false',
-      specification:
-        'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.isextensible',
+      specification: 'https://tc39.es/ecma262/#sec-reflect.isextensible',
       errors: 'TypeError — если target не является объектом.',
     },
     {
@@ -326,8 +315,7 @@ export const configReflect: Record<Methods.REFLECT, IMethod[]> = {
         'Reflect.preventExtensions(obj);\n' +
         'obj.b = 2; // В строгом режиме вызовет ошибку\n' +
         'console.log(obj.b); // undefined',
-      specification:
-        'https://tc39.es/ecma262/multipage/reflect-object.html#sec-reflect.preventextensions',
+      specification: 'https://tc39.es/ecma262/#sec-reflect.preventextensions',
       errors: 'TypeError — если target не является объектом.',
     },
   ],
