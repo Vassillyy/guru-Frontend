@@ -10,6 +10,9 @@ import { configSizeAndScroll } from './configSizeAndScroll';
 import { configSizeAndScrollWindow } from './configSizeAndScrollWindow';
 import { configCoordinates } from './configCoordinates';
 import { configIntroductionBrowserEvents } from './configIntroductionBrowserEvents';
+import { configBubblingAndCapturing } from './configBubblingAndCapturing';
+import { configDefaultBrowserAction } from './configDefaultBrowserAction';
+import { configDispatchEvents } from './configDispatchEvents';
 
 export const config: IConfig = [
   configDomNodes,
@@ -23,4 +26,7 @@ export const config: IConfig = [
   configSizeAndScrollWindow,
   configCoordinates,
   configIntroductionBrowserEvents,
+  configBubblingAndCapturing,
+  configDefaultBrowserAction,
+  configDispatchEvents,
 ];

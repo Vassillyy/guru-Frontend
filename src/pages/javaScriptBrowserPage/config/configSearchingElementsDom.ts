@@ -117,7 +117,7 @@ export const configSearchingElementsDom: ITopic = {
       {
         title: 'getElementsBy*',
         content:
-          'Методы `getElementsByTagName`, `getElementsByClassName`, `getElementsByName` ищут элементы и возвращают живую коллекцию (обновляется при изменении DOM).',
+          'Методы getElementsByTagName, getElementsByClassName, getElementsByName ищут элементы и возвращают живую коллекцию (обновляется при изменении DOM).',
         addition:
           '• elem.getElementsByTagName(tag) — ищет по тегу ("*" — все элементы)\n' +
           '• elem.getElementsByClassName(className) — ищет по классу\n' +
