@@ -17,7 +17,6 @@ export const configDomNodes: ITopic = {
         addition:
           'Пробелы и переводы строк в коде также создают текстовые узлы в DOM.',
         examples:
-          '<!DOCTYPE HTML>\n' +
           '<html>\n' +
           '  <head>\n' +
           '    <title>О лосях</title>\n' +
@@ -52,7 +51,11 @@ export const configDomNodes: ITopic = {
           '<li>Папа\n' +
           '// DOM будет нормальным, браузер сам закроет теги\n\n' +
           '// Таблица без tbody\n' +
-          '<table id="table"><tr><td>1</td></tr></table>\n' +
+          '<table id="table">\n' +
+          '  <tr>\n' +
+          '    <td>1</td>\n' +
+          '  </tr>\n' +
+          '</table>\n' +
           '// Браузер добавит <tbody> автоматически',
       },
       {
@@ -71,34 +74,34 @@ export const configDomNodes: ITopic = {
           '3. Текстовые узлы — содержат текст внутри элемента. Не могут иметь потомков, всегда находятся на самом нижнем уровне.\n' +
           '• nodeType = 3\n' +
           '• nodeName = "#text"\n' +
-          '• nodeValue — сам текст (например, "Правда о лосях")\n' +
+          '• nodeValue — сам текст\n' +
           '4. Узлы-комментарии — не влияют на визуальное отображение, но являются полноправной частью DOM и могут быть прочитаны через JavaScript.\n' +
           '• nodeType = 8\n' +
           '• nodeName = "#comment"\n' +
-          '• nodeValue — содержимое комментария (например, " комментарий ")',
+          '• nodeValue — содержимое комментария',
         examples:
           '<html lang="en">\n' +
-          '<head>\n' +
-          '  <meta charset="utf-8">\n' +
-          '  <title>Типы узлов DOM</title>\n' +
-          '</head>\n' +
-          '<body>\n' +
-          '  Правда о лосях.\n' +
-          '  <div>Лось -- животное хитрое</div>\n' +
-          '  <!-- комментарий -->\n\n' +
-          '  <script>\n' +
-          '    // Вывод всех узлов внутри body\n' +
-          '    document.body.childNodes.forEach((node, index) => {\n' +
-          '      console.log(`${index + 1}: тип ${node.nodeType}, имя "${node.nodeName}", значение:`, node.nodeValue);\n' +
-          '    });\n' +
-          '    // 1: тип 3, имя "#text", значение: "  Правда о лосях."\n' +
-          '    // 2: тип 1, имя "DIV", значение: null\n' +
-          '    // 3: тип 3, имя "#text", значение: (перевод строки плюс 2 пробела)\n' +
-          '    // 4: тип 8, имя "#comment", значение: " комментарий "\n' +
-          '    // 5: тип 3, имя "#text", значение: (перевод строки плюс 2 пробела)\n' +
-          '    // 6: тип 1, имя "SCRIPT", значение: null\n' +
-          '  </script>\n' +
-          '</body>\n' +
+          '  <head>\n' +
+          '    <meta charset="utf-8">\n' +
+          '    <title>Типы узлов DOM</title>\n' +
+          '  </head>\n' +
+          '  <body>\n' +
+          '    Правда о лосях.\n' +
+          '    <div>Лось -- животное хитрое</div>\n' +
+          '    <!-- комментарий -->\n\n' +
+          '    <script>\n' +
+          '      // Вывод всех узлов внутри body\n' +
+          '      document.body.childNodes.forEach((node, index) => {\n' +
+          '        console.log(`${index + 1}: тип ${node.nodeType}, имя "${node.nodeName}", значение:`, node.nodeValue);\n' +
+          '      });\n' +
+          '      // 1: тип 3, имя "#text", значение: "  Правда о лосях."\n' +
+          '      // 2: тип 1, имя "DIV", значение: null\n' +
+          '      // 3: тип 3, имя "#text", значение: (перевод строки плюс 2 пробела)\n' +
+          '      // 4: тип 8, имя "#comment", значение: " комментарий "\n' +
+          '      // 5: тип 3, имя "#text", значение: (перевод строки плюс 2 пробела)\n' +
+          '      // 6: тип 1, имя "SCRIPT", значение: null\n' +
+          '    </script>\n' +
+          '  </body>\n' +
           '</html>',
       },
     ],

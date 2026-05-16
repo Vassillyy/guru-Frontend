@@ -8,7 +8,7 @@ export const configSearchingElementsDom: ITopic = {
       'Методы поиска позволяют получить любой элемент на странице: по id, CSS-селектору, тегу, классу или атрибуту name.',
     sections: [
       {
-        title: 'getElementById',
+        title: 'Метод getElementById',
         content:
           'Для получения элемента по атрибуту id используется метод document.getElementById(id).',
         addition:
@@ -31,7 +31,7 @@ export const configSearchingElementsDom: ITopic = {
           '</script>',
       },
       {
-        title: 'querySelectorAll',
+        title: 'Метод querySelectorAll',
         content:
           'Метод elem.querySelectorAll(css) возвращает коллекцию всех элементов внутри elem, соответствующих CSS-селектору.',
         addition:
@@ -54,7 +54,7 @@ export const configSearchingElementsDom: ITopic = {
           '</script>',
       },
       {
-        title: 'querySelector',
+        title: 'Метод querySelector',
         content:
           'Метод elem.querySelector(css) возвращает первый элемент, соответствующий данному CSS-селектору.',
         addition:
@@ -75,7 +75,7 @@ export const configSearchingElementsDom: ITopic = {
           '</script>',
       },
       {
-        title: 'matches',
+        title: 'Метод matches',
         content:
           'Метод elem.matches(css) проверяет, удовлетворяет ли elem CSS-селектору.',
         addition: 'Возвращает true или false',
@@ -93,7 +93,7 @@ export const configSearchingElementsDom: ITopic = {
           '</script>',
       },
       {
-        title: 'closest',
+        title: 'Метод closest',
         content:
           'Метод elem.closest(css) ищет ближайшего предка, который соответствует CSS-селектору. Сам элемент также включается в поиск.',
         addition:
@@ -115,7 +115,7 @@ export const configSearchingElementsDom: ITopic = {
           '</script>',
       },
       {
-        title: 'getElementsBy*',
+        title: 'Методы getElementsBy*',
         content:
           'Методы getElementsByTagName, getElementsByClassName, getElementsByName ищут элементы и возвращают живую коллекцию (обновляется при изменении DOM).',
         addition:
@@ -145,7 +145,7 @@ export const configSearchingElementsDom: ITopic = {
           '</script>',
       },
       {
-        title: 'contains',
+        title: 'Метод contains',
         content:
           'Метод parent.contains(child) проверяет, является ли child потомком parent.',
         addition:

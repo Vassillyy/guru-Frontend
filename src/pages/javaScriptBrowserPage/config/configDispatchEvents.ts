@@ -23,19 +23,15 @@ export const configDispatchEvents: ITopic = {
           '• При создании встроенных событий лучше использовать специальные конструкторы (MouseEvent, KeyboardEvent и т.д.)\n' +
           '• Для пользовательских событий рекомендуется CustomEvent',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <script>\n' +
-          '      // Создание простого события\n' +
-          '      let event = new Event("my-event", {\n' +
-          '        bubbles: true,\n' +
-          '        cancelable: true\n' +
-          '      });\n' +
-          '      console.log(event.type); // "my-event"\n' +
-          '      console.log(event.bubbles); // true\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<script>\n' +
+          '  // Создание простого события\n' +
+          '  let event = new Event("my-event", {\n' +
+          '    bubbles: true,\n' +
+          '    cancelable: true\n' +
+          '  });\n' +
+          '  console.log(event.type); // "my-event"\n' +
+          '  console.log(event.bubbles); // true\n' +
+          '</script>',
       },
       {
         title: 'Метод dispatchEvent',
@@ -45,24 +41,20 @@ export const configDispatchEvents: ITopic = {
         addition:
           'dispatchEvent синхронно запускает обработчики и возвращает false, если обработчик вызвал preventDefault() и событие было cancelable',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <button id="btn">Кнопка</button>\n\n' +
-          '    <script>\n' +
-          '      let btn = document.getElementById("btn");\n\n' +
-          '      // Обработчик с preventDefault\n' +
-          '      btn.addEventListener("click", (event) => {\n' +
-          '        console.log("Клик!");\n' +
-          '        console.log(event.isTrusted); // false\n' +
-          '        event.preventDefault();\n' +
-          '      });\n\n' +
-          '      // Генерируем событие с cancelable: true\n' +
-          '      let event = new Event("click", { bubbles: true, cancelable: true });\n' +
-          '      let result = btn.dispatchEvent(event);\n' +
-          '      console.log(result); // false\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<button id="btn">Кнопка</button>\n\n' +
+          '<script>\n' +
+          '  let btn = document.getElementById("btn");\n\n' +
+          '  // Обработчик с preventDefault\n' +
+          '  btn.addEventListener("click", (event) => {\n' +
+          '    console.log("Клик!");\n' +
+          '    console.log(event.isTrusted); // false\n' +
+          '    event.preventDefault();\n' +
+          '  });\n\n' +
+          '  // Генерируем событие с cancelable: true\n' +
+          '  let event = new Event("click", { bubbles: true, cancelable: true });\n' +
+          '  let result = btn.dispatchEvent(event);\n' +
+          '  console.log(result); // false\n' +
+          '</script>',
       },
       {
         title: 'Всплытие пользовательских событий',
@@ -73,29 +65,25 @@ export const configDispatchEvents: ITopic = {
           '• Для своих событий используйте addEventListener — on<событие> не работает\n' +
           '• Фазы всплытия и погружения работают одинаково для любых событий',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <div id="parent">\n' +
-          '      <button id="btn">Нажми</button>\n' +
-          '    </div>\n\n' +
-          '    <script>\n' +
-          '      let parent = document.getElementById("parent");\n' +
-          '      let btn = document.getElementById("btn");\n\n' +
-          '      // Обработчик на родителе\n' +
-          '      parent.addEventListener("my-event", () => {\n' +
-          '        console.log("Событие всплыло до родителя");\n' +
-          '      });\n\n' +
-          '      // Обработчик на кнопке\n' +
-          '      btn.addEventListener("my-event", () => {\n' +
-          '        console.log("Событие на кнопке");\n' +
-          '      });\n\n' +
-          '      // Запускаем событие с bubbles: true\n' +
-          '      let event = new Event("my-event", { bubbles: true });\n' +
-          '      btn.dispatchEvent(event);\n' +
-          '      // Вывод: "Событие на кнопке" → "Событие всплыло до родителя"\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<div id="parent">\n' +
+          '  <button id="btn">Нажми</button>\n' +
+          '</div>\n\n' +
+          '<script>\n' +
+          '  let parent = document.getElementById("parent");\n' +
+          '  let btn = document.getElementById("btn");\n\n' +
+          '  // Обработчик на родителе\n' +
+          '  parent.addEventListener("my-event", () => {\n' +
+          '    console.log("Событие всплыло до родителя");\n' +
+          '  });\n\n' +
+          '  // Обработчик на кнопке\n' +
+          '  btn.addEventListener("my-event", () => {\n' +
+          '    console.log("Событие на кнопке");\n' +
+          '  });\n\n' +
+          '  // Запускаем событие с bubbles: true\n' +
+          '  let event = new Event("my-event", { bubbles: true });\n' +
+          '  btn.dispatchEvent(event);\n' +
+          '  // Вывод: "Событие на кнопке" → "Событие всплыло до родителя"\n' +
+          '</script>',
       },
       {
         title: 'Специальные конструкторы',
@@ -104,38 +92,34 @@ export const configDispatchEvents: ITopic = {
         addition:
           '• new MouseEvent("click") даёт доступ к clientX, clientY, button и т.д.\n' +
           '• new KeyboardEvent("keydown") — к key, code и т.д.\n' +
-          '• С Event можно задать свойства вручную после создания: event.clientX = 100 (не рекомендуется)\n' +
+          '• С Event можно задать свойства вручную после создания (не рекомендуется)\n' +
           '• Браузерные события всегда имеют правильный тип',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <button id="btn">Кнопка</button>\n\n' +
-          '    <script>\n' +
-          '      let btn = document.getElementById("btn");\n\n' +
-          '      // MouseEvent с координатами\n' +
-          '      let clickEvent = new MouseEvent("click", {\n' +
-          '        bubbles: true,\n' +
-          '        clientX: 150,\n' +
-          '        clientY: 30\n' +
-          '      });\n\n' +
-          '      // KeyboardEvent с клавишей\n' +
-          '      let keyEvent = new KeyboardEvent("keydown", {\n' +
-          '        bubbles: true,\n' +
-          '        key: "Enter",\n' +
-          '        code: "Enter"\n' +
-          '      });\n\n' +
-          '      btn.addEventListener("click", (event) => {\n' +
-          '        console.log(event.clientX, event.clientY); // 150, 30\n' +
-          '      });\n\n' +
-          '      btn.addEventListener("keydown", (event) => {\n' +
-          '        console.log(event.key, event.code); // Enter, Enter\n' +
-          '      });\n\n' +
-          '      // Запускаем события\n' +
-          '      btn.dispatchEvent(clickEvent);\n' +
-          '      btn.dispatchEvent(keyEvent);\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<button id="btn">Кнопка</button>\n\n' +
+          '<script>\n' +
+          '  let btn = document.getElementById("btn");\n\n' +
+          '  // MouseEvent с координатами\n' +
+          '  let clickEvent = new MouseEvent("click", {\n' +
+          '    bubbles: true,\n' +
+          '    clientX: 150,\n' +
+          '    clientY: 30\n' +
+          '  });\n\n' +
+          '  // KeyboardEvent с клавишей\n' +
+          '  let keyEvent = new KeyboardEvent("keydown", {\n' +
+          '    bubbles: true,\n' +
+          '    key: "Enter",\n' +
+          '    code: "Enter"\n' +
+          '  });\n\n' +
+          '  btn.addEventListener("click", (event) => {\n' +
+          '    console.log(event.clientX, event.clientY); // 150, 30\n' +
+          '  });\n\n' +
+          '  btn.addEventListener("keydown", (event) => {\n' +
+          '    console.log(event.key, event.code); // Enter, Enter\n' +
+          '  });\n\n' +
+          '  // Запускаем события\n' +
+          '  btn.dispatchEvent(clickEvent);\n' +
+          '  btn.dispatchEvent(keyEvent);\n' +
+          '</script>',
       },
       {
         title: 'Конструктор CustomEvent',
@@ -146,23 +130,19 @@ export const configDispatchEvents: ITopic = {
           '• Обработчики получают данные через event.detail\n' +
           '• В обычный Event тоже можно записать свои свойства, но это не по стандарту',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <button id="btn">Отправить данные</button>\n\n' +
-          '    <script>\n' +
-          '      let btn = document.getElementById("btn");\n\n' +
-          '      // Обработчик получает данные из detail\n' +
-          '      btn.addEventListener("user-login", (event) => {\n' +
-          '        console.log(event.detail.name); // Вася\n' +
-          '        console.log(event.detail.age); // 25\n' +
-          '      });\n\n' +
-          '      // Генерируем событие с данными\n' +
-          '      btn.dispatchEvent(new CustomEvent("user-login", {\n' +
-          '        detail: { name: "Вася", age: 25 }\n' +
-          '      }));\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<button id="btn">Отправить данные</button>\n\n' +
+          '<script>\n' +
+          '  let btn = document.getElementById("btn");\n\n' +
+          '  // Обработчик получает данные из detail\n' +
+          '  btn.addEventListener("user-login", (event) => {\n' +
+          '    console.log(event.detail.name); // Вася\n' +
+          '    console.log(event.detail.age); // 25\n' +
+          '  });\n\n' +
+          '  // Генерируем событие с данными\n' +
+          '  btn.dispatchEvent(new CustomEvent("user-login", {\n' +
+          '    detail: { name: "Вася", age: 25 }\n' +
+          '  }));\n' +
+          '</script>',
       },
       {
         title: 'Синхронная обработка вложенных событий',
@@ -173,24 +153,20 @@ export const configDispatchEvents: ITopic = {
           '• Порядок: внешний код → вложенное событие → продолжение внешнего кода\n' +
           '• Чтобы сделать обработку асинхронной, оберните dispatchEvent в setTimeout(() => ..., 0)',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <button id="btn">Нажми</button>\n\n' +
-          '    <script>\n' +
-          '      let btn = document.getElementById("btn");\n\n' +
-          '      btn.onclick = function() {\n' +
-          '        console.log("Внешний обработчик");\n\n' +
-          '        // dispatchEvent срабатывает синхронно\n' +
-          '        btn.dispatchEvent(new CustomEvent("my-event"));\n\n' +
-          '        console.log("Продолжение внешнего обработчика");\n' +
-          '      };\n\n' +
-          '      btn.addEventListener("my-event", () => {\n' +
-          '        console.log("Вложенный обработчик");\n' +
-          '      });\n\n' +
-          '      // Вывод: Внешний обработчик → Вложенный обработчик → Продолжение внешнего обработчика\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<button id="btn">Нажми</button>\n\n' +
+          '<script>\n' +
+          '  let btn = document.getElementById("btn");\n\n' +
+          '  btn.onclick = function() {\n' +
+          '    console.log("Внешний обработчик");\n\n' +
+          '    // dispatchEvent срабатывает синхронно\n' +
+          '    btn.dispatchEvent(new CustomEvent("my-event"));\n\n' +
+          '    console.log("Продолжение внешнего обработчика");\n' +
+          '  };\n\n' +
+          '  btn.addEventListener("my-event", () => {\n' +
+          '    console.log("Вложенный обработчик");\n' +
+          '  });\n\n' +
+          '  // Вывод: Внешний обработчик → Вложенный обработчик → Продолжение внешнего обработчика\n' +
+          '</script>',
       },
     ],
   },

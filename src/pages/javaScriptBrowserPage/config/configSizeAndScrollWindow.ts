@@ -130,24 +130,22 @@ export const configSizeAndScrollWindow: ITopic = {
           'Значение inline (горизонталь): "nearest" (по умолчанию), "start", "center", "end"\n\n' +
           'Метод проверяет тип первого аргумента — если boolean, работает как scrollIntoView(alignToTop); если объект — как scrollIntoView(options).',
         examples:
-          '<html>\n' +
-          '  <body style="height: 2000px; width: 3000px;">\n' +
-          '    <div id="target" style="margin-top: 1500px; margin-left: 1500px; padding: 20px; background: yellow; width: 200px;">\n' +
-          '      Целевой элемент\n' +
-          '    </div>\n' +
-          '    <script>\n' +
-          '      let target = document.getElementById("target");\n\n' +
-          '      // Способ 1: булево значение\n' +
-          '      target.scrollIntoView();  // элемент по верхнему краю\n' +
-          '      target.scrollIntoView(false); // элемент по нижнему краю\n\n' +
-          '      // Способ 2: объект с опциями\n' +
-          '      target.scrollIntoView({ behavior: "smooth", block: "center" }); // плавно в центр\n' +
-          '      target.scrollIntoView({ behavior: "smooth", block: "start" }); // плавно наверх\n' +
-          '      target.scrollIntoView({ behavior: "smooth", block: "end" }); // плавно вниз\n' +
-          '      target.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" }); // минимальная прокрутка\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<body style="height: 2000px; width: 3000px;">\n' +
+          '  <div id="target" style="margin-top: 1500px; margin-left: 1500px; padding: 20px; background: yellow; width: 200px;">\n' +
+          '    Целевой элемент\n' +
+          '  </div>\n' +
+          '  <script>\n' +
+          '    let target = document.getElementById("target");\n\n' +
+          '    // Способ 1: булево значение\n' +
+          '    target.scrollIntoView();  // элемент по верхнему краю\n' +
+          '    target.scrollIntoView(false); // элемент по нижнему краю\n\n' +
+          '    // Способ 2: объект с опциями\n' +
+          '    target.scrollIntoView({ behavior: "smooth", block: "center" }); // плавно в центр\n' +
+          '    target.scrollIntoView({ behavior: "smooth", block: "start" }); // плавно наверх\n' +
+          '    target.scrollIntoView({ behavior: "smooth", block: "end" }); // плавно вниз\n' +
+          '    target.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" }); // минимальная прокрутка\n' +
+          '  </script>\n' +
+          '</body>',
       },
     ],
   },

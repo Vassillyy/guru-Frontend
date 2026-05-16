@@ -17,21 +17,17 @@ export const configBubblingAndCapturing: ITopic = {
           '• event.currentTarget (this) — элемент, на котором сработал обработчик\n' +
           '• Если на одном уровне несколько обработчиков, они выполняются в порядке назначения',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <div id="parent" style="padding: 20px; background: lightgray;">\n' +
-          '      Родитель (DIV)\n' +
-          '      <button id="child">Кликни меня</button>\n' +
-          '    </div>\n\n' +
-          '    <script>\n' +
-          '      let parent = document.getElementById("parent");\n' +
-          '      let child = document.getElementById("child");\n\n' +
-          '      child.addEventListener("click", () => console.log("Обработчик на кнопке (target)"));\n' +
-          '      parent.addEventListener("click", () => console.log("Обработчик на DIV (всплытие)"));\n' +
-          '      document.body.addEventListener("click", () => console.log("Обработчик на BODY"));\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<div id="parent" style="padding: 20px; background: lightgray;">\n' +
+          '  Родитель (DIV)\n' +
+          '  <button id="child">Кликни меня</button>\n' +
+          '</div>\n\n' +
+          '<script>\n' +
+          '  let parent = document.getElementById("parent");\n' +
+          '  let child = document.getElementById("child");\n\n' +
+          '  child.addEventListener("click", () => console.log("Обработчик на кнопке (target)"));\n' +
+          '  parent.addEventListener("click", () => console.log("Обработчик на DIV (всплытие)"));\n' +
+          '  document.body.addEventListener("click", () => console.log("Обработчик на BODY"));\n' +
+          '</script>',
       },
       {
         title: 'Перехват событий',
@@ -46,24 +42,20 @@ export const configBubblingAndCapturing: ITopic = {
           '• addEventListener(event, handler, true) — старый способ\n' +
           '• addEventListener(event, handler, { capture: true }) — современный способ',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <div id="parent" style="padding: 20px; background: lightgray;">\n' +
-          '      Родитель\n' +
-          '      <button id="btn">Кликни</button>\n' +
-          '    </div>\n\n' +
-          '    <script>\n' +
-          '      let parent = document.getElementById("parent");\n' +
-          '      let btn = document.getElementById("btn");\n\n' +
-          '      // Перехват — сработает первым\n' +
-          '      parent.addEventListener("click", () => console.log("1. Перехват на DIV"), true);\n\n' +
-          '      // Цель\n' +
-          '      btn.addEventListener("click", () => console.log("2. Цель — кнопка"));\n\n' +
-          '      // Всплытие — сработает последним\n' +
-          '      parent.addEventListener("click", () => console.log("3. Всплытие на DIV"));\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<div id="parent" style="padding: 20px; background: lightgray;">\n' +
+          '  Родитель\n' +
+          '  <button id="btn">Кликни</button>\n' +
+          '</div>\n\n' +
+          '<script>\n' +
+          '  let parent = document.getElementById("parent");\n' +
+          '  let btn = document.getElementById("btn");\n\n' +
+          '  // Перехват — сработает первым\n' +
+          '  parent.addEventListener("click", () => console.log("1. Перехват на DIV"), true);\n\n' +
+          '  // Цель\n' +
+          '  btn.addEventListener("click", () => console.log("2. Цель — кнопка"));\n\n' +
+          '  // Всплытие — сработает последним\n' +
+          '  parent.addEventListener("click", () => console.log("3. Всплытие на DIV"));\n' +
+          '</script>',
       },
       {
         title: 'Методы: stopPropagation и stopImmediatePropagation',
@@ -74,33 +66,29 @@ export const configBubblingAndCapturing: ITopic = {
           '• stopPropagation() полезен, когда нужно изолировать обработку события от родительских элементов\n' +
           '• stopImmediatePropagation() нужен, когда требуется гарантировать, что никакой другой обработчик не сработает',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <div id="parent" style="padding: 20px; background: lightgray;">\n' +
-          '      Родитель\n' +
-          '      <button id="btn1">stopPropagation</button>\n' +
-          '      <button id="btn2">stopImmediatePropagation</button>\n' +
-          '    </div>\n\n' +
-          '    <script>\n' +
-          '      let parent = document.getElementById("parent");\n' +
-          '      let btn1 = document.getElementById("btn1");\n' +
-          '      let btn2 = document.getElementById("btn2");\n\n' +
-          '      // stopPropagation — родитель не увидит, но второй обработчик на кнопке сработает\n' +
-          '      btn1.addEventListener("click", (event) => {\n' +
-          '        event.stopPropagation();\n' +
-          '        console.log("btn1: 1-й обработчик (остановил всплытие)");\n' +
-          '      });\n' +
-          '      btn1.addEventListener("click", () => console.log("btn1: 2-й обработчик (сработал)"));\n\n' +
-          '      // stopImmediatePropagation — второй обработчик на кнопке НЕ сработает\n' +
-          '      btn2.addEventListener("click", (event) => {\n' +
-          '        event.stopImmediatePropagation();\n' +
-          '        console.log("btn2: 1-й обработчик (остановил всё)");\n' +
-          '      });\n' +
-          '      btn2.addEventListener("click", () => console.log("btn2: 2-й обработчик (НЕ сработает)"));\n\n' +
-          '      parent.addEventListener("click", () => console.log("Родитель (НЕ сработает)"));\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<div id="parent" style="padding: 20px; background: lightgray;">\n' +
+          '  Родитель\n' +
+          '  <button id="btn1">stopPropagation</button>\n' +
+          '  <button id="btn2">stopImmediatePropagation</button>\n' +
+          '</div>\n\n' +
+          '<script>\n' +
+          '  let parent = document.getElementById("parent");\n' +
+          '  let btn1 = document.getElementById("btn1");\n' +
+          '  let btn2 = document.getElementById("btn2");\n\n' +
+          '  // stopPropagation — родитель не увидит, но второй обработчик на кнопке сработает\n' +
+          '  btn1.addEventListener("click", (event) => {\n' +
+          '    event.stopPropagation();\n' +
+          '    console.log("btn1: 1-й обработчик (остановил всплытие)");\n' +
+          '  });\n' +
+          '  btn1.addEventListener("click", () => console.log("btn1: 2-й обработчик (сработал)"));\n\n' +
+          '  // stopImmediatePropagation — второй обработчик на кнопке не сработает\n' +
+          '  btn2.addEventListener("click", (event) => {\n' +
+          '    event.stopImmediatePropagation();\n' +
+          '    console.log("btn2: 1-й обработчик (остановил всё)");\n' +
+          '  });\n' +
+          '  btn2.addEventListener("click", () => console.log("btn2: 2-й обработчик (не сработает)"));\n\n' +
+          '  parent.addEventListener("click", () => console.log("Родитель (не сработает)"));\n' +
+          '</script>',
       },
       {
         title: 'Делегирование событий',
@@ -109,41 +97,37 @@ export const configBubblingAndCapturing: ITopic = {
           'Алгоритм:\n' +
           '1. Вешаем обработчик на контейнер-родитель\n' +
           '2. В обработчике получаем event.target — элемент, на котором произошло событие\n' +
-          '3. Проверяем, что target — это нужный нам элемент (или находится внутри него). Обычно используют: event.target.closest(селектор) или проверку tagName, classList, matches\n' +
+          '3. Проверяем, что target — это нужный нам элемент (или находится внутри него)\n' +
           '4. Если проверка пройдена — выполняем нужное действие',
         addition:
           'Делегирование экономит память (один обработчик вместо многих), избавляет от необходимости назначать/снимать обработчики при добавлении/удалении элементов.\n' +
           'Ограничения: событие должно всплывать (не все события всплывают, например focus).\n' +
           'Можно ставить атрибут (data-***), обработчик вешается на document, при клике проверяется event.target.closest("[data-...]") и выполняется действие. Позволяет добавлять поведение элементам без написания JS-кода.',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <div id="menu">\n' +
-          '      <button data-action="save">Сохранить</button>\n' +
-          '      <button data-action="load">Загрузить</button>\n' +
-          '      <button data-action="search">Поиск</button>\n' +
-          '    </div>\n\n' +
-          '    <script>\n' +
-          '      class Menu {\n' +
-          '        constructor(elem) {\n' +
-          '          this._elem = elem;\n' +
-          '          // .bind(this) нужен, чтобы внутри _onClick this указывал на объект Menu, а не на elem\n' +
-          '          elem.addEventListener("click", this._onClick.bind(this));\n' +
-          '        }\n\n' +
-          '        save() { console.log("Сохраняем..."); }\n' +
-          '        load() { console.log("Загружаем..."); }\n' +
-          '        search() { console.log("Ищем..."); }\n\n' +
-          '        _onClick(event) {\n' +
-          '          let action = event.target.dataset.action;\n' +
-          '          if (action && this[action]) {\n' +
-          '            this[action](); // вызов save(), load() или search()\n' +
-          '          }\n' +
-          '        }\n' +
-          '      }\n\n' +
-          '      new Menu(document.getElementById("menu"));\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<div id="menu">\n' +
+          '  <button data-action="save">Сохранить</button>\n' +
+          '  <button data-action="load">Загрузить</button>\n' +
+          '  <button data-action="search">Поиск</button>\n' +
+          '</div>\n\n' +
+          '<script>\n' +
+          '  class Menu {\n' +
+          '    constructor(elem) {\n' +
+          '      this._elem = elem;\n' +
+          '      // .bind(this) нужен, чтобы внутри _onClick this указывал на объект Menu, а не на elem\n' +
+          '      elem.addEventListener("click", this._onClick.bind(this));\n' +
+          '    }\n\n' +
+          '    save() { console.log("Сохраняем..."); }\n' +
+          '    load() { console.log("Загружаем..."); }\n' +
+          '    search() { console.log("Ищем..."); }\n\n' +
+          '    _onClick(event) {\n' +
+          '      let action = event.target.dataset.action;\n' +
+          '      if (action && this[action]) {\n' +
+          '        this[action](); // вызов save(), load() или search()\n' +
+          '      }\n' +
+          '    }\n' +
+          '  }\n\n' +
+          '  new Menu(document.getElementById("menu"));\n' +
+          '</script>',
       },
     ],
   },

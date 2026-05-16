@@ -63,27 +63,20 @@ export const configStylesAndClasses: ITopic = {
           'Сброс стиля:\n' +
           '• elem.style.display = "" — удаляет свойство, возвращая стиль к CSS-правилам',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <div id="box" style="color: red">Текст</div>\n\n' +
-          '    <script>\n' +
-          '      let box = document.getElementById("box");\n\n' +
-          '      // Одиночные стили (camelCase)\n' +
-          '      box.style.backgroundColor = "green";\n' +
-          '      box.style.fontSize = "20px";\n' +
-          '      console.log(box.style.backgroundColor); // "green"\n\n' +
-          '      // Множественные стили через cssText (перезапись)\n' +
-          '      box.style.cssText = "position: fixed; top: 100px; left: 200px;";\n' +
-          '      // Предыдущий стиль color: red — перезаписан!\n' +
-          '      console.log(box.style.color); // "" (пусто)\n\n' +
-          '      // Добавление стиля через cssText +=\n' +
-          '      box.style.cssText += "border: 1px solid black;";\n\n' +
-          '      // Сброс стиля\n' +
-          '      box.style.position = ""; // удалил position, вернулся к CSS/умолчанию\n' +
-          '      console.log(box.style.position); // ""\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<div id="box" style="color: red">Текст</div>\n\n' +
+          '<script>\n' +
+          '  let box = document.getElementById("box");\n\n' +
+          '  // Одиночные стили (camelCase)\n' +
+          '  box.style.backgroundColor = "green";\n' +
+          '  box.style.fontSize = "20px";\n' +
+          '  console.log(box.style.backgroundColor); // "green"\n\n' +
+          '  // Множественные стили через cssText (перезапись)\n' +
+          '  box.style.cssText = "position: fixed; top: 100px; left: 200px;";\n' +
+          '  // Предыдущий стиль color: red — перезаписан!\n' +
+          '  console.log(box.style.color); // "" (пусто)\n\n' +
+          '  // Добавление стиля через cssText +=\n' +
+          '  box.style.cssText += "border: 1px solid black;";' +
+          '</script>',
       },
       {
         title: 'Сброс стилей',
@@ -123,7 +116,7 @@ export const configStylesAndClasses: ITopic = {
           '<html>\n' +
           '  <head>\n' +
           '    <style>\n' +
-          '      body { color: red; margin: 5px; font-size: 16px; }\n' +
+          '      body { color: red; margin: 5px; font-size: 16px; }\n\n' +
           '      .box { width: 100px; height: 50px; background: blue; }\n' +
           '    </style>\n' +
           '  </head>\n' +

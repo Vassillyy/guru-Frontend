@@ -16,19 +16,15 @@ export const configIntroductionBrowserEvents: ITopic = {
           'В атрибуте нужны скобки: onclick="sayThanks()", а в свойстве — без скобок: elem.onclick = sayThanks.\n' +
           'Убрать обработчик: elem.onclick = null.',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <!-- Через HTML-атрибут -->\n' +
-          '    <input type="button" onclick="console.log(\'Выведется при клике\')" value="Нажми меня">\n\n' +
-          '    <!-- Через DOM-свойство -->\n' +
-          '    <input type="button" id="elem" value="Нажми меня">\n\n' +
-          '    <script>\n' +
-          '      elem.onclick = function() {\n' +
-          "        console.log('Выведется при клике');\n" +
-          '      };\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<!-- Через HTML-атрибут -->\n' +
+          '<input type="button" onclick="console.log(\'Выведется при клике\')" value="Нажми меня">\n\n' +
+          '<!-- Через DOM-свойство -->\n' +
+          '<input type="button" id="elem" value="Нажми меня">\n\n' +
+          '<script>\n' +
+          '  elem.onclick = function() {\n' +
+          "    console.log('Выведется при клике');\n" +
+          '  };\n' +
+          '</script>',
       },
       {
         title: 'Доступ к элементу через this',
@@ -37,11 +33,7 @@ export const configIntroductionBrowserEvents: ITopic = {
         addition:
           'Можно использовать this.innerHTML, this.style и другие свойства элемента.',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <button onclick="console.log(this.innerHTML)">Нажми меня</button> // При клике выведет - Нажми меня\n' +
-          '  </body>\n' +
-          '</html>',
+          '<button onclick="console.log(this.innerHTML)">Нажми меня</button> // При клике выведет - Нажми меня',
       },
       {
         title: 'Методы: addEventListener и removeEventListener',
@@ -59,33 +51,29 @@ export const configIntroductionBrowserEvents: ITopic = {
         addition:
           'Событие DOMContentLoaded можно назначить только через addEventListener, потому что у document нет DOM-свойства onDOMContentLoaded.',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <button id="btn1">Несколько обработчиков</button>\n' +
-          '    <button id="btn2">Один раз (once)</button>\n' +
-          '    <button id="btn3">С удалением</button>\n\n' +
-          '    <script>\n' +
-          '      // Пример 1: несколько обработчиков на одно событие\n' +
-          '      let btn1 = document.getElementById("btn1");\n' +
-          '      btn1.addEventListener("click", () => console.log("1-й обработчик"));\n' +
-          '      btn1.addEventListener("click", () => console.log("2-й обработчик"));\n\n' +
-          '      // Пример 2: once — сработает только один раз\n' +
-          '      let btn2 = document.getElementById("btn2");\n' +
-          '      btn2.addEventListener("click", () => console.log("Этот лог будет только один раз"), { once: true });\n\n' +
-          '      // Пример 3: добавление и удаление обработчика\n' +
-          '      let btn3 = document.getElementById("btn3");\n' +
-          '      function handler() {\n' +
-          '        console.log("Обработчик сработал");\n' +
-          '      }\n' +
-          '      btn3.addEventListener("click", handler);\n' +
-          '      // Удаляем обработчик через 3 секунды\n' +
-          '      setTimeout(() => {\n' +
-          '        btn3.removeEventListener("click", handler);\n' +
-          '        console.log("Обработчик удалён, клики не работают");\n' +
-          '      }, 3000);\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<button id="btn1">Несколько обработчиков</button>\n' +
+          '<button id="btn2">Один раз (once)</button>\n' +
+          '<button id="btn3">С удалением</button>\n\n' +
+          '<script>\n' +
+          '  // Пример 1: несколько обработчиков на одно событие\n' +
+          '  let btn1 = document.getElementById("btn1");\n' +
+          '  btn1.addEventListener("click", () => console.log("1-й обработчик"));\n' +
+          '  btn1.addEventListener("click", () => console.log("2-й обработчик"));\n\n' +
+          '  // Пример 2: once — сработает только один раз\n' +
+          '  let btn2 = document.getElementById("btn2");\n' +
+          '  btn2.addEventListener("click", () => console.log("Этот лог будет только один раз"), { once: true });\n\n' +
+          '  // Пример 3: добавление и удаление обработчика\n' +
+          '  let btn3 = document.getElementById("btn3");\n' +
+          '  function handler() {\n' +
+          '    console.log("Обработчик сработал");\n' +
+          '  }\n' +
+          '  btn3.addEventListener("click", handler);\n' +
+          '  // Удаляем обработчик через 3 секунды\n' +
+          '  setTimeout(() => {\n' +
+          '    btn3.removeEventListener("click", handler);\n' +
+          '    console.log("Обработчик удалён, клики не работают");\n' +
+          '  }, 3000);\n' +
+          '</script>',
       },
       {
         title: 'Объект события',
@@ -108,35 +96,31 @@ export const configIntroductionBrowserEvents: ITopic = {
           'Объект события также доступен в HTML-атрибуте через переменную event.\n' +
           'event.currentTarget обычно совпадает с this, но не при стрелочных функциях или bind.',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <button id="btn">Кликни</button>\n' +
-          '    <div id="parent" style="padding: 20px; background: lightgray; margin-top: 10px;">\n' +
-          '      Родитель\n' +
-          '      <button>Дочерний</button>\n' +
-          '    </div>\n\n' +
-          '    <script>\n' +
-          '      let btn = document.getElementById("btn");\n' +
-          '      let parent = document.getElementById("parent");\n\n' +
-          '      parent.addEventListener("click", (event) => {\n' +
-          '        console.log(event.type); // click\n' +
-          '        console.log(event.target.tagName); // DIV или BUTTON (смотря по чему кликнули)\n' +
-          '        console.log(event.currentTarget.tagName); // DIV\n' +
-          '      });\n\n' +
-          '      btn.addEventListener("click", (event) => {\n' +
-          '        console.log(event.clientX, event.clientY); // Координаты клика (X,Y)\n' +
-          '      });\n\n' +
-          '      let link = document.createElement("a");\n' +
-          '      link.href = "https:/example.com";\n' +
-          '      link.textContent = "Ссылка (кликни, переход отменён)";\n' +
-          '      link.addEventListener("click", (event) => {\n' +
-          '        event.preventDefault();\n' +
-          '        console.log("Переход отменён через preventDefault");\n' +
-          '      });\n' +
-          '      document.body.appendChild(link);\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<button id="btn">Кликни</button>\n' +
+          '<div id="parent" style="padding: 20px; background: lightgray; margin-top: 10px;">\n' +
+          '  Родитель\n' +
+          '  <button>Дочерний</button>\n' +
+          '</div>\n\n' +
+          '<script>\n' +
+          '  let btn = document.getElementById("btn");\n' +
+          '  let parent = document.getElementById("parent");\n\n' +
+          '  parent.addEventListener("click", (event) => {\n' +
+          '    console.log(event.type); // click\n' +
+          '    console.log(event.target.tagName); // DIV или BUTTON (смотря по чему кликнули)\n' +
+          '    console.log(event.currentTarget.tagName); // DIV\n' +
+          '  });\n\n' +
+          '  btn.addEventListener("click", (event) => {\n' +
+          '    console.log(event.clientX, event.clientY); // Координаты клика (X,Y)\n' +
+          '  });\n\n' +
+          '  let link = document.createElement("a");\n' +
+          '  link.href = "https:/example.com";\n' +
+          '  link.textContent = "Ссылка (кликни, переход отменён)";\n' +
+          '  link.addEventListener("click", (event) => {\n' +
+          '    event.preventDefault();\n' +
+          '    console.log("Переход отменён через preventDefault");\n' +
+          '  });\n' +
+          '  document.body.appendChild(link);\n' +
+          '</script>',
       },
       {
         title: 'Объект-обработчик: handleEvent',
@@ -144,23 +128,19 @@ export const configIntroductionBrowserEvents: ITopic = {
           'Через addEventListener можно назначить не только функцию, но и объект. В этом случае при событии вызывается метод объекта handleEvent(event).',
         addition: 'handleEvent получает объект события в качестве аргумента.',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <button id="btn">Нажми</button>\n\n' +
-          '    <script>\n' +
-          '      let handler = {\n' +
-          '        count: 0,\n\n' +
-          '        handleEvent(event) {\n' +
-          '          this.count++;\n' +
-          '          console.log("Событие:", event.type);\n' +
-          '          console.log("Счётчик кликов:", this.count);\n' +
-          '        }\n' +
-          '      };\n\n' +
-          '      let btn = document.getElementById("btn");\n' +
-          '      btn.addEventListener("click", handler);\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<button id="btn">Нажми</button>\n\n' +
+          '<script>\n' +
+          '   let handler = {\n' +
+          '    count: 0,\n\n' +
+          '    handleEvent(event) {\n' +
+          '      this.count++;\n' +
+          '      console.log("Событие:", event.type);\n' +
+          '      console.log("Счётчик кликов:", this.count);\n' +
+          '    }\n' +
+          '  };\n\n' +
+          '  let btn = document.getElementById("btn");\n' +
+          '  btn.addEventListener("click", handler);\n' +
+          '</script>',
       },
     ],
   },

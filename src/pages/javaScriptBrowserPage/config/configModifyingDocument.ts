@@ -107,24 +107,20 @@ export const configModifyingDocument: ITopic = {
           '• elem.cloneNode(true) — глубокое клонирование (с дочерними элементами)\n' +
           '• elem.cloneNode(false) — поверхностное клонирование (без детей)',
         examples:
-          '<html>\n' +
-          '  <body>\n' +
-          '    <div id="first">Первый</div>\n' +
-          '    <div id="second">Второй</div>\n' +
-          '    <div class="alert" id="msg">\n' +
-          '      <strong>Всем привет!</strong> Важное сообщение.\n' +
-          '    </div>\n\n' +
-          '    <script>\n' +
-          '      // Клонирование\n' +
-          '      let msg = document.getElementById("msg");\n' +
-          '      let clone = msg.cloneNode(true); // глубокий клон\n' +
-          '      clone.querySelector("strong").innerHTML = "Всем пока!"; // меняем текст в клоне\n' +
-          '      msg.after(clone); // вставляем клон после оригинального\n\n' +
-          '      // Удаление через секунду\n' +
-          '      setTimeout(() => clone.remove(), 2000); // удаляем клон через 2 секунды\n' +
-          '    </script>\n' +
-          '  </body>\n' +
-          '</html>',
+          '<div id="first">Первый</div>\n' +
+          '<div id="second">Второй</div>\n' +
+          '<div class="alert" id="msg">\n' +
+          '  <strong>Всем привет!</strong> Важное сообщение.\n' +
+          '</div>\n\n' +
+          '<script>\n' +
+          '  // Клонирование\n' +
+          '  let msg = document.getElementById("msg");\n' +
+          '  let clone = msg.cloneNode(true); // глубокий клон\n' +
+          '  clone.querySelector("strong").innerHTML = "Всем пока!"; // меняем текст в клоне\n' +
+          '  msg.after(clone); // вставляем клон после оригинального\n\n' +
+          '  // Удаление через секунду\n' +
+          '  setTimeout(() => clone.remove(), 2000); // удаляем клон через 2 секунды\n' +
+          '</script>',
       },
       {
         title: 'DocumentFragment',

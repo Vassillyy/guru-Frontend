@@ -72,7 +72,7 @@ export const configAttributesAndProperties: ITopic = {
           '• Значения всегда являются строками\n' +
           '• Все атрибуты доступны через elem.attributes',
         examples:
-          '<body id="test" something="non-standard">\n' +
+          '<body id="test" something="non-standard"></body>\n\n' +
           '<script>\n' +
           '  console.log(document.body.id); // "test"\n' +
           '  // Нестандартный атрибут не преобразуется в свойство\n' +

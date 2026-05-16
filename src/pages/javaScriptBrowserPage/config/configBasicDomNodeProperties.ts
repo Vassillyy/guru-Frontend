@@ -99,12 +99,14 @@ export const configBasicDomNodeProperties: ITopic = {
           '• Работают только для текстовых узлов (TEXT_NODE) и комментариев (COMMENT_NODE)\n' +
           '• Для элементов (ELEMENT_NODE) возвращают null',
         examples:
-          '<div id="test">Привет<!-- комментарий --></div>\n' +
+          '<div id="test">\n' +
+          '  Привет<!-- комментарий -->\n' +
+          '</div>\n' +
           '\n' +
           '<script>\n' +
           '  let div = document.getElementById("test");\n' +
           '  let textNode = div.firstChild;\n' +
-          '  let commentNode = div.lastChild;\n' +
+          '  let commentNode = textNode.nextSibling;\n' +
           '\n' +
           '  // Для текстового узла\n' +
           '  console.log(textNode.data); // "Привет"\n' +
@@ -134,11 +136,12 @@ export const configBasicDomNodeProperties: ITopic = {
           '• Использование innerHTML+= вызывает перезапись всего содержимого',
         examples:
           '<div id="box">\n' +
-          '  <p>Привет</p>\n\n' +
+          '  <p>Привет</p>\n' +
+          '</div>\n\n' +
           '<script>\n' +
           '  let box = document.getElementById("box");\n\n' +
           '  // Чтение\n' +
-          '  console.log(box.innerHTML); // "<p>Привет</p>"\n\n' +
+          '  console.log(box.innerHTML); // "  <p>Привет</p>  "\n\n' +
           '  // Замена содержимого\n' +
           '  box.innerHTML = "<b>Жирный текст</b>";\n' +
           '  console.log(box.innerHTML); // "<b>Жирный текст</b>"\n\n' +
@@ -155,7 +158,7 @@ export const configBasicDomNodeProperties: ITopic = {
       {
         title: 'Свойства: outerHTML и textContent',
         content:
-          'outerHTML возвращает элемент целиком вместе с его содержимым.\n' +
+          'outerHTML возвращает элемент целиком вместе с его содержимым в виде строки.\n' +
           'textContent возвращает только текст без HTML-тегов.',
         addition:
           'outerHTML:\n' +
@@ -169,7 +172,7 @@ export const configBasicDomNodeProperties: ITopic = {
           '<div id="elem">Привет<b>Мир</b></div>\n\n' +
           '<script>\n' +
           '  let elem = document.getElementById("elem");\n\n' +
-          '  console.log(elem.outerHTML); // "<div id=\"elem\">Привет <b>Мир</b></div>"\n\n' +
+          '  console.log(elem.outerHTML); // "<div id="elem">Привет <b>Мир</b></div>"\n\n' +
           '  // Замена элемента через outerHTML\n' +
           '  elem.outerHTML = "<p>Новый элемент</p>";\n' +
           '  console.log(elem.outerHTML); // всё ещё "<div>..." — elem указывает на старый(!) элемент\n' +
