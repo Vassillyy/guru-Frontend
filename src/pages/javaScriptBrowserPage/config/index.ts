@@ -13,6 +13,8 @@ import { configIntroductionBrowserEvents } from './configIntroductionBrowserEven
 import { configBubblingAndCapturing } from './configBubblingAndCapturing';
 import { configDefaultBrowserAction } from './configDefaultBrowserAction';
 import { configDispatchEvents } from './configDispatchEvents';
+import { configMouseEventsBasics } from './configMouseEventsBasics';
+import { configKeyboardEvents } from './configKeyboardEvents';
 
 export const config: IConfig = [
   configDomNodes,
@@ -29,4 +31,6 @@ export const config: IConfig = [
   configBubblingAndCapturing,
   configDefaultBrowserAction,
   configDispatchEvents,
+  configMouseEventsBasics,
+  configKeyboardEvents,
 ];
