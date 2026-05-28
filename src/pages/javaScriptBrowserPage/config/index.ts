@@ -14,7 +14,11 @@ import { configBubblingAndCapturing } from './configBubblingAndCapturing';
 import { configDefaultBrowserAction } from './configDefaultBrowserAction';
 import { configDispatchEvents } from './configDispatchEvents';
 import { configMouseEventsBasics } from './configMouseEventsBasics';
+import { configPointerEvents } from './configPointerEvents';
 import { configKeyboardEvents } from './configKeyboardEvents';
+import { configFormElements } from './configFormElements';
+import { configFocusBlur } from './configFocusBlur';
+import { configScroll } from './configScroll';
 
 export const config: IConfig = [
   configDomNodes,
@@ -33,4 +37,8 @@ export const config: IConfig = [
   configDispatchEvents,
   configMouseEventsBasics,
   configKeyboardEvents,
+  configPointerEvents,
+  configScroll,
+  configFormElements,
+  configFocusBlur,
 ];
