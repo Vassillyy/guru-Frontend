@@ -249,6 +249,34 @@ export const configFunctions: ITopic = {
           'const func = Function(\'return "работает без new";\');\n' +
           'console.log(func()); // "работает без new"',
       },
+      {
+        title: 'Higher-Order Functions (Функции высшего порядка)',
+        content:
+          'Функция высшего порядка — это функция, которая принимает другую функцию в качестве аргумента, возвращает функцию или делает и то, и другое.\n' +
+          "'В JavaScript функции являются объектами первого класса (их можно передавать как аргументы, возвращать из других функций, присваивать переменным).",
+        addition:
+          '• Функции высшего порядка позволяют абстрагироваться от конкретных операций, делая код более гибким и переиспользуемым\n' +
+          '• Основа функционального программирования в JavaScript',
+        examples:
+          '// Функция, возвращающая функцию (замыкание)\n' +
+          'function multiplyBy(factor) {\n' +
+          '  return function(number) {\n' +
+          '    return number * factor;\n' +
+          '  };\n' +
+          '}\n' +
+          'const double = multiplyBy(2);\n' +
+          'console.log(double(5)); // 10\n\n' +
+          '// Функция, принимающая функцию как аргумент\n' +
+          'function applyOperation(a, b, operation) {\n' +
+          '  return operation(a, b);\n' +
+          '}\n' +
+          'const add = (x, y) => x + y;\n' +
+          'console.log(applyOperation(10, 5, add)); // 15\n\n' +
+          '// Встроенная HOF: map\n' +
+          'const numbers = [1, 2, 3, 4];\n' +
+          'const doubled = numbers.map(n => n * 2);\n' +
+          'console.log(doubled); // [2, 4, 6, 8]',
+      },
     ],
   },
 };

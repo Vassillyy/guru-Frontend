@@ -11,7 +11,7 @@ export const JavaScriptContentPage: FC = () => {
 
   return (
     <PageContainer
-      title="Руководство по JavaScript"
+      title="Основы языка JavaScript"
       filtersSlot={
         <div className={styles.filtersContainer}>
           <Input

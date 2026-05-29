@@ -73,14 +73,26 @@ export const configFunction: Record<Methods.FUNCTION, IMethod[]> = {
       ],
       description:
         'Метод объекта Function, создаёт новую функцию с фиксированным this и начальными аргументами. Возвращает функцию-обёртку, которая при вызове вызывает оригинальную функцию с thisArg и ...args, дополненными новыми аргументами при вызове.\n' +
-        'Свойство name функции, возвращённой bind(), будет свойством name исходной функции с префиксом "bound ".',
+        'Свойство name функции, возвращённой bind(), будет свойством name исходной функции с префиксом "bound ".\n' +
+        'Привязанные функции не имеют собственного свойства prototype. При вызове такой функции в качестве конструктора (через new) используется прототип исходной функции.',
       example:
         'function greet(greeting, name) {\n' +
-        ' console.log(`${greeting}, ${name}!`);\n' +
+        '  console.log(`${greeting}, ${name}!`);\n' +
         '}\n' +
         "const sayHello = greet.bind(null, 'Hello');\n" +
         "sayHello('John'); // 'Hello, John!'\n\n" +
-        'console.log(sayHello.name); // "bound greet"',
+        'console.log(sayHello.name); // "bound greet"\n\n' +
+        'function Animal(type) {\n' +
+        '  this.type = type;\n' +
+        '}\n' +
+        'Animal.prototype.speak = function() {\n' +
+        '  console.log(this.type);\n' +
+        '};\n' +
+        'const BoundAnimal = Animal.bind(null, "cat");\n' +
+        'const cat = new BoundAnimal();\n' +
+        'console.log(cat.type); // "cat"\n' +
+        'console.log(cat instanceof Animal); // true\n' +
+        'console.log(BoundAnimal.prototype); // undefined',
       specification:
         'https://tc39.es/ecma262/multipage/functions-and-classes.html#sec-function.prototype.bind',
       errors: 'TypeError — если this не является функцией.',

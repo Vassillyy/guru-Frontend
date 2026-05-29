@@ -19,7 +19,7 @@ export const sidebarMenu: ISidebarItem[] = [
     children: [
       {
         path: AppPaths.JAVA_SCRIPT,
-        label: 'Руководство',
+        label: 'Основы языка',
       },
       {
         path: AppPaths.JAVA_SCRIPT_METHODS,

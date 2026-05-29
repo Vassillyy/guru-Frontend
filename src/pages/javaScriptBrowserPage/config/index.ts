@@ -18,7 +18,9 @@ import { configPointerEvents } from './configPointerEvents';
 import { configKeyboardEvents } from './configKeyboardEvents';
 import { configFormElements } from './configFormElements';
 import { configFocusBlur } from './configFocusBlur';
+import { configEventsChangeInput } from './configEventsChangeInput';
 import { configScroll } from './configScroll';
+import { configPageLoading } from './configPageLoading';
 
 export const config: IConfig = [
   configDomNodes,
@@ -39,6 +41,8 @@ export const config: IConfig = [
   configKeyboardEvents,
   configPointerEvents,
   configScroll,
-  configFormElements,
   configFocusBlur,
+  configFormElements,
+  configEventsChangeInput,
+  configPageLoading,
 ];

@@ -2,10 +2,10 @@ import { type ITopic } from '@/entities/topic';
 
 export const configFormElements: ITopic = {
   value: 'form-elements',
-  name: 'Получение и изменение значений формы',
+  name: 'Получение и изменение значений формы, отправка данных',
   content: {
     introduction:
-      'Формы и элементы управления имеют множество специальных свойств. Они предоставляют удобный доступ к данным формы и позволяют управлять состоянием полей.',
+      'Формы и элементы управления имеют множество специальных свойств. Они предоставляют удобный доступ к данным формы, позволяют управлять состоянием полей, а также контролировать отправку данных на сервер.',
     sections: [
       {
         title: 'Навигация: формы и элементы',
@@ -166,6 +166,37 @@ export const configFormElements: ITopic = {
           '  single.append(newOption);\n' +
           '  newOption.selected = true;\n' +
           '  console.log(single.value); // "classic"\n' +
+          '</script>',
+      },
+      {
+        title: 'Отправка формы: событие и метод submit',
+        content:
+          'Событие submit срабатывает при попытке отправки формы (нажатие Enter в поле или кнопка с type="submit"). Используется для валидации данных перед отправкой.\n' +
+          'Метод form.submit() отправляет форму из JavaScript. В отличие от реальной отправки, событие submit при этом не генерируется.',
+        addition:
+          '• event.preventDefault() в обработчике submit отменяет отправку\n' +
+          '• При нажатии Enter в текстовом поле также генерируется click на кнопке submit',
+        examples:
+          '<form id="testForm">\n' +
+          '  <input type="text" name="login" placeholder="Логин">\n' +
+          '  <input type="submit" id="submitBtn" value="Отправить">\n' +
+          '</form>\n' +
+          '<button id="dynamicSubmit">Отправить из JS</button>\n\n' +
+          '<script>\n' +
+          '  const form = document.getElementById("testForm");\n' +
+          '  const submitBtn = document.getElementById("submitBtn");\n\n' +
+          '  // Демонстрация: при нажатии Enter в поле генерируется click на кнопке submit\n' +
+          '  submitBtn.onclick = () => console.log("click на кнопке submit");\n\n' +
+          '  // Обработка отправки\n' +
+          '  form.onsubmit = (event) => {\n' +
+          '    event.preventDefault();\n' +
+          '    console.log("submit: форма отправлена - логин", form.elements.login.value);\n' +
+          '  };\n\n' +
+          '  // Программная отправка (submit не генерируется)\n' +
+          '  document.getElementById("dynamicSubmit").onclick = () => {\n' +
+          '    console.log("Вызов form.submit() — событие submit не сгенерируется");\n' +
+          '    form.submit();\n' +
+          '  };\n' +
           '</script>',
       },
     ],
