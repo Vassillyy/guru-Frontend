@@ -21,6 +21,7 @@ import { configFocusBlur } from './configFocusBlur';
 import { configEventsChangeInput } from './configEventsChangeInput';
 import { configScroll } from './configScroll';
 import { configScriptAsyncDefer } from './configScriptAsyncDefer';
+import { configOnloadOnerror } from './configOnloadOnerror';
 import { configPageLoading } from './configPageLoading';
 
 export const config: IConfig = [
@@ -47,4 +48,5 @@ export const config: IConfig = [
   configEventsChangeInput,
   configPageLoading,
   configScriptAsyncDefer,
+  configOnloadOnerror,
 ];

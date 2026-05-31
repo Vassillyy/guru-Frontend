@@ -88,7 +88,7 @@ export const configLoops: ITopic = {
         examples:
           '// Пример: получение данных с публичного API\n' +
           'async function fetchFirstPhotos(albumId, limit = 3) {\n' +
-          '  const response = await fetch(`https:/jsonplaceholder.typicode.com/albums/${albumId}/photos`);\n' +
+          '  const response = await fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}/photos`);\n' +
           '  const photos = await response.json();\n' +
           '  \n' +
           '  let count = 0;\n' +

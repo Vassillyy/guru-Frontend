@@ -288,7 +288,7 @@ export const configUtil: Record<Methods.UTIL, IMethod[]> = {
         '• response.arrayBuffer() – возвращает как ArrayBuffer\n' +
         '• response.body – ReadableStream для чтения по частям.',
       example:
-        "fetch('https:/api.example.com/posts', {\n" +
+        "fetch('https://api.example.com/posts', {\n" +
         "  method: 'POST',\n" +
         "  headers: { 'Content-Type': 'application/json' },\n" +
         "  body: JSON.stringify({ title: 'Post', body: 'Content' })\n" +

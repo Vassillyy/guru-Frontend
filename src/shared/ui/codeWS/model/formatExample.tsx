@@ -16,7 +16,8 @@ export const formatExample = (
       return;
     }
 
-    const doubleSlashIndex = line.indexOf('//');
+    const doubleSlashMatch = line.match(/(?<!:)\/\//);
+    const doubleSlashIndex = doubleSlashMatch?.index ?? -1;
     const htmlCommentStart = line.indexOf('<!--');
 
     let commentIndex = -1;
