@@ -8,7 +8,7 @@ export const configFocusBlur: ITopic = {
       'Элемент получает фокус (focus), при клике по нему или использовании клавиши Tab. Потеря фокуса (blur) происходит при клике в другое место или при переключении на другой элемент.',
     sections: [
       {
-        title: 'События: focus и blur',
+        title: 'События: focus, blur',
         content:
           'Событие focus вызывается в момент фокусировки, а blur — когда элемент теряет фокус. Используются для валидации, подсказок, подсветки активного поля, скрытия ошибок и тд.',
         addition:
@@ -29,7 +29,7 @@ export const configFocusBlur: ITopic = {
           '</script>',
       },
       {
-        title: 'Методы: focus и blur',
+        title: 'Методы: focus, blur',
         content:
           'Методы elem.focus() и elem.blur() программно устанавливают и снимают фокус с элемента.',
         addition:
@@ -81,7 +81,7 @@ export const configFocusBlur: ITopic = {
           '</script>',
       },
       {
-        title: 'События: focusin и focusout',
+        title: 'События: focusin, focusout',
         content:
           'События focus и blur не всплывают. Это значит, что обработчик на форме не сработает при фокусировке на вложенном елементе. Существует два решения:\n' +
           '1) Использовать фазу перехвата (третий аргумент addEventListener — true)\n' +

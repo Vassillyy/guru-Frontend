@@ -61,7 +61,7 @@ export const configBasicDomNodeProperties: ITopic = {
           '</script>',
       },
       {
-        title: 'Свойства: nodeName и tagName',
+        title: 'Свойства: nodeName, tagName',
         content:
           'Свойства nodeName и tagName возвращают имя тега для элементов. Для других типов узлов nodeName возвращает специальное значение.',
         addition:
@@ -91,7 +91,7 @@ export const configBasicDomNodeProperties: ITopic = {
           '</script>',
       },
       {
-        title: 'Свойства: data и nodeValue',
+        title: 'Свойства: data, nodeValue',
         content:
           'Свойства data и nodeValue используются для получения или изменения содержимого текстовых узлов и комментариев.',
         addition:
@@ -156,7 +156,7 @@ export const configBasicDomNodeProperties: ITopic = {
           '</script>',
       },
       {
-        title: 'Свойства: outerHTML и textContent',
+        title: 'Свойства: outerHTML, textContent',
         content:
           'outerHTML возвращает элемент целиком вместе с его содержимым в виде строки.\n' +
           'textContent возвращает только текст без HTML-тегов.',

@@ -36,7 +36,7 @@ export const configIntroductionBrowserEvents: ITopic = {
           '<button onclick="console.log(this.innerHTML)">Нажми меня</button> // При клике выведет - Нажми меня',
       },
       {
-        title: 'Методы: addEventListener и removeEventListener',
+        title: 'Методы: addEventListener, removeEventListener',
         content:
           'Метод addEventListener позволяет назначать несколько обработчиков на одно событие.\n' +
           'Синтаксис: element.addEventListener(event, handler, [options])\n' +

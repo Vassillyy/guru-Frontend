@@ -58,7 +58,7 @@ export const configBubblingAndCapturing: ITopic = {
           '</script>',
       },
       {
-        title: 'Методы: stopPropagation и stopImmediatePropagation',
+        title: 'Методы: stopPropagation, stopImmediatePropagation',
         content:
           'Метод event.stopPropagation() прекращает дальнейшее распространение события — оно не будет всплывать или перехватываться на вышестоящих элементах. Однако другие обработчики на текущем элементе всё равно сработают.\n' +
           'Метод event.stopImmediatePropagation() не только останавливает всплытие, но и предотвращает вызов других обработчиков на том же самом элементе.',

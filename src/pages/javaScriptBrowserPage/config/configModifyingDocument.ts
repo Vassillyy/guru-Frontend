@@ -57,7 +57,7 @@ export const configModifyingDocument: ITopic = {
           '</html>',
       },
       {
-        title: 'insertAdjacentHTML/Text/Element',
+        title: 'Методы: insertAdjacentHTML/*Text/*Element',
         content:
           'Метод elem.insertAdjacentHTML(where, html) позволяет вставлять HTML-строку в определённое место относительно элемента.',
         addition:
@@ -152,9 +152,9 @@ export const configModifyingDocument: ITopic = {
           '</script>',
       },
       {
-        title: 'document.write',
+        title: 'Метод document.write',
         content:
-          'document.write(html) записывает html на страницу в момент выполнения. Это очень старый метод из эпохи до DOM.',
+          'Метод document.write(html) записывает html на страницу в момент выполнения. Это очень старый метод из эпохи до DOM.',
         addition:
           'Важные ограничения:\n' +
           '• Работает только во время загрузки страницы\n' +

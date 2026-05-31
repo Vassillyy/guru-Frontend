@@ -69,7 +69,7 @@ export const configMouseEventsBasics: ITopic = {
           '</script>',
       },
       {
-        title: 'Модификаторы: shift, alt, ctrl и meta',
+        title: 'Модификаторы: shift, alt, ctrl, meta',
         content:
           'Все события мыши содержат информацию о нажатых клавишах-модификаторах:\n' +
           '• event.shiftKey — Shift\n' +
@@ -168,7 +168,7 @@ export const configMouseEventsBasics: ITopic = {
           '</script>',
       },
       {
-        title: 'События: mouseenter и mouseleave',
+        title: 'События: mouseenter, mouseleave',
         content:
           'События mouseenter и mouseleave похожи на mouseover и mouseout, но не имеют двух ключевых особенностей: они не всплывают и не срабатывают при переходах на потомков. mouseenter — курсор зашёл на элемент (включая его детей), mouseleave — полностью покинул элемент.',
         addition:

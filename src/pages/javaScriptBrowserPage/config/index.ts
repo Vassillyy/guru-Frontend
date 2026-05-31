@@ -20,6 +20,7 @@ import { configFormElements } from './configFormElements';
 import { configFocusBlur } from './configFocusBlur';
 import { configEventsChangeInput } from './configEventsChangeInput';
 import { configScroll } from './configScroll';
+import { configScriptAsyncDefer } from './configScriptAsyncDefer';
 import { configPageLoading } from './configPageLoading';
 
 export const config: IConfig = [
@@ -45,4 +46,5 @@ export const config: IConfig = [
   configFormElements,
   configEventsChangeInput,
   configPageLoading,
+  configScriptAsyncDefer,
 ];

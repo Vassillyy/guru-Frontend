@@ -121,7 +121,7 @@ export const configAttributesAndProperties: ITopic = {
           '</script>',
       },
       {
-        title: 'Нестандартные атрибуты, dataset',
+        title: 'Нестандартные атрибуты, свойство dataset',
         content:
           'Нестандартные атрибуты полезны для передачи данных из HTML в JavaScript или для стилизации. Но чтобы избежать конфликтов с будущими стандартами, используются атрибуты data-*.',
         addition:

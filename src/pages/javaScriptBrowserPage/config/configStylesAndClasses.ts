@@ -8,7 +8,7 @@ export const configStylesAndClasses: ITopic = {
       'Существует два способа задания стилей для элемента: через классы в CSS и через атрибут style (инлайн-стили). Классы — предпочтительный вариант. Инлайн-стили лучше не использовать без необходимости: их сложно поддерживать, их нельзя переопределить без !important, они не работают с псевдоклассами и медиа-запросами, не переиспользуются и раздувают HTML.',
     sections: [
       {
-        title: 'Свойства: className и classList',
+        title: 'Свойства: className, classList',
         content:
           'Для изменения классов используются свойства className и classList.\n' +
           'className соответствует атрибуту class и содержит строку со всеми классами элемента.\n' +
@@ -101,7 +101,7 @@ export const configStylesAndClasses: ITopic = {
           '</body>',
       },
       {
-        title: 'Вычисленные стили: getComputedStyle',
+        title: 'Вычисленные стили: метод getComputedStyle',
         content:
           'Свойство style видит только инлайн-стили (атрибут style). Для чтения стилей с учётом всех CSS-правил (классов, каскада, наследования) используется метод getComputedStyle.',
         addition:

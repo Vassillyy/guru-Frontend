@@ -8,7 +8,7 @@ export const configSizeAndScrollWindow: ITopic = {
       'Браузер предоставляет свойства и методы для определения размеров видимой области окна, полных размеров документа, текущей позиции прокрутки, а также управления прокруткой страницы.',
     sections: [
       {
-        title: 'Свойства: window.innerWidth и window.innerHeight',
+        title: 'Свойства: window.innerWidth/innerHeight',
         content:
           'Свойства window.innerWidth и window.innerHeight возвращают ширину и высоту окна браузера, включая полосу прокрутки.',
         addition:
@@ -46,7 +46,7 @@ export const configSizeAndScrollWindow: ITopic = {
       },
       {
         title:
-          'Свойства: window.pageXOffset/scrollX и window.pageYOffset/scrollY',
+          'Свойства: window.pageXOffset/scrollX, window.pageYOffset/scrollY',
         content:
           'Свойства window.pageXOffset и window.pageYOffset (алиасы: window.scrollX и window.scrollY) содержат текущее смещение прокрутки документа по горизонтали и вертикали.',
         addition:

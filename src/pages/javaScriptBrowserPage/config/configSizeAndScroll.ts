@@ -8,7 +8,7 @@ export const configSizeAndScroll: ITopic = {
       'Существует множество JavaScript-свойств, которые позволяют считывать информацию об элементе: ширину, высоту и другие геометрические характеристики.',
     sections: [
       {
-        title: 'Свойства: offsetParent, offsetLeft и offsetTop',
+        title: 'Свойства: offsetParent, offsetLeft, offsetTop',
         content:
           'Свойство offsetParent содержит предка элемента, используемого браузером для вычисления координат при рендеринге.\n' +
           'Свойства offsetLeft/offsetTop содержат координаты x/y относительно верхнего левого угла offsetParent.',
@@ -41,7 +41,7 @@ export const configSizeAndScroll: ITopic = {
           '</html>',
       },
       {
-        title: 'Свойства: offsetWidth и offsetHeight',
+        title: 'Свойства: offsetWidth, offsetHeight',
         content:
           'Свойства offsetWidth и offsetHeight содержат полный размер элемента, включая рамки (border), отступы (padding) и полосы прокрутки (если есть).',
         addition:
@@ -64,7 +64,7 @@ export const configSizeAndScroll: ITopic = {
           '</script>',
       },
       {
-        title: 'Свойства: clientTop и clientLeft',
+        title: 'Свойства: clientTop, clientLeft',
         content:
           'Свойства clientTop и clientLeft возвращают ширину верхней и левой рамки (border) элемента.',
         addition:
@@ -87,7 +87,7 @@ export const configSizeAndScroll: ITopic = {
           '</script>',
       },
       {
-        title: 'Свойства: clientWidth и clientHeight',
+        title: 'Свойства: clientWidth, clientHeight',
         content:
           'Свойства clientWidth и clientHeight возвращают внутренний размер элемента (ширину и высоту области содержимого + padding) — без рамок и полосы прокрутки.',
         addition:
@@ -116,7 +116,7 @@ export const configSizeAndScroll: ITopic = {
           '</script>',
       },
       {
-        title: 'Свойства: scrollWidth и scrollHeight',
+        title: 'Свойства: scrollWidth, scrollHeight',
         content:
           'Свойства scrollWidth и scrollHeight возвращают полный внутренний размер элемента (ширину и высоту области содержимого + padding), включая (невидимую) часть.',
         addition:
@@ -146,7 +146,7 @@ export const configSizeAndScroll: ITopic = {
           '</script>',
       },
       {
-        title: 'Свойства: scrollLeft и scrollTop',
+        title: 'Свойства: scrollLeft, scrollTop',
         content:
           'Свойства scrollLeft и scrollTop возвращают ширину/высоту невидимой, прокрученной в данный момент, части элемента слева и сверху.',
         addition:

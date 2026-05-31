@@ -2,13 +2,13 @@ import { type ITopic } from '@/entities/topic';
 
 export const configPageLoading: ITopic = {
   value: 'page-loading',
-  name: 'Загрузка страницы: DOMContentLoaded, load, beforeunload, unload',
+  name: 'Загрузка страницы: события - DOMContentLoaded, load, beforeunload, unload',
   content: {
     introduction:
       'У жизненного цикла HTML-страницы есть три важных события: DOMContentLoaded — браузер полностью загрузил HTML, было построено DOM-дерево, но внешние ресурсы ещё могут быть не загружены; load — браузер загрузил HTML и внешние ресурсы (картинки, стили и т.д.); beforeunload/unload — пользователь покидает страницу.',
     sections: [
       {
-        title: 'DOMContentLoaded',
+        title: 'Событие DOMContentLoaded',
         content:
           'Событие DOMContentLoaded срабатывает на объекте document, когда DOM-дерево полностью построено. Внешние ресурсы, такие как картинки и стили, могут быть ещё не загружены.\n' +
           'Назначается только через addEventListener, так как у document нет DOM-свойства onDOMContentLoaded.\n' +
@@ -30,7 +30,7 @@ export const configPageLoading: ITopic = {
           '// Порядок: загрузка стилей → выполнение скриптов → DOMContentLoaded → загрузка картинки',
       },
       {
-        title: 'window.onload',
+        title: 'Событие load',
         content:
           'Событие load на объекте window наступает, когда загрузилась вся страница, включая стили, картинки и другие ресурсы. Это событие доступно через свойство onload или addEventListener.',
         addition:
@@ -45,7 +45,7 @@ export const configPageLoading: ITopic = {
           '<img src="https://en.js.cx/clipart/train.gif?speed=1&cache=0">',
       },
       {
-        title: 'window.onunload',
+        title: 'Событие unload',
         content:
           'Когда посетитель покидает страницу, на объекте window генерируется событие unload.\n' +
           'Для отправки данных существует метод navigator.sendBeacon(url, data), который посылает данные в фоне, не задерживая переход.',
@@ -62,7 +62,7 @@ export const configPageLoading: ITopic = {
           '</script>',
       },
       {
-        title: 'window.onbeforeunload',
+        title: 'Событие beforeunload',
         content:
           'Если посетитель собирается уйти со страницы или закрыть окно, обработчик beforeunload попросит дополнительное подтверждение. Если отменить событие, браузер спросит пользователя, уверен ли он.',
         addition:

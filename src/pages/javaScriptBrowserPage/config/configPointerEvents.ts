@@ -120,7 +120,7 @@ export const configPointerEvents: ITopic = {
           '</script>',
       },
       {
-        title: 'Методы: setPointerCapture и releasePointerCapture',
+        title: 'Методы: setPointerCapture, releasePointerCapture',
         content:
           'Захват указателя позволяет привязать все последующие события указателя к определённому элементу, независимо от того, где они происходят в документе.\n' +
           '• elem.setPointerCapture(pointerId) — перенаправляет все события с данным pointerId на elem (target становится elem)\n' +
@@ -154,7 +154,7 @@ export const configPointerEvents: ITopic = {
           '</script>',
       },
       {
-        title: 'События: gotpointercapture и lostpointercapture',
+        title: 'События: gotpointercapture, lostpointercapture',
         content:
           'Два события, связанные с захватом указателя:\n' +
           '• gotpointercapture — срабатывает на элементе, когда setPointerCapture успешно включил захват\n' +
