@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import { JavaScriptContentPage } from '@/pages/javaScriptContentPage';
 import { TypeScriptUtilityTypesPage } from '@/pages/typeScriptUtilityTypesPage';
 import { MainPage } from '@/pages/mainPage';
@@ -8,7 +8,7 @@ import { JavaScriptBrowserPage } from '@/pages/javaScriptBrowserPage';
 import { AppPaths } from '@/shared/constants/route';
 import { MainLayout, TopicLayout } from './layouts';
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: AppPaths.MAIN,
     element: <MainLayout />,
