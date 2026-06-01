@@ -30,7 +30,7 @@ export const router = createHashRouter([
         element: <TypeScriptUtilityTypesPage />,
       },
       {
-        path: AppPaths.JAVA_SCRIPT_BRAWSER,
+        path: AppPaths.JAVA_SCRIPT_BROWSER,
         element: <JavaScriptBrowserPage />,
       },
     ],

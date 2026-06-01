@@ -68,14 +68,11 @@ export const Sidebar = () => {
                       isActive={isActive(item.path)}
                       hasChildren={itemHasChildren}
                       isExpanded={isExpanded}
-                      onClick={
-                        itemHasChildren
-                          ? () => {
-                              toggleItem(item.id!);
-                              closeOnMobile();
-                            }
-                          : closeOnMobile
-                      }
+                    onClick={
+                      itemHasChildren
+                        ? () => toggleItem(item.id!)
+                        : closeOnMobile
+                    }
                     >
                       {item.label}
                     </NavItem>
