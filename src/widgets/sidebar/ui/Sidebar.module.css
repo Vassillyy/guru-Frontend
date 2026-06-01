@@ -83,3 +83,31 @@
 .childrenList .navItem {
   margin-bottom: 8px;
 }
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100dvh;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.hidden {
+    left: -100%;
+    width: 100%;
+  }
+
+  .toggle {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    z-index: 101;
+    background: var(--color-sidebar-bg);
+    border: 2px solid var(--color-sidebar-border);
+    border-radius: 6px;
+    box-shadow: var(--shadow-sidebar-nav-link);
+  }
+}

@@ -35,3 +35,15 @@
 .sentinel {
   height: 1px;
 }
+
+@media (max-width: 768px) {
+  .categorySection {
+    margin-bottom: 10px;
+  }
+
+  .categoryTitle {
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+  }
+}

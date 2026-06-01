@@ -59,3 +59,19 @@
   box-shadow: var(--shadow-utility-types-card-signature);
   letter-spacing: 1px;
 }
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cardInfo {
+    width: 100%;
+    flex-shrink: 1;
+  }
+
+  .signature {
+    word-break: break-all;
+  }
+}

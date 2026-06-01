@@ -26,3 +26,9 @@
   font: var(--font-topic-card);
   color: var(--color-topic-card-title);
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 6px;
+  }
+}

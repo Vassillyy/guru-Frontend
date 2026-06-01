@@ -16,6 +16,10 @@ export const TopicLayout = () => {
     const element = document.getElementById(title);
 
     if (element) element.scrollIntoView({ behavior: 'smooth' });
+
+    if (window.innerWidth <= 768) {
+      setIsHidden(true);
+    }
   };
 
   const toggleSidebar = () => {

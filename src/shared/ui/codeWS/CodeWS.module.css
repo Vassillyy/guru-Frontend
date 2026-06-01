@@ -104,3 +104,21 @@
   ):not(.boolean):not(.tag) {
   color: var(--color-code-ws-code-other);
 }
+
+@media (max-width: 768px) {
+  .title {
+    padding: 8px 10px;
+  }
+
+  .code {
+    padding: 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .code {
+    padding: 8px;
+    font-size: 11px;
+  }
+}

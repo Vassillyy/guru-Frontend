@@ -34,6 +34,12 @@ export const Sidebar = () => {
     setIsCollapsed((prev) => !prev);
   };
 
+  const closeOnMobile = () => {
+    if (window.innerWidth <= 768) {
+      setIsCollapsed(true);
+    }
+  };
+
   return (
     <div className={cn(styles.sidebar, isCollapsed && styles.hidden)}>
       <div className={styles.header}>
@@ -57,33 +63,39 @@ export const Sidebar = () => {
 
               return (
                 <li key={item.id || item.path} className={styles.navItem}>
-                  <NavItem
-                    to={item.path}
-                    isActive={isActive(item.path)}
-                    hasChildren={itemHasChildren}
-                    isExpanded={isExpanded}
-                    onClick={
-                      itemHasChildren ? () => toggleItem(item.id!) : undefined
-                    }
-                  >
-                    {item.label}
-                  </NavItem>
+                    <NavItem
+                      to={item.path}
+                      isActive={isActive(item.path)}
+                      hasChildren={itemHasChildren}
+                      isExpanded={isExpanded}
+                      onClick={
+                        itemHasChildren
+                          ? () => {
+                              toggleItem(item.id!);
+                              closeOnMobile();
+                            }
+                          : closeOnMobile
+                      }
+                    >
+                      {item.label}
+                    </NavItem>
 
-                  {itemHasChildren && isExpanded && item.children && (
-                    <ul className={styles.childrenList}>
-                      {item.children.map((child) => (
-                        <li key={child.path} className={styles.navItem}>
-                          <NavItem
-                            to={child.path}
-                            isActive={isActive(child.path)}
-                            variant="nested"
-                          >
-                            {child.label}
-                          </NavItem>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                    {itemHasChildren && isExpanded && item.children && (
+                      <ul className={styles.childrenList}>
+                        {item.children.map((child) => (
+                          <li key={child.path} className={styles.navItem}>
+                            <NavItem
+                              to={child.path}
+                              isActive={isActive(child.path)}
+                              variant="nested"
+                              onClick={closeOnMobile}
+                            >
+                              {child.label}
+                            </NavItem>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                 </li>
               );
             })}

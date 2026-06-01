@@ -30,3 +30,30 @@
   scrollbar-width: thin;
   scrollbar-color: var(--color-page-container-scroll);
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+    height: 100dvh;
+  }
+
+  .header {
+    margin-bottom: 12px;
+  }
+
+  .content {
+    padding: 12px;
+    margin: 6px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 8px;
+  }
+
+  .content {
+    padding: 8px;
+    border-radius: 6px;
+  }
+}

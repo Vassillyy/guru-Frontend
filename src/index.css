@@ -276,3 +276,35 @@
   --font-table-syntax-breakdown-table-code: var(--font-weight-400)
     var(--font-size-13) var(--font-family);
 }
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-30: 22px;
+    --font-size-24: 18px;
+    --font-size-22: 18px;
+    --font-size-20: 16px;
+    --font-size-18: 15px;
+    --font-size-17: 14px;
+    --font-size-16: 13px;
+    --font-size-15: 13px;
+    --font-size-14: 12px;
+    --font-size-13: 11px;
+    --font-size-12: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-30: 20px;
+    --font-size-24: 17px;
+    --font-size-22: 16px;
+    --font-size-20: 15px;
+    --font-size-18: 14px;
+    --font-size-17: 13px;
+    --font-size-16: 12px;
+    --font-size-15: 12px;
+    --font-size-14: 11px;
+    --font-size-13: 10px;
+    --font-size-12: 9px;
+  }
+}

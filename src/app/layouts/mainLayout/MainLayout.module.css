@@ -8,3 +8,9 @@
   background: var(--color-main-layout-bg);
   overflow-y: auto;
 }
+
+@media (max-width: 768px) {
+  .layout {
+    min-height: 100dvh;
+  }
+}

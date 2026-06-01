@@ -41,3 +41,15 @@
   font: var(--font-table-syntax-breakdown-table-code);
   color: var(--color-table-syntax-breakdown-table-code-text);
 }
+
+@media (max-width: 768px) {
+  .container {
+    overflow-x: auto;
+  }
+
+  .table th,
+  .table td {
+    padding: 4px;
+    white-space: nowrap;
+  }
+}

@@ -28,3 +28,13 @@
   font: var(--font-ts-utility-types-page-no-result);
   color: var(--color-ts-utility-types-page-no-result-text);
 }
+
+@media (max-width: 768px) {
+  .categorySection {
+    margin-bottom: 20px;
+  }
+
+  .categoryTitle {
+    margin: 0 0 10px;
+  }
+}

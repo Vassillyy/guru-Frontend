@@ -31,3 +31,13 @@
   justify-content: space-between;
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .navItem {
+    padding: 10px 12px;
+  }
+
+  .navItem.nested {
+    padding: 6px 10px;
+  }
+}

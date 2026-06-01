@@ -47,3 +47,17 @@
   width: 100%;
   color: var(--color-section-item-button-arrow);
 }
+
+@media (max-width: 768px) {
+  .section {
+    padding: 8px;
+  }
+
+  .content {
+    padding-left: 12px;
+  }
+
+  .addition {
+    padding: 8px;
+  }
+}
