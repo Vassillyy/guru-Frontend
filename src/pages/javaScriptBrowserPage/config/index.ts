@@ -22,6 +22,7 @@ import { configEventsChangeInput } from './configEventsChangeInput';
 import { configScroll } from './configScroll';
 import { configScriptAsyncDefer } from './configScriptAsyncDefer';
 import { configOnloadOnerror } from './configOnloadOnerror';
+import { configMutationObserver } from './configMutationObserver';
 import { configPageLoading } from './configPageLoading';
 
 export const config: IConfig = [
@@ -49,4 +50,5 @@ export const config: IConfig = [
   configPageLoading,
   configScriptAsyncDefer,
   configOnloadOnerror,
+  configMutationObserver,
 ];
