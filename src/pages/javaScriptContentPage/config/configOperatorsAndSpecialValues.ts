@@ -44,12 +44,12 @@ export const configOperatorsAndSpecialValues: ITopic = {
           '// Инкремент (++)\n' +
           'let count = 5;\n' +
           'console.log(count++); // 5 (постфиксная форма: возвращает старое значение)\n' +
-          'console.log(count);   // 6 (значение увеличено после возврата)\n' +
+          'console.log(count); // 6 (значение увеличено после возврата)\n' +
           'console.log(++count) // 7 (префиксная форма: сначала увеличивает, потом возвращает)\n\n' +
           '// Декремент (--)\n' +
           'let counter = 10;\n' +
           'console.log(counter--); // 10 (постфиксная форма: возвращает старое значение)\n' +
-          'console.log(counter);   // 9 (значение уменьшено после возврата)\n' +
+          'console.log(counter); // 9 (значение уменьшено после возврата)\n' +
           'console.log(--counter); // 8 (префиксная форма: сначала уменьшает, потом возвращает)',
       },
       {
@@ -361,7 +361,7 @@ export const configOperatorsAndSpecialValues: ITopic = {
       },
       {
         title: 'Специальное значение NaN',
-        content: 'NaN — Not-a-Number (не число)',
+        content: 'NaN — Not-a-Number',
         addition:
           'Специальное значение, которое означает вычислительную ошибку. Возникает при недопустимых математических операциях:\n• Деление 0/0, Infinity/Infinity\n• Умножение Infinity на 0\n• Вычитание Infinity из Infinity\n• Приведение к числу нечисловых строк\n• Math.sqrt(-1) и другие недопустимые операции',
         examples:
