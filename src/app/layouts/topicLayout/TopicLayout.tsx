@@ -7,7 +7,7 @@ import styles from './TopicLayout.module.css';
 
 export const TopicLayout = () => {
   const location = useLocation();
-  const [isHidden, setIsHidden] = useState<boolean>(false);
+  const [isHidden, setIsHidden] = useState<boolean>(() => window.innerWidth <= 768);
 
   const topicData = location.state as { topicData?: ITopic };
   const sections = topicData?.topicData?.content?.sections || [];
