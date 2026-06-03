@@ -24,6 +24,7 @@ import { configScriptAsyncDefer } from './configScriptAsyncDefer';
 import { configOnloadOnerror } from './configOnloadOnerror';
 import { configMutationObserver } from './configMutationObserver';
 import { configPageLoading } from './configPageLoading';
+import { configSelectionRange } from './configSelectionRange';
 
 export const config: IConfig = [
   configDomNodes,
@@ -51,4 +52,5 @@ export const config: IConfig = [
   configScriptAsyncDefer,
   configOnloadOnerror,
   configMutationObserver,
+  configSelectionRange,
 ];
